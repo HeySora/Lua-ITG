@@ -1212,6 +1212,15 @@ data = {
 		},
 		ActorScroller: {
 			inherits: 'Actor',
+			SetCurrentAndDestinationItem: {
+				args: {
+					index: {
+						type: 'float',
+						description: 'The index of the targetted item.'
+					}
+				},
+				description: 'Scrolls to the item at index `index`, and makes it the current one.'
+			}
 		},
 		ActorSound: {
 			inherits: 'Actor',
