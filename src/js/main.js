@@ -1239,7 +1239,7 @@ function init() {
 	// Smooth Scrolling & Highlighting
 	var animating = false;
 
-	$('nav').find('a[href*="#"]:not([href="#"])').click(function() {
+	$('nav,h4').find('a[href*="#"]:not([href="#"])').click(function() {
 		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 			var target = $(this.hash);
 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -1252,16 +1252,16 @@ function init() {
 		return false;
 	});
 
-	$('#classes').find('a[href*="#"]:not([href="#"])').click(function() {
+	$('#classes').find('table').find('a[href*="#"]:not([href="#"])').click(function() {
 		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 			var target = $(this.hash);
 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 			if (target.length) {
+				animating = true;
 				$('#main').animate({
 					scrollTop: $('#main').scrollTop() + target.offset().top - (($(window).height() - target.height())/2)
 				}, 900);
 
-				animating = true;
 				target.parent().children().delay(700).animate({
 					backgroundColor: '#888'
 				}, 700, 'swing', function() {
