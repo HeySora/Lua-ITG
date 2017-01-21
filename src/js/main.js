@@ -1392,7 +1392,7 @@ function parseClasses() {
 			}
 
 			// Mise en place du contenu de chaque div
-			content.push(((typeof v_method.returnType !== 'undefined') ? '<span class="'+ v_method.returnType +'">'+ v_method.returnType +'</span> ' : '<span>void</span> ') + '<strong>'+ k_method +'</strong> ( '+ ( (args !== '') ? args : '<span>void</span>' ) +' )');
+			content.push(((typeof v_method.returnType !== 'undefined') ? '<span class="'+ checkLuaObject(v_method.returnType) +'">'+ v_method.returnType +'</span> ' : '<span>void</span> ') + '<strong>'+ k_method +'</strong> ( '+ ( (args !== '') ? args : '<span>void</span>' ) +' )');
 			content.push(description);
 			$.each(argsDescription, function(i_description, v_description) {
 				content.push(replaceKeywords(v_description, validArgs));
