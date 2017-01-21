@@ -1260,6 +1260,46 @@ data = {
 		},
 		BitmapText: {
 			inherits: 'Actor',
+			GetText: {
+				returnType: 'string',
+				description: 'Gets the current shown text.'
+			},
+			maxheight: {
+				args: {
+					height: {
+						type: 'float',
+						description: 'The maximum height to set, or 0 to disable.'
+					}
+				},
+				description: 'Sets the maximum height (independant of zoom) allowed for the BitmapText.'
+			},
+			maxwidth: {
+				args: {
+					width: {
+						type: 'float',
+						description: 'The maximum width to set, or 0 to disable.'
+					}
+				},
+				description: 'Sets the maximum width (independant of zoom) allowed for the BitmapText.'
+			},
+			settext: {
+				args: {
+					text: {
+						type: 'string',
+						description: 'The text to set.'
+					}
+				},
+				description: 'Sets the text to `text`.'
+			},
+			wrapwidthpixels: {
+				args: {
+					width: {
+						type: 'int',
+						description: 'The width to wrap the text.'
+					}
+				},
+				description: 'Wraps the text at `width` pixels.'
+			}
 		},
 		Course: {
 
