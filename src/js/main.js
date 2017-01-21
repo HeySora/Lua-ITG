@@ -364,7 +364,7 @@ data = {
 				description: 'Fades the Actor from the top.'
 			},
 			finishtweening: {
-				description: 'Finishes instantly the current (and queued) tween(s).'
+				description: 'Finishes instantly the current and/or queued tween(s).'
 			},
 			getaux: {
 				returnType: 'float',
@@ -1211,6 +1211,12 @@ function parseClasses() {
 			$.each(argsDescription, function(i_description, v_description) {
 				content.push(replaceKeywords(v_description, validArgs));
 			});
+
+			// Exemple
+			if (typeof v_method.example !== 'undefined') {
+				content.push('<strong>Example: </strong><br /><span class="example">'+ v_method.example +'</span>');
+			}
+
 
 			// Itération sur le contenu des divs
 			$.each(content, function(i_content, v_content) {

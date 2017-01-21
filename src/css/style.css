@@ -126,3 +126,10 @@ h1 {
 #classes .bool {
 	color: #f63249;
 }
+
+#classes .example {
+	background-color: #191919;
+	border-radius: 6px;
+	padding: 2px;
+	color: #F8F8F2;
+}
