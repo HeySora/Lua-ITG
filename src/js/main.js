@@ -385,7 +385,7 @@ data = {
 			},
 			geteffectmagnitude: {
 				returnType: 'float',
-				description: 'Gets the effect magnitude currently applied to the Actor. Since the effect magnitude is composed of three floats (see <a>Actor.effectmagnitude()</a>), this function returns three floats.',
+				description: 'Gets the effect magnitude currently applied to the Actor. Since the effect magnitude is composed of three floats (see <a>Actor.effectmagnitude()</a>), this method returns three floats.',
 				example: 'x,y,z = actor:geteffectmagnitude();'
 			},
 			GetHeight: {
@@ -393,139 +393,69 @@ data = {
 				description: 'Gets the current Actor\'s height.'
 			},
 			GetName: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				returnType: 'string',
+				description: 'Gets the current name of the Actor. It can be set by either using <a>Actor.SetName()</a>, or by adding a "Name" attribute.'
 			},
 			getrotation: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				returnType: 'float',
+				description: 'Gets the current rotations of the Actor for each axis. Since there are 3 axis, this method returns three floats.',
+				example: 'rotx,roty,rotz = actor:getrotation();'
 			},
 			GetSecsIntoEffect: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				returnType: 'float',
+				description: 'Gets the number of seconds an Actor is running an effect. <a href="#">What is an Actor effect ?</a>'
 			},
 			GetWidth: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				returnType: 'float',
+				description: 'Gets the current Actor\'s width.'
 			},
 			GetX: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				returnType: 'float',
+				description: 'Gets the Actor\'s current X position. You can set it using <a>Actor:x()</a>.'
 			},
 			GetY: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Y position. You can set it using <a>Actor:y()</a>.'
 			},
 			GetZ: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Z position. You can set it using <a>Actor:z()</a>.'
 			},
 			GetZoom: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Zoom. It can be set using <a>Actor.zoom()</a>.'
 			},
 			GetZoomX: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Zoom. It can be set using <a>Actor.zoomx()</a> or <a>Actor.zoomto()</a>.'
 			},
 			GetZoomY: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Zoom. It can be set using <a>Actor.zoomy()</a> or <a>Actor.zoomto()</a>.'
 			},
 			GetZoomZ: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Zoom. It can be set using <a>Actor.zoomz()</a>.'
 			},
 			glow: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				template: 'color',
+				description: 'Sets the glow color of the Actor. (Used with <a>Actor.glowblink()</a> and <a>Actor.glowshift()</a>)'
 			},
 			glowblink: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				description: 'Makes the Actor glow immediately between its original color and the glow color (set with <a>Actor.glow()</a>). <a href="#">What is an Actor effect ?</a>'
 			},
 			glowshift: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				description: 'Makes the Actor glow smoothly between its original color and the glow color (set with <a>Actor.glow()</a>). <a href="#">What is an Actor effect ?</a>'
 			},
 			halign: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					hPos: {
+						type: 'float',
+						description: 'The horizontal position. For example, 0 will align to left, 0.5 to center, and 1 to right.',
+						condition: '0-1'
 					}
 				},
-				description: ''
+				description: 'Sets the Actor\'s horizontal alignment.'
 			},
 			heading: {
 				args: {
@@ -536,7 +466,7 @@ data = {
 				},
 				description: ''
 			},
-			/*hibernate: {
+			hibernate: {
 				args: {
 					arg: {
 						type: '',
@@ -680,7 +610,7 @@ data = {
 				},
 				description: ''
 			},
-			rotationx: {
+			/*rotationx: {
 				args: {
 					arg: {
 						type: '',
