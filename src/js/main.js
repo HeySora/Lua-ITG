@@ -125,7 +125,7 @@ data = {
 						condition: [0, 1]
 					}
 				},
-				description: 'Enables/Disables the Actor\'s animation. <a href="#">What is an animation ?</a>'
+				description: 'Enables/Disables the Actor\'s animation.'
 			},
 			aux: {
 				args: {
