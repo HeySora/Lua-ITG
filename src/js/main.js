@@ -996,6 +996,134 @@ data = {
 				},
 				description: 'Enables z writing on the Actor.'
 			}
+		},
+		ActorFrame: {
+			inherits: 'Actor',
+			fov: {
+				args: {
+					fov: {
+						type: 'float',
+						description: 'The FOV to apply.'
+					}
+				},
+				description: 'Sets the ActorFrame\'s Field Of View.'
+			},
+			GetChild: {
+				args: {
+					name: {
+						type: 'string',
+						description: 'The name of the child.'
+					}
+				},
+				description: 'Gets the Actor of a child with its name equal to `name`, or `nil`.'
+			},
+			GetChildAt: {
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the child.'
+					}
+				},
+				description: 'Gets the Actor of a child at index `index`.'
+			},
+			GetNumChildren: {
+				description: 'Gets the number of children in the ActorFrame.'
+			},
+			propagate: {
+				args: {
+					enable: {
+						type: 'int',
+						description: '1 to enable propagation, 0 to disable it.',
+						condition: [0, 1]
+					}
+				},
+				description: 'Enables/Disables the command propagation behavior on the ActorFrame.'
+			},
+			SetDrawByZPosition: {
+				args: {
+					enable: {
+						type: 'bool',
+						description: 'Enables or not the "Draw By Z" behavior.'
+					}
+				},
+				description: 'Enables/Disables the "Draw by Z Position" behavior on the ActorFrame.'
+			},
+			SetDrawFunction: {
+				args: {
+					drawFunc: {
+						type: 'LuaReference',
+						description: 'The function that will be called at every draw attempt.'
+					}
+				},
+				description: 'Sets the Draw function of the ActorFrame to `drawFunc`.'
+			},
+			SetFOV: {
+				args: {
+					fov: {
+						type: 'float',
+						description: 'The FOV to apply.'
+					}
+				},
+				description: 'Alias for <a>ActorFrame.fov()</a>. Sets the ActorFrame\'s Field Of View.'
+			},
+			SetUpdateCommand: {
+				args: {
+					name: {
+						type: 'string',
+						description: 'The name of the command that will be called.'
+					}
+				},
+				description: 'Sets the update function of the ActorFrame to a command of it.'
+			},
+			SetUpdateFunction: {
+				args: {
+					updateFunc: {
+						type: 'LuaReference',
+						description: 'The function that will be called.'
+					}
+				},
+				description: 'Sets the update function of the ActorFrame to `updateFunc`.'
+			},
+			SetUpdateRate: {
+				args: {
+					rate: {
+						type: 'float',
+						description: 'The rate to apply.'
+					}
+				},
+				description: 'Sets the update function\'s rate for the ActorFrame.'
+			},
+			SetVanishPoint: {
+				args: {
+					x: {
+						type: 'float',
+						description: 'The X coordinate.'
+					},
+					y: {
+						type: 'float',
+						description: 'The Y coordinate.'
+					}
+				},
+				description: 'Sets the vanishing point of the ActorFrame.'
+			},
+			SetVanishX: {
+				args: {
+					x: {
+						type: 'float',
+						description: 'The X coordinate.'
+					}
+				},
+				description: 'Sets the horizontal coordinate of the vanishing point of the ActorFrame. See also <a>ActorFrame.SetVanishingPoint()</a>.'
+			},
+			SetVanishY: {
+				args: {
+					y: {
+						type: 'float',
+						description: 'The Y coordinate.'
+					}
+				},
+				description: 'Sets the vertical coordinate of the vanishing point of the ActorFrame. See also <a>ActorFrame.SetVanishingPoint()</a>.'
+			}
 		}
 	}
 };
