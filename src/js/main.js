@@ -1194,6 +1194,21 @@ data = {
 		},
 		ActorProxy: {
 			inherits: 'Actor',
+			GetTarget: {
+				notitg: 1,
+				returnType: 'Actor',
+				description: 'Gets the target of the ActorProxy.'
+			},
+			SetTarget: {
+				notitg: 1,
+				args: {
+					actor: {
+						type: 'Actor',
+						description: 'The Actor that will be targetted.'
+					}
+				},
+				description: 'Sets the target of the ActorProxy to `actor`.'
+			}
 		},
 		ActorScroller: {
 			inherits: 'Actor',
