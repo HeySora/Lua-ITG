@@ -93,8 +93,8 @@ h1 {
 	color: #666;
 }
 
-#classes span,
-#classes span *,
+#classes span:not(.no-mono),
+#classes span:not(.no-mono) *,
 #classes a.code,
 #classes a.code * {
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;

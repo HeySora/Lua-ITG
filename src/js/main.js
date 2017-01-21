@@ -1169,16 +1169,28 @@ function parseClasses() {
 					}
 
 					// Si condition fournie, la parser
-					var condData;
+					var conditionText;
 					if (typeof v_arg.condition !== 'undefined') {
-						condData = parseConditions(v_arg.condition, v_arg.type);
+						var condData = parseConditions(v_arg.condition, v_arg.type);
+						if (typeof condData.min !== 'undefined' && typeof condData.max !== 'undefined') {
+							conditionText = '(must be between '+ condData.min +' and '+ condData.max +')';
+						}
+						else if (typeof condData.min !== 'undefined') {
+							conditionText = '(must be greater or equal than '+ condData.min +')';
+						}
+						else if (typeof condData.max !== 'undefined') {
+							conditionText = '(must be lesser or equal than '+ condData.max +')';
+						}
+
 					}
-						console.log(condData);
-					
+
 					// Ajout de l'argument dans le prototype affiché
 					args += '<span class="'+ v_arg.type +'">'+ v_arg.type +'</span> '+ k_arg +'<span>, </span>';
 					// Ajout de la ligne réservée à l'argument
-					argsDescription.push(replaceKeywords('<span class="'+ v_arg.type +'">'+ v_arg.type +' <strong>'+ k_arg +'</strong></span> : '+ v_arg.description));
+					var argDescription = replaceKeywords('<span class="'+ v_arg.type +'">'+ v_arg.type +' <strong>'+ k_arg +'</strong></span> : '+ v_arg.description);
+					argDescription = (conditionText) ? argDescription +' <span class="no-mono condition">'+ conditionText +'</span>' : argDescription;
+
+					argsDescription.push(argDescription);
 					// Ajout de l'argument dans validArgs, utilisé pour replaceKeywords()
 					validArgs[k_arg] = v_arg;
 				});
