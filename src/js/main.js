@@ -2,7 +2,7 @@ $(document).foundation()
 
 templates = {
 	classes: {
-		tween: {
+		time: {
 			args: {
 				time: {
 					type: 'float',
@@ -61,14 +61,15 @@ data = {
 		Actor: {
 			inherits: '',
 			accelerate: {
-				template: 'tween',
-				description: 'Plays the next commands at an accelerated rate (`time` * `time`). <a href="#">What is a tween ?</a>'
+				template: 'time',
+				description: 'Plays the next Actor methods at an accelerated rate (`time` * `time`). <a href="#">What is a tween ?</a>'
 			},
 			additiveblend: {
 				args: {
 					enable: {
 						type: 'int',
-						description: '1 to set to additive mode, 0 to set to normal mode.'
+						description: '1 to set to additive mode, 0 to set to normal mode.',
+						condition: [0, 1]
 					}
 				},
 				description: 'Sets the blend mode to additive, or to normal. <a href="#">What is a blend mode ?</a>'
@@ -113,7 +114,8 @@ data = {
 				args: {
 					enable: {
 						type: 'int',
-						description: '1 to enable or resume the animation, 0 to disable it.'
+						description: '1 to enable or resume the animation, 0 to disable it.',
+						condition: [0, 1]
 					}
 				},
 				description: 'Enables/Disables the Actor\'s animation. <a href="#">What is an animation ?</a>'
@@ -170,18 +172,19 @@ data = {
 				description: 'Bounces the Actor. Similar to <a>Actor.bob()</a>. <a href="#">What is an Actor effect ?</a>'
 			},
 			bouncebegin: {
-				template: 'tween',
-				description: 'Plays the next commands with a bounce effect at the beginning. <a href="#">What is a tween ?</a>'
+				template: 'time',
+				description: 'Plays the next Actor methods with a bounce effect at the beginning. <a href="#">What is a tween ?</a>'
 			},
 			bounceend: {
-				template: 'tween',
-				description: 'Plays the next commands with a bounce effect at the end. <a href="#">What is a tween ?</a>'
+				template: 'time',
+				description: 'Plays the next Actor methods with a bounce effect at the end. <a href="#">What is a tween ?</a>'
 			},
 			clearzbuffer: {
 				args: {
 					enable: {
 						type: 'int',
-						description: 'If 1, clear the z-buffer. If 0, stop clearing it.'
+						description: 'If 1, clear the z-buffer. If 0, stop clearing it.',
+						condition: [0, 1]
 					}
 				},
 				description: 'Sets if the z-buffer must be cleared.'
@@ -212,8 +215,8 @@ data = {
 				description: ''
 			},
 			decelerate: {
-				template: 'tween',
-				description: 'Plays the next commands at a decelerated rate (1 - (1 - `time`) * (1 - `time`)). <a href="#">What is a tween ?</a>'
+				template: 'time',
+				description: 'Plays the next Actor methods at a decelerated rate (1 - (1 - `time`) * (1 - `time`)). <a href="#">What is a tween ?</a>'
 			},
 			diffuse: {
 				template: 'color',
@@ -398,7 +401,7 @@ data = {
 			},
 			getrotation: {
 				returnType: 'float',
-				description: 'Gets the current rotations of the Actor for each axis. Since there are 3 axis, this method returns three floats.',
+				description: 'Gets the current rotations of the Actor for each axis. Since there are 3 axis, this method returns three floats. You can set them by using <a>Actor.rotationx()</a>, <a>Actor.rotationy()</a>, and <a>Actor.rotationz()</a>, or add/substract values to them using <a>Actor.pitch()</a>, <a>Actor.heading()</a>, and <a>Actor.roll()</a>.',
 				example: 'rotx,roty,rotz = actor:getrotation();'
 			},
 			GetSecsIntoEffect: {
@@ -459,57 +462,50 @@ data = {
 			},
 			heading: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					roty: {
+						type: 'float',
+						description: 'The value, in degrees, to add.'
 					}
 				},
-				description: ''
+				description: 'Adds `roty` to the vertical (called Y, yaw, or heading) axis\' rotation.'
 			},
 			hibernate: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				template: 'time',
+				description: 'Hides the Actor for `time` seconds.'
 			},
 			hidden: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					enable: {
+						type: 'int',
+						description: '1 to hide the Actor, 0 to keep it visible.',
+						condition: [0, 1]
 					}
 				},
-				description: ''
+				description: 'Hides the Actor.'
 			},
 			horizalign: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					hAlign: {
+						type: 'string',
+						description: 'The horizontal alignment to apply.',
+						condition: ['left', 'center', 'right']
 					}
 				},
-				description: ''
+				description: 'Sets the Actor\'s horizontal alignment. For a more precise alignment, see <a>Actor.halign()</a>.'
 			},
 			hurrytweening: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					factor: {
+						type: 'float',
+						description: 'The factor to apply.',
+						condition: '0-'
 					}
 				},
-				description: ''
+				description: 'Multiply the speed of every active and/or queued tween of the Actor.'
 			},
 			linear: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				template: 'time',
+				description: 'Plays the next Actor methods linearly. <a href="#">What is a tween ?</a>'
 			},
 			luaeffect: {
 				args: {
@@ -521,159 +517,161 @@ data = {
 				description: ''
 			},
 			pause: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				description: 'Pauses the animations occuring on the Actor.'
 			},
 			pitch: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					rotx: {
+						type: 'float',
+						description: 'The value, in degrees, to add.'
 					}
 				},
-				description: ''
+				description: 'Adds `rotx` to the horizontal (called X, or pitch) axis\' rotation.'
 			},
 			play: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				description: 'Resumes the animations occuring on the Actor.'
 			},
 			playcommand: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					commandName: {
+						type: 'string',
+						description: 'The name of the command to call.'
 					}
 				},
-				description: ''
+				description: 'Calls immediately a command named `commandName` .. "Command". <a href="#">What is an Actor Command ?</a>',
+				example: 'actor:playcommand(\'BarrelRoll\'); -- Will call the "BarrelRollCommand" command of the Actor.'
 			},
-			position: {
+			/*position: { TODO
 				args: {
-					arg: {
-						type: '',
+					pos: {
+						type: 'float',
 						description: ''
 					}
 				},
 				description: ''
-			},
+			},*/
 			pulse: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				description: 'Makes the Actor growing and shrinking. <a href="#">What is an Actor effect ?</a>'
 			},
 			queuecommand: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					commandName: {
+						type: 'string',
+						description: 'The name of the command to queue.'
 					}
 				},
-				description: ''
+				description: 'Queues a command named `commandName` .. "Command" to be played. This is usually used right after doing a <a>Actor.sleep()</a>. <a href="#">What is an Actor Command ?</a>',
+				example: 'actor:sleep(1); -- Wait 1 second ...\nactor:queuecommand(\'BarrelRoll\'); -- ... and then "BarrelRollCommand" will be called.'
 			},
 			queuemessage: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					messageName: {
+						type: 'string',
+						description: 'The name of the message to queue.'
 					}
 				},
-				description: ''
+				description: 'Queues a message. Rarely used, you might want to use <a>MessageManager.Broadcast()</a>. <a href="#">What is a message ?</a>'
 			},
 			rainbow: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				description: 'Makes the Actor change colors continually, through every color of a rainbow. <a href="#">What is an Actor effect ?</a>'
 			},
 			roll: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					rotz: {
+						type: 'float',
+						description: 'The value, in degrees, to add.'
 					}
 				},
-				description: ''
+				description: 'Adds `rotz` to the Z/roll axis\' rotation.'
 			},
-			/*rotationx: {
+			rotationx: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					rotx: {
+						type: 'float',
+						description: 'The rotation to apply, in degrees.'
 					}
 				},
-				description: ''
+				description: 'Sets the X/Pitch axis\' rotation.'
 			},
 			rotationy: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					roty: {
+						type: 'float',
+						description: 'The rotation to apply, in degrees.'
 					}
 				},
-				description: ''
+				description: 'Sets the Y/Yaw/Heading axis\' rotation.'
 			},
 			rotationz: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					rotz: {
+						type: 'float',
+						description: 'The rotation to apply, in degrees.'
 					}
 				},
-				description: ''
+				description: 'Sets the Z/Roll axis\' rotation.'
 			},
 			scaletocover: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					left: {
+						type: 'float',
+						description: 'The left coordinate of the rectangle.'
+					},
+					top: {
+						type: 'float',
+						description: 'The top coordinate of the rectangle.'
+					},
+					right: {
+						type: 'float',
+						description: 'The right coordinate of the rectangle.'
+					},
+					bottom: {
+						type: 'float',
+						description: 'The bottom coordinate of the rectangle.'
 					}
 				},
-				description: ''
+				description: 'Scales the Actor to cover a rectangle. To keep the aspect ratio of the Actor, use <a>Actor.scaletofit()</a>.'
 			},
 			scaletofit: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					left: {
+						type: 'float',
+						description: 'The left coordinate of the rectangle.'
+					},
+					top: {
+						type: 'float',
+						description: 'The top coordinate of the rectangle.'
+					},
+					right: {
+						type: 'float',
+						description: 'The right coordinate of the rectangle.'
+					},
+					bottom: {
+						type: 'float',
+						description: 'The bottom coordinate of the rectangle.'
 					}
 				},
-				description: ''
+				description: 'Similar to <a>Actor.scaletocover()</a>, but keep the aspect ratio.'
 			},
 			SetHeight: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					height: {
+						type: 'float',
+						description: 'The height, in pixels.'
 					}
 				},
-				description: ''
+				description: 'Sets the height of the Actor.'
 			},
 			SetName: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					name: {
+						type: 'string',
+						description: 'The name to set.'
 					}
 				},
-				description: ''
+				description: 'Set the Actor\'s name to `name`. You might want to use a "Name" attribute in the tag, if the name won\'t change.'
 			},
-			setstate: {
+			/*setstate: { TODO
 				args: {
 					arg: {
 						type: '',
@@ -681,15 +679,15 @@ data = {
 					}
 				},
 				description: ''
-			},
+			},*/
 			SetTextureFiltering: {
 				args: {
 					arg: {
-						type: '',
-						description: ''
+						type: 'bool',
+						description: 'If `true`, enables the texture filtering.'
 					}
 				},
-				description: ''
+				description: 'Enables/Disables the texture filtering of the Actor.'
 			},
 			SetWidth: {
 				args: {
@@ -781,7 +779,7 @@ data = {
 				},
 				description: ''
 			},
-			texturewrapping: {
+			/*texturewrapping: {
 				args: {
 					arg: {
 						type: '',
@@ -1117,15 +1115,29 @@ function parseClasses() {
 					// Si multiples valeurs uniquement
 					else if (typeof v_arg.condition === 'object' && Array.isArray(v_arg.condition) && v_arg.condition.length >= 2) {
 						conditionText = '(must be equal to ';
-						$.each(v_arg.condition, function(i_cond, v_cond) {
-							// Dernier élément
-							if (i_cond == v_arg.condition.length-1) {
-								conditionText += 'or "'+ v_cond +'")';
-							}
-							else {
-								conditionText += '"'+ v_cond +'", ';
-							}
-						});
+						// Si string
+						if (v_arg.type == 'string') {
+							$.each(v_arg.condition, function(i_cond, v_cond) {
+								// Dernier élément
+								if (i_cond == v_arg.condition.length-1) {
+									conditionText += 'or "'+ v_cond +'")';
+								}
+								else {
+									conditionText += '"'+ v_cond +'", ';
+								}
+							});
+						}
+						else {
+							$.each(v_arg.condition, function(i_cond, v_cond) {
+								// Dernier élément
+								if (i_cond == v_arg.condition.length-1) {
+									conditionText += 'or '+ v_cond +')';
+								}
+								else {
+									conditionText += ''+ v_cond +', ';
+								}
+							});
+						}
 					}
 
 					// Ajout de l'argument dans le prototype affiché
