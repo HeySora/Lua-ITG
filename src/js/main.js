@@ -75,7 +75,7 @@ data = {
 						condition: [0, 1]
 					}
 				},
-				description: 'Sets the blend mode to additive, or to normal. See <a>Actor.blend()</a> for other possible values. <a href="#">What is a blend mode ?</a>'
+				description: 'Sets the blend mode to additive, or to normal. Normal blend is set by default. See <a>Actor.blend()</a> for other possible values. <a href="#">What is a blend mode ?</a>'
 			},
 			addx: {
 				args: {
@@ -147,7 +147,7 @@ data = {
 						condition: [0, 1]
 					}
 				},
-				description: 'Sets the cull mode to either "back", or "none". See <a>Actor.cullmode()</a> for other possible values.'
+				description: 'Sets the cull mode to either "back", or "none". "none" is set by default. See <a>Actor.cullmode()</a> for other possible values.'
 			},
 			basezoomx: {
 				args: {
@@ -175,7 +175,7 @@ data = {
 						condition: ['normal', 'add', 'substract', 'modulate', 'copysrc', 'alphamask', 'alphaknockout', 'alphamultiply', 'weightedmultiply', 'invertdest', 'noeffect']
 					}
 				},
-				description: 'Sets the Actor\'s blend mode. <a href="#">What is a blend mode ?</a>'
+				description: 'Sets the Actor\'s blend mode. It is "normal" by default. <a href="#">What is a blend mode ?</a>'
 			},
 			bob: {
 				description: 'Moves the Actor up and down. The movement is the same as a math sinus function. <a href="#">What is an Actor effect ?</a>'
@@ -199,7 +199,7 @@ data = {
 						condition: [0, 1]
 					}
 				},
-				description: 'Sets if the z-buffer must be cleared.'
+				description: 'Sets if the z-buffer must be cleared. By default, it isn\'t cleared.'
 			},
 			cmd: {
 				notitg: 1,
@@ -236,7 +236,7 @@ data = {
 						condition: ['back', 'front', 'none']
 					}
 				},
-				description: 'Sets the cull mode of the Actor.'
+				description: 'Sets the cull mode of the Actor. It is "none" by default.'
 			},
 			decelerate: {
 				template: 'time',
@@ -312,7 +312,7 @@ data = {
 						description: 'The order. Larger values are displayed first.'
 					}
 				},
-				description: 'Changes the draw order.'
+				description: 'Changes the draw order. It is 0 by default.'
 			},
 			effectclock: {
 				args: {
@@ -322,15 +322,15 @@ data = {
 						condition: ['timer', 'beat', 'music', 'bgm']
 					}
 				},
-				description: 'Sets the effect clock of the Actor to `clock`.'
+				description: 'Sets the effect clock of the Actor to `clock`. It is "timer" by default.'
 			},
 			effectcolor1: {
 				template: 'color',
-				description: 'Changes the first color of effects. Used with <a>Actor.diffuseblink()</a>, <a>Actor.diffuseramp()</a>, and <a>Actor.diffuseshift()</a>. <a href="#">What is an Actor effect ?</a>'
+				description: 'Changes the first color of effects. White (1,1,1,1) by default. Used with <a>Actor.diffuseblink()</a>, <a>Actor.diffuseramp()</a>, and <a>Actor.diffuseshift()</a>. <a href="#">What is an Actor effect ?</a>'
 			},
 			effectcolor2: {
 				template: 'color',
-				description: 'Changes the second color of effects. Used with <a>Actor.diffuseblink()</a>, <a>Actor.diffuseramp()</a>, and <a>Actor.diffuseshift()</a>. <a href="#">What is an Actor effect ?</a>'
+				description: 'Changes the second color of effects. White (1,1,1,1) by default. Used with <a>Actor.diffuseblink()</a>, <a>Actor.diffuseramp()</a>, and <a>Actor.diffuseshift()</a>. <a href="#">What is an Actor effect ?</a>'
 			},
 			effectdelay: {
 				args: {
@@ -481,7 +481,7 @@ data = {
 						condition: '0-1'
 					}
 				},
-				description: 'Sets the Actor\'s horizontal alignment.'
+				description: 'Sets the Actor\'s horizontal alignment. It is 0.5 by default.'
 			},
 			heading: {
 				args: {
@@ -514,7 +514,7 @@ data = {
 						condition: ['left', 'center', 'right']
 					}
 				},
-				description: 'Sets the Actor\'s horizontal alignment. For a more precise alignment, see <a>Actor.halign()</a>.'
+				description: 'Sets the Actor\'s horizontal alignment. It is "center" by default. For a more precise alignment, see <a>Actor.halign()</a>.'
 			},
 			hurrytweening: {
 				args: {
@@ -713,7 +713,7 @@ data = {
 						description: 'If `true`, enables the texture filtering.'
 					}
 				},
-				description: 'Enables/Disables the texture filtering of the Actor.'
+				description: 'Enables/Disables the texture filtering of the Actor. It is enabled by default.'
 			},
 			SetWidth: {
 				notitg: 1,
@@ -800,7 +800,7 @@ data = {
 						condition: [0, 1]
 					}
 				},
-				description: 'Enables/Disables the texture wrapping.'
+				description: 'Enables/Disables the texture wrapping. It is disabled by default.'
 			},
 			valign: {
 				notitg: 1,
@@ -811,7 +811,7 @@ data = {
 						condition: '0-1'
 					}
 				},
-				description: 'Sets the Actor\'s horizontal alignment.'
+				description: 'Sets the Actor\'s horizontal alignment. It is 0.5 by default.'
 			},
 			vertalign: {
 				args: {
@@ -821,7 +821,7 @@ data = {
 						condition: ['left', 'middle', 'right']
 					}
 				},
-				description: 'Sets the Actor\'s vertical alignment. For a more precise alignment, see <a>Actor.valign()</a>.'
+				description: 'Sets the Actor\'s vertical alignment. It is "middle" by default. For a more precise alignment, see <a>Actor.valign()</a>.'
 			},
 			vibrate: {
 				description: 'Vibrates the Actor. <a href="#">What is an Actor effect ?</a>'
@@ -887,7 +887,7 @@ data = {
 						description: 'The bias to apply.'
 					}
 				},
-				description: 'Sets the Z bias of the Actor.'
+				description: 'Sets the Z bias of the Actor. It is 0 by default.'
 			},
 			zbuffer: {
 				args: {
@@ -984,7 +984,7 @@ data = {
 						condition: ['off', 'writeonpass', 'writeonfail']
 					}
 				},
-				description: 'Sets the z testing mode.'
+				description: 'Sets the z testing mode. It is "off" by default.'
 			},
 			zwrite: {
 				args: {
@@ -994,7 +994,7 @@ data = {
 						condition: [0, 1]
 					}
 				},
-				description: 'Enables z writing on the Actor.'
+				description: 'Enables z writing on the Actor. It is disabled by default.'
 			}
 		},
 		ActorFrame: {
@@ -1037,7 +1037,7 @@ data = {
 						condition: [0, 1]
 					}
 				},
-				description: 'Enables/Disables the command propagation behavior on the ActorFrame.'
+				description: 'Enables/Disables the command propagation behavior on the ActorFrame. Disabled by default.'
 			},
 			SetDrawByZPosition: {
 				args: {
@@ -1046,7 +1046,7 @@ data = {
 						description: 'Enables or not the "Draw By Z" behavior.'
 					}
 				},
-				description: 'Enables/Disables the "Draw by Z Position" behavior on the ActorFrame.'
+				description: 'Enables/Disables the "Draw by Z Position" behavior on the ActorFrame. Disabled by default.'
 			},
 			SetDrawFunction: {
 				args: {
@@ -1104,7 +1104,7 @@ data = {
 						description: 'The Y coordinate.'
 					}
 				},
-				description: 'Sets the vanishing point of the ActorFrame.'
+				description: 'Sets the vanishing point of the ActorFrame. It is on the center of the screen by default.'
 			},
 			SetVanishX: {
 				args: {
@@ -1113,7 +1113,7 @@ data = {
 						description: 'The X coordinate.'
 					}
 				},
-				description: 'Sets the horizontal coordinate of the vanishing point of the ActorFrame. See also <a>ActorFrame.SetVanishingPoint()</a>.'
+				description: 'Sets the horizontal coordinate of the vanishing point of the ActorFrame. SCREEN_CENTER_X by default. See also <a>ActorFrame.SetVanishingPoint()</a>.'
 			},
 			SetVanishY: {
 				args: {
@@ -1122,7 +1122,7 @@ data = {
 						description: 'The Y coordinate.'
 					}
 				},
-				description: 'Sets the vertical coordinate of the vanishing point of the ActorFrame. See also <a>ActorFrame.SetVanishingPoint()</a>.'
+				description: 'Sets the vertical coordinate of the vanishing point of the ActorFrame. SCREEN_CENTER_Y by default. See also <a>ActorFrame.SetVanishingPoint()</a>.'
 			}
 		}
 	}
