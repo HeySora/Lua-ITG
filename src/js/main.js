@@ -1134,6 +1134,7 @@ function parseClasses() {
 		var $table = $('<table></table>');
 		var $tableHeader = $('<thead><tr><th>Availability</th><th>Method</th></tr></thead>');
 		$table.append($tableHeader);
+		var $tableBody = $('<tbody></tbody>');
 
 		// Itération sur les méthodes
 		$.each(v_class, function(k_method, v_method) {
@@ -1223,8 +1224,11 @@ function parseClasses() {
 
 			// Ajout des cellules dans la ligne, et dans le tableau
 			$row.append($firstElement).append($secondElement);
-			$table.append($row);
+			$tableBody.append($row);
 		});
+
+		// Ajout du contenu du tableau dans le tableau
+		$table.append($tableBody);
 
 		// Ajout du tableau et de l'article dans la section
 		$article.append($table);
@@ -1240,7 +1244,7 @@ function init() {
 
 	// Smooth Scrolling & Highlighting
 	var animating = false;
-	$('a[href*=#]:not([href=#])').click(function() {
+	$('a[href*="#"]:not([href="#"])').click(function() {
 		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 			var target = $(this.hash);
 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
