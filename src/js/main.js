@@ -1101,7 +1101,8 @@ function parseClasses() {
 
 					// Si condition fournie, la parser
 					var conditionText;
-					if (typeof v_arg.condition !== 'undefined') {
+					// Si plage de nombres
+					if (typeof v_arg.condition === 'string') {
 						var condData = parseConditions(v_arg.condition, v_arg.type);
 						if (typeof condData.min !== 'undefined' && typeof condData.max !== 'undefined') {
 							conditionText = '(must be between '+ condData.min +' and '+ condData.max +')';
@@ -1112,7 +1113,19 @@ function parseClasses() {
 						else if (typeof condData.max !== 'undefined') {
 							conditionText = '(must be lesser or equal than '+ condData.max +')';
 						}
-
+					}
+					// Si multiples valeurs uniquement
+					else if (typeof v_arg.condition === 'object' && Array.isArray(v_arg.condition) && v_arg.condition.length >= 2) {
+						conditionText = '(must be equal to ';
+						$.each(v_arg.condition, function(i_cond, v_cond) {
+							// Dernier élément
+							if (i_cond == v_arg.condition.length-1) {
+								conditionText += 'or "'+ v_cond +'")';
+							}
+							else {
+								conditionText += '"'+ v_cond +'", ';
+							}
+						});
 					}
 
 					// Ajout de l'argument dans le prototype affiché
