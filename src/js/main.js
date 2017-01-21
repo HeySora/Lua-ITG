@@ -1,5 +1,9 @@
 $(document).foundation()
 
+objects = [
+	'LuaReference'
+];
+
 templates = {
 	classes: {
 		time: {
@@ -996,6 +1000,11 @@ data = {
 	}
 };
 
+// Vérifier si un type de variable est un objet valide
+function checkLuaObject(type) {
+	return ($.inArray(type, objects) > -1) ? 'object' : type.toLowerCase();
+}
+
 // Replacer mots-clés, liens, et variables
 function replaceKeywords(str, args) {
 	var ret = str.replace('`true`', '<span class="bool">true</span>').replace('`false`', '<span class="bool">false</span>').replace('`nil`', '<span class="bool">nil</span>');
@@ -1007,7 +1016,7 @@ function replaceKeywords(str, args) {
 	if (typeof args !== 'undefined') {
 		$.each(args, function(k_arg, v_arg) {
 			var regex = '`'+ k_arg +'`';
-			ret = ret.replace(new RegExp(regex, 'gi'), '<span class="'+ v_arg.type +'">'+ k_arg +'</span>');
+			ret = ret.replace(new RegExp(regex, 'gi'), '<span class="'+ checkLuaObject(v_arg.type) +'">'+ k_arg +'</span>');
 		});
 	}
 
@@ -1175,9 +1184,9 @@ function parseClasses() {
 					}
 
 					// Ajout de l'argument dans le prototype affiché
-					args += '<span class="'+ v_arg.type +'">'+ v_arg.type +'</span> '+ k_arg +'<span>, </span>';
+					args += '<span class="'+ checkLuaObject(v_arg.type) +'">'+ v_arg.type +'</span> '+ k_arg +'<span>, </span>';
 					// Ajout de la ligne réservée à l'argument
-					var argDescription = replaceKeywords('<span class="'+ v_arg.type +'">'+ v_arg.type +' <strong>'+ k_arg +'</strong></span> : '+ v_arg.description);
+					var argDescription = replaceKeywords('<span class="'+ checkLuaObject(v_arg.type) +'">'+ v_arg.type +' <strong>'+ k_arg +'</strong></span> : '+ v_arg.description);
 					argDescription = (conditionText) ? argDescription +' <span class="no-mono condition">'+ conditionText +'</span>' : argDescription;
 
 					argsDescription.push(argDescription);
@@ -1232,6 +1241,11 @@ function parseClasses() {
 }
 
 function init() {
+
+	// Ajout des classes dans le tableau d'objects
+	$.each(data.classes, function(k_class, v_class) {
+		objects.push(k_class);
+	});
 
 	// Générer le contenu de #classes
 	parseClasses();

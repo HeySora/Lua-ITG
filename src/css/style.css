@@ -147,6 +147,10 @@ h1 {
 	color: #f63249;
 }
 
+#classes .object {
+	color: #099;
+}
+
 #classes .example {
 	background-color: #191919;
 	border-radius: 6px;
