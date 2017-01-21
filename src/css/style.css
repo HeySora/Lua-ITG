@@ -1,14 +1,18 @@
 body {
 	background-color: #191919;
-	color: #F8F8F2;
+	color: #f8f8f2;
 }
 
 th {
-	color: #F8F8F2;
+	color: #f8f8f2;
 }
 
 body * {
 	font-family: "Roboto", sans-serif;
+}
+
+a {
+	transition: 0.15s color;
 }
 
 table thead {
@@ -78,9 +82,19 @@ h1 {
 	font-size: 3.25rem;
 }
 
+#sidebar nav {
+	margin: auto 0;
+}
+
+#sidebar nav a {
+	color: #f8f8f2;
+}
+#sidebar nav a:hover {
+	color: #aaaaa6;
+}
+
 #sidebar ul {
 	list-style-type: none;
-	margin: auto 0;
 }
 
 #sidebar li {
@@ -131,6 +145,6 @@ h1 {
 	background-color: #191919;
 	border-radius: 6px;
 	padding: 2px;
-	color: #F8F8F2;
+	color: #f8f8f2;
 	font-size: 16px !important;
 }
