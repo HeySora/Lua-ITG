@@ -1224,6 +1224,39 @@ data = {
 		},
 		ActorSound: {
 			inherits: 'Actor',
+			get: {
+				notitg: 1,
+				returnType: 'RageSound',
+				description: 'Gets the sound loaded in this ActorSound.'
+			},
+			load: {
+				notitg: 1,
+				args: {
+					path: {
+						type: 'string',
+						description: 'The path of the sound to play.'
+					}
+				},
+				description: 'Loads the sound into the ActorSound.'
+			},
+			pause: {
+				notitg: 1,
+				args: {
+					pause: {
+						type: 'bool',
+						description: '`true` to pause, `false` to resume.'
+					}
+				},
+				description: 'Pauses/Resumes the sound.'
+			},
+			play: {
+				notitg: 1,
+				description: 'Plays the sound.'
+			},
+			stop: {
+				notitg: 1,
+				description: 'Stops the sound.'
+			}
 		},
 		BitmapText: {
 			inherits: 'Actor',
