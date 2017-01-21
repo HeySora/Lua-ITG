@@ -1184,7 +1184,132 @@ data = {
 				description: 'Sets the Texture\'s name. Used for loading textures to other objects by its name.'
 			}
 		},
-		RageTexture: {}
+		ActorProxy: {
+			inherits: 'Actor',
+		},
+		ActorScroller: {
+			inherits: 'Actor',
+		},
+		ActorSound: {
+			inherits: 'Actor',
+		},
+		BitmapText: {
+			inherits: 'Actor',
+		},
+		Course: {
+
+		},
+		DifficultyMeter: {
+			inherits: 'Actor',
+		},
+		FadingBanner: {
+			inherits: 'ActorFrame',
+		},
+		Game: {
+			
+		},
+		GameSoundManager: {
+			
+		},
+		GameState: {
+			
+		},
+		HelpDisplay: {
+			inherits: 'BitmapText',
+		},
+		HighScore: {
+			
+		},
+		HighScoreList: {
+			
+		},
+		InputHandler_HBT: {
+			
+		},
+		MemoryCardManager: {
+			
+		},
+		MessageManager: {
+			
+		},
+		Model: {
+			inherits: 'Actor',
+		},
+		NoteSkinManager: {
+			
+		},
+		PlayerStageStats: {
+			
+		},
+		PrefsManager: {
+			
+		},
+		Profile: {
+			
+		},
+		ProfileManager: {
+			
+		},
+		RadarValues: {
+			
+		},
+		RageDisplay: {
+			
+		},
+		RageInput: {
+			
+		},
+		RageSound: {
+			
+		},
+		RageTexture: {
+			
+		},
+		RageTextureRenderTarget: {
+			inherits: 'RageTexture',
+		},
+		RollingNumbers: {
+			inherits: 'BitmapText',
+		},
+		ScoreDisplayAliveTime: {
+			inherits: 'BitmapText',
+		},
+		ScoreDisplayCalories: {
+			inherits: 'BitmapText',
+		},
+		ScreenGameplay: {
+			
+		},
+		ScreenManager: {
+			
+		},
+		Song: {
+			
+		},
+		SongManager: {
+			
+		},
+		Sprite: {
+			inherits: 'Actor',
+		},
+		StageStats: {
+			
+		},
+		StatsManager: {
+			
+		},
+		Steps: {
+			
+		},
+		ThemeManager: {
+			
+		},
+		Trail: {
+			
+		},
+		UnlockManager: {
+			
+		}
 	}
 };
 
