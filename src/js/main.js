@@ -72,7 +72,7 @@ data = {
 						condition: [0, 1]
 					}
 				},
-				description: 'Sets the blend mode to additive, or to normal. <a href="#">What is a blend mode ?</a>'
+				description: 'Sets the blend mode to additive, or to normal. See <a>Actor.blend()</a> for other possible values. <a href="#">What is a blend mode ?</a>'
 			},
 			addx: {
 				args: {
@@ -102,13 +102,20 @@ data = {
 				description: 'Adds `z` to the Actor\'s current depth position.'
 			},
 			align: {
+				notitg: 1,
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					hPos: {
+						type: 'float',
+						description: 'The horizontal position. For example, 0 will align to the left, 0.5 to the center, and 1 to the right.',
+						condition: '0-1'
+					},
+					vPos: {
+						type: 'float',
+						description: 'The vertical position. For example, 0 will align to the top, 0.5 to the middle, and 1 to the bottom.',
+						condition: '0-1'
 					}
 				},
-				description: ''
+				description: 'Does both <a>Actor.halign()</a> and <a>Actor.valign()</a>.'
 			},
 			animate: {
 				args: {
@@ -131,12 +138,13 @@ data = {
 			},
 			backfacecull: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					enable: {
+						type: 'int',
+						description: '1 to set the cull mode to "back", 0 to set to "none".',
+						condition: [0, 1]
 					}
 				},
-				description: ''
+				description: 'Sets the cull mode to either "back", or "none". See <a>Actor.cullmode()</a> for other possible values.'
 			},
 			basezoomx: {
 				args: {
@@ -160,7 +168,8 @@ data = {
 				args: {
 					mode: {
 						type: 'string',
-						description: 'The blend mode to apply. The possible values are <a href="#">here</a>.'
+						description: 'The blend mode to apply.',
+						condition: ['normal', 'add', 'substract', 'modulate', 'copysrc', 'alphamask', 'alphaknockout', 'alphamultiply', 'weightedmultiply', 'invertdest', 'noeffect']
 					}
 				},
 				description: 'Sets the Actor\'s blend mode. <a href="#">What is a blend mode ?</a>'
@@ -189,6 +198,17 @@ data = {
 				},
 				description: 'Sets if the z-buffer must be cleared.'
 			},
+			cmd: {
+				notitg: 1,
+				args: {
+					cmds: {
+						type: 'string',
+						description: 'The commands to apply, in the cmd notation.'
+					}
+				},
+				description: 'Executes Actor methods on the actor, with the cmd notation.',
+				example: 'self:cmd(\'addx,30;zoom,2\'); -- Does :addx(30), :zoom(2)'
+			},
 			cropbottom: {
 				template: 'crop',
 				description: 'Crops the Actor from the bottom.'
@@ -207,12 +227,13 @@ data = {
 			},
 			cullmode: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					mode: {
+						type: 'string',
+						description: 'The cull mode to apply.',
+						condition: ['back', 'front', 'none']
 					}
 				},
-				description: ''
+				description: 'Sets the cull mode of the Actor.'
 			},
 			decelerate: {
 				template: 'time',
@@ -278,6 +299,7 @@ data = {
 				description: 'Similar to <a>Actor.diffuse()</a>, but only colors the upper-right corner of the Actor.'
 			},
 			Draw: {
+				notitg: 1,
 				description: '(Re-)Draws the Actor manually.'
 			},
 			draworder: {
@@ -291,12 +313,13 @@ data = {
 			},
 			effectclock: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					clock: {
+						type: 'string',
+						description: 'The clock to apply.',
+						condition: ['timer', 'beat', 'music', 'bgm']
 					}
 				},
-				description: ''
+				description: 'Sets the effect clock of the Actor to `clock`.'
 			},
 			effectcolor1: {
 				template: 'color',
@@ -308,12 +331,12 @@ data = {
 			},
 			effectdelay: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					delay: {
+						type: 'float',
+						description: 'The delay to apply, in seconds.'
 					}
 				},
-				description: ''
+				description: 'Sets the global delay of every effects applied to the Actor.'
 			},
 			effectmagnitude: {
 				args: {
@@ -378,13 +401,8 @@ data = {
 				description: 'Gets the Actor\'s base zoom value at horizontal (X) axis.'
 			},
 			GetEffectDelta: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				returnType: 'float',
+				description: 'Gets the current effect delta of the Actor.'
 			},
 			geteffectmagnitude: {
 				returnType: 'float',
@@ -396,6 +414,7 @@ data = {
 				description: 'Gets the current Actor\'s height.'
 			},
 			GetName: {
+				notitg: 1,
 				returnType: 'string',
 				description: 'Gets the current name of the Actor. It can be set by either using <a>Actor.SetName()</a>, or by adding a "Name" attribute.'
 			},
@@ -414,15 +433,15 @@ data = {
 			},
 			GetX: {
 				returnType: 'float',
-				description: 'Gets the Actor\'s current X position. You can set it using <a>Actor:x()</a>.'
+				description: 'Gets the Actor\'s current X position. You can set it using <a>Actor.x()</a>.'
 			},
 			GetY: {
 				returnType: 'float',
-				description: 'Gets the Actor\'s current Y position. You can set it using <a>Actor:y()</a>.'
+				description: 'Gets the Actor\'s current Y position. You can set it using <a>Actor.y()</a>.'
 			},
 			GetZ: {
 				returnType: 'float',
-				description: 'Gets the Actor\'s current Z position. You can set it using <a>Actor:z()</a>.'
+				description: 'Gets the Actor\'s current Z position. You can set it using <a>Actor.z()</a>.'
 			},
 			GetZoom: {
 				returnType: 'float',
@@ -451,10 +470,11 @@ data = {
 				description: 'Makes the Actor glow smoothly between its original color and the glow color (set with <a>Actor.glow()</a>). <a href="#">What is an Actor effect ?</a>'
 			},
 			halign: {
+				notitg: 1,
 				args: {
 					hPos: {
 						type: 'float',
-						description: 'The horizontal position. For example, 0 will align to left, 0.5 to center, and 1 to right.',
+						description: 'The horizontal position. For example, 0 will align to the left, 0.5 to the center, and 1 to the right.',
 						condition: '0-1'
 					}
 				},
@@ -509,12 +529,12 @@ data = {
 			},
 			luaeffect: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					name: {
+						type: 'string',
+						description: 'The name of the command.'
 					}
 				},
-				description: ''
+				description: 'Disables every effects on the Actor, and instead use an Actor Command to draw manually the Actor. Use this wisely, this hasn\'t been tested well, and can be resource-expensive.'
 			},
 			pause: {
 				description: 'Pauses the animations occuring on the Actor.'
@@ -561,7 +581,7 @@ data = {
 					}
 				},
 				description: 'Queues a command named `commandName` .. "Command" to be played. This is usually used right after doing a <a>Actor.sleep()</a>. <a href="#">What is an Actor Command ?</a>',
-				example: 'actor:sleep(1); -- Wait 1 second ...\nactor:queuecommand(\'BarrelRoll\'); -- ... and then "BarrelRollCommand" will be called.'
+				example: 'self:sleep(1); -- Wait 1 second ...<br />self:queuecommand(\'BarrelRoll\'); -- ... and then "BarrelRollCommand" will be called.'
 			},
 			queuemessage: {
 				args: {
@@ -654,6 +674,7 @@ data = {
 				description: 'Similar to <a>Actor.scaletocover()</a>, but keep the aspect ratio.'
 			},
 			SetHeight: {
+				notitg: 1,
 				args: {
 					height: {
 						type: 'float',
@@ -663,6 +684,7 @@ data = {
 				description: 'Sets the height of the Actor.'
 			},
 			SetName: {
+				notitg: 1,
 				args: {
 					name: {
 						type: 'string',
@@ -681,6 +703,7 @@ data = {
 				description: ''
 			},*/
 			SetTextureFiltering: {
+				notitg: 1,
 				args: {
 					arg: {
 						type: 'bool',
@@ -690,284 +713,286 @@ data = {
 				description: 'Enables/Disables the texture filtering of the Actor.'
 			},
 			SetWidth: {
+				notitg: 1,
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					width: {
+						type: 'float',
+						description: 'The width, in pixels.'
 					}
 				},
-				description: ''
+				description: 'Sets the width of the Actor.'
 			},
 			shadowlength: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					length: {
+						type: 'float',
+						description: 'The length of the shadow.'
 					}
 				},
-				description: ''
+				description: 'Sets the shadow\'s length of the Actor.'
 			},
 			skewto: {
+				notitg: 1,
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					amount: {
+						type: 'float',
+						description: 'The greater it is, the bigger the Actor will be skewed.'
 					}
 				},
-				description: ''
+				description: 'Skews the Actor horizontally, based on the original width of the Actor. (It is basically <a>Actor.skewx()</a> with `amount` divided by the original (unzoomed) width of the Actor.)'
 			},
 			skewx: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					amount: {
+						type: 'float',
+						description: 'The greater it is, the bigger the Actor will be skewed.'
 					}
 				},
-				description: ''
+				description: 'Skews the Actor horizontally.'
 			},
 			sleep: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				template: 'time',
+				description: 'Plays the next Actor methods after `time` seconds. Please note that only Actor methods are affected, and not any other commands, or lua calls/affectations. <a>Actor.playcommand()</a> also won\'t be affected. <a href="#">What is a tween ?</a>',
+				example: 'self:sleep(1); -- Wait 1 second before applying Actor methods.<br />self:addx(50); -- Will move the Actor to the right AFTER 1 second<br />someFunction(); -- Will be called instantly, it won\'t wait 1 second<br />some_actor:x(50); -- Though this is an Actor Method, it won\'t wait 1 second, because the sleep() method only affects the current Actor (e.g. self)'
 			},
 			spin: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				description: 'Spins the Actor continually. <a href="#">What is an Actor effect ?</a>'
 			},
 			spring: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				template: 'time',
+				description: 'Plays the next Actor methods at an accelerated rate until they go beyong the desired end state, and then springs back. <a href="#">What is a tween ?</a>'
 			},
 			stopeffect: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				description: 'Stops any running effects.'
 			},
 			stoptweening: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				description: 'Stops any running tweens. If you want them to finish instantly, use <a>Actor.finishtweening()</a>.'
 			},
 			stretchto: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					x1: {
+						type: 'float',
+						description: 'The X coordinate of the top-left corner.'
+					},
+					y1: {
+						type: 'float',
+						description: 'The Y coordinate of the top-left corner.'
+					},
+					x2: {
+						type: 'float',
+						description: 'The X coordinate of the bottom-right corner.'
+					},
+					y2: {
+						type: 'float',
+						description: 'The Y coordinate of the bottom-right corner.'
 					}
 				},
-				description: ''
+				description: 'Stretches the Actor to a rectangle defined by 2 points: The top-left corner, and the bottom-right corner.'
 			},
-			/*texturewrapping: {
+			texturewrapping: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					enable: {
+						type: 'int',
+						description: '1 to set to use texture wrapping, or 0 to disable it.',
+						condition: [0, 1]
 					}
 				},
-				description: ''
+				description: 'Enables/Disables the texture wrapping.'
 			},
 			valign: {
+				notitg: 1,
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					vPos: {
+						type: 'float',
+						description: 'The vertical position. For example, 0 will align to the top, 0.5 to the middle, and 1 to the bottom.',
+						condition: '0-1'
 					}
 				},
-				description: ''
+				description: 'Sets the Actor\'s horizontal alignment.'
 			},
 			vertalign: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					hAlign: {
+						type: 'string',
+						description: 'The vertical alignment to apply.',
+						condition: ['left', 'middle', 'right']
 					}
 				},
-				description: ''
+				description: 'Sets the Actor\'s vertical alignment. For a more precise alignment, see <a>Actor.valign()</a>.'
 			},
 			vibrate: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				description: 'Vibrates the Actor. <a href="#">What is an Actor effect ?</a>'
 			},
 			visible: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					enable: {
+						type: 'int',
+						description: '1 to make the Actor visible, 0 to hide it.',
+						condition: [0, 1]
 					}
 				},
-				description: ''
+				description: 'Makes the Actor visible. (It is just <a>Actor.hidden()</a>, but inverted.)'
 			},
 			wag: {
-				args: {
-					arg: {
-						type: '',
-						description: ''
-					}
-				},
-				description: ''
+				description: 'Wags the Actor. <a href="#">What is an Actor effect ?</a>'
 			},
 			x: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					xPos: {
+						type: 'float',
+						description: 'The X position, in pixels.'
 					}
 				},
-				description: ''
+				description: 'Sets the X position of the Actor.'
+			},
+			xy: {
+				notitg: 1,
+				args: {
+					xPos: {
+						type: 'float',
+						description: 'The X position, in pixels.'
+					},
+					yPos: {
+						type: 'float',
+						description: 'The Y position, in pixels.'
+					}
+				},
+				description: 'Sets both X and Y position of the Actor. See <a>Actor.x()</a> and <a>Actor.y()</a>.'
 			},
 			y: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					yPos: {
+						type: 'float',
+						description: 'The Y position, in pixels.'
 					}
 				},
-				description: ''
+				description: 'Sets the Y position of the Actor.'
 			},
 			z: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					zPos: {
+						type: 'float',
+						description: 'The Z position, in pixels.'
 					}
 				},
-				description: ''
+				description: 'Sets the Z position of the Actor.'
 			},
 			zbias: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					bias: {
+						type: 'float',
+						description: 'The bias to apply.'
 					}
 				},
-				description: ''
+				description: 'Sets the Z bias of the Actor.'
 			},
 			zbuffer: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					enable: {
+						type: 'int',
+						description: '1 to enable the z-buffer, 0 to disable it.',
+						condition: [0, 1]
 					}
 				},
-				description: ''
+				description: 'Enables/Disables the z-buffer of the Actor.'
 			},
 			zoom: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					scale: {
+						type: 'float',
+						description: 'The scaling of the zoom.'
 					}
 				},
-				description: ''
+				description: 'Zooms the actor to `scale` scale.'
 			},
 			zoomto: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					width: {
+						type: 'float',
+						description: 'The width to get.'
+					},
+					height: {
+						type: 'float',
+						description: 'The height to get.'
 					}
 				},
-				description: ''
+				description: 'Zooms the Actor differently on X and Y axis. It just calls <a>Actor.zoomtowidth()</a> and <a>Actor.zoomtoheight()</a>.'
 			},
 			zoomtoheight: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					height: {
+						type: 'float',
+						description: 'The height to get.'
 					}
 				},
-				description: ''
+				description: 'Zooms the Actor on the Y axis.'
 			},
 			zoomtowidth: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					width: {
+						type: 'float',
+						description: 'The width to get.'
 					}
 				},
-				description: ''
+				description: 'Zooms the Actor on the X axis.'
 			},
 			zoomx: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					scale: {
+						type: 'float',
+						description: 'The scaling of the zoom.'
 					}
 				},
-				description: ''
+				description: 'Zooms the actor on the X axis to `scale` scale.'
 			},
 			zoomy: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					scale: {
+						type: 'float',
+						description: 'The scaling of the zoom.'
 					}
 				},
-				description: ''
+				description: 'Zooms the actor on the Y axis to `scale` scale.'
 			},
 			zoomz: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					scale: {
+						type: 'float',
+						description: 'The scaling of the zoom.'
 					}
 				},
-				description: ''
+				description: 'Zooms the actor on the Z axis to `scale` scale.'
 			},
 			ztest: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					enable: {
+						type: 'int',
+						description: '1 to set z testing mode to "writeonpass", 0 to disable z testing.',
+						condition: [0, 1]
 					}
 				},
-				description: ''
+				description: 'Sets the z testing mode to either "writeonpass", or "off". See <a>Actor.ztestmode()</a> for other possible values.'
 			},
 			ztestmode: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					mode: {
+						type: 'string',
+						description: 'The z testing mode to apply.',
+						condition: ['off', 'writeonpass', 'writeonfail']
 					}
 				},
-				description: ''
+				description: 'Sets the z testing mode.'
 			},
 			zwrite: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					enable: {
+						type: 'int',
+						description: '1 to enable z writing, 0 to disable it.',
+						condition: [0, 1]
 					}
 				},
-				description: ''
-			}*/
+				description: 'Enables z writing on the Actor.'
+			}
 		}
 	}
 };
@@ -1075,11 +1100,21 @@ function parseClasses() {
 			var $row = $('<tr></tr>');
 			var $firstElement = $('<td></td>');
 			var $secondElement = $('<td></td>');
+			var $icon = $('<img>');
 			var content = [];
 			var args = '';                          // Utilisé pour le prototype de la fonction.
 			var argsDescription = [];
 			var validArgs = {};                     // Utilisé pour la coloration de la description avec replaceKeywords()
 			var description = v_method.description; // Utilisé pour la coloration de la description.
+
+			// Disponibilité
+			if (typeof v_method.notitg !== 'undefined') {
+				$icon.attr('src', 'img/notitg.png');
+			}
+			else {
+				$icon.attr('src', 'img/itg.png');
+			}
+			$firstElement.append($icon);
 
 			// Si template utilisée
 			if (typeof v_method.template !== 'undefined') {
@@ -1171,7 +1206,6 @@ function parseClasses() {
 			if (typeof v_method.example !== 'undefined') {
 				content.push('<strong>Example: </strong><br /><span class="example">'+ v_method.example +'</span>');
 			}
-
 
 			// Itération sur le contenu des divs
 			$.each(content, function(i_content, v_content) {
