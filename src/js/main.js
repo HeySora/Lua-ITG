@@ -59,7 +59,6 @@ templates = {
 data = {
 	classes: {
 		Actor: {
-			inherits: '',
 			accelerate: {
 				template: 'time',
 				description: 'Plays the next Actor methods at an accelerated rate (`time` * `time`). <a href="#">What is a tween ?</a>'
@@ -1080,7 +1079,7 @@ function parseClasses() {
 
 		// Création de l'article
 		var $article = $('<article></article>').attr('id', k_class.toLowerCase());
-		var $articleTitle = $('<h4></h4>').text(k_class);
+		var $articleTitle = $('<h4></h4>').html(k_class + ((typeof v_class.inherits === 'string') ? ' : <a href="#'+ v_class.inherits.toLowerCase() +'">'+ v_class.inherits +'</a>' : ''));
 		$article.append($articleTitle);
 
 		// Création du tableau de méthodes
