@@ -98,7 +98,7 @@ h1 {
 #classes a.code,
 #classes a.code * {
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	font-size: 18px;
+	font-size: 17px;
 }
 
 #classes td:nth-child(2) div:first-child,
