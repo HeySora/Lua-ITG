@@ -1124,7 +1124,67 @@ data = {
 				},
 				description: 'Sets the vertical coordinate of the vanishing point of the ActorFrame. SCREEN_CENTER_Y by default. See also <a>ActorFrame.SetVanishingPoint()</a>.'
 			}
-		}
+		},
+		ActorFrameTexture: {
+			inherits: 'ActorFrame',
+			Create: {
+				description: 'Creates the ActorFrameTexture.'
+			},
+			EnableAlphaBuffer: {
+				args: {
+					enable: {
+						type: 'bool',
+						description: 'Enable or not the Alpha Buffer.'
+					}
+				},
+				description: 'Enables/Disables the Alpha Buffer. It is disabled by default.'
+			},
+			EnableDepthBuffer: {
+				args: {
+					enable: {
+						type: 'bool',
+						description: 'Enable or not the Depth Buffer.'
+					}
+				},
+				description: 'Enables/Disables the Depth Buffer. It is disabled by default.'
+			},
+			EnableFloat: {
+				args: {
+					enable: {
+						type: 'bool',
+						description: 'Enable or not floats.'
+					}
+				},
+				description: 'Enables/Disables floats. It is disables by default.'
+			},
+			EnablePreserveTexture: {
+				args: {
+					enable: {
+						type: 'bool',
+						description: 'Enable or not the Preserve Texture behavior.'
+					}
+				},
+				description: 'Enables/Disables the Preserve Texture option. It is disabled by default.'
+			},
+			GetTexture: {
+				returnType: 'RageTexture',
+				description: 'Gets the texture of the ActorFrameTexture.'
+			},
+			GetTextureName: {
+				returnType: 'string',
+				description: 'Gets the Texture\'s name.'
+			},
+			SetTextureName: {
+				args: {
+					name: {
+						type: 'string',
+						description: 'The name of the texture.'
+					}
+				},
+				description: 'Sets the Texture\'s name. Used for loading textures to other objects by its name.'
+			}
+		},
+		RageTexture: {}
 	}
 };
 
