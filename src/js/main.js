@@ -1302,7 +1302,22 @@ data = {
 			}
 		},
 		Course: {
-
+			GetCourseDir: {
+				returnType: 'string',
+				description: 'Gets the directory of the Course.'
+			},
+			GetDisplayFullTitle: {
+				returnType: 'string',
+				description: 'Gets the full title of the Course.'
+			},
+			GetPlayMode: {
+				returnType: 'int',
+				description: 'Gets the current PlayMode. (0 = Nonstop, 1 = Oni, 2 = Endless, 3 = Survival)'
+			},
+			GetTranslitFullTitle: {
+				returnType: 'string',
+				description: 'Gets the full transliterated title of the Course.'
+			}
 		},
 		DifficultyMeter: {
 			inherits: 'Actor',
