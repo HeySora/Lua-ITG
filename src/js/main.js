@@ -998,7 +998,7 @@ data = {
 
 // Replacer mots-clés, liens, et variables
 function replaceKeywords(str, args) {
-	var ret = str.replace('`true`', '<span class="bool">true</span>').replace('`false`', '<span class="bool">false</span>');
+	var ret = str.replace('`true`', '<span class="bool">true</span>').replace('`false`', '<span class="bool">false</span>').replace('`nil`', '<span class="bool">nil</span>');
 
 	ret = ret.replace(/<a>([^<>]+)\.([^<>]+)\(\)<\/a>/gi, function(match, className, methodName) {
 		return '<a class="code" href="#'+ className.toLowerCase() +'_'+ methodName.toLowerCase() +'">'+ className +'.'+ methodName +'()</a>';
