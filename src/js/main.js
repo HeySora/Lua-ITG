@@ -1128,9 +1128,11 @@ data = {
 		ActorFrameTexture: {
 			inherits: 'ActorFrame',
 			Create: {
+				notitg: 1,
 				description: 'Creates the ActorFrameTexture.'
 			},
 			EnableAlphaBuffer: {
+				notitg: 1,
 				args: {
 					enable: {
 						type: 'bool',
@@ -1140,6 +1142,7 @@ data = {
 				description: 'Enables/Disables the Alpha Buffer. It is disabled by default.'
 			},
 			EnableDepthBuffer: {
+				notitg: 1,
 				args: {
 					enable: {
 						type: 'bool',
@@ -1149,6 +1152,7 @@ data = {
 				description: 'Enables/Disables the Depth Buffer. It is disabled by default.'
 			},
 			EnableFloat: {
+				notitg: 1,
 				args: {
 					enable: {
 						type: 'bool',
@@ -1158,6 +1162,7 @@ data = {
 				description: 'Enables/Disables floats. It is disables by default.'
 			},
 			EnablePreserveTexture: {
+				notitg: 1,
 				args: {
 					enable: {
 						type: 'bool',
@@ -1167,14 +1172,17 @@ data = {
 				description: 'Enables/Disables the Preserve Texture option. It is disabled by default.'
 			},
 			GetTexture: {
+				notitg: 1,
 				returnType: 'RageTexture',
 				description: 'Gets the texture of the ActorFrameTexture.'
 			},
 			GetTextureName: {
+				notitg: 1,
 				returnType: 'string',
 				description: 'Gets the Texture\'s name.'
 			},
 			SetTextureName: {
+				notitg: 1,
 				args: {
 					name: {
 						type: 'string',
