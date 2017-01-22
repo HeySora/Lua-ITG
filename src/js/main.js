@@ -1400,7 +1400,30 @@ data = {
 			}
 		},
 		GameSoundManager: {
-			
+			DimMusic: {
+				args: {
+					volume: {
+						type: 'float',
+						description: 'The target volume.',
+						condition: '0-1'
+					},
+					duration: {
+						type: 'float',
+						description: 'The time during which the volume will be dimmed, in seconds.',
+						condition: '0-'
+					}
+				},
+				description: 'Set the volume of the sound to `volume` for `duration` seconds.'
+			},
+			PlayOnce: {
+				args: {
+					path: {
+						type: 'string',
+						description: 'The path of the sound to play.'
+					}
+				},
+				description: 'Plays the sound once. (Please note that if the "MuteActions" preference is enabled, the song won\'t be played.'
+			}
 		},
 		GameState: {
 			
