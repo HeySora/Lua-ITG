@@ -1329,12 +1329,12 @@ data = {
 			inherits: 'ActorFrame',
 			Load: {
 				args: {
-					type: {
+					path: {
 						type: 'string',
-						description: 'TODO'
+						description: 'The path.'
 					}
 				},
-				description: 'TODO'
+				description: 'Loads specific graphics in `path` to the DifficultyMeter.'
 			},
 			SetFromMeterAndDifficulty: {
 				args: {
@@ -1669,10 +1669,10 @@ data = {
 					},
 					yOffset: {
 						type: 'float',
-						description: 'The vertical offset.'
+						description: 'The vertical offset of the note compared to the receptors.'
 					}
 				},
-				description: 'Gets the X offset of the column `column` from the center of the screen.'
+				description: 'Gets the X position of a note located in the column `column`. Used for calculating manually where a note should be based on which modifiers are active and its vertical position.'
 			},
 			GetY: {
 				notitg: 1,
@@ -1690,10 +1690,10 @@ data = {
 					},
 					yOffset: {
 						type: 'float',
-						description: 'The vertical offset.'
+						description: 'The vertical offset of the note compared to the receptors.'
 					}
 				},
-				description: 'Gets the Y offset of the column `column` from the center of the screen.'
+				description: 'Gets the Y position of a note located in the column `column`. Used for calculating manually where a note should be based on which modifiers are active and its vertical position.'
 			},
 			GetZ: {
 				notitg: 1,
@@ -1711,10 +1711,10 @@ data = {
 					},
 					yOffset: {
 						type: 'float',
-						description: 'The vertical offset.'
+						description: 'The vertical offset of the note compared to the receptors.'
 					}
 				},
-				description: 'Gets the Z offset of the column `column` from the center of the screen.'
+				description: 'Gets the Z position of a note located in the column `column`. Used for calculating manually where a note should be based on which modifiers are active and its vertical position.'
 			},
 			IsCourseMode: {
 				returnType: 'bool',
@@ -2063,13 +2063,284 @@ data = {
 			}
 		},
 		MemoryCardManager: {
-			
+			GetCardState: {
+				returnType: 'int',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Gets the state of the specified player\'s card. (0 = Ready, 1 = Checking, 2 = Too late, 3 = Error, 4 = Removed, 5 = No card)'
+			}
 		},
 		MessageManager: {
-			
+			Broadcast: {
+				args: {
+					message: {
+						type: 'string',
+						description: 'The name of the message to broadcast.'
+					}
+				},
+				description: 'Broadcasts a message instantly. <a href="#">What is a message ?</a>'
+			}
 		},
 		Model: {
 			inherits: 'Actor',
+			animate: {
+				notitg: 1,
+				args: {
+					enable: {
+						type: 'bool',
+						description: '`true` to enable animation, false to disable it.'
+					}
+				},
+				description: 'Enables/Disables animation for every texture. It is enabled by default.'
+			},
+			animateone: {
+				notitg: 1,
+				args: {
+					enable: {
+						type: 'bool',
+						description: '`true` to enable animation, false to disable it.'
+					},
+					index: {
+						type: 'float',
+						description: 'The index of the texture.'
+					}
+				},
+				description: 'Enables/Disables animation for a specific texture. It is enabled by default.'
+			},
+			InvertCelPass: {
+				notitg: 1,
+				args: {
+					enable: {
+						type: 'bool',
+						description: '`true` to invert, `false` to keep it as usual.'
+					}
+				},
+				description: 'Determines if the Cel-Shading will be inverted or not.'
+			},
+			playanimation: {
+				args: {
+					name: {
+						type: 'string',
+						description: 'The name of the animation.'
+					},
+					rate: {
+						type: 'float',
+						description: 'The speed rate.'
+					}
+				},
+				description: 'Plays the specified animation at `rate` speed.'
+			},
+			ResetAlphaTexture: {
+				notitg: 1,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the texture.'
+					}
+				},
+				description: 'Removes the transparent texture from the model at index `index`.'
+			},
+			ResetTexture: {
+				notitg: 1,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the texture.'
+					}
+				},
+				description: 'Removes the texture from the model at index `index`.'
+			},
+			SetAlphaTexture: {
+				notitg: 1,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the texture.'
+					},
+					texture: {
+						type: 'RageTexture',
+						description: 'The texture to use.'
+					}
+				},
+				description: 'Sets/Adds a transparent texture to the model.'
+			},
+			SetCelShaded: {
+				notitg: 1,
+				args: {
+					enable: {
+						type: 'bool',
+						description: '`true` to enable, `false` to disable.'
+					}
+				},
+				description: 'Determines if the model should be Cel-Shaded or not.'
+			},
+			SetLineColor: {
+				notitg: 1,
+				template: 'color',
+				description: 'Sets the color of the outline.'
+			},
+			SetLineWidth: {
+				notitg: 1,
+				args: {
+					width: {
+						type: 'float',
+						description: 'The width, in pixels.'
+					}
+				},
+				description: 'Sets the width of the outline.'
+			},
+			SetPolygonMode: {
+				notitg: 1,
+				args: {
+					mode: {
+						type: 'int',
+						description: 'The polygon mode. (0 = Fill, 1 = Line)',
+						condition: '0-1'
+					}
+				},
+				description: 'Sets the polygon mode to `mode`.'
+			},
+			setstate: {
+				notitg: 1,
+				args: {
+					state: {
+						type: 'int',
+						description: 'The state of the animation.'
+					}
+				},
+				description: 'Sets the state for every texture.'
+			},
+			setstateone: {
+				notitg: 1,
+				args: {
+					state: {
+						type: 'int',
+						description: 'The state of the animation.'
+					},
+					index: {
+						type: 'int',
+						description: 'The index of the texture.'
+					}
+				},
+				description: 'Sets the state for a specific texture.'
+			},
+			SetTexture: {
+				notitg: 1,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the texture.'
+					},
+					texture: {
+						type: 'RageTexture',
+						description: 'The texture to use.'
+					}
+				},
+				description: 'Sets/Adds a texture to the model.'
+			},
+			SetTextureRotate: {
+				notitg: 1,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the texture.'
+					},
+					rotation: {
+						type: 'float',
+						description: 'The rotation to apply, in degrees.'
+					}
+				},
+				description: 'Sets the rotation for a specific texture.'
+			},
+			SetTextureScale: {
+				notitg: 1,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the texture.'
+					},
+					scaleX: {
+						type: 'float',
+						description: 'The scaling for the X axis.'
+					},
+					scaleY: {
+						type: 'float',
+						description: 'The scaling for the Y axis.'
+					}
+				},
+				description: 'Scales a specific texture. Shortcut for <a>Model.SetTextureScaleX()</a> and <a>Model.SetTextureScaleY()</a>.'
+			},
+			SetTextureScaleX: {
+				notitg: 1,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the texture.'
+					},
+					scaleX: {
+						type: 'float',
+						description: 'The scaling for the X axis.'
+					}
+				},
+				description: 'Scales a specific texture in the X axis.'
+			},
+			SetTextureScaleY: {
+				notitg: 1,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the texture.'
+					},
+					scaleY: {
+						type: 'float',
+						description: 'The scaling for the Y axis.'
+					}
+				},
+				description: 'Scales a specific texture in the Y axis.'
+			},
+			SetTextureTranslateX: {
+				notitg: 1,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the texture.'
+					},
+					translateX: {
+						type: 'float',
+						description: 'The X translation to apply, in pixels.'
+					}
+				},
+				description: 'Applies an horizontal translation to a specific texture.'
+			},
+			SetTextureTranslateY: {
+				notitg: 1,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the texture.'
+					},
+					translateY: {
+						type: 'float',
+						description: 'The Y translation to apply, in pixels.'
+					}
+				},
+				description: 'Applies a vertical translation to a specific texture.'
+			},
+			SetUseZBuffer: {
+				notitg: 1,
+				args: {
+					enable: {
+						type: 'bool',
+						description: '`true` to use it, `false` to disable it.'
+					}
+				},
+				description: 'Determines if the Z buffer should be used. It is enabled by default.'
+			}
 		},
 		NoteSkinManager: {
 			
