@@ -1018,6 +1018,7 @@ data = {
 				description: 'Gets the Actor of a child with its name equal to `name`, or `nil`.'
 			},
 			GetChildAt: {
+				notitg: 1,
 				args: {
 					index: {
 						type: 'int',
@@ -1049,6 +1050,7 @@ data = {
 				description: 'Enables/Disables the "Draw by Z Position" behavior on the ActorFrame. Disabled by default.'
 			},
 			SetDrawFunction: {
+				notitg: 1,
 				args: {
 					drawFunc: {
 						type: 'LuaReference',
@@ -1094,6 +1096,7 @@ data = {
 				description: 'Sets the update function\'s rate for the ActorFrame.'
 			},
 			SetVanishPoint: {
+				notitg: 1,
 				args: {
 					x: {
 						type: 'float',
@@ -1107,22 +1110,24 @@ data = {
 				description: 'Sets the vanishing point of the ActorFrame. It is on the center of the screen by default.'
 			},
 			SetVanishX: {
+				notitg: 1,
 				args: {
 					x: {
 						type: 'float',
 						description: 'The X coordinate.'
 					}
 				},
-				description: 'Sets the horizontal coordinate of the vanishing point of the ActorFrame. SCREEN_CENTER_X by default. See also <a>ActorFrame.SetVanishingPoint()</a>.'
+				description: 'Sets the horizontal coordinate of the vanishing point of the ActorFrame. SCREEN_CENTER_X by default. See also <a>ActorFrame.SetVanishPoint()</a>.'
 			},
 			SetVanishY: {
+				notitg: 1,
 				args: {
 					y: {
 						type: 'float',
 						description: 'The Y coordinate.'
 					}
 				},
-				description: 'Sets the vertical coordinate of the vanishing point of the ActorFrame. SCREEN_CENTER_Y by default. See also <a>ActorFrame.SetVanishingPoint()</a>.'
+				description: 'Sets the vertical coordinate of the vanishing point of the ActorFrame. SCREEN_CENTER_Y by default. See also <a>ActorFrame.SetVanishPoint()</a>.'
 			}
 		},
 		ActorFrameTexture: {
