@@ -1330,10 +1330,10 @@ data = {
 				args: {
 					type: {
 						type: 'string',
-						description: ''
+						description: 'TODO'
 					}
 				},
-				description: ''
+				description: 'TODO'
 			},
 			SetFromMeterAndDifficulty: {
 				args: {
@@ -1370,9 +1370,34 @@ data = {
 		},
 		FadingBanner: {
 			inherits: 'ActorFrame',
+			LoadFromSong: {
+				args: {
+					song: {
+						type: 'Song',
+						description: 'The song to use.'
+					}
+				},
+				description: 'Loads the Banner from `song`.'
+			},
+			ScaleToClipped: {
+				args: {
+					width: {
+						type: 'float',
+						description: 'The target width.'
+					},
+					height: {
+						type: 'float',
+						description: 'The target height.'
+					}
+				},
+				description: 'Scales the Banner to the specified dimensions. Identical to <a>Sprite.scaletoclipped()</a>'
+			}
 		},
 		Game: {
-			
+			GetName: {
+				returnType: 'string',
+				description: 'Gets the name of the current game ("dance" or "lights").'
+			}
 		},
 		GameSoundManager: {
 			
