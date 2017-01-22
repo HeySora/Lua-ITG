@@ -2008,6 +2008,23 @@ data = {
 		},
 		HelpDisplay: {
 			inherits: 'BitmapText',
+			gettips: {
+				returnType: 'table',
+				description: 'Returns two tables containing the tips and the alternate tips.'
+			},
+			settips: {
+				args: {
+					tips: {
+						type: 'table',
+						description: 'A table containing the tips to set.'
+					},
+					altTips: {
+						type: 'table',
+						description: 'Optional. A table containing the alternate tips to set.'
+					}
+				},
+				description: 'Sets the tips / alternate tips.'
+			}
 		},
 		HighScore: {
 			
