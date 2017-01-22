@@ -2027,7 +2027,34 @@ data = {
 			}
 		},
 		HighScore: {
-			
+			GetDate: {
+				returnType: 'string',
+				description: 'Gets the date and the time the high score was achieved.'
+			},
+			GetModifiers: {
+				returnType: 'string',
+				description: 'Gets the modifiers used in this score.'
+			},
+			GetName: {
+				returnType: 'string',
+				description: 'Gets the name associated with this score.'
+			},
+			GetPercentDP: {
+				returnType: 'float',
+				description: 'Gets the DP percentage of the score.'
+			},
+			GetScore: {
+				returnType: 'int',
+				description: 'Gets the score.'
+			},
+			GetSurvivalSeconds: {
+				returnType: 'float',
+				description: 'Gets the number of seconds survived.'
+			},
+			IsFillInMarker: {
+				returnType: 'bool',
+				description: 'Returns `true` if the score\'s name uses a fill-in marker.'
+			}
 		},
 		HighScoreList: {
 			
