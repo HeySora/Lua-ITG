@@ -1344,7 +1344,7 @@ data = {
 					},
 					difficulty: {
 						type: 'int',
-						description: 'The difficulty to use. (0 = Beginner, 1 = Easy, 2 = Medium, 3 = Hard, 4 = Challenge/Expert, 5 = Edit)',
+						description: 'The difficulty to use.',
 						condition: '0-5'
 					}
 				},
@@ -1464,7 +1464,7 @@ data = {
 			},
 			GetCoinMode: {
 				returnType: 'int',
-				description: 'Gets the current coin mode. (0 = Home, 1 = Pay, 2 = Free)'
+				description: 'Gets the current coin mode.'
 			},
 			GetCoins: {
 				returnType: 'int',
@@ -1523,7 +1523,7 @@ data = {
 			},
 			GetEasiestStepsDifficulty: {
 				returnType: 'int',
-				description: 'Gets the easiest difficulty chosen by the players. (0 = Beginner, 1 = Easy, 2 = Medium, 3 = Hard, 4 = Challenge/Expert, 5 = Edit)'
+				description: 'Gets the easiest difficulty chosen by the players.'
 			},
 			GetEditSourceSteps: {
 				returnType: 'Steps',
@@ -1554,7 +1554,7 @@ data = {
 			GetInputMode: {
 				notitg: 1,
 				returnType: 'int',
-				description: 'Gets the InputMode. (0 = Normal, 1 = All)'
+				description: 'Gets the InputMode.'
 			},
 			GetMasterPlayerNumber: {
 				returnType: 'int',
@@ -1604,7 +1604,7 @@ data = {
 						condition: '0-1'
 					}
 				},
-				description: 'Gets the preferred difficulty for player `playerNumber`. (0 = Beginner, 1 = Easy, 2 = Medium, 3 = Hard, 4 = Challenge/Expert, 5 = Edit)'
+				description: 'Gets the preferred difficulty for player `playerNumber`.'
 			},
 			GetPreferredSong: {
 				returnType: 'Song',
@@ -1612,7 +1612,7 @@ data = {
 			},
 			GetPremium: {
 				returnType: 'int',
-				description: 'Returns the current Premium mode. (0 = None, 1 = Double for 1 credit, 2 = 2 players for 1 credit)'
+				description: 'Returns the current Premium mode.'
 			},
 			GetScreenID: {
 				notitg: 1,
@@ -1646,7 +1646,7 @@ data = {
 			},
 			GetSortOrder: {
 				returnType: 'int',
-				description: 'Gets the current sort order. (0 = Preferred, 1 = Group, 2 = Title, 3 = BPM, 4 = Popularity, 5 = Top Grades, 6 = Artist, 7 = Genre, 8 = Song Length, 9 = Easy Meter, 10 = Medium Meter, 11 = Hard Meter, 12 = Challenge/Expert Meter, 13 = Mode Menu, 14 = All Courses, 15 = Nonstop Courses, 16 = Oni Courses, 17 = Endless Courses, 18 = Roulette)'
+				description: 'Gets the current sort order.'
 			},
 			GetVersionDate: {
 				notitg: 1,
@@ -1910,7 +1910,7 @@ data = {
 				args: {
 					inputMode: {
 						type: 'int',
-						description: 'The new InputMode. (0 = Normal, 1 = All)',
+						description: 'The new InputMode.',
 						condition: '0-1'
 					}
 				},
@@ -2072,7 +2072,7 @@ data = {
 						condition: '0-1'
 					}
 				},
-				description: 'Gets the state of the specified player\'s card. (0 = Ready, 1 = Checking, 2 = Too late, 3 = Error, 4 = Removed, 5 = No card)'
+				description: 'Gets the state of the specified player\'s card.'
 			}
 		},
 		MessageManager: {
@@ -2199,7 +2199,7 @@ data = {
 				args: {
 					mode: {
 						type: 'int',
-						description: 'The polygon mode. (0 = Fill, 1 = Line)',
+						description: 'The polygon mode.',
 						condition: '0-1'
 					}
 				},
@@ -2385,14 +2385,14 @@ data = {
 			},
 			GetGrade: {
 				returnType: 'int',
-				description: 'Gets the grade. (0 = Tier 1, 1 = Tier 2, [...], 19 = Tier 20, 20 = Failed)'
+				description: 'Gets the grade.'
 			},
 			GetHoldNoteScores: {
 				returnType: 'int',
 				args: {
 					holdNoteScore: {
 						type: 'int',
-						description: 'The wanted judgment. (0 = None, 1 = No Good, 2 = OK/Held)',
+						description: 'The wanted judgment.',
 						condition: '0-2'
 					}
 				},
@@ -2431,7 +2431,7 @@ data = {
 				args: {
 					tapNoteScore: {
 						type: 'int',
-						description: 'The wanted judgment. (0 = None, 1 = Hit Mine, 2 = Avoided Mine, 3 = Miss, 4 = Way Off/Boo, 5 = Decent/Good, 6 = Great, 7 = Perfect/Excellent, 8 = Marvelous/Fantastic)',
+						description: 'The wanted judgment.',
 						condition: '0-2'
 					}
 				},
@@ -2498,7 +2498,91 @@ data = {
 			}
 		},
 		Profile: {
-			
+			GetCaloriesBurnedToday: {
+				returnType: 'float',
+				description: 'Gets the amount of calories burned today.'
+			},
+			GetCoursesActual: {
+				returnType: '',
+				description: ''
+			},
+			GetCoursesPercentComplete: {
+				returnType: '',
+				description: ''
+			},
+			GetCoursesPossible: {
+				returnType: '',
+				description: ''
+			},
+			GetGoalCalories: {
+				returnType: '',
+				description: ''
+			},
+			GetGoalSeconds: {
+				returnType: '',
+				description: ''
+			},
+			GetGoalType: {
+				returnType: '',
+				description: ''
+			},
+			GetSaved: {
+				returnType: '',
+				description: ''
+			},
+			GetSongNumTimesPlayed: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			},
+			GetSongsActual: {
+				returnType: '',
+				description: ''
+			},
+			GetSongsPercentComplete: {
+				returnType: '',
+				description: ''
+			},
+			GetSongsPossible: {
+				returnType: '',
+				description: ''
+			},
+			GetTotalNumSongsPlayed: {
+				returnType: '',
+				description: ''
+			},
+			GetTotalStepsWithTopGrade: {
+				returnType: '',
+				description: ''
+			},
+			GetTotalTrailsWithTopGrade: {
+				returnType: '',
+				description: ''
+			},
+			GetWeightPounds: {
+				returnType: '',
+				description: ''
+			},
+			IsCodeUnlocked: {
+				returnType: '',
+				description: ''
+			},
+			SetGoalCalories: {
+				returnType: '',
+				description: ''
+			},
+			SetGoalSeconds: {
+				returnType: '',
+				description: ''
+			},
+			SetGoalType: {
+				returnType: '',
+				description: ''
+			},
+			SetWeightPounds: {
+				returnType: '',
+				description: ''
+			}
 		},
 		ProfileManager: {
 			
@@ -2563,6 +2647,111 @@ data = {
 		UnlockManager: {
 			
 		}
+	},
+	enums: {
+		CoinMode: {
+			description: 'See <a>Actor.GetCoinMode()</a>.',
+			Home: 0,
+			Pay: 1,
+			Free: 2
+		},
+		Difficulty: {
+			Beginner: 0,
+			Easy: 1,
+			Medium: 2,
+			Hard: 3,
+			Challenge: 4,
+			Edit: 5
+		},
+		Grade: {
+			description: 'See <a>PlayerStageStats.GetGrade()</a>.',
+			"Tier 1": 0,
+			"Tier 2": 1,
+			"Tier 3": 2,
+			"Tier 4": 3,
+			"Tier 5": 4,
+			"Tier 6": 5,
+			"Tier 7": 6,
+			"Tier 8": 7,
+			"Tier 9": 8,
+			"Tier 10": 9,
+			"Tier 11": 10,
+			"Tier 12": 11,
+			"Tier 13": 12,
+			"Tier 14": 13,
+			"Tier 15": 14,
+			"Tier 16": 15,
+			"Tier 17": 16,
+			"Tier 18": 17,
+			"Tier 19": 18,
+			"Tier 20": 19,
+			Failed: 20
+		},
+		HoldNoteScore: {
+			None: 0,
+			"No Good": 1,
+			"OK/Held": 2
+		},
+		InputMode: {
+			notitg: 1,
+			description: 'See <a>GameState.GetInputMode()</a> and <a>GameState.SetInputMode()</a>.',
+			Normal: 0,
+			All: 1
+		},
+		MemoryCardState: {
+			description: 'See <a>MemoryCardManager.GetCardState()</a>.',
+			Ready: 0,
+			Checking: 1,
+			"Too late": 2,
+			Error: 3,
+			Removed: 4,
+			"No card": 5
+		},
+		Premium: {
+			description: 'See <a>GameState.GetPremium()</a>.',
+			None: 0,
+			"Double for 1 credit": 1,
+			"2 players for 1 credit": 2
+		},
+		PolygonMode: {
+			notitg: 1,
+			description: 'See <a>Model.SetPolygonMode()</a>.',
+			Fill: 0,
+			Line: 1
+		},
+		SortOrder: {
+			description: 'See <a>GameState.GetSortOrder()</a>.',
+			Preferred: 0,
+			Group: 1,
+			Title: 2,
+			BPM: 3,
+			Popularity: 4,
+			"Top Grades": 5,
+			Artist: 6,
+			Genre: 7,
+			"Song Length": 8,
+			"Easy Meter": 9,
+			"Normal Meter": 10,
+			"Hard Meter": 11,
+			"Challenge Meter": 12,
+			"Mode Menu": 13,
+			"All Courses": 14,
+			"Nonstop Courses": 15,
+			"Oni Courses": 16,
+			"Endless Courses": 17,
+			Roulette: 18
+		},
+		TapNoteScore: {
+			None: 0,
+			"Hit Mine": 1,
+			"Avoided Mine": 2,
+			Miss: 3,
+			"Boo / Way Off": 4,
+			"Good / Decent": 5,
+			Great: 6,
+			"Perfect / Excellent": 7,
+			"Marvelous / Fantastic": 8
+		}
 	}
 };
 
@@ -2571,24 +2760,40 @@ function checkLuaObject(type) {
 	return ($.inArray(type, objects) > -1) ? 'object' : type.toLowerCase();
 }
 
-// Vérifier si une méthode est exclusive à NotITG ou non.
-function checkNotITG(className, methodName) {
-	if (typeof data.classes[className][methodName] === 'undefined') {
+// Vérifier si une méthode / énumération est exclusive à NotITG ou non.
+function checkNotITG(name, methodName) {
+	// Enum
+	if (arguments.length == 1 || typeof methodName !== 'string') {
+		if (typeof data.enums[name] === 'undefined') {
+			return false;
+		}
+		return (typeof data.enums[name].notitg !== 'undefined');
+	}
+
+	// Classe
+	if (typeof data.classes[name][methodName] === 'undefined') {
 		return false;
 	}
-	return (typeof data.classes[className][methodName].notitg !== 'undefined');
+	return (typeof data.classes[name][methodName].notitg !== 'undefined');
 }
 
 // Replacer mots-clés, liens, et variables
 function replaceKeywords(str, args) {
 	var ret = str.replace('`true`', '<span class="bool">true</span>').replace('`false`', '<span class="bool">false</span>').replace('`nil`', '<span class="bool">nil</span>');
 
-	ret = ret.replace(/<a>([^<>]+)\.([^<>]+)\(\)<\/a>/gi, function(match, className, methodName) {
-		var isNotITG = checkNotITG(className, methodName);
-		return '<a class="code" href="#'+ className +'_'+ methodName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg' ) +'.png"/>'+ className +'.'+ methodName +'()</a>';
+	// Enums
+	ret = ret.replace(/<a>Enum_([^<>]+)<\/a>/gi, function(match, enumName) {
+		var isNotITG = checkNotITG(enumName);
+		return '<a class="code" href="#Enum_'+ enumName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ enumName +'()</a>';
 	})
 
-	if (typeof args !== 'undefined') {
+	// Classes
+	ret = ret.replace(/<a>([^<>]+)\.([^<>]+)\(\)<\/a>/gi, function(match, className, methodName) {
+		var isNotITG = checkNotITG(className, methodName);
+		return '<a class="code" href="#Class_'+ className +'_'+ methodName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg' ) +'.png" />'+ className +'.'+ methodName +'()</a>';
+	})
+
+	if (arguments.length > 1 && typeof args === 'object') {
 		$.each(args, function(k_arg, v_arg) {
 			var regex = '`'+ k_arg +'`';
 			ret = ret.replace(new RegExp(regex, 'gi'), '<span class="'+ checkLuaObject(v_arg.type) +'">'+ k_arg +'</span>');
@@ -2662,8 +2867,8 @@ function parseClasses() {
 	$.each(data.classes, function(k_class, v_class) {
 
 		// Création de l'article
-		var $article = $('<article></article>').attr('id', k_class.toLowerCase());
-		var $articleTitle = $('<h4></h4>').html(k_class + ((typeof v_class.inherits === 'string') ? ' : <a href="#'+ v_class.inherits.toLowerCase() +'">'+ v_class.inherits +'</a>' : ''));
+		var $article = $('<article></article>').attr('id', 'Class_'+ k_class);
+		var $articleTitle = $('<h4></h4>').html(k_class + ((typeof v_class.inherits === 'string') ? ' : <a href="#'+ v_class.inherits +'">'+ v_class.inherits +'</a>' : ''));
 		$article.append($articleTitle);
 
 		// Création du tableau de méthodes
@@ -2798,7 +3003,7 @@ function parseClasses() {
 			});
 
 			// Ajout de l'id, utilisé pour les liens
-			$firstElement.attr('id', k_class +'_'+ k_method);
+			$firstElement.attr('id', 'Class_'+ k_class +'_'+ k_method);
 
 			// Ajout des cellules dans la ligne, et dans le tableau
 			$row.append($firstElement).append($secondElement);
@@ -2815,6 +3020,54 @@ function parseClasses() {
 
 }
 
+// Parser les enums
+function parseEnums() {
+
+	// Itération sur les classes
+	$.each(data.enums, function(k_enum, v_enum) {
+
+		// Création de l'article
+		var isNotITG = checkNotITG(k_enum);
+		var $article = $('<article></article>').attr('id', 'Enum_'+ k_enum);
+		var $articleTitle = $('<h4></h4>').html('<img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ k_enum);
+		$article.append($articleTitle);
+
+		// Ajout de la description, si présente
+		if (typeof v_enum.description !== 'undefined') {
+			$article.append($('<p></p>').html(replaceKeywords(v_enum.description)));
+		}
+
+		// Création du tableau de méthodes
+		var $table = $('<table></table>');
+		var $tableHeader = $('<thead><tr><th>Name</th><th>Value</th></tr></thead>');
+		$table.append($tableHeader);
+		var $tableBody = $('<tbody></tbody>');
+
+		// Itération sur les valeurs
+		$.each(v_enum, function(k_name, v_value) {
+			// Si clé "description" ou "notitg" réservés, ignorer
+			if (k_name == 'description' || k_name == 'notitg') {
+				return;
+			}
+
+			// Création des éléments
+			var $row = $('<tr></tr>');
+
+			// Ajout des cellules dans la ligne, et dans le tableau
+			$row.append($('<td></td>').text(k_name)).append($('<td></td>').text(v_value));
+			$tableBody.append($row);
+		});
+
+		// Ajout du contenu du tableau dans le tableau
+		$table.append($tableBody);
+
+		// Ajout du tableau et de l'article dans la section
+		$article.append($table);
+		$('#enums').append($article);
+	});
+
+}
+
 function init() {
 
 	// Ajout des classes dans le tableau d'objects
@@ -2824,6 +3077,9 @@ function init() {
 
 	// Générer le contenu de #classes
 	parseClasses();
+
+	// Générer le contenu de #enums
+	parseEnums();
 
 	// Smooth Scrolling & Highlighting
 	var animating = false;

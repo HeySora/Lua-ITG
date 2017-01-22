@@ -136,9 +136,14 @@ h1 {
 	font-size: 20px;
 }
 
-#classes a > img {
+#classes a > img,
+#enums a > img {
 	width: 18px;
 	margin-right: 4px;
+}
+#enums h4 > img {
+	width: 28px;
+	margin-right: 6px;
 }
 
 #classes span {
