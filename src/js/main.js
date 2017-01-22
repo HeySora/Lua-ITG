@@ -1325,7 +1325,48 @@ data = {
 			}
 		},
 		DifficultyMeter: {
-			inherits: 'Actor',
+			inherits: 'ActorFrame',
+			Load: {
+				args: {
+					type: {
+						type: 'string',
+						description: ''
+					}
+				},
+				description: ''
+			},
+			SetFromMeterAndDifficulty: {
+				args: {
+					meter: {
+						type: 'int',
+						description: 'The meter to use.'
+					},
+					difficulty: {
+						type: 'int',
+						description: 'The difficulty to use. (0 = Beginner, 1 = Easy, 2 = Medium, 3 = Hard, 4 = Challenge/Expert, 5 = Edit)',
+						condition: '0-5'
+					}
+				},
+				description: 'Sets the DifficultyMeter\'s data from `meter` and `difficulty`.'
+			},
+			SetFromSteps: {
+				args: {
+					steps: {
+						type: 'Steps',
+						description: 'The Steps instance to use.'
+					}
+				},
+				description: 'Sets the DifficultyMeter\'s data from `steps`.'
+			},
+			SetFromTrail: {
+				args: {
+					trail: {
+						type: 'Trail',
+						description: 'The Trail instance to use.'
+					}
+				},
+				description: 'Sets the DifficultyMeter\'s data from `trail`.'
+			},
 		},
 		FadingBanner: {
 			inherits: 'ActorFrame',
