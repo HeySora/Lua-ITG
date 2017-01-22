@@ -113,16 +113,22 @@ h1 {
 	color: #666;
 }
 
+#classes th:nth-child(1) {
+	width: 100px;
+}
+
+#classes td:nth-child(1) img {
+	display: block;
+	margin: auto;
+}
+
+
 #classes span:not(.no-mono),
 #classes span:not(.no-mono) *,
 #classes a.code,
 #classes a.code * {
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	font-size: 17px;
-}
-
-#classes th:nth-child(1) {
-	width: 100px;
 }
 
 #classes td:nth-child(2) div:first-child,
