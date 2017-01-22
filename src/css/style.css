@@ -121,6 +121,10 @@ h1 {
 	font-size: 17px;
 }
 
+#classes th:nth-child(1) {
+	width: 100px;
+}
+
 #classes td:nth-child(2) div:first-child,
 #classes td:nth-child(2) div:first-child * {
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
