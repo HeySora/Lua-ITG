@@ -2343,7 +2343,24 @@ data = {
 			}
 		},
 		NoteSkinManager: {
-			
+			GetPath: {
+				returnType: 'string',
+				args: {
+					button: {
+						type: 'string',
+						description: 'The wanted button.'
+					},
+					element: {
+						type: 'string',
+						description: 'The wanted element.'
+					}
+				},
+				description: 'Gets the path for a specific button and element.'
+			},
+			GetNoteSkinNames: {
+				returnType: 'table',
+				description: 'Creates a table of every NoteSkin names that are valid for the current GameType.'
+			}
 		},
 		PlayerStageStats: {
 			
