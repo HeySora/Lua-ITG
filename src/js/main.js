@@ -1022,7 +1022,8 @@ data = {
 				args: {
 					index: {
 						type: 'int',
-						description: 'The index of the child.'
+						description: 'The index of the child.',
+						condition: '1-'
 					}
 				},
 				description: 'Gets the Actor of a child at index `index`.'
@@ -1317,7 +1318,7 @@ data = {
 			},
 			GetPlayMode: {
 				returnType: 'int',
-				description: 'Gets the current PlayMode. (0 = Nonstop, 1 = Oni, 2 = Endless, 3 = Survival)'
+				description: 'Gets the current PlayMode. (1 = Nonstop, 2 = Oni, 3 = Endless)'
 			},
 			GetTranslitFullTitle: {
 				returnType: 'string',
@@ -1426,7 +1427,584 @@ data = {
 			}
 		},
 		GameState: {
-			
+			AnyPlayerHasRankingFeats: {
+				returnType: 'bool',
+				description: 'Returns `true` if any player has performed a ranked game (= not disqualified from ranking).'
+			},
+			ApplyGameCommand: {
+				args: {
+					cmd: {
+						type: 'string',
+						description: 'The command to execute.'
+					},
+					playerNumber: {
+						type: 'int',
+						description: 'Optional. If given, the command will be executed only for this player. Beware ! 1 = Player 1, 2 = Player 2, it isn\'t like the others methods involving a playerNumber argument !',
+						condition: '1-2'
+					}
+				},
+				description: 'Executes `cmd`, eventually for a specific player or for both.'
+			},
+			DelayedGameCommand: {
+				args: {
+					cmd: {
+						type: 'string',
+						description: 'The command to execute.'
+					}
+				},
+				description: 'Executes `cmd` for both players, at the next "update" of the game (basically at the next frame).'
+			},
+			Env: {
+				returnType: 'table',
+				description: 'Gets the Environment table of the Game.'
+			},
+			FinishSong: {
+				notitg: 1,
+				description: 'Finishes the song. Equal to "Send Notes Ended" in the Debug Menu.'
+			},
+			GetCoinMode: {
+				returnType: 'int',
+				description: 'Gets the current coin mode. (0 = Home, 1 = Pay, 2 = Free)'
+			},
+			GetCoins: {
+				returnType: 'int',
+				description: 'Gets the remaining coins.'
+			},
+			GetCoinsNeededToJoin: {
+				returnType: 'int',
+				description: 'Gets the amount of coins needed to join. (if 3 coins are needed, and 1 is inserted, it will return 2)'
+			},
+			GetCourseSongIndex: {
+				returnType: 'int',
+				description: 'Gets the index of the current song in the current course. (Indexes start from 0 with this method !)'
+			},
+			GetCurBPS: {
+				returnType: 'float',
+				description: 'Gets the current BPS. Multiply this by 60 to get the current BPM.'
+			},
+			GetCurrentCourse: {
+				returnType: 'Course',
+				description: 'Gets the current Course.'
+			},
+			GetCurrentGame: {
+				returnType: 'Game',
+				description: 'Gets the current Game.'
+			},
+			GetCurrentSong: {
+				returnType: 'Song',
+				description: 'Gets the current Song-'
+			},
+			GetCurrentSteps: {
+				returnType: 'Steps',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Gets the current Steps for the specified Player.'
+			},
+			GetCurrentTrail: {
+				returnType: 'Trail',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (Beware ! 0 = Player 1, 1 = Player 2, it isn\'t like <a>GameState.ApplyGameCommand()</a> !)',
+						condition: '0-1'
+					}
+				},
+				description: 'Gets the current Trail for the specified Player.'
+			},
+			GetDerp: {
+				notitg: 1,
+				returnType: 'bool',
+				description: 'Returns `true`. Literally. Yeah.'
+			},
+			GetEasiestStepsDifficulty: {
+				returnType: 'int',
+				description: 'Gets the easiest difficulty chosen by the players. (0 = Beginner, 1 = Easy, 2 = Medium, 3 = Hard, 4 = Challenge/Expert, 5 = Edit)'
+			},
+			GetEditSourceSteps: {
+				returnType: 'Steps',
+				description: 'Gets the source Steps for the editor, or `nil` if not in Edit Mode.'
+			},
+			GetEnv: {
+				returnType: 'string',
+				args: {
+					key: {
+						type: 'string',
+						description: 'The key to store into the table.'
+					}
+				},
+				description: 'Gets the value stored in the Game\'s Environment Table, with the key `key`. You can get the entire table by using <a>GameState.Env()</a>.'
+			},
+			GetFileStructure: {
+				notitg: 1,
+				returnType: 'string',
+				args: {
+					path: {
+						type: 'string',
+						description: 'The path to list.'
+					}
+				},
+				description: 'Returns names from each files and directory in `path`. This function returns a variable amount of strings, you should call it with table.pack().',
+				example: 'local filesAndDirs = table.pack(GAMESTATE:GetFileStructure()); -- Put any returned strings into a unique table.'
+			},
+			GetInputMode: {
+				notitg: 1,
+				returnType: 'int',
+				description: 'Gets the InputMode. (0 = Normal, 1 = All)'
+			},
+			GetMasterPlayerNumber: {
+				returnType: 'int',
+				description: 'Gets the Master player number. Used in double mode to determine if the user is controlling the game via P1 or P2 side. (0 = Player 1, 1 = Player 2)'
+			},
+			GetNumPlayersEnabled: {
+				returnType: 'int',
+				description: 'Gets the number of enabled players. (Either 1 or 2)'
+			},
+			GetNumSidesJoined: {
+				returnType: 'int',
+				description: 'Gets the number of sides joined.'
+			},
+			GetPlayMode: {
+				returnType: 'int',
+				description: 'Gets the current PlayMode.'
+			},
+			GetPlayerDisplayName: {
+				returnType: 'string',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Gets the display name for the player `playerNumber`.'
+			},
+			GetPlayerNameFromNameEntry: {
+				notitg: 1,
+				returnType: 'string',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Gets the short name for the player `playerNumber`.'
+			},
+			GetPreferredDifficulty: {
+				returnType: 'int',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Gets the preferred difficulty for player `playerNumber`. (0 = Beginner, 1 = Easy, 2 = Medium, 3 = Hard, 4 = Challenge/Expert, 5 = Edit)'
+			},
+			GetPreferredSong: {
+				returnType: 'Song',
+				description: 'Gets the preferred song.'
+			},
+			GetPremium: {
+				returnType: 'int',
+				description: 'Returns the current Premium mode. (0 = None, 1 = Double for 1 credit, 2 = 2 players for 1 credit)'
+			},
+			GetScreenID: {
+				notitg: 1,
+				returnType: 'int',
+				description: 'Gets the Screen\'s ID. (Will return 573555 if in ScreenGameplay or if playing in ScreenEdit, or otherwise will return 0)'
+			},
+			GetShaderFlag: {
+				notitg: 1,
+				returnType: 'int',
+				description: 'Gets the first (at index 0) shader\'s flag.'
+			},
+			GetShaderFlagNum: {
+				notitg: 1,
+				returnType: 'int',
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the shader.',
+						condition: '0-9'
+					}
+				},
+				description: 'Gets the flag of the shader at index `index`.'
+			},
+			GetSongBeat: {
+				returnType: 'float',
+				description: 'Gets the current beat.'
+			},
+			GetSongBeatVisible: {
+				returnType: 'float',
+				description: 'Gets the current beat, without offsets / visual delays.'
+			},
+			GetSortOrder: {
+				returnType: 'int',
+				description: 'Gets the current sort order. (0 = Preferred, 1 = Group, 2 = Title, 3 = BPM, 4 = Popularity, 5 = Top Grades, 6 = Artist, 7 = Genre, 8 = Song Length, 9 = Easy Meter, 10 = Medium Meter, 11 = Hard Meter, 12 = Challenge/Expert Meter, 13 = Mode Menu, 14 = All Courses, 15 = Nonstop Courses, 16 = Oni Courses, 17 = Endless Courses, 18 = Roulette)'
+			},
+			GetVersionDate: {
+				notitg: 1,
+				returnType: 'string',
+				description: 'Gets the Version Date. (e. g. "20170105")'
+			},
+			GetX: {
+				notitg: 1,
+				returnType: 'float',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					},
+					column: {
+						type: 'int',
+						description: 'The column to use.',
+						condition: '0-'
+					},
+					yOffset: {
+						type: 'float',
+						description: 'The vertical offset.'
+					}
+				},
+				description: 'Gets the X offset of the column `column` from the center of the screen.'
+			},
+			GetY: {
+				notitg: 1,
+				returnType: 'float',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					},
+					column: {
+						type: 'int',
+						description: 'The column to use.',
+						condition: '0-'
+					},
+					yOffset: {
+						type: 'float',
+						description: 'The vertical offset.'
+					}
+				},
+				description: 'Gets the Y offset of the column `column` from the center of the screen.'
+			},
+			GetZ: {
+				notitg: 1,
+				returnType: 'float',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					},
+					column: {
+						type: 'int',
+						description: 'The column to use.',
+						condition: '0-'
+					},
+					yOffset: {
+						type: 'float',
+						description: 'The vertical offset.'
+					}
+				},
+				description: 'Gets the Z offset of the column `column` from the center of the screen.'
+			},
+			IsCourseMode: {
+				returnType: 'bool',
+				description: 'Returns `true` if we\'re in Marathon mode.'
+			},
+			IsDemonstration: {
+				returnType: 'bool',
+				description: 'Returns `true` if a demonstration is currently running.'
+			},
+			IsDisqualified: {
+				returnType: 'bool',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Returns `true` if the specified player is disqualified.'
+			},
+			IsEditMode: {
+				notitg: 1,
+				returnType: 'bool',
+				description: 'Returns `true` if we\'re in Edit mode.'
+			},
+			IsEventMode: {
+				returnType: 'bool',
+				description: 'Returns `true` if event mode is enabled.'
+			},
+			IsExtraStage: {
+				returnType: 'bool',
+				description: 'Returns `true` if we\'re in the first extra stage.'
+			},
+			IsExtraStage2: {
+				returnType: 'bool',
+				description: 'Returns `true` if we\'re in the second extra stage.'
+			},
+			IsGoalComplete: {
+				returnType: 'bool',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Returns `true` if the specified player has completed the current goal.'
+			},
+			IsHumanPlayer: {
+				returnType: 'bool',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Returns `true` if the specified player is human. (Is not a bot)'
+			},
+			IsPlayerEnabled: {
+				returnType: 'bool',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Returns `true` if the specified player is enabled.'
+			},
+			IsSideJoined: {
+				returnType: 'bool',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Returns `true` if the specified player has joined the game.'
+			},
+			IsSyncDataChanged: {
+				returnType: 'bool',
+				description: 'Returns `true` if the sync data changed. (If the user edited the song/machine offset.)'
+			},
+			IsWinner: {
+				returnType: 'bool',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Returns `true` if the specified player is the winner.'
+			},
+			JoinPlayer: {
+				notitg: 1,
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Joins the specified player, without deducting any coin.'
+			},
+			KeyPress: {
+				notitg: 1,
+				args: {
+					key: {
+						type: 'int',
+						description: 'The wanted key code.'
+					}
+				},
+				description: 'Simulates a key press.'
+			},
+			PlayerIsUsingModifier: {
+				returnType: 'bool',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					},
+					modifier: {
+						type: 'string',
+						description: 'The modifier to check.'
+					}
+				},
+				description: 'Returns `true` if the specified player is using the specified modifier.'
+			},
+			PlayerUsingBothSides: {
+				returnType: 'bool',
+				description: 'Returns `true` if we\'re in double mode.'
+			},
+			PlayersCanJoin: {
+				returnType: 'bool',
+				description: 'Returns `true` if players can join the game.'
+			},
+			ReloadSteps: {
+				notitg: 1,
+				description: 'Reloads the steps. Needed after doing <a>GameState.SetSongBeat()</a>.'
+			},
+			SetCurrentCourse: {
+				args: {
+					course: {
+						type: 'Course',
+						description: 'The course to use.'
+					}
+				},
+				description: 'Sets the current course to `course`.'
+			},
+			SetCurrentSong: {
+				args: {
+					song: {
+						type: 'Song',
+						description: 'The song to use.'
+					}
+				},
+				description: 'Sets the current song to `song`.'
+			},
+			SetCurrentSteps: {
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					},
+					steps: {
+						type: 'Steps',
+						description: 'The steps to use.'
+					}
+				},
+				description: 'Sets the current steps of the specified player to `steps`.'
+			},
+			SetEnv: {
+				returnType: 'string',
+				args: {
+					key: {
+						type: 'string',
+						description: 'The key to store into the table.'
+					},
+					value: {
+						type: 'string',
+						description: 'The value to store into the table.'
+					}
+				},
+				description: 'Stores a value in the Game\'s Environment Table, with the key `key`.'
+			},
+			SetInputMode: {
+				notitg: 1,
+				args: {
+					inputMode: {
+						type: 'int',
+						description: 'The new InputMode. (0 = Normal, 1 = All)',
+						condition: '0-1'
+					}
+				},
+				description: 'Sets the InputMode to `inputMode`.'
+			},
+			SetPreferredSong: {
+				args: {
+					song: {
+						type: 'Song',
+						description: 'The song to use.'
+					}
+				},
+				description: 'Sets the preferred song to `song`.'
+			},
+			SetScreenID: {
+				notitg: 1,
+				args: {
+					id: {
+						type: 'int',
+						description: 'The new ID.'
+					}
+				},
+				description: 'Sets the Screen\'s ID.'
+			},
+			SetShaderFlag: {
+				notitg: 1,
+				args: {
+					flag: {
+						type: 'int',
+						description: 'The shader flag to set.',
+						condition: '0-9'
+					}
+				},
+				description: 'Sets the first (at index 0) shader\'s flag.'
+			},
+			SetShaderFlagNum: {
+				notitg: 1,
+				args: {
+					flag: {
+						type: 'int',
+						description: 'The shader flag to set.',
+					},
+					index: {
+						type: 'int',
+						description: 'The index of the shader.',
+						condition: '0-9'
+					}
+				},
+				description: 'Sets the flag of the shader at index `index`.'
+			},
+			SetSongBeat: {
+				notitg: 1,
+				args: {
+					beat: {
+						type: 'float',
+						description: 'The target beat.'
+					}
+				},
+				description: 'Sets the beat of the song. You must do <a>GameState.ReloadSteps()</a> right after to make it work.'
+			},
+			SetSongPosition: {
+				notitg: 1,
+				args: {
+					position: {
+						type: 'float',
+						description: 'The target position, in seconds.'
+					}
+				},
+				description: 'Sets the position of the song. You must do <a>GameState.ReloadSteps()</a> right after to make it work.'
+			},
+			SetTemporaryEventMode: {
+				args: {
+					enable: {
+						type: 'bool',
+						description: '`true` to enable it, `false` to disable it.'
+					}
+				},
+				description: 'Enables/Disables the temporary Event Mode.'
+			},
+			StageIndex: {
+				returnType: 'int',
+				description: 'Gets the current song\'s index, starting at 1.'
+			},
+			UnloadSteps: {
+				notitg: 1,
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Unloads the steps of the specified player.'
+			}
 		},
 		HelpDisplay: {
 			inherits: 'BitmapText',
@@ -1435,9 +2013,6 @@ data = {
 			
 		},
 		HighScoreList: {
-			
-		},
-		InputHandler_HBT: {
 			
 		},
 		MemoryCardManager: {
