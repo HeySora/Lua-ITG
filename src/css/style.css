@@ -116,6 +116,13 @@ h1 {
 #classes th:nth-child(1) {
 	width: 100px;
 }
+#enums table {
+	margin: auto;
+	width: 80%;
+}
+#enums th {
+	width: 50%;
+}
 
 #classes td:nth-child(1) img {
 	display: block;
