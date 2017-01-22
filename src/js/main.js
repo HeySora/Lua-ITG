@@ -2057,7 +2057,10 @@ data = {
 			}
 		},
 		HighScoreList: {
-			
+			GetHighScores: {
+				returnType: 'table',
+				description: 'Gets the table of the high scores.'
+			}
 		},
 		MemoryCardManager: {
 			
