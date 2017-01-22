@@ -2363,7 +2363,114 @@ data = {
 			}
 		},
 		PlayerStageStats: {
-			
+			FullCombo: {
+				returnType: 'bool',
+				description: 'Returns `true` if a Full Combo was obtained'
+			},
+			GetActualDancePoints: {
+				returnType: 'int',
+				description: 'Gets the actual DP.'
+			},
+			GetCaloriesBurned: {
+				returnType: 'float',
+				description: 'Gets the number of calories burned.'
+			},
+			GetCurrentCombo: {
+				returnType: 'int',
+				description: 'Gets the current combo.'
+			},
+			GetCurrentLife: {
+				returnType: 'float',
+				description: 'Gets the percentage (between 0 and 1) of the current life.'
+			},
+			GetGrade: {
+				returnType: 'int',
+				description: 'Gets the grade. (0 = Tier 1, 1 = Tier 2, [...], 19 = Tier 20, 20 = Failed)'
+			},
+			GetHoldNoteScores: {
+				returnType: 'int',
+				args: {
+					holdNoteScore: {
+						type: 'int',
+						description: 'The wanted judgment. (0 = None, 1 = No Good, 2 = OK/Held)',
+						condition: '0-2'
+					}
+				},
+				description: 'Gets the amount of judgments corresponding to `holdNoteScore`.'
+			},
+			GetLifeRemainingSeconds: {
+				returnType: 'float',
+				description: 'Gets the life remaining seconds.'
+			},
+			GetPercentDancePoints: {
+				returnType: 'float',
+				description: 'Gets the DP percentage.'
+			},
+			GetPlayedSteps: {
+				returnType: 'table',
+				description: 'Creates a table (of Steps instances) of every played steps.'
+			},
+			GetPossibleDancePoints: {
+				returnType: 'int',
+				description: 'Gets the number of possible DP.'
+			},
+			GetPossibleSteps: {
+				returnType: 'table',
+				description: 'Creates a table (of Steps instances) of every possible steps.'
+			},
+			GetScore: {
+				returnType: 'int',
+				description: 'Gets the score.'
+			},
+			GetSurvivalSeconds: {
+				returnType: 'float',
+				description: 'Gets the amount of seconds the player survived.'
+			},
+			GetTapNoteScores: {
+				returnType: 'int',
+				args: {
+					tapNoteScore: {
+						type: 'int',
+						description: 'The wanted judgment. (0 = None, 1 = Hit Mine, 2 = Avoided Mine, 3 = Miss, 4 = Way Off/Boo, 5 = Decent/Good, 6 = Great, 7 = Perfect/Excellent, 8 = Marvelous/Fantastic)',
+						condition: '0-2'
+					}
+				},
+				description: 'Gets the amount of judgments corresponding to `tapNoteScore`.'
+			},
+			MaxCombo: {
+				returnType: 'int',
+				description: 'Gets the max combo.'
+			},
+			SetActualDancePoints: {
+				notitg: 1,
+				args: {
+					amount: {
+						type: 'int',
+						description: 'The new amount.'
+					}
+				},
+				description: 'Sets the amount of DP to `amount`.'
+			},
+			SetPossibleDancePoints: {
+				notitg: 1,
+				args: {
+					amount: {
+						type: 'int',
+						description: 'The new amount.'
+					}
+				},
+				description: 'Sets the amount of possible DP to `amount`.'
+			},
+			SetScore: {
+				notitg: 1,
+				args: {
+					score: {
+						type: 'int',
+						description: 'The new score.'
+					}
+				},
+				description: 'Sets the score to `score`.'
+			}
 		},
 		PrefsManager: {
 			
