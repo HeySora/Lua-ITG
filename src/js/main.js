@@ -1509,12 +1509,21 @@ function checkLuaObject(type) {
 	return ($.inArray(type, objects) > -1) ? 'object' : type.toLowerCase();
 }
 
+// Vérifier si une méthode est exclusive à NotITG ou non.
+function checkNotITG(className, methodName) {
+	if (typeof data.classes[className][methodName] === 'undefined') {
+		return false;
+	}
+	return (typeof data.classes[className][methodName].notitg !== 'undefined');
+}
+
 // Replacer mots-clés, liens, et variables
 function replaceKeywords(str, args) {
 	var ret = str.replace('`true`', '<span class="bool">true</span>').replace('`false`', '<span class="bool">false</span>').replace('`nil`', '<span class="bool">nil</span>');
 
 	ret = ret.replace(/<a>([^<>]+)\.([^<>]+)\(\)<\/a>/gi, function(match, className, methodName) {
-		return '<a class="code" href="#'+ className.toLowerCase() +'_'+ methodName.toLowerCase() +'">'+ className +'.'+ methodName +'()</a>';
+		var isNotITG = checkNotITG(className, methodName);
+		return '<a class="code" href="#'+ className +'_'+ methodName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg' ) +'.png"/>'+ className +'.'+ methodName +'()</a>';
 	})
 
 	if (typeof args !== 'undefined') {
@@ -1727,7 +1736,7 @@ function parseClasses() {
 			});
 
 			// Ajout de l'id, utilisé pour les liens
-			$firstElement.attr('id', k_class.toLowerCase() +'_'+ k_method.toLowerCase());
+			$firstElement.attr('id', k_class +'_'+ k_method);
 
 			// Ajout des cellules dans la ligne, et dans le tableau
 			$row.append($firstElement).append($secondElement);

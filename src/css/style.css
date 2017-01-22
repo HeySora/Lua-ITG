@@ -122,7 +122,6 @@ h1 {
 	margin: auto;
 }
 
-
 #classes span:not(.no-mono),
 #classes span:not(.no-mono) *,
 #classes a.code,
@@ -135,6 +134,11 @@ h1 {
 #classes td:nth-child(2) div:first-child * {
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	font-size: 20px;
+}
+
+#classes a > img {
+	width: 18px;
+	margin-right: 4px;
 }
 
 #classes span {
