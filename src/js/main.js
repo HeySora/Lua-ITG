@@ -2473,7 +2473,29 @@ data = {
 			}
 		},
 		PrefsManager: {
-			
+			GetPreference: {
+				returnType: 'mixed',
+				args: {
+					pref: {
+						type: 'string',
+						description: 'The name of the preference.'
+					}
+				},
+				description: 'Gets the value of the preference `pref`.'
+			},
+			SetPreference: {
+				args: {
+					pref: {
+						type: 'string',
+						description: 'The name of the preference.'
+					},
+					value: {
+						type: 'mixed',
+						description: 'The new value.'
+					}
+				},
+				description: 'Set the value of a preference.'
+			}
 		},
 		Profile: {
 			
