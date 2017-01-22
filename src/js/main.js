@@ -303,7 +303,7 @@ data = {
 			},
 			Draw: {
 				notitg: 1,
-				description: '(Re-)Draws the Actor manually.'
+				description: '(Re-)Draws the Actor manually. Can be useful, for example, with <a>ActorFrame.SetDrawFunction()</a>.'
 			},
 			draworder: {
 				args: {
@@ -1164,7 +1164,7 @@ data = {
 						description: 'Enable or not floats.'
 					}
 				},
-				description: 'Enables/Disables floats. It is disables by default.'
+				description: 'Enables/Disables floats. It is disabled by default.'
 			},
 			EnablePreserveTexture: {
 				notitg: 1,
@@ -1256,7 +1256,7 @@ data = {
 			},
 			play: {
 				notitg: 1,
-				description: 'Plays the sound.'
+				description: 'Plays the sound from the beginning. If you just want to unpause a sound, see <a>ActorSound.pause()</a>.'
 			},
 			stop: {
 				notitg: 1,
