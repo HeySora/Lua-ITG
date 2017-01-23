@@ -1464,7 +1464,7 @@ data = {
 			},
 			GetCoinMode: {
 				returnType: 'int',
-				description: 'Gets the current coin mode.'
+				description: 'Gets the current coin mode. See <a>Enum_CoinMode</a>.'
 			},
 			GetCoins: {
 				returnType: 'int',
@@ -2784,7 +2784,7 @@ function replaceKeywords(str, args) {
 	// Enums
 	ret = ret.replace(/<a>Enum_([^<>]+)<\/a>/gi, function(match, enumName) {
 		var isNotITG = checkNotITG(enumName);
-		return '<a class="code" href="#Enum_'+ enumName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ enumName +'()</a>';
+		return '<a class="code" href="#Enum_'+ enumName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ enumName +'</a>';
 	})
 
 	// Classes
@@ -3097,7 +3097,33 @@ function init() {
 		return false;
 	});
 
-	$('#classes').find('table').find('a[href*="#"]:not([href="#"])').click(function() {
+	// Enums
+	$('section').find('a[href*="#Enum_"]:not([href="#"])').click(function() {
+		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			if (target.length) {
+				animating = true;
+				$('#main').animate({
+					scrollTop: $('#main').scrollTop() + target.offset().top - (($(window).height() - target.height())/2)
+				}, 900);
+
+				target.find('th, td').delay(700).animate({
+					backgroundColor: '#888'
+				}, 700, 'swing', function() {
+					target.find('th, td').animate({
+						backgroundColor: 'rgba(0, 0, 0, 0)'
+					}, 1300, 'swing', function() {
+						animating = false;
+					});
+				});
+			}
+		}
+		return false;
+	});
+
+	// Classes
+	$('section').find('a[href*="#"]:not([href="#"])').click(function() {
 		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 			var target = $(this.hash);
 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
