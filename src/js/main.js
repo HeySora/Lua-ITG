@@ -2650,7 +2650,7 @@ data = {
 	},
 	enums: {
 		CoinMode: {
-			description: 'See <a>Actor.GetCoinMode()</a>.',
+			description: 'See <a>GameState.GetCoinMode()</a>.',
 			Home: 0,
 			Pay: 1,
 			Free: 2
