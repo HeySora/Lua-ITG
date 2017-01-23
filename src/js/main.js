@@ -1344,7 +1344,7 @@ data = {
 					},
 					difficulty: {
 						type: 'int',
-						description: 'The difficulty to use.',
+						description: 'The difficulty to use. See <a>Enum_Difficulty</a>.',
 						condition: '0-5'
 					}
 				},
@@ -1523,7 +1523,7 @@ data = {
 			},
 			GetEasiestStepsDifficulty: {
 				returnType: 'int',
-				description: 'Gets the easiest difficulty chosen by the players.'
+				description: 'Gets the easiest difficulty chosen by the players. See <a>Enum_Difficulty</a>.'
 			},
 			GetEditSourceSteps: {
 				returnType: 'Steps',
@@ -1554,7 +1554,7 @@ data = {
 			GetInputMode: {
 				notitg: 1,
 				returnType: 'int',
-				description: 'Gets the InputMode.'
+				description: 'Gets the InputMode. See <a>Enum_InputMode</a>.'
 			},
 			GetMasterPlayerNumber: {
 				returnType: 'int',
@@ -1604,7 +1604,7 @@ data = {
 						condition: '0-1'
 					}
 				},
-				description: 'Gets the preferred difficulty for player `playerNumber`.'
+				description: 'Gets the preferred difficulty for player `playerNumber`. See <a>Enum_Difficulty</a>.'
 			},
 			GetPreferredSong: {
 				returnType: 'Song',
@@ -1612,7 +1612,7 @@ data = {
 			},
 			GetPremium: {
 				returnType: 'int',
-				description: 'Returns the current Premium mode.'
+				description: 'Returns the current Premium mode. See <a>Enum_Premium</a>.'
 			},
 			GetScreenID: {
 				notitg: 1,
@@ -1646,7 +1646,7 @@ data = {
 			},
 			GetSortOrder: {
 				returnType: 'int',
-				description: 'Gets the current sort order.'
+				description: 'Gets the current sort order. See <a>Enum_SortOrder</a>.'
 			},
 			GetVersionDate: {
 				notitg: 1,
@@ -1910,7 +1910,7 @@ data = {
 				args: {
 					inputMode: {
 						type: 'int',
-						description: 'The new InputMode.',
+						description: 'The new InputMode. See <a>Enum_InputMode</a>.',
 						condition: '0-1'
 					}
 				},
@@ -2072,7 +2072,7 @@ data = {
 						condition: '0-1'
 					}
 				},
-				description: 'Gets the state of the specified player\'s card.'
+				description: 'Gets the state of the specified player\'s card. See <a>Enum_MemoryCardState</a>.'
 			}
 		},
 		MessageManager: {
@@ -2199,7 +2199,7 @@ data = {
 				args: {
 					mode: {
 						type: 'int',
-						description: 'The polygon mode.',
+						description: 'The polygon mode. See <a>Enum_PolygonMode</a>.',
 						condition: '0-1'
 					}
 				},
@@ -2385,14 +2385,14 @@ data = {
 			},
 			GetGrade: {
 				returnType: 'int',
-				description: 'Gets the grade.'
+				description: 'Gets the grade. See <a>Enum_Grade</a>.'
 			},
 			GetHoldNoteScores: {
 				returnType: 'int',
 				args: {
 					holdNoteScore: {
 						type: 'int',
-						description: 'The wanted judgment.',
+						description: 'The wanted judgment. See <a>Enum_HoldNoteScore</a>.',
 						condition: '0-2'
 					}
 				},
@@ -2431,7 +2431,7 @@ data = {
 				args: {
 					tapNoteScore: {
 						type: 'int',
-						description: 'The wanted judgment.',
+						description: 'The wanted judgment. See <a>Enum_TapNoteScore</a>.',
 						condition: '0-2'
 					}
 				},
