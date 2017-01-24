@@ -2748,7 +2748,58 @@ data = {
 			}
 		},
 		RageDisplay: {
-			
+			ChangeCentering: {
+				notitg: 1,
+				args: {
+					translateX: {
+						type: 'int',
+						description: 'The X translation to apply. 0 by default.'
+					},
+					translateY: {
+						type: 'int',
+						description: 'The Y translation to apply. 0 by default.'
+					},
+					addWidth: {
+						type: 'int',
+						description: 'The width to add. 0 by default.'
+					},
+					addHeight: {
+						type: 'int',
+						description: 'The height to add. 0 by default.'
+					}
+				},
+				description: 'Change the centering point of the screen by translating the screen or editing its dimensions.'
+			},
+			GetCumFPS: {
+				notitg: 1,
+				returnType: 'int',
+				description: 'Gets the cumulative FPS.'
+			},
+			GetDisplayHeight: {
+				notitg: 1,
+				returnType: 'int',
+				description: 'Gets the height of the display (game window).'
+			},
+			GetDisplayWidth: {
+				notitg: 1,
+				returnType: 'int',
+				description: 'Gets the width of the display (game window).'
+			},
+			GetFPS: {
+				notitg: 1,
+				returnType: 'int',
+				description: 'Gets the number of FPS.'
+			},
+			GetVendor: {
+				notitg: 1,
+				returnType: 'string',
+				description: 'Gets the vendor of the Graphic Driver.'
+			},
+			GetVPF: {
+				notitg: 1,
+				returnType: 'int',
+				description: 'Gets the VPF.'
+			}
 		},
 		RageInput: {
 			
