@@ -2812,7 +2812,70 @@ data = {
 			}
 		},
 		RageSound: {
-			
+			GetSoundPosition: {
+				notitg: 1,
+				returnType: 'float',
+				description: 'Gets the sound position, in seconds.'
+			},
+			pan: {
+				notitg: 1,
+				args: {
+					balance: {
+						type: 'float',
+						description: 'The new balance to apply. (0 = Left, 0.5 = Center, 1 = Right)',
+						condition: '0-1'
+					}
+				},
+				description: 'Balances the sound.'
+			},
+			pitch: {
+				notitg: 1,
+				args: {
+					speed: {
+						type: 'float',
+						description: 'The new pitch.',
+						condition: '0-100'
+					}
+				},
+				description: 'Alias of <a>RageSound.speed()</a>.'
+			},
+			speed: {
+				notitg: 1,
+				args: {
+					speed: {
+						type: 'float',
+						description: 'The new speed.',
+						condition: '0-100'
+					}
+				},
+				description: 'Changes the speed of the RageSound.'
+			},
+			SetParam: {
+				notitg: 1,
+				args: {
+					param: {
+						type: 'string',
+						description: 'The parameter name.',
+						condition: ['StartSecond', 'Pitch', 'Speed', 'Pan', 'Volume']
+					},
+					value: {
+						type: 'float',
+						description: 'The value to assign.'
+					}
+				},
+				description: 'Sets a property value.'
+			},
+			volume: {
+				notitg: 1,
+				args: {
+					volume: {
+						type: 'float',
+						description: 'The volume percentage.',
+						condition: '0-1'
+					}
+				},
+				description: 'Changes the volume.'
+			}
 		},
 		RageTexture: {
 			
