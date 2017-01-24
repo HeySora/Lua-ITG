@@ -2705,7 +2705,35 @@ data = {
 			}
 		},
 		ProfileManager: {
-			
+			GetMachineProfile: {
+				returnType: 'Profile',
+				description: 'Gets the machine profile.'
+			},
+			GetProfile: {
+				returnType: 'Profile',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Gets the profile for the player `playerNumber`.'
+			},
+			IsPersistentProfile: {
+				returnType: 'bool',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Returns true if the profile for the player `playerNumber` is persistent.'
+			},
+			SaveMachineProfile: {
+				description: 'Saves the machine profile.'
+			}
 		},
 		RadarValues: {
 			
