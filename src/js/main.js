@@ -2802,7 +2802,14 @@ data = {
 			}
 		},
 		RageInput: {
-			
+			GetDescriptions: {
+				returnType: 'table',
+				description: 'Creates a table of detected input devices\' descriptions.'
+			},
+			Reset: {
+				notitg: 1,
+				description: 'Reloads every input devices.'
+			}
 		},
 		RageSound: {
 			
