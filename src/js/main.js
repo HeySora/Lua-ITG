@@ -2503,85 +2503,205 @@ data = {
 				description: 'Gets the amount of calories burned today.'
 			},
 			GetCoursesActual: {
-				returnType: '',
-				description: ''
+				returnType: 'float',
+				args: {
+					stepsType: {
+						type: 'int',
+						description: 'The steps\' type. See <a>Enum_StepsType</a>.'
+					},
+					difficulty: {
+						type: 'int',
+						description: 'The difficulty. See <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Gets a composite of high scores on every course matched by `stepsType` and `difficulty`.'
 			},
 			GetCoursesPercentComplete: {
-				returnType: '',
-				description: ''
+				returnType: 'float',
+				args: {
+					stepsType: {
+						type: 'int',
+						description: 'The steps\' type. See <a>Enum_StepsType</a>.'
+					},
+					difficulty: {
+						type: 'int',
+						description: 'The difficulty. See <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Gets the percentage of completed courses matching `stepsType` and `difficulty`.'
 			},
 			GetCoursesPossible: {
-				returnType: '',
-				description: ''
+				returnType: 'float',
+				args: {
+					stepsType: {
+						type: 'int',
+						description: 'The steps\' type. See <a>Enum_StepsType</a>.'
+					},
+					difficulty: {
+						type: 'int',
+						description: 'The difficulty. See <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Gets the possible score of courses matched by `stepsType` and `difficulty`.'
 			},
 			GetGoalCalories: {
-				returnType: '',
-				description: ''
+				returnType: 'int',
+				description: 'Gets the number of calories needed for the goal.'
 			},
 			GetGoalSeconds: {
-				returnType: '',
-				description: ''
+				returnType: 'int',
+				description: 'Gets the number of seconds needed for the goal.'
 			},
 			GetGoalType: {
-				returnType: '',
-				description: ''
+				returnType: 'int',
+				description: 'Gets the goal type. See <a>Enum_GoalType</a>.'
 			},
 			GetSaved: {
-				returnType: '',
-				description: ''
+				returnType: 'table',
+				description: 'Gets the profile\'s data.'
 			},
 			GetSongNumTimesPlayed: {
 				notitg: 1,
-				returnType: '',
-				description: ''
+				returnType: 'int',
+				args: {
+					song: {
+						type: 'Song',
+						description: 'The song.'
+					}
+				},
+				description: 'Gets the number of times a song have been played (and completed).'
 			},
 			GetSongsActual: {
-				returnType: '',
-				description: ''
+				returnType: 'float',
+				args: {
+					stepsType: {
+						type: 'int',
+						description: 'The steps\' type. See <a>Enum_StepsType</a>.'
+					},
+					difficulty: {
+						type: 'int',
+						description: 'The difficulty. See <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Gets a composite of high scores on every song matched by `stepsType` and `difficulty`.'
 			},
 			GetSongsPercentComplete: {
-				returnType: '',
-				description: ''
+				returnType: 'float',
+				args: {
+					stepsType: {
+						type: 'int',
+						description: 'The steps\' type. See <a>Enum_StepsType</a>.'
+					},
+					difficulty: {
+						type: 'int',
+						description: 'The difficulty. See <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Gets the percentage of completed songs matching `stepsType` and `difficulty`.'
 			},
 			GetSongsPossible: {
-				returnType: '',
-				description: ''
+				returnType: 'float',
+				args: {
+					stepsType: {
+						type: 'int',
+						description: 'The steps\' type. See <a>Enum_StepsType</a>.'
+					},
+					difficulty: {
+						type: 'int',
+						description: 'The difficulty. See <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Gets the possible score of songs matched by `stepsType` and `difficulty`.'
 			},
 			GetTotalNumSongsPlayed: {
-				returnType: '',
-				description: ''
+				returnType: 'int',
+				description: 'Gets the total number of songs played.'
 			},
 			GetTotalStepsWithTopGrade: {
-				returnType: '',
-				description: ''
+				returnType: 'int',
+				args: {
+					stepsType: {
+						type: 'int',
+						description: 'The steps\' type. See <a>Enum_StepsType</a>.'
+					},
+					difficulty: {
+						type: 'int',
+						description: 'The difficulty. See <a>Enum_Difficulty</a>.'
+					},
+					grade: {
+						type: 'int',
+						description: 'The grade. See <a>Enum_Grade</a>.'
+					}
+				},
+				description: 'Gets the number of steps scored on a specific grade, matching `stepsType` and `difficulty`.'
 			},
 			GetTotalTrailsWithTopGrade: {
-				returnType: '',
-				description: ''
+				returnType: 'int',
+				args: {
+					stepsType: {
+						type: 'int',
+						description: 'The steps\' type. See <a>Enum_StepsType</a>.'
+					},
+					difficulty: {
+						type: 'int',
+						description: 'The difficulty. See <a>Enum_Difficulty</a>.'
+					},
+					grade: {
+						type: 'int',
+						description: 'The grade. See <a>Enum_Grade</a>.'
+					}
+				},
+				description: 'Gets the number of trails scored on a specific grade, matching `stepsType` and `difficulty`.'
 			},
 			GetWeightPounds: {
-				returnType: '',
-				description: ''
+				returnType: 'int',
+				description: 'Gets the weight of the player.'
 			},
 			IsCodeUnlocked: {
-				returnType: '',
-				description: ''
+				returnType: 'bool',
+				args: {
+					id: {
+						type: 'string',
+						descrpition: 'The ID of the song.'
+					}
+				},
+				description: 'Returns true if the song with ID `id` is unlocked for the player.'
 			},
 			SetGoalCalories: {
-				returnType: '',
-				description: ''
+				args: {
+					calories: {
+						type: 'int',
+						description: 'The new goal to set, in calories.'
+					}
+				},
+				description: 'Sets a new goal, to `calories`.'
 			},
 			SetGoalSeconds: {
-				returnType: '',
-				description: ''
+				args: {
+					seconds: {
+						type: 'int',
+						description: 'The new goal to set, in seconds.'
+					}
+				},
+				description: 'Sets a new goal, to `seconds`.'
 			},
 			SetGoalType: {
-				returnType: '',
-				description: ''
+				args: {
+					goalType: {
+						type: 'int',
+						description: 'The goal type. See <a>Enum_GoalType</a>.'
+					}
+				},
+				description: 'Sets the goal type.'
 			},
 			SetWeightPounds: {
-				returnType: '',
-				description: ''
+				args: {
+					weight: {
+						type: 'int',
+						description: 'The new weight to set, in pounds.'
+					}
+				},
+				description: 'Sets the new weight of the player.'
 			}
 		},
 		ProfileManager: {
@@ -2664,7 +2784,6 @@ data = {
 			Edit: 5
 		},
 		Grade: {
-			description: 'See <a>PlayerStageStats.GetGrade()</a>.',
 			"Tier 1": 0,
 			"Tier 2": 1,
 			"Tier 3": 2,
@@ -2686,6 +2805,11 @@ data = {
 			"Tier 19": 18,
 			"Tier 20": 19,
 			Failed: 20
+		},
+		GoalType: {
+			Calories: 0,
+			Time: 1,
+			None: 2
 		},
 		HoldNoteScore: {
 			None: 0,
@@ -2740,6 +2864,36 @@ data = {
 			"Oni Courses": 16,
 			"Endless Courses": 17,
 			Roulette: 18
+		},
+		StepsType: {
+			"Dance Single": 0,
+			"Dance Double": 1,
+			"Dance Couple": 2,
+			"Dance Solo": 3,
+			"Pump Single": 4,
+			"Pump Half Double": 5,
+			"Pump Double": 6,
+			"Pump Couple": 7,
+			"EZ2 Single": 8,
+			"EZ2 Double": 9,
+			"EZ2 Real": 10,
+			"Para Single": 11,
+			"Para Versus": 12,
+			"DS3DDX Single": 13,
+			"BM Single5": 14,
+			"BM Double5": 15,
+			"BM Single7": 16,
+			"BM Double7": 17,
+			"MANIAX Single": 18,
+			"MANIAX Double": 19,
+			"TECHNO Single4": 20,
+			"TECHNO Single5": 21,
+			"TECHNO Single8": 22,
+			"TECHNO Double4": 23,
+			"TECHNO Double5": 24,
+			"PNM Five": 25,
+			"PNM Nine": 26,
+			"Lights Cabinet": 27
 		},
 		TapNoteScore: {
 			None: 0,
