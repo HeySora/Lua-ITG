@@ -2736,7 +2736,16 @@ data = {
 			}
 		},
 		RadarValues: {
-			
+			GetValue: {
+				returnType: 'int',
+				args: {
+					category: {
+						type: 'int',
+						description: 'The RadarCategory to get. See <a>Enum_RadarCategory</a>.'
+					}
+				},
+				description: 'Gets the value of `category`.'
+			}
 		},
 		RageDisplay: {
 			
@@ -2870,6 +2879,19 @@ data = {
 			description: 'See <a>Model.SetPolygonMode()</a>.',
 			Fill: 0,
 			Line: 1
+		},
+		RadarCategory: {
+			Stream: 0,
+			Voltage: 1,
+			Air: 2,
+			Freeze: 3,
+			Chaos: 4,
+			TapsAndHolds: 5,
+			Jumps: 6,
+			Holds: 7,
+			Mines: 8,
+			Hands: 9,
+			Rolls: 10
 		},
 		SortOrder: {
 			description: 'See <a>GameState.GetSortOrder()</a>.',
