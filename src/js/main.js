@@ -2961,6 +2961,20 @@ data = {
 		},
 		RageTextureRenderTarget: {
 			inherits: 'RageTexture',
+			BeginRenderingTo: {
+				notitg: 1,
+				args: {
+					preserveTexture: {
+						type: 'bool',
+						description: 'Enable the "Preserve Texture" option.'
+					}
+				},
+				description: 'Begin the rendering to a texture process.'
+			},
+			FinishRenderingTo: {
+				notitg: 1,
+				description: 'Stops the rendering process.'
+			}
 		},
 		RollingNumbers: {
 			inherits: 'BitmapText',
@@ -3396,7 +3410,7 @@ function parseClasses() {
 
 			// Exemple
 			if (typeof v_method.example !== 'undefined') {
-				content.push('<strong>Example: </strong><br /><span class="example">'+ v_method.example +'</span>');
+				content.push('<strong>Example: </strong><br /><div class="example">'+ v_method.example +'</div>');
 			}
 
 			// Itération sur le contenu des divs

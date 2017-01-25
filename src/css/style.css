@@ -68,7 +68,7 @@ body > .row {
 }
 
 body > .row > .columns {
-	padding: 3rem 2rem;
+	padding: 2rem 1.5rem;
 	overflow-y: auto;
 }
 
@@ -119,6 +119,7 @@ h1 {
 #classes th:nth-child(1) {
 	width: 100px;
 }
+
 #enums table {
 	margin: auto;
 	width: 80%;
@@ -185,5 +186,8 @@ h1 {
 	border-radius: 6px;
 	padding: 2px;
 	color: #f8f8f2;
-	font-size: 16px !important;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	width: 100%;
+	word-break: break-all;
+	font-size: 14px;
 }
