@@ -3409,7 +3409,25 @@ data = {
 			}
 		},
 		Trail: {
-			
+			GetDifficulty: {
+				returnType: 'int',
+				description: 'Gets the difficulty. See <a>Enum_Difficulty</a>.'
+			},
+			GetLengthSeconds: {
+				returnType: 'float',
+				description: 'Gets the total length of the trail, in seconds.'
+			},
+			GetRadarValues: {
+				returnType: 'RadarValues',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Gets the RadarValues for a specific player. See <a>RadarValues.GetValue()</a>.'
+			}
 		},
 		UnlockManager: {
 			
