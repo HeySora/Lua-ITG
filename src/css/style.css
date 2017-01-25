@@ -57,12 +57,13 @@ body > .row {
 	text-align: right;
 }
 
-#classes table {
+#classes h4 + div {
 	overflow: hidden;
-	display: block;
+	margin: 0;
+	padding: 0;
 }
 
-#classes table.ready {
+#classes h4 + div.ready {
 	max-height: 0;
 	transition: 0.3s max-height ease-in-out;
 }

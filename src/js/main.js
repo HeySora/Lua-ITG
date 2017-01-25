@@ -3759,7 +3759,7 @@ function parseClasses() {
 		var $articleTitle = $('<h4></h4>')
 		.html(k_class + ((typeof v_class.inherits === 'string') ? ' : <a href="#Class_'+ v_class.inherits +'">'+ v_class.inherits +'</a>' : '') + ' <i class="fa fa-caret-down" aria-hidden="true"></i>')
 		.click(function() {
-			var table = $(this).parent().children('table');
+			var table = $(this).parent().children('div');
 			table.toggleClass('shown');
 			$(this).children('.fa').toggleClass('fa-caret-down fa-caret-up');
 			if (table.hasClass('shown')) {
@@ -3912,11 +3912,13 @@ function parseClasses() {
 		// Ajout du contenu du tableau dans le tableau
 		$table.append($tableBody);
 
+		var $divTable = $('<div></div>').append($table);
+
 		// Ajout du tableau et de l'article dans la section
-		$article.append($table);
+		$article.append($divTable);
 		$('#classes').append($article);
 
-		$table.attr('orig-height', $table.height()).addClass('ready');
+		$divTable.attr('orig-height', $divTable.height()).addClass('ready');
 	});
 
 }
