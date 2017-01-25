@@ -57,6 +57,16 @@ body > .row {
 	text-align: right;
 }
 
+#classes table {
+	overflow: hidden;
+	display: block;
+}
+
+#classes table.ready {
+	max-height: 0;
+	transition: 0.3s max-height ease-in-out;
+}
+
 #sidebar-content {
 	display: flex;
 	flex-direction: column;
@@ -126,6 +136,14 @@ h1 {
 }
 #enums th {
 	width: 50%;
+}
+
+#classes h4 {
+	cursor: pointer;
+}
+
+#classes h4 i.fa {
+	font-size: 1rem;
 }
 
 #classes td:nth-child(1) img {

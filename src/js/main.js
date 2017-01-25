@@ -3756,7 +3756,18 @@ function parseClasses() {
 
 		// Création de l'article
 		var $article = $('<article></article>').attr('id', 'Class_'+ k_class);
-		var $articleTitle = $('<h4></h4>').html(k_class + ((typeof v_class.inherits === 'string') ? ' : <a href="#'+ v_class.inherits +'">'+ v_class.inherits +'</a>' : ''));
+		var $articleTitle = $('<h4></h4>')
+		.html(k_class + ((typeof v_class.inherits === 'string') ? ' : <a href="#Class_'+ v_class.inherits +'">'+ v_class.inherits +'</a>' : '') + ' <i class="fa fa-caret-down" aria-hidden="true"></i>')
+		.click(function() {
+			var table = $(this).parent().children('table');
+			table.toggleClass('shown');
+			$(this).children('.fa').toggleClass('fa-caret-down fa-caret-up');
+			if (table.hasClass('shown')) {
+				table.css('max-height', table.attr('orig-height') +'px');
+			} else {
+				table.css('max-height', 0);
+			}
+		});
 		$article.append($articleTitle);
 
 		// Création du tableau de méthodes
@@ -3904,6 +3915,8 @@ function parseClasses() {
 		// Ajout du tableau et de l'article dans la section
 		$article.append($table);
 		$('#classes').append($article);
+
+		$table.attr('orig-height', $table.height()).addClass('ready');
 	});
 
 }
