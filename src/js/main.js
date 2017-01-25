@@ -2880,68 +2880,83 @@ data = {
 		RageTexture: {
 			GetImageHeight: {
 				notitg: 1,
-				returnType: '',
-				description: ''
+				returnType: 'float',
+				description: 'Gets the height of the image.'
 			},
 			GetImageWidth: {
 				notitg: 1,
-				returnType: '',
-				description: ''
+				returnType: 'float',
+				description: 'Gets the width of the image.'
 			},
 			GetNumFrames: {
 				notitg: 1,
-				returnType: '',
-				description: ''
+				returnType: 'int',
+				description: 'Gets the number of frames in the texture.'
 			},
 			GetPath: {
 				notitg: 1,
-				returnType: '',
-				description: ''
+				returnType: 'string',
+				description: 'Gets the path to the texture\'s file.'
 			},
 			GetSourceHeight: {
 				notitg: 1,
-				returnType: '',
+				returnType: 'Gets the source\'s height.',
 				description: ''
 			},
 			GetSourceWidth: {
 				notitg: 1,
-				returnType: '',
+				returnType: 'Gets the source\'s width.',
 				description: ''
 			},
 			GetTextureCoordRect: {
 				notitg: 1,
-				returnType: '',
-				description: ''
+				returnType: 'table',
+				description: 'Gets the coordinate of the texture as a table of floats : left, top, right, bottom.'
 			},
 			GetTextureHeight: {
 				notitg: 1,
-				returnType: '',
-				description: ''
+				returnType: 'float',
+				description: 'Gets the height of the texture.'
 			},
 			GetTextureWidth: {
 				notitg: 1,
-				returnType: '',
-				description: ''
+				returnType: 'float',
+				description: 'Gets the width of the texture.'
 			},
 			loop: {
 				notitg: 1,
-				returnType: '',
-				description: ''
+				args: {
+					enable: {
+						type: 'bool',
+						description: '`true` to loop the animation, `false` to play it only once.'
+					}
+				},
+				description: 'Determines if the animation should loop or not.'
 			},
 			position: {
 				notitg: 1,
-				returnType: '',
-				description: ''
+				args: {
+					position: {
+						type: 'float',
+						description: 'The position.'
+					}
+				},
+				description: 'Sets the position of the animation.'
 			},
 			rate: {
 				notitg: 1,
-				returnType: '',
-				description: ''
+				args: {
+					rate: {
+						type: 'float',
+						description: 'The rate to apply.',
+						condition: '0-1'
+					}
+				},
+				description: 'Sets the rate of the animation.'
 			},
 			Reload: {
 				notitg: 1,
-				returnType: '',
-				description: ''
+				description: 'Reloads the texture.'
 			}
 		},
 		RageTextureRenderTarget: {
