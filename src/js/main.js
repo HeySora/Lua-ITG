@@ -2878,7 +2878,71 @@ data = {
 			}
 		},
 		RageTexture: {
-			
+			GetImageHeight: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			},
+			GetImageWidth: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			},
+			GetNumFrames: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			},
+			GetPath: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			},
+			GetSourceHeight: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			},
+			GetSourceWidth: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			},
+			GetTextureCoordRect: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			},
+			GetTextureHeight: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			},
+			GetTextureWidth: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			},
+			loop: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			},
+			position: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			},
+			rate: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			},
+			Reload: {
+				notitg: 1,
+				returnType: '',
+				description: ''
+			}
 		},
 		RageTextureRenderTarget: {
 			inherits: 'RageTexture',
@@ -3415,7 +3479,7 @@ function init() {
 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 			if (target.length) {
 				$('#main').animate({
-					scrollTop: $('#main').scrollTop() + target.offset().top - (($(window).height())/2)
+					scrollTop: $('#main').scrollTop() + target.offset().top - 12
 				}, 900);
 			}
 		}
