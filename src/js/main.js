@@ -1505,11 +1505,6 @@ data = {
 				},
 				description: 'Gets the current Trail for the specified Player.'
 			},
-			GetDerp: {
-				notitg: 1,
-				returnType: 'bool',
-				description: 'Returns `true`. Literally. Yeah.'
-			},
 			GetEasiestStepsDifficulty: {
 				returnType: 'int',
 				description: 'Gets the easiest difficulty chosen by the players. See <a>Enum_Difficulty</a>.'
