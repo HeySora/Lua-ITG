@@ -3128,7 +3128,48 @@ data = {
 			}
 		},
 		SongManager: {
-			
+			FindCourse: {
+				returnType: 'Course',
+				args: {
+					name: {
+						type: 'string',
+						description: 'The name to match.'
+					}
+				},
+				description: 'Gets a course matching `name`, if found.'
+			},
+			FindSong: {
+				returnType: 'Song',
+				args: {
+					name: {
+						type: 'string',
+						description: 'The name to match.'
+					}
+				},
+				description: 'Gets a song matching `name`, if found.'
+			},
+			GetAllCourses: {
+				returnType: 'table',
+				args: {
+					includeAutogen: {
+						type: 'bool',
+						description: '`true` to include autogen courses.'
+					}
+				},
+				description: 'Gets a table of Course instances including every installed course.'
+			},
+			GetAllSongs: {
+				returnType: 'table',
+				description: 'Gets a table of Song instances including every installed song.'
+			},
+			GetRandomCourse: {
+				returnType: 'Course',
+				description: 'Gets a random course.'
+			},
+			GetRandomSong: {
+				returnType: 'Song',
+				description: 'Gets a random song.'
+			}
 		},
 		Sprite: {
 			inherits: 'Actor',
