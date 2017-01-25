@@ -1499,7 +1499,7 @@ data = {
 				args: {
 					playerNumber: {
 						type: 'int',
-						description: 'The player number. (Beware ! 0 = Player 1, 1 = Player 2, it isn\'t like <a>GameState.ApplyGameCommand()</a> !)',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
 						condition: '0-1'
 					}
 				},
@@ -3280,7 +3280,7 @@ data = {
 				args: {
 					playerNumber: {
 						type: 'int',
-						description: 'The player number. (Beware ! 0 = Player 1, 1 = Player 2, it isn\'t like <a>GameState.ApplyGameCommand()</a> !)',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
 						condition: '0-1'
 					}
 				},
@@ -3288,7 +3288,50 @@ data = {
 			}
 		},
 		StatsManager: {
-			
+			GetAccumStageStats: {
+				returnType: 'StageStats',
+				description: 'Gets a StageStats instance including every game until now.'
+			},
+			GetBestGrade: {
+				returnType: 'int',
+				description: 'Gets the best grade. See <a>Enum_Grade</a>.'
+			},
+			GetCurStageStats: {
+				returnType: 'StageStats',
+				description: 'Gets the current StageStats.'
+			},
+			GetFinalGrade: {
+				returnType: 'int',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Gets the final grade for the specified player. See <a>Enum_Grade</a>.'
+			},
+			GetPlayedStageStats: {
+				returnType: 'StageStats',
+				args: {
+					rounds: {
+						type: 'int',
+						description: 'The number of rounds to count.'
+					}
+				},
+				description: 'Gets a StageStats instance including the `rounds` last rounds played.'
+			},
+			GetStagesPlayed: {
+				returnType: 'int',
+				description: 'Gets the number of stages played.'
+			},
+			GetWorstGrade: {
+				returnType: 'int',
+				description: 'Gets the worst grade. See <a>Enum_Grade</a>.'
+			},
+			Reset: {
+				description: 'Resets the stats.'
+			}
 		},
 		Steps: {
 			
