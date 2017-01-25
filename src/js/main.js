@@ -3017,7 +3017,40 @@ data = {
 			}
 		},
 		ScreenManager: {
-
+			GetTopScreen: {
+				returnType: 'Actor',
+				description: 'Gets the actual screen. If used during when playing, see the <a>Class_ScreenGameplay</a> class.'
+			},
+			HideOverlayMessage: {
+				description: 'Hides the current overlay message.'
+			},
+			OverlayMessage: {
+				args: {
+					message: {
+						type: 'string',
+						description: 'The message to show.'
+					}
+				},
+				description: 'Shows a overlay message.'
+			},
+			SetNewScreen: {
+				args: {
+					screenName: {
+						type: 'string',
+						description: 'The screen name.'
+					}
+				},
+				description: 'Sets the next screen to `screenName`.'
+			},
+			SystemMessage: {
+				args: {
+					message: {
+						type: 'string',
+						description: 'The message to show.'
+					}
+				},
+				description: 'Shows a message that appears usually at the top of the screen for a few seconds. The message is also shown in the output log.'
+			}
 		},
 		Song: {
 			
