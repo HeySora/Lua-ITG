@@ -3271,7 +3271,21 @@ data = {
 			}
 		},
 		StageStats: {
-			
+			GetGameplaySeconds: {
+				returnType: 'float',
+				description: 'Gets the number of seconds played.'
+			},
+			GetPlayerStageStats: {
+				returnType: 'PlayerStageStats',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (Beware ! 0 = Player 1, 1 = Player 2, it isn\'t like <a>GameState.ApplyGameCommand()</a> !)',
+						condition: '0-1'
+					}
+				},
+				description: 'Gets the PlayerStageStats instance for a player.'
+			}
 		},
 		StatsManager: {
 			
