@@ -3017,7 +3017,7 @@ data = {
 			}
 		},
 		ScreenManager: {
-			
+
 		},
 		Song: {
 			
@@ -3230,13 +3230,18 @@ function replaceKeywords(str, args) {
 	// Enums
 	ret = ret.replace(/<a>Enum_([^<>]+)<\/a>/gi, function(match, enumName) {
 		var isNotITG = checkNotITG(enumName);
-		return '<a class="code" href="#Enum_'+ enumName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ enumName +'</a>';
+		return '<a class="code enum-link" href="#Enum_'+ enumName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ enumName +'</a>';
 	})
 
-	// Classes
+	// Class
+	ret = ret.replace(/<a>Class_([^<>]+)<\/a>/gi, function(match, className) {
+		return '<a class="code class-link" href="#Class_'+ className +'">'+ className +'</a>';
+	})
+
+	// Class' Method
 	ret = ret.replace(/<a>([^<>]+)\.([^<>]+)\(\)<\/a>/gi, function(match, className, methodName) {
 		var isNotITG = checkNotITG(className, methodName);
-		return '<a class="code" href="#Class_'+ className +'_'+ methodName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg' ) +'.png" />'+ className +'.'+ methodName +'()</a>';
+		return '<a class="code method-link" href="#Class_'+ className +'_'+ methodName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg' ) +'.png" />'+ className +'.'+ methodName +'()</a>';
 	})
 
 	if (arguments.length > 1 && typeof args === 'object') {
@@ -3530,6 +3535,7 @@ function init() {
 	// Smooth Scrolling & Highlighting
 	var animating = false;
 
+	// Navbar
 	$('nav,h4').find('a[href*="#"]:not([href="#"])').click(function() {
 		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 			var target = $(this.hash);
@@ -3543,8 +3549,22 @@ function init() {
 		return false;
 	});
 
+	// Classes
+	$('section').find('.class-link:not([href="#"])').click(function() {
+		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			if (target.length) {
+				$('#main').animate({
+					scrollTop: $('#main').scrollTop() + target.offset().top - 12
+				}, 900);
+			}
+		}
+		return false;
+	});
+
 	// Enums
-	$('section').find('a[href*="#Enum_"]:not([href="#"])').click(function() {
+	$('section').find('.enum-link:not([href="#"])').click(function() {
 		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 			var target = $(this.hash);
 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -3568,8 +3588,8 @@ function init() {
 		return false;
 	});
 
-	// Classes
-	$('section').find('a[href*="#"]:not([href="#"])').click(function() {
+	// Methods
+	$('section').find('.method-link:not([href="#"])').click(function() {
 		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 			var target = $(this.hash);
 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
