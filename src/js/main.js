@@ -3430,7 +3430,54 @@ data = {
 			}
 		},
 		UnlockManager: {
-			
+			FindCode: {
+				returnType: 'string',
+				args: {
+					name: {
+						type: 'string',
+						description: 'The name.'
+					}
+				},
+				description: 'Gets the associated Code.'
+			},
+			GetSongsUnlockedByCode: {
+				returnType: 'table',
+				args: {
+					unlockCode: {
+						type: 'string',
+						description: 'The unlock code.'
+					}
+				},
+				description: 'Gets a table of songs unlocked by `unlockCode`.'
+			},
+			GetStepsUnlockedByCode: {
+				returnType: 'table',
+				args: {
+					unlockCode: {
+						type: 'string',
+						description: 'The unlock code.'
+					}
+				},
+				description: 'Gets a table of steps unlocked by `unlockCode`.'
+			},
+			PreferUnlockCode: {
+				args: {
+					unlockCode: {
+						type: 'string',
+						description: 'The unlock code.'
+					}
+				},
+				description: 'Sets the preferred Song/Course to the specified `code`.'
+			},
+			UnlockCode: {
+				args: {
+					unlockCode: {
+						type: 'string',
+						description: 'The unlock code.'
+					}
+				},
+				description: 'Unlocks an entry by `unlockCode`.'
+			}
 		}
 	},
 	enums: {
