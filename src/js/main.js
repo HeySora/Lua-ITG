@@ -2976,17 +2976,45 @@ data = {
 				description: 'Stops the rendering process.'
 			}
 		},
-		RollingNumbers: {
-			inherits: 'BitmapText',
-		},
-		ScoreDisplayAliveTime: {
-			inherits: 'BitmapText',
-		},
-		ScoreDisplayCalories: {
-			inherits: 'BitmapText',
-		},
 		ScreenGameplay: {
-			
+			GetLife: {
+				notitg: 1,
+				returnType: 'float',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Gets the life from a player. (The life is a percentage between 0 and 1)'
+			},
+			PauseGame: {
+				notitg: 1,
+				args: {
+					pause: {
+						type: 'bool',
+						description: '`true` to pause the game, `false` to resume it.'
+					}
+				},
+				description: 'Pauses or unpauses the game.'
+			},
+			SetLife: {
+				notitg: 1,
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					},
+					life: {
+						type: 'float',
+						description: 'The new life to set.',
+						condition: '0-1'
+					}
+				},
+				description: 'Sets the life of a player.'
+			}
 		},
 		ScreenManager: {
 			
