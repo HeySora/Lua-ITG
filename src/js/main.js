@@ -3363,7 +3363,50 @@ data = {
 			}
 		},
 		ThemeManager: {
-			
+			GetCurLanguage: {
+				returnType: 'string',
+				description: 'Gets the current language.'
+			},
+			GetCurThemeName: {
+				returnType: 'string',
+				description: 'Gets the name of the current theme.'
+			},
+			GetMetric: {
+				returnType: 'string',
+				args: {
+					class: {
+						type: 'string',
+						description: 'The class to use.'
+					},
+					element: {
+						type: 'string',
+						description: 'The name of the parameter.'
+					}
+				},
+				description: 'Gets the value of the `element` metric, in the `class` class.'
+			},
+			GetPath: {
+				returnType: 'string',
+				args: {
+					type: {
+						type: 'int',
+						description: 'The type of the wanted element. See <a>Enum_ElementCategory</a>.'
+					},
+					class: {
+						type: 'string',
+						description: 'The class to use.'
+					},
+					element: {
+						type: 'string',
+						description: 'The element to search.'
+					}
+				},
+				description: 'Gets the path of an element in a specific folder, determined by the `type` argument.'
+			},
+			GetThemeNames: {
+				returnType: 'table',
+				description: 'Creates a table including every theme name.'
+			}
 		},
 		Trail: {
 			
@@ -3386,6 +3429,15 @@ data = {
 			Hard: 3,
 			Challenge: 4,
 			Edit: 5
+		},
+		ElementCategory: {
+			description: 'See <a>ThemeManager.GetPath()</a>.',
+			BGAnimations: 0,
+			Fonts: 1,
+			Graphics: 2,
+			Numbers: 3,
+			Sounds: 4,
+			Other: 5
 		},
 		Grade: {
 			"Tier 1": 0,
