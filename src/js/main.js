@@ -3053,7 +3053,79 @@ data = {
 			}
 		},
 		Song: {
-			
+			GetAllSteps: {
+				returnType: 'table',
+				description: 'Gets a table of all the Steps.'
+			},
+			GetBackgroundPath: {
+				returnType: 'string',
+				description: 'Gets the path of the background image.'
+			},
+			GetBannerPath: {
+				returnType: 'string',
+				description: 'Gets the path of the banner.'
+			},
+			GetDisplayArtist: {
+				returnType: 'string',
+				description: 'Gets the artist name.'
+			},
+			GetDisplayFullTitle: {
+				returnType: 'string',
+				description: 'Get the full title. (Title .. " " .. Subtitle)'
+			},
+			GetDisplayMainTitle: {
+				returnType: 'string',
+				description: 'Gets the main title.'
+			},
+			GetGenre: {
+				returnType: 'string',
+				description: 'Gets the genre.'
+			},
+			GetGroupName: {
+				returnType: 'string',
+				description: 'Gets the group name (folder) where the song is.'
+			},
+			GetSongDir: {
+				returnType: 'string',
+				description: 'Gets the directory of the song.'
+			},
+			GetStepsByStepsType: {
+				args: {
+					stepsType: {
+						type: 'int',
+						description: 'The steps type. See <a>Enum_StepsType</a>.'
+					}
+				},
+				description: 'Gets a table of all the Steps matching `stepsType`.'
+			},
+			GetTranslitArtist: {
+				returnType: 'string',
+				description: 'Gets the transliterated artist name.'
+			},
+			GetTranslitFullTitle: {
+				returnType: 'string',
+				description: 'Gets the transliterated full title. (Title .. " " .. Subtitle)'
+			},
+			GetTranslitMainTitle: {
+				returnType: 'string',
+				description: 'Gets the transliterated main title.'
+			},
+			IsCustomSong: {
+				returnType: 'bool',
+				description: 'Returns true if the song is custom (loaded by a player with a USB drive).'
+			},
+			IsLong: {
+				returnType: 'bool',
+				description: 'Returns true if the song will cost 2 credits.'
+			},
+			IsMarathon: {
+				returnType: 'bool',
+				description: 'Returns true if the song will cost 3 credits.'
+			},
+			MusicLengthSeconds: {
+				returnType: 'float',
+				description: 'Gets the lenght of the music, in seconds.'
+			}
 		},
 		SongManager: {
 			
