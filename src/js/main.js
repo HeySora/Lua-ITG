@@ -3334,7 +3334,33 @@ data = {
 			}
 		},
 		Steps: {
-			
+			GetDescription: {
+				returnType: 'string',
+				description: 'Gets the description.'
+			},
+			GetDifficulty: {
+				returnType: 'int',
+				description: 'Gets the difficulty. See <a>Enum_Difficulty</a>.'
+			},
+			GetMeter: {
+				returnType: 'int',
+				description: 'Gets the numeric difficulty.'
+			},
+			GetRadarValues: {
+				returnType: 'RadarValues',
+				args: {
+					playerNumber: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Gets the RadarValues for a specific player. See <a>RadarValues.GetValue()</a>.'
+			},
+			GetStepsType: {
+				returnType: 'int',
+				description: 'Gets the Steps Type. See <a>Enum_StepsType</a>.'
+			}
 		},
 		ThemeManager: {
 			
