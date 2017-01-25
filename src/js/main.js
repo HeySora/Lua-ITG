@@ -3763,7 +3763,7 @@ function parseClasses() {
 			table.toggleClass('shown');
 			$(this).children('.fa').toggleClass('fa-caret-down fa-caret-up');
 			if (table.hasClass('shown')) {
-				table.css('max-height', table.attr('orig-height') +'px');
+				table.css('max-height', table[0].scrollHeight +'px');
 			} else {
 				table.css('max-height', 0);
 			}
@@ -3918,7 +3918,7 @@ function parseClasses() {
 		$article.append($divTable);
 		$('#classes').append($article);
 
-		$divTable.attr('orig-height', $divTable.height()).addClass('ready');
+		$divTable.addClass('ready');
 	});
 
 }
