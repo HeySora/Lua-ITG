@@ -56,6 +56,34 @@ templates = {
 					condition: '0-1'
 				}
 			}
+		},
+		rectangle: {
+			args: {
+				left: {
+					type: 'float',
+					description: 'The left coordinate of the rectangle.'
+				},
+				top: {
+					type: 'float',
+					description: 'The top coordinate of the rectangle.'
+				},
+				right: {
+					type: 'float',
+					description: 'The right coordinate of the rectangle.'
+				},
+				bottom: {
+					type: 'float',
+					description: 'The bottom coordinate of the rectangle.'
+				}
+			}
+		},
+		path: {
+			args: {
+				path: {
+					type: 'string',
+					description: 'The path to load.'
+				}
+			}
 		}
 	}
 };
@@ -564,15 +592,15 @@ data = {
 				description: 'Calls immediately a command named `commandName` .. "Command". <a href="#">What is an Actor Command ?</a>',
 				example: 'actor:playcommand(\'BarrelRoll\'); -- Will call the "BarrelRollCommand" command of the Actor.'
 			},
-			/*position: { TODO
+			position: {
 				args: {
-					pos: {
+					position: {
 						type: 'float',
-						description: ''
+						description: 'The position.'
 					}
 				},
-				description: ''
-			},*/
+				description: 'Sets the position of the animation.'
+			},
 			pulse: {
 				description: 'Makes the Actor growing and shrinking. <a href="#">What is an Actor effect ?</a>'
 			},
@@ -635,45 +663,11 @@ data = {
 				description: 'Sets the Z/Roll axis\' rotation.'
 			},
 			scaletocover: {
-				args: {
-					left: {
-						type: 'float',
-						description: 'The left coordinate of the rectangle.'
-					},
-					top: {
-						type: 'float',
-						description: 'The top coordinate of the rectangle.'
-					},
-					right: {
-						type: 'float',
-						description: 'The right coordinate of the rectangle.'
-					},
-					bottom: {
-						type: 'float',
-						description: 'The bottom coordinate of the rectangle.'
-					}
-				},
+				template: 'rectangle',
 				description: 'Scales the Actor to cover a rectangle. To keep the aspect ratio of the Actor, use <a>Actor.scaletofit()</a>.'
 			},
 			scaletofit: {
-				args: {
-					left: {
-						type: 'float',
-						description: 'The left coordinate of the rectangle.'
-					},
-					top: {
-						type: 'float',
-						description: 'The top coordinate of the rectangle.'
-					},
-					right: {
-						type: 'float',
-						description: 'The right coordinate of the rectangle.'
-					},
-					bottom: {
-						type: 'float',
-						description: 'The bottom coordinate of the rectangle.'
-					}
-				},
+				template: 'rectangle',
 				description: 'Similar to <a>Actor.scaletocover()</a>, but keep the aspect ratio.'
 			},
 			SetHeight: {
@@ -696,15 +690,15 @@ data = {
 				},
 				description: 'Set the Actor\'s name to `name`. You might want to use a "Name" attribute in the tag, if the name won\'t change.'
 			},
-			/*setstate: { TODO
+			setstate: {
 				args: {
-					arg: {
-						type: '',
-						description: ''
+					state: {
+						type: 'int',
+						description: 'The state of the animation.'
 					}
 				},
-				description: ''
-			},*/
+				description: 'Sets the state of the Actor.'
+			},
 			SetTextureFiltering: {
 				notitg: 1,
 				args: {
@@ -1328,12 +1322,7 @@ data = {
 		DifficultyMeter: {
 			inherits: 'ActorFrame',
 			Load: {
-				args: {
-					path: {
-						type: 'string',
-						description: 'The path.'
-					}
-				},
+				template: 'path',
 				description: 'Loads specific graphics in `path` to the DifficultyMeter.'
 			},
 			SetFromMeterAndDifficulty: {
@@ -1391,7 +1380,7 @@ data = {
 						description: 'The target height.'
 					}
 				},
-				description: 'Scales the Banner to the specified dimensions. Identical to <a>Sprite.scaletoclipped()</a>'
+				description: 'Scales the Banner to the specified dimensions. Identical to <a>Sprite.scaletoclipped()</a>.'
 			}
 		},
 		Game: {
@@ -3173,6 +3162,113 @@ data = {
 		},
 		Sprite: {
 			inherits: 'Actor',
+			customtexturerect: {
+				template: 'rectangle',
+				description: 'Scales the image to a rectangle.'
+			},
+			GetTexture: {
+				notitg: 1,
+				returnType: 'RageTexture',
+				description: 'Gets the sprite\'s texture.'
+			},
+			Load: {
+				template: 'path',
+				description: 'Load the texture at path `path`, or unload the texture if `path` is `nil` or if no arguments were passed.'
+			},
+			LoadBackground: {
+				template: 'path',
+				description: 'Loads the song background texture.'
+			},
+			LoadBanner: {
+				template: 'path',
+				description: 'Loads the song banner texture.'
+			},
+			loop: {
+				args: {
+					enable: {
+						type: 'bool',
+						description: '`true` to loop the animation, `false` to play it only once.'
+					}
+				},
+				description: 'Alias for <a>RageTexture.loop()</a>. Determines if the animation should loop or not.'
+			},
+			position: {
+				args: {
+					position: {
+						type: 'float',
+						description: 'The position.'
+					}
+				},
+				description: 'Alias for <a>RageTexture.position()</a>. Sets the position of the animation.'
+			},
+			rate: {
+				args: {
+					rate: {
+						type: 'float',
+						description: 'The rate to apply.',
+						condition: '0-1'
+					}
+				},
+				description: 'Alias for <a>RageTexture.rate()</a>. Sets the rate of the animation.'
+			},
+			scaletoclipped: {
+				args: {
+					width: {
+						type: 'float',
+						description: 'The target width.'
+					},
+					height: {
+						type: 'float',
+						description: 'The target height.'
+					}
+				},
+				description: 'Scales the sprite to the specified dimensions.'
+			},
+			setstate: {
+				args: {
+					state: {
+						type: 'int',
+						description: 'The state of the animation.'
+					}
+				},
+				description: 'Sets the state of the sprite.'
+			},
+			SetTexture: {
+				notitg: 1,
+				args: {
+					texture: {
+						type: 'RageTexture',
+						description: 'The new texture to set.'
+					}
+				},
+				description: 'Sets the texture to `texture`.'
+			},
+			stretchtexcoords: {
+				args: {
+					x: {
+						type: 'float',
+						description: 'The x translation to apply.'
+					},
+					y: {
+						type: 'float',
+						description: 'The y translation to apply.'
+					}
+				},
+				description: 'Sets custom coordinates to the frames of the texture.'
+			},
+			texcoordvelocity: {
+				args: {
+					velocityX: {
+						type: 'float',
+						description: 'The X velocity to apply.'
+					},
+					velocityY: {
+						type: 'float',
+						description: 'The Y velocity to apply.'
+					}
+				},
+				description: 'Sets the velocity of the texture. A velocity of 1 = The texture will entirely scroll once per second. 2 = Twice per second, etc.'
+			}
 		},
 		StageStats: {
 			
