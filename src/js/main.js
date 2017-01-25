@@ -3932,7 +3932,17 @@ function parseEnums() {
 		// Création de l'article
 		var isNotITG = checkNotITG(k_enum);
 		var $article = $('<article></article>').attr('id', 'Enum_'+ k_enum);
-		var $articleTitle = $('<h4></h4>').html('<img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ k_enum);
+		var $articleTitle = $('<h4></h4>').html('<img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ k_enum + ' <i class="fa fa-caret-down" aria-hidden="true"></i>')
+		.click(function() {
+			var table = $(this).parent().children('div');
+			table.toggleClass('shown');
+			$(this).children('.fa').toggleClass('fa-caret-down fa-caret-up');
+			if (table.hasClass('shown')) {
+				table.css('max-height', table[0].scrollHeight +'px');
+			} else {
+				table.css('max-height', 0);
+			}
+		});
 		$article.append($articleTitle);
 
 		// Ajout de la description, si présente
@@ -3964,9 +3974,13 @@ function parseEnums() {
 		// Ajout du contenu du tableau dans le tableau
 		$table.append($tableBody);
 
+		var $divTable = $('<div></div>').append($table);
+
 		// Ajout du tableau et de l'article dans la section
-		$article.append($table);
+		$article.append($divTable);
 		$('#enums').append($article);
+
+		$divTable.addClass('ready');
 	});
 
 }
