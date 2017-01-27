@@ -2685,7 +2685,7 @@ data = {
 						description: 'The new weight to set, in pounds.'
 					}
 				},
-				description: 'Sets the new weight of the player.'
+				description: 'Sets the weight of the player.'
 			}
 		},
 		ProfileManager: {
