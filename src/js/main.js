@@ -2416,7 +2416,7 @@ data = {
 					tapNoteScore: {
 						type: 'int',
 						description: 'The wanted judgment. See <a>Enum_TapNoteScore</a>.',
-						condition: '0-2'
+						condition: '0-8'
 					}
 				},
 				description: 'Gets the amount of judgments corresponding to `tapNoteScore`.'
