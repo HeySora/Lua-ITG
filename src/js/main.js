@@ -91,7 +91,7 @@ data = {
 		Actor: {
 			accelerate: {
 				template: 'time',
-				description: 'Plays the next Actor methods at an accelerated rate (`time` * `time`). <a href="#">What is a tween ?</a>'
+				description: 'Plays the next Actor methods at an accelerated rate (`time` * `time`). <a href="#Basics_Tweens">What is a tween ?</a>'
 			},
 			additiveblend: {
 				args: {
@@ -211,11 +211,11 @@ data = {
 			},
 			bouncebegin: {
 				template: 'time',
-				description: 'Plays the next Actor methods with a bounce effect at the beginning. <a href="#">What is a tween ?</a>'
+				description: 'Plays the next Actor methods with a bounce effect at the beginning. <a href="#Basics_Tweens">What is a tween ?</a>'
 			},
 			bounceend: {
 				template: 'time',
-				description: 'Plays the next Actor methods with a bounce effect at the end. <a href="#">What is a tween ?</a>'
+				description: 'Plays the next Actor methods with a bounce effect at the end. <a href="#Basics_Tweens">What is a tween ?</a>'
 			},
 			clearzbuffer: {
 				args: {
@@ -266,7 +266,7 @@ data = {
 			},
 			decelerate: {
 				template: 'time',
-				description: 'Plays the next Actor methods at a decelerated rate (1 - (1 - `time`) * (1 - `time`)). <a href="#">What is a tween ?</a>'
+				description: 'Plays the next Actor methods at a decelerated rate (1 - (1 - `time`) * (1 - `time`)). <a href="#Basics_Tweens">What is a tween ?</a>'
 			},
 			diffuse: {
 				template: 'color',
@@ -554,7 +554,7 @@ data = {
 			},
 			linear: {
 				template: 'time',
-				description: 'Plays the next Actor methods linearly. <a href="#">What is a tween ?</a>'
+				description: 'Plays the next Actor methods linearly. <a href="#Basics_Tweens">What is a tween ?</a>'
 			},
 			luaeffect: {
 				args: {
@@ -747,7 +747,7 @@ data = {
 			},
 			sleep: {
 				template: 'time',
-				description: 'Plays the next Actor methods after `time` seconds. Please note that only Actor methods are affected, and not any other commands, or lua calls/affectations. <a>Actor.playcommand()</a> also won\'t be affected. <a href="#">What is a tween ?</a>',
+				description: 'Plays the next Actor methods after `time` seconds. Please note that only Actor methods are affected, and not any other commands, or lua calls/affectations. <a>Actor.playcommand()</a> also won\'t be affected. <a href="#Basics_Tweens">What is a tween ?</a>',
 				example: 'self:sleep(1); -- Wait 1 second before applying Actor methods.<br />self:addx(50); -- Will move the Actor to the right AFTER 1 second<br />someFunction(); -- Will be called instantly, it won\'t wait 1 second<br />some_actor:x(50); -- Though this is an Actor Method, it won\'t wait 1 second, because the sleep() method only affects the current Actor (e.g. self)'
 			},
 			spin: {
@@ -755,7 +755,7 @@ data = {
 			},
 			spring: {
 				template: 'time',
-				description: 'Plays the next Actor methods at an accelerated rate until they go beyong the desired end state, and then springs back. <a href="#">What is a tween ?</a>'
+				description: 'Plays the next Actor methods at an accelerated rate until they go beyong the desired end state, and then springs back. <a href="#Basics_Tweens">What is a tween ?</a>'
 			},
 			stopeffect: {
 				description: 'Stops any running effects.'
