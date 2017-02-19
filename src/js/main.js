@@ -3536,7 +3536,7 @@ data = {
 			notitg: 1,
 			description: 'See <a>GameState.GetInputMode()</a> and <a>GameState.SetInputMode()</a>.',
 			Normal: 0,
-			All: 1
+			BothAtOnce: 1
 		},
 		MemoryCardState: {
 			description: 'See <a>MemoryCardManager.GetCardState()</a>.',
