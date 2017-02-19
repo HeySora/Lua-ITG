@@ -4095,6 +4095,10 @@ function init() {
 	// Foundation
 	$(document).foundation();
 
+	// C'est parti !
+	$('#loader').addClass('done');
+	$('#page').delay(200).addClass('done');
+
 };
 
 $(function() {
