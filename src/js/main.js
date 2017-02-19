@@ -610,7 +610,7 @@ data = {
 					}
 				},
 				description: 'Queues a command named `commandName` .. "Command" to be played. This is usually used right after doing a <a>Actor.sleep()</a>. <a href="#Basics_ActorCommands">What is an Actor Command ?</a>',
-				example: 'self:sleep(1); -- Wait 1 second ...<br />self:queuecommand(\'BarrelRoll\'); -- ... and then "BarrelRollCommand" will be called.'
+				example: 'self:sleep(1); -- Wait 1 second ...<br />\r\nself:queuecommand(\'BarrelRoll\'); -- ... and then "BarrelRollCommand" will be called.'
 			},
 			queuemessage: {
 				args: {
@@ -748,7 +748,7 @@ data = {
 			sleep: {
 				template: 'time',
 				description: 'Plays the next Actor methods after `time` seconds. Please note that only Actor methods are affected, and not any other commands, or lua calls/affectations. <a>Actor.playcommand()</a> also won\'t be affected. <a href="#Basics_Tweens">What is a tween ?</a>',
-				example: 'self:sleep(1); -- Wait 1 second before applying Actor methods.<br />self:addx(50); -- Will move the Actor to the right AFTER 1 second<br />someFunction(); -- Will be called instantly, it won\'t wait 1 second<br />some_actor:x(50); -- Though this is an Actor Method, it won\'t wait 1 second, because the sleep() method only affects the current Actor (e.g. self)'
+				example: 'self:sleep(1); -- Wait 1 second before applying Actor methods.<br />\r\nself:addx(50); -- Will move the Actor to the right AFTER 1 second<br />\r\nsomeFunction(); -- Will be called instantly, it won\'t wait 1 second<br />\r\nsome_actor:x(50); -- Though this is an Actor Method, it won\'t wait 1 second, because the sleep() method only affects the current Actor (e.g. self)'
 			},
 			spin: {
 				description: 'Spins the Actor continually. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
