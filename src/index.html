@@ -42,15 +42,16 @@
 					</header>
 
 					<section id="basics">
+
 						<h3>Basics of XML/Lua</h3>
 
-						<h4>Introduction</h4>
+						<h4 id="Basics_Intro">Introduction</h4>
 						<p>The Lua API is supported in OpenITG / NotITG through XML. With this, you can easily create "modded simfiles", by manipulating elements, adding images, and much more.</p>
 						<p>"Elements" are called "Actors". An Actor can be a rectangle, a picture, some text, or even 3D objects, the player, or the screen itself ! In your code, you will manipulate existing Actors and also create some. You can control <em>almost</em> everything in lua, but NotITG provides even more tools and some new Actors to make beautiful simfiles !</p>
 
 						<hr />
 
-						<h4>Getting started</h4>
+						<h4 id="Basics_GettingStarted">Getting started</h4>
 						<p>First, <strong>DO NOT CODE WITH WINDOWS NOTEPAD !</strong> This software doesn't help you at all to code something. You can't indent, the text isn't colorized, etc. You should use a better text editor. I'd personally recommend <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a> because there are really useful features and shortcuts, but there are also other softwares, such as <a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a>. If you love command-line prompts, you can also use vim or emacs !</p>
 						<p>Let's assume your simfile looks like that :</p>
 						<img src="https://i.heysora.net/QlUwta.png" alt="" />
@@ -106,7 +107,6 @@
 							<li>We added another Quad in our ActorFrame, also hidden.</li>
 							<li>Inside the <span class="mono">OnCommand</span>, there is some lua ! We're actually just showing "Hello world !" to the screen.</li>
 						</ul>
-
 						<p>Let's talk now about lua.</p>
 						<p>Lua is the scripting language used in OpenITG / NotITG. It allows us to manipulate elements.</p>
 						<p>Let's add a little picture in the game, for example, <a href="https://sm.heysora.net/img/itg.png" target="_blank">the OpenITG icon</a>. Download this icon, and put it in the lua folder.</p>
@@ -153,6 +153,10 @@
 
 						<p>To learn further with video guides, watch <a href="https://www.youtube.com/playlist?list=PL59am1u_lAuPeoQkCfujwIsbddImZNvXe" target="_blank">the tutorial videos</a> made by <a href="https://www.youtube.com/user/Puurokulho" target="_blank">Puurokulho</a> ! To learn Lua, read the official <a href="https://www.lua.org/manual/5.0/" target="_blank">Lua documentation.</a> (Keep in mind that OpenITG and NotITG are using <strong>Lua 5.0</strong>). If you're "good" in lua modding, and want to learn further, watch <a href="https://www.twitch.tv/windeu/profile/highlights" target="_blank">these advanced tutorials</a> by <a href="https://www.youtube.com/user/WinDEU" target="_blank">WinDEU</a> !</p>
 						<p>If you prefer text guides, just continue to read this webpage ! :P</p>
+
+						<hr />
+
+						<h4 id="Basics_Tweens">Tweens</h4>
 
 					</section>
 					<section id="classes"><h3>Classes &amp; Methods</h3></section>
