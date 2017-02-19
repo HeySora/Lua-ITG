@@ -9,6 +9,7 @@
 body {
 	background-color: #191919;
 	color: #f8f8f2;
+	min-width: 1026px;
 }
 
 th {
