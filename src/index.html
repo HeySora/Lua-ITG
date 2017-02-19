@@ -208,21 +208,21 @@
 
 						<div class="example lua">
 							self:linear(1);<br />
-							self:zoom(2);<br />
-							self:addx(100);<br />
-							self:addy(50);<br />
-							self:rotationz(30);
+							self:zoom(2); -- Will go from 1 to 2 in one second.<br />
+							self:addx(100); -- Will move 100px to the right in one second.<br />
+							self:addy(50); -- Will move 50px to the bottom in one second.<br />
+							self:rotationz(30); -- Will rotate from 30 degrees in one second.
 						</div>
 
 						<p>If you want to tween only specific functions, but not some others, you can use <a class="code method-link" href="#Class_Actor_sleep"><img src="img/itg.png">Actor.sleep()</a> this way :</p>
 
 						<div class="example lua">
 							self:linear(1);<br />
-							self:zoom(2);<br />
-							self:addx(100);<br />
-							self:addy(50);<br />
-							self:sleep(0);<br />
-							self:rotationz(30);
+							self:zoom(2); -- Will go from 1 to 2 in one second.<br />
+							self:addx(100); -- Will move 100px to the right in one second.<br />
+							self:addy(50); -- Will move 50px to the bottom in one second.<br />
+							self:sleep(0); -- "Resets" the linear(1) for the next commands.<br />
+							self:rotationz(30); -- Will rotate from 30 degrees *instantly*.
 						</div>
 
 						<p>This will act like before, but when the tween will be finished, a rotation will be instantly applied.</p>
@@ -280,7 +280,7 @@
 							<li>If we do getaux() at the second 3, it will return 360.</li>
 							<li>But if we do getaux() at the second 2.5, it will return 180 !</li>
 						</ul>
-						
+
 						<p>Using <a class="code method-link" href="#Class_Actor_aux"><img src="img/itg.png">Actor.aux()</a> and <a class="code method-link" href="#Class_Actor_getaux"><img src="img/itg.png">Actor.getaux()</a> is not the only solution ! You could also have additional "aux" values by using <a class="code method-link" href="#Class_Actor_x"><img src="img/itg.png">Actor.x()</a> and <a class="code method-link" href="#Class_Actor_GetX"><img src="img/itg.png">Actor.GetX()</a>, <a class="code method-link" href="#Class_Actor_y"><img src="img/itg.png">Actor.y()</a> and <a class="code method-link" href="#Class_Actor_GetY"><img src="img/itg.png">Actor.GetY()</a>, or even <a class="code method-link" href="#Class_Actor_z"><img src="img/itg.png">Actor.z()</a> and <a class="code method-link" href="#Class_Actor_GetZ"><img src="img/itg.png">Actor.GetZ()</a> on the same Actor ! Coordinates have the benefit of not needing a default value. Of course, you can have multiple hidden Quads that you will use to have aux values. Just don't forget of editing the <span class="mono">auxvar = self;</span> line to something like <span class="mono">auxvar_2</span> !</p>
 
 					</section>
