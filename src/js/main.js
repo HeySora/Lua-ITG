@@ -3997,6 +3997,14 @@ function init() {
 	// Générer le contenu de #enums
 	parseEnums();
 
+	// Générer les liens de #basics
+	$('#basics').html(
+		$('#basics').html().replace(/{{(\w+)_(\w+)}}/gi, function(match, className, methodName) {
+			var isNotITG = checkNotITG(className, methodName);
+			return '<a class="code method-link" href="#Class_'+ className +'_'+ methodName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg' ) +'.png" />'+ className +'.'+ methodName +'()</a>';
+		})
+	);
+
 	// Syntax-Highlighting
 	hljs.registerLanguage("lua",function(e){var t="\\[=*\\[",a="\\]=*\\]",r={b:t,e:a,c:["self"]},n=[e.C("--(?!"+t+")","$"),e.C("--"+t,a,{c:[r],r:10})];return{l:e.UIR,k:{keyword:"and break do else elseif end false for if in local nil not or repeat return then true until while",built_in:"_G _VERSION assert collectgarbage dofile error getfenv getmetatable ipairs load loadfile loadstring module next pairs pcall print rawequal rawget rawset require select self setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug io math os package string table"},c:n.concat([{cN:"function",bK:"function",e:"\\)",c:[e.inherit(e.TM,{b:"([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*"}),{cN:"params",b:"\\(",eW:!0,c:n}].concat(n)},e.CNM,e.ASM,e.QSM,{cN:"string",b:t,e:a,c:[r],r:5}])}});
 
