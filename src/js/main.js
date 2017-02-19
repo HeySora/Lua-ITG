@@ -3640,7 +3640,7 @@ data = {
 
 // Vérifier si un type de variable est un objet valide
 function checkLuaObject(type) {
-	return ($.inArray(type, objects) > -1) ? 'object' : type.toLowerCase();
+	return ($.inArray(type, objects) > -1) ? 'itg-object' : 'itg-' + type.toLowerCase();
 }
 
 // Vérifier si une méthode / énumération est exclusive à NotITG ou non.
@@ -3891,7 +3891,7 @@ function parseClasses() {
 
 			// Exemple
 			if (typeof v_method.example !== 'undefined') {
-				content.push('<strong>Example: </strong><br /><div class="example">'+ v_method.example +'</div>');
+				content.push('<strong>Example: </strong><br /><div class="example lua">'+ v_method.example +'</div>');
 			}
 
 			// Itération sur le contenu des divs
@@ -3998,6 +3998,12 @@ function init() {
 
 	// Générer le contenu de #enums
 	parseEnums();
+
+	// Syntax-Highlighting
+	hljs.configure({useBR: true});
+	$('div.example').each(function(i, v) {
+		hljs.highlightBlock(v);
+	});
 
 	// Smooth Scrolling & Highlighting
 	var animating = false;

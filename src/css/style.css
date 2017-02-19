@@ -154,8 +154,8 @@ h1 {
 	margin: auto;
 }
 
-#classes span:not(.no-mono),
-#classes span:not(.no-mono) *,
+#classes span:not(.no-mono, [class*='hljs-']),
+#classes span:not(.no-mono, [class*='hljs-']) *,
 #classes a.code,
 #classes a.code * {
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -178,37 +178,37 @@ h1 {
 	margin-right: 6px;
 }
 
-#classes span {
+#classes span:not([class*='hljs-']) {
 	color: #666;
 }
 
-#classes .string {
+#classes span.itg-string {
 	color: #7bd;
 }
 
-#classes .int {
+#classes span.itg-int {
 	color: #8f8;
 }
 
-#classes .float {
+#classes span.itg-float {
 	color: #292;
 }
 
-#classes .bool {
+#classes span.itg-bool {
 	color: #f63249;
 }
 
-#classes .object, #classes .table, #classes .mixed {
+#classes span.itg-object, #classes span.itg-table, #classes span.itg-mixed {
 	color: #0bb;
 }
 
 #classes .example {
-	background-color: #191919;
+	/*background-color: #191919;*/
 	border-radius: 6px;
 	padding: 2px;
-	color: #f8f8f2;
+	/*color: #f8f8f2;*/
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	width: 100%;
-	word-break: break-all;
+	/*word-break: break-all;*/
 	font-size: 14px;
 }
