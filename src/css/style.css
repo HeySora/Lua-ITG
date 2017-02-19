@@ -35,6 +35,10 @@ p {
 	border-radius: 4px;
 }
 
+.g {
+	color: #777;
+}
+
 a {
 	transition: 0.15s color;
 }
@@ -201,12 +205,12 @@ h1 {
 	font-size: 20px;
 }
 
-#classes a > img,
-#enums a > img {
+a > img {
 	width: 18px;
 	margin-right: 4px;
 }
-#enums h4 > img {
+
+h4 > img {
 	width: 28px;
 	margin-right: 6px;
 }

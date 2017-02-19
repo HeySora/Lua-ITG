@@ -46,22 +46,111 @@
 						<h3>Basics of XML/Lua</h3>
 
 						<h4>Introduction</h4>
-						<p>The Lua API is supported in OpenITG / NotITG through XML. With this, you can easily create "modded simfiles", by manipulating elements, adding images, and much more.
+						<p>The Lua API is supported in OpenITG / NotITG through XML. With this, you can easily create "modded simfiles", by manipulating elements, adding images, and much more.</p>
+						<p>"Elements" are called "Actors". An Actor can be a rectangle, a picture, some text, or even 3D objects, the player, or the screen itself ! In your code, you will manipulate existing Actors and also create some. You can control <em>almost</em> everything in lua, but NotITG provides even more tools and some new Actors to make beautiful simfiles !</p>
 
 						<hr />
 
 						<h4>Getting started</h4>
+						<p>First, <strong>DO NOT CODE WITH WINDOWS NOTEPAD !</strong> This software doesn't help you at all to code something. You can't indent, the text isn't colorized, etc. You should use a better text editor. I'd personally recommend <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a> because there are really useful features and shortcuts, but there are also other softwares, such as <a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a>. If you love command-line prompts, you can also use vim or emacs !</p>
 						<p>Let's assume your simfile looks like that :</p>
 						<img src="https://i.heysora.net/QlUwta.png" alt="" />
-						<p>To include an XML file, replace your <span class="mono">#FGCHANGES</span> line by :</p>
+						<p>You probably don't have the "lua" folder. Just create it, and create an empty text document called "default.xml".</p>
+						<p>To include an XML file in the foreground <em class="g">(a file that will do mods, and add elements at front of playfields)</em>, replace your <span class="mono">#FGCHANGES</span> line by :</p>
 						<div class="example nohighlight">#FGCHANGES:0.000=lua=1.000=0=0=1=====;</div>
-						<p>To make short, this line will include the <strong>lua</strong>/default.xml file at the very beginning of the song.</p>
+						<p>To make short, this line will include the <strong>lua</strong>/default.xml file at the very beginning of the song. Ignore the other arguments for now.</p>
+						<p>To add one, but in the background <em class="g">(a file that won't do any mod, but that will add some elements in the background)</em>, replace your <span class="mono">#BGCHANGES</span> line with this one :</p>
+						<div class="example nohighlight">#BGCHANGES:0.000=bg=1.000=0=0=1=====;</div>
+						<p>Here, the file located in <strong>bg</strong>/default.xml will be loaded.</p>
 						<p>The XML file should look like this :</p>
 						<div class="example xml">
 							&lt;ActorFrame&gt;&lt;children&gt;<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="hidden,1;sleep,9999"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
+							<br />
 							&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- You will add elements there --&gt;<br />
 							&lt;/children&gt;&lt;/ActorFrame&gt;
 						</div>
+						<p>If you already did XML or any SGML-based language (for example, HTML), you will be familiar with this syntax.</p>
+						<p>Let's explain this code :</p>
+						<ul>
+							<li>A XML file must "give" only one Actor to the game. How could we do that ? An ActorFrame is an Actor that contains Actors. Here we're defining an ActorFrame by using the <span>"ActorFrame"</span> tag.</li>
+							<li>The <span>"children"</span> tag is needed for Actors that contains other Actors.</li>
+							<li>Here, we have an Actor of type Quad (a rectangle). We will hide it because we don't need to show it to the player, and we will apply a "sleep" effect for 9999 seconds. Why ? Because the game will stop any XML file that isn't doing anything. Adding this Actor fixes this behavior because the file will always do something. We are using a Quad here because it's the lightest Actor (we don't need a picture or a text).</li>
+							<li>Here, we're just closing the tags we opened before.</li>
+						</ul>
+						<p>Now, you know how to add Actors to your file, but... We aren't doing any Lua until now. We will put our main code into... An Actor ! Now our file looks like this :</p>
+						<div class="example xml">
+							&lt;ActorFrame&gt;&lt;children&gt;<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="hidden,1;sleep,9999"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="hidden,1"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="%function(self)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREENMAN:SystemMessage('Hello world !');<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
+							&lt;/children&gt;&lt;/ActorFrame&gt;
+						</div>
+						<p>Again, let's explain what we added :</p>
+						<ul>
+							<li>We added another Quad in our ActorFrame, also hidden.</li>
+							<li>Inside the <span class="mono">OnCommand</span>, there is some lua ! We're actually just showing "Hello world !" to the screen.</li>
+						</ul>
+
+						<p>Let's talk now about lua.</p>
+						<p>Lua is the scripting language used in OpenITG / NotITG. It allows us to manipulate elements.</p>
+						<p>Let's add a little picture in the game, for example, <a href="https://sm.heysora.net/img/itg.png" target="_blank">the OpenITG icon</a>. Download this icon, and put it in the lua folder.</p>
+						<p>Now to show it in game, we will add this to our ActorFrame (I won't re-write the entire code, you know how to add elements inside the ActorFrame :P) :</p>
+						<div class="example xml">
+							&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;File="itg.png"<br />
+							/&gt;
+						</div>
+						<p>Yaay, now we have an icon, but it is located in the top left corner. Let's center it now :</p>
+						<div class="example xml">
+							&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;File="itg.png"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:x(SCREEN_CENTER_X);<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:y(SCREEN_CENTER_Y);<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+							/&gt;
+						</div>
+						<p>Yay, it is centered now ! Let's explain what happened :</p>
+						<ul>
+							<li><span class="mono">self</span> is the keyword to target the current Actor. Here it targets the picture.</li>
+							<li>We're telling <span class="mono">self</span> to move in the horizontal (X) axis to the center of the screen. We're doing the same for the vertical (Y) axis.</li>
+							<li><span class="mono">SCREEN_CENTER_X</span> and <span class="mono">SCREEN_CENTER_Y</span> are "constants". They represents here a number that we will give to the <a class="code method-link" href="#Class_Actor_x"><img src="img/itg.png">self:x()</a> method. If you're curious, <span class="mono">SCREEN_CENTER_X</span> equals "320" and <span class="mono">SCREEN_CENTER_Y</span> equals "240", because the OpenITG screen is based on the 640x480 resolution.</li>
+						</ul>
+						<p>Let's now talk about commands now.</p>
+						<ul>
+							<li><span class="mono">InitCommand</span> is a command that will be executed as soon as possible. It is useful to manipulate an Actor (for example, moving it and resizing it), but please avoid to access to other elements, because the command is executed so early that other elements may not be accessible (And will crash the game with an "Access Violation" error).</p></li>
+							<li><span class="mono">OnCommand</span> is a command that will be executed when everything will be ready. You can do everything there, without limitations.</li>
+						</ul>
+						<p>Let's now try to draw a green rectangle of 300x200 pixels !</p>
+						<div class="example xml">
+							&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:x(SCREEN_CENTER_X); -- Centers horizontally the rectangle<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:y(SCREEN_CENTER_Y); -- Centers vertically the rectangle<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:zoomto(300, 200); -- Defines its size to 300x200<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:diffuse(0, 1, 0, 1); -- Colors it in green (0% red, 100% green, 0% blue, 100% opaque)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+							/&gt;
+						</div>
+						<p>Easy, right ? If you have questions regarding these new methods, see <a class="code method-link" href="#Class_Actor_zoomto"><img src="img/itg.png">Actor.zoomto()</a> and <a class="code method-link" href="#Class_Actor_diffuse"><img src="img/itg.png">Actor.diffuse()</a> <em>(Don't forget that the main purpose of this webpage was to provide <strong>every</strong> method available :P)</em>.</p>
+
+						<p>For more explanations, and to learn further, watch <a href="https://www.youtube.com/playlist?list=PL59am1u_lAuPeoQkCfujwIsbddImZNvXe" target="_blank">the tutorial videos</a> made by <a href="https://www.youtube.com/user/Puurokulho" target="_blank">Puurokulho</a> ! To learn Lua, read the official <a href="https://www.lua.org/manual/5.0/" target="_blank">Lua documentation.</a> (Keep in mind that OpenITG and NotITG are using <strong>Lua 5.0</strong>). If you're "good" in lua modding, and want to learn further, watch <a href="https://www.twitch.tv/windeu/profile/highlights" target="_blank">these advanced tutorials</a> by <a href="https://www.youtube.com/user/WinDEU" target="_blank">WinDEU</a> !</p>
 
 					</section>
 					<section id="tutorials"><h3>Tutorials</h3></section>
