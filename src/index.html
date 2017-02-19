@@ -158,6 +158,45 @@
 
 						<h4 id="Basics_Tweens">Tweens</h4>
 
+
+						<hr />
+
+						<h4 id="Basics_Aux">Aux variables</h4>
+
+						<p>An aux value is a variable of type number (a float to be exact), that can be tweened. You can, for example, change the value from 0 to 360 in one second. This way, if you check this aux value at 0.5 seconds, it will be 180. You can read this number from everywhere in your code. It's usually used into mathematic formulas.</p>
+
+						<p>To ease our job, we will use a separate Actor (a hidden Quad, as usual). It will be used to set the aux values. It will look like this :</p>
+
+						<div class="example xml">
+							&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:hidden(1);<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auxvar = self; -- The 'aux' variable will target this Actor.<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:aux(0); -- The 'default value' of the aux value will be 0.<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;RotateMessageCommand="finishtweening;linear,1;aux,360"<br />
+							/&gt;
+						</div>
+						<ul>
+							<li>First, as usual, we hide the quad.</li>
+							<li>Then, we set the 'auxvar' variable to self. It allows us to access this Actor from another location, to get the current aux value.</li>
+							<li>And we set the default value of the aux var to 0. <a class="code method-link" href="#Class_Actor_aux"><img src="img/itg.png">Actor.aux()</a> is used to set the aux value.</li>
+							<li>We defined a MessageCommand that will finish the current and queued tweens on this Actor, and set the aux value to 360 within one second.</li>
+						</ul>
+						<p>For example, if you want to move a Quad like a circle shape (assuming the <span class="mono">square</span> variable represents an Actor, you'll do something in an UpdateCommand like :</p>
+						<div class="example lua">
+							square:x(SCREEN_CENTER_X + math.sin(auxvar:getaux())*200);<br />
+							square:y(SCREEN_CENTER_Y + math.cos(auxvar:getaux())*-200);
+						</div>
+						<p>Here, we use <a class="code method-link" href="#Class_Actor_getaux"><img src="img/itg.png">Actor.getaux()</a> to get the current aux value. Let's imagine we call the Rotate Message at the second 2 :</p>
+						<ul>
+							<li>If we do getaux() at the second 2, it will return 0.</li>
+							<li>If we do getaux() at the second 3, it will return 360.</li>
+							<li>But if we do getaux() at the second 2.5, it will return 180 !</li>
+						</ul>
+						<p>Using <a class="code method-link" href="#Class_Actor_aux"><img src="img/itg.png">Actor.aux()</a> and <a class="code method-link" href="#Class_Actor_getaux"><img src="img/itg.png">Actor.getaux()</a> is not the only solution ! You can also have additional "aux" values by using <a class="code method-link" href="#Class_Actor_x"><img src="img/itg.png">Actor.x()</a> and <a class="code method-link" href="#Class_Actor_GetX"><img src="img/itg.png">Actor.GetX()</a>, <a class="code method-link" href="#Class_Actor_y"><img src="img/itg.png">Actor.y()</a> and <a class="code method-link" href="#Class_Actor_GetY"><img src="img/itg.png">Actor.GetY()</a>, or even <a class="code method-link" href="#Class_Actor_z"><img src="img/itg.png">Actor.z()</a> and <a class="code method-link" href="#Class_Actor_GetZ"><img src="img/itg.png">Actor.GetZ()</a> on the same Actor ! Coordinates have the benefit of not needing a default value. Of course, you can have multiple hidden Quads that you will use to have aux values. Just don't forget of editing the <span class="mono">auxvar = self;</span> line to something like <span class="mono">auxvar_2</span> !</p>
+
 					</section>
 					<section id="classes">
 					
