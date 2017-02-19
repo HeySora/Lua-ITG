@@ -163,7 +163,7 @@ data = {
 						description: 'The value to set as Actor\'s aux value.'
 					}
 				},
-				description: 'Sets the Actor\'s aux value. <a href="#">What is an aux value ?</a>'
+				description: 'Sets the Actor\'s aux value. <a href="#Basics_Aux">What is an aux value ?</a>'
 			},
 			backfacecull: {
 				args: {
@@ -423,7 +423,7 @@ data = {
 			},
 			getaux: {
 				returnType: 'float',
-				description: 'Gets the Actor\'s aux value. <a href="#">What is an aux value ?</a>'
+				description: 'Gets the Actor\'s aux value. <a href="#Basics_Aux">What is an aux value ?</a>'
 			},
 			GetBaseZoomX: {
 				returnType: 'float',
@@ -4009,6 +4009,20 @@ function init() {
 
 	// Navbar
 	$('nav,h4').find('a[href*="#"]:not([href="#"])').click(function() {
+		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			if (target.length) {
+				$('#main').animate({
+					scrollTop: $('#main').scrollTop() + target.offset().top - 12
+				}, 900);
+			}
+		}
+		return false;
+	});
+
+	// General links
+	$('a[href*="#Basics_"]').click(function() {
 		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 			var target = $(this.hash);
 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
