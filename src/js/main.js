@@ -4005,6 +4005,12 @@ function init() {
 		hljs.highlightBlock(v);
 	});
 
+	// ALERTE GITAN: Manière de retirer les 'undefined', souci provenant de highlightjs
+	$('div.example:not(.nohighlight)').each(function(i, v) {
+		$v = $(v);
+		$v.html($v.html().replace(/undefined/g, '').replace(/self/g, '<span class="hljs-built_in">self</span>'));
+	});
+
 	// Smooth Scrolling & Highlighting
 	var animating = false;
 
