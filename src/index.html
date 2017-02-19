@@ -184,7 +184,7 @@
 							<li>And we set the default value of the aux var to 0. <a class="code method-link" href="#Class_Actor_aux"><img src="img/itg.png">Actor.aux()</a> is used to set the aux value.</li>
 							<li>We defined a MessageCommand that will finish the current and queued tweens on this Actor, and set the aux value to 360 within one second.</li>
 						</ul>
-						<p>For example, if you want to move a Quad like a circle shape (assuming the <span class="mono">square</span> variable represents an Actor, you'll do something in an UpdateCommand like :</p>
+						<p>For example, if you want to move a Quad like a circle shape <em>(assuming the <span class="mono">square</span> variable represents an Actor)</em>, you'll do something in an UpdateCommand like :</p>
 						<div class="example lua">
 							square:x(SCREEN_CENTER_X + math.sin(auxvar:getaux())*200);<br />
 							square:y(SCREEN_CENTER_Y + math.cos(auxvar:getaux())*-200);
