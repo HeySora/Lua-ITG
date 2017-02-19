@@ -101,7 +101,7 @@ data = {
 						condition: [0, 1]
 					}
 				},
-				description: 'Sets the blend mode to additive, or to normal. Normal blend is set by default. See <a>Actor.blend()</a> for other possible values. <a href="#">What is a blend mode ?</a>'
+				description: 'Sets the blend mode to additive, or to normal. Normal blend is set by default. See <a>Actor.blend()</a> for other possible values. <a href="#Basics_BlendModes">What is a blend mode ?</a>'
 			},
 			addx: {
 				args: {
@@ -201,13 +201,13 @@ data = {
 						condition: ['normal', 'add', 'substract', 'modulate', 'copysrc', 'alphamask', 'alphaknockout', 'alphamultiply', 'weightedmultiply', 'invertdest', 'noeffect']
 					}
 				},
-				description: 'Sets the Actor\'s blend mode. It is "normal" by default. <a href="#">What is a blend mode ?</a>'
+				description: 'Sets the Actor\'s blend mode. It is "normal" by default. <a href="#Basics_BlendModes">What is a blend mode ?</a>'
 			},
 			bob: {
-				description: 'Moves the Actor up and down. The movement is the same as a math sinus function. <a href="#">What is an Actor effect ?</a>'
+				description: 'Moves the Actor up and down. The movement is the same as a math sinus function. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			bounce: {
-				description: 'Bounces the Actor. Similar to <a>Actor.bob()</a>. <a href="#">What is an Actor effect ?</a>'
+				description: 'Bounces the Actor. Similar to <a>Actor.bob()</a>. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			bouncebegin: {
 				template: 'time',
@@ -283,7 +283,7 @@ data = {
 				description: 'Sets the Actor\'s alpha value, without modifying the colors value.'
 			},
 			diffuseblink: {
-				description: 'Switches the Actor between 2 custom colors. You can set them by using <a>Actor.effectcolor1()</a> and <a>Actor.effectcolor2()</a>. <a href="#">What is an Actor effect ?</a>'
+				description: 'Switches the Actor between 2 custom colors. You can set them by using <a>Actor.effectcolor1()</a> and <a>Actor.effectcolor2()</a>. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			diffusebottomedge: {
 				template: 'color',
@@ -306,14 +306,14 @@ data = {
 				description: 'Similar to <a>Actor.diffuse()</a>, but only colors the lower-right corner of the Actor.'
 			},
 			diffuseramp: {
-				description: 'Similar to <a>Actor.diffuseblink()</a>, but the effect will start from the second color to the first linearly, and then go back to the second. You can set the colors by using <a>Actor.effectcolor1()</a> and <a>Actor.effectcolor2()</a>. <a href="#">What is an Actor effect ?</a>'
+				description: 'Similar to <a>Actor.diffuseblink()</a>, but the effect will start from the second color to the first linearly, and then go back to the second. You can set the colors by using <a>Actor.effectcolor1()</a> and <a>Actor.effectcolor2()</a>. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			diffuserightedge: {
 				template: 'color',
 				description: 'Similar to <a>Actor.diffuse()</a>, but only colors the right side of the Actor.'
 			},
 			diffuseshift: {
-				description: 'Similar to <a>Actor.diffuseblink()</a>, but the colors will switch sinusoidally. You can set the colors by using <a>Actor.effectcolor1()</a> and <a>Actor.effectcolor2()</a>. <a href="#">What is an Actor effect ?</a>'
+				description: 'Similar to <a>Actor.diffuseblink()</a>, but the colors will switch sinusoidally. You can set the colors by using <a>Actor.effectcolor1()</a> and <a>Actor.effectcolor2()</a>. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			diffusetopedge: {
 				template: 'color',
@@ -352,11 +352,11 @@ data = {
 			},
 			effectcolor1: {
 				template: 'color',
-				description: 'Changes the first color of effects. White (1,1,1,1) by default. Used with <a>Actor.diffuseblink()</a>, <a>Actor.diffuseramp()</a>, and <a>Actor.diffuseshift()</a>. <a href="#">What is an Actor effect ?</a>'
+				description: 'Changes the first color of effects. White (1,1,1,1) by default. Used with <a>Actor.diffuseblink()</a>, <a>Actor.diffuseramp()</a>, and <a>Actor.diffuseshift()</a>. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			effectcolor2: {
 				template: 'color',
-				description: 'Changes the second color of effects. White (1,1,1,1) by default. Used with <a>Actor.diffuseblink()</a>, <a>Actor.diffuseramp()</a>, and <a>Actor.diffuseshift()</a>. <a href="#">What is an Actor effect ?</a>'
+				description: 'Changes the second color of effects. White (1,1,1,1) by default. Used with <a>Actor.diffuseblink()</a>, <a>Actor.diffuseramp()</a>, and <a>Actor.diffuseshift()</a>. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			effectdelay: {
 				args: {
@@ -382,7 +382,7 @@ data = {
 						description: 'The magnitude on the z axis.'
 					}
 				},
-				description: 'Sets the magnitude for each axis for effects like <a>Actor.vibrate()</a>. <a href="#">What is an Actor effect ?</a>'
+				description: 'Sets the magnitude for each axis for effects like <a>Actor.vibrate()</a>. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			effectoffset: {
 				args: {
@@ -391,7 +391,7 @@ data = {
 						description: 'The offset to apply, in seconds.'
 					}
 				},
-				description: 'Sets the offset of effects to `time`. <a href="#">What is an Actor effect ?</a>'
+				description: 'Sets the offset of effects to `time`. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			effectperiod: {
 				args: {
@@ -400,7 +400,7 @@ data = {
 						description: 'The period to apply, in seconds.'
 					}
 				},
-				description: 'Sets the period of effects to `time`. <a href="#">What is an Actor effect ?</a>'
+				description: 'Sets the period of effects to `time`. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			fadebottom: {
 				template: 'fade',
@@ -454,7 +454,7 @@ data = {
 			},
 			GetSecsIntoEffect: {
 				returnType: 'float',
-				description: 'Gets the number of seconds an Actor is running an effect. <a href="#">What is an Actor effect ?</a>'
+				description: 'Gets the number of seconds an Actor is running an effect. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			GetWidth: {
 				returnType: 'float',
@@ -493,10 +493,10 @@ data = {
 				description: 'Sets the glow color of the Actor. (Used with <a>Actor.glowblink()</a> and <a>Actor.glowshift()</a>)'
 			},
 			glowblink: {
-				description: 'Makes the Actor glow immediately between its original color and the glow color (set with <a>Actor.glow()</a>). <a href="#">What is an Actor effect ?</a>'
+				description: 'Makes the Actor glow immediately between its original color and the glow color (set with <a>Actor.glow()</a>). <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			glowshift: {
-				description: 'Makes the Actor glow smoothly between its original color and the glow color (set with <a>Actor.glow()</a>). <a href="#">What is an Actor effect ?</a>'
+				description: 'Makes the Actor glow smoothly between its original color and the glow color (set with <a>Actor.glow()</a>). <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			halign: {
 				notitg: 1,
@@ -587,7 +587,7 @@ data = {
 						description: 'The name of the command to call.'
 					}
 				},
-				description: 'Calls immediately a command named `commandName` .. "Command". <a href="#">What is an Actor Command ?</a>',
+				description: 'Calls immediately a command named `commandName` .. "Command". <a href="#Basics_ActorCommands">What is an Actor Command ?</a>',
 				example: 'actor:playcommand(\'BarrelRoll\'); -- Will call the "BarrelRollCommand" command of the Actor.'
 			},
 			position: {
@@ -600,7 +600,7 @@ data = {
 				description: 'Sets the position of the animation.'
 			},
 			pulse: {
-				description: 'Makes the Actor growing and shrinking. <a href="#">What is an Actor effect ?</a>'
+				description: 'Makes the Actor growing and shrinking. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			queuecommand: {
 				args: {
@@ -609,7 +609,7 @@ data = {
 						description: 'The name of the command to queue.'
 					}
 				},
-				description: 'Queues a command named `commandName` .. "Command" to be played. This is usually used right after doing a <a>Actor.sleep()</a>. <a href="#">What is an Actor Command ?</a>',
+				description: 'Queues a command named `commandName` .. "Command" to be played. This is usually used right after doing a <a>Actor.sleep()</a>. <a href="#Basics_ActorCommands">What is an Actor Command ?</a>',
 				example: 'self:sleep(1); -- Wait 1 second ...<br />self:queuecommand(\'BarrelRoll\'); -- ... and then "BarrelRollCommand" will be called.'
 			},
 			queuemessage: {
@@ -619,10 +619,10 @@ data = {
 						description: 'The name of the message to queue.'
 					}
 				},
-				description: 'Queues a message. Rarely used, you might want to use <a>MessageManager.Broadcast()</a>. <a href="#">What is a message ?</a>'
+				description: 'Queues a message. Rarely used, you might want to use <a>MessageManager.Broadcast()</a>. <a href="#Basics_Messages">What is a message ?</a>'
 			},
 			rainbow: {
-				description: '<span class="rainbow">Makes the Actor change colors continually, through every color of a rainbow.</span> <a href="#">What is an Actor effect ?</a>'
+				description: '<span class="rainbow">Makes the Actor change colors continually, through every color of a rainbow.</span> <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			roll: {
 				args: {
@@ -751,7 +751,7 @@ data = {
 				example: 'self:sleep(1); -- Wait 1 second before applying Actor methods.<br />self:addx(50); -- Will move the Actor to the right AFTER 1 second<br />someFunction(); -- Will be called instantly, it won\'t wait 1 second<br />some_actor:x(50); -- Though this is an Actor Method, it won\'t wait 1 second, because the sleep() method only affects the current Actor (e.g. self)'
 			},
 			spin: {
-				description: 'Spins the Actor continually. <a href="#">What is an Actor effect ?</a>'
+				description: 'Spins the Actor continually. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			spring: {
 				template: 'time',
@@ -816,7 +816,7 @@ data = {
 				description: 'Sets the Actor\'s vertical alignment. It is "middle" by default. For a more precise alignment, see <a>Actor.valign()</a>.'
 			},
 			vibrate: {
-				description: 'Vibrates the Actor. <a href="#">What is an Actor effect ?</a>'
+				description: 'Vibrates the Actor. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			visible: {
 				args: {
@@ -829,7 +829,7 @@ data = {
 				description: 'Makes the Actor visible. (It is just <a>Actor.hidden()</a>, but inverted.)'
 			},
 			wag: {
-				description: 'Wags the Actor. <a href="#">What is an Actor effect ?</a>'
+				description: 'Wags the Actor. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			x: {
 				args: {
@@ -2065,7 +2065,7 @@ data = {
 						description: 'The name of the message to broadcast.'
 					}
 				},
-				description: 'Broadcasts a message instantly. <a href="#">What is a message ?</a>'
+				description: 'Broadcasts a message instantly. <a href="#Basics_Messages">What is a message ?</a>'
 			}
 		},
 		Model: {
