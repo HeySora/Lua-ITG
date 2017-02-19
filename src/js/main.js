@@ -4096,7 +4096,6 @@ function init() {
 	$(document).foundation();
 
 	// C'est parti !
-	$('#loader').addClass('done').delay(800).hide();
 	$('#page').delay(200).addClass('done');
 
 };
