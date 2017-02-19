@@ -1,3 +1,11 @@
+::-moz-selection {
+    background: #7a7a7a;
+}
+
+::selection {
+    background: #7a7a7a;
+}
+
 body {
 	background-color: #191919;
 	color: #f8f8f2;
@@ -271,12 +279,12 @@ h1 {
 .hljs,
 .hljs-tag,
 .hljs-subst {
-    color: #f8f8f2
+    color: #f8f8f2;
 }
 
 .hljs-strong,
 .hljs-emphasis {
-    color: #a8a8a2
+    color: #a8a8a2;
 }
 
 .hljs-bullet,
@@ -284,42 +292,42 @@ h1 {
 .hljs-regexp,
 .hljs-literal,
 .hljs-link {
-    color: #ae81ff
+    color: #ae81ff;
 }
 
 .hljs-code,
 .hljs-title,
 .hljs-section,
 .hljs-selector-class {
-    color: #a6e22e
+    color: #a6e22e;
 }
 
 .hljs-strong {
-    font-weight: bold
+    font-weight: bold;
 }
 
 .hljs-emphasis {
-    font-style: italic
+    font-style: italic;
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-name,
 .hljs-attr {
-    color: #f92672
+    color: #f63249;
 }
 
 .hljs-symbol,
 .hljs-attribute {
-    color: #66d9ef
+    color: #66d9ef;
 }
 
 .hljs-params,
 .hljs-class .hljs-title {
-    color: #f8f8f2
+    color: #f8f8f2;
 }
 
 .hljs-deletion,
 .hljs-meta {
-    color: #75715e
+    color: #75715e;
 }
