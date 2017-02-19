@@ -622,7 +622,7 @@ data = {
 				description: 'Queues a message. Rarely used, you might want to use <a>MessageManager.Broadcast()</a>. <a href="#">What is a message ?</a>'
 			},
 			rainbow: {
-				description: 'Makes the Actor change colors continually, through every color of a rainbow. <a href="#">What is an Actor effect ?</a>'
+				description: '<span class="rainbow">Makes the Actor change colors continually, through every color of a rainbow.</span> <a href="#">What is an Actor effect ?</a>'
 			},
 			roll: {
 				args: {
