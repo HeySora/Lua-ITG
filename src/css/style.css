@@ -11,6 +11,21 @@ body {
 	font-family: "Roboto", sans-serif;
 }
 
+p {
+	margin: 0.5rem 0 0.75rem;
+}
+
+.mono {
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 17px;
+}
+
+#basics .mono {
+	background-color: #0E0E0E;
+	padding: 2px 4px;
+	border-radius: 4px;
+}
+
 a {
 	transition: 0.15s color;
 }
@@ -178,7 +193,7 @@ h1 {
 	margin-right: 6px;
 }
 
-#classes span:not([class*='hljs-']) {
+#classes span:not([class*='hljs']) {
 	color: #666;
 }
 
@@ -202,11 +217,13 @@ h1 {
 	color: #0bb;
 }
 
-#classes .example {
+.example {
 	border-radius: 6px;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	width: 100%;
 	font-size: 14px;
+	background-color: #090909;
+	padding: 2px 8px;
 }
 
 /* highlightjs */
@@ -214,8 +231,7 @@ h1 {
 .hljs {
     display: block;
     overflow-x: auto;
-    padding: 2px;
-    background: #23241f;
+    /*background-color: #23241f;*/
 }
 
 .hljs-string {

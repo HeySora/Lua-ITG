@@ -42,7 +42,26 @@
 						<h1>Lua API for OpenITG / NotITG</h1>
 					</header>
 
-					<section id="basics"><h3>Basics of XML/Lua</h3></section>
+					<section id="basics">
+						<h3>Basics of XML/Lua</h3>
+
+						<h4>Introduction</h4>
+						<p>The Lua API is supported in OpenITG / NotITG through XML. With this, you can easily create "modded simfiles", by manipulating elements, adding images, and much more.
+
+						<h4>Getting started</h4>
+						<p>Let's assume your simfile looks like that :</p>
+						<img src="https://i.heysora.net/QlUwta.png" alt="" />
+						<p>To include an XML file, replace your <span class="mono">#FGCHANGES</span> line by :</p>
+						<div class="example nohighlight">#FGCHANGES:0.000=lua=1.000=0=0=1=====;</div>
+						<p>To make short, this line will include the lua/default.xml file at the very beginning of the song.</p>
+						<p>The XML file should look like this :</p>
+						<div class="example xml">
+							&lt;ActorFrame&gt;&lt;children&gt;<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- You will add elements there --&gt;<br />
+							&lt;/children&gt;&lt;/ActorFrame&gt;
+						</div>
+
+					</section>
 					<section id="tutorials"><h3>Tutorials</h3></section>
 					<section id="classes"><h3>Classes &amp; Methods</h3></section>
 					<section id="enums"><h3>Enumerations</h3></section>
