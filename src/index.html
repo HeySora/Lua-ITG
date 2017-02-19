@@ -261,8 +261,32 @@
 						<p>Here is a list of every Actor Effect for now :</p>
 
 						<ul>
-							<li>
+							<li>{{Actor_bob}} : Moves the Actor up and down, like a mathematic sinus.</li>
+							<li>{{Actor_bounce}} : Bounces the Actor.</li>
+							<li>{{Actor_diffuseblink}} : Blinks the Actor between 2 colors.</li>
+							<li>{{Actor_diffuseramp}} : Different from diffuseblink, it goes linearly from the second color to the first one, and come instantly back to the second color.</li>
+							<li>{{Actor_diffuseshift}} : Like {{Actor_diffuseblink}}, but more smoothly (The colors will toggle sinusoidally).</li>
+							<li>{{Actor_glowblink}} : Glows instantly the Actor between its original color and a glow color.</li>
+							<li>{{Actor_glowshift}} : Glows smoothly the Actor between its original color and a glow color.</li>
+							<li>{{Actor_pulse}} : Grows and shrinks the Actor.</li>
+							<li>{{Actor_rainbow}} : <span class="rainbow">yeaaaaaaaaaaah</span>.</li>
+							<li>{{Actor_spin}} : Spins the Actor.</li>
+							<li>{{Actor_vibrate}} : Vibrates the Actor.</li>
+							<li>{{Actor_wag}} : Wags the Actor.</li>
 						</ul>
+
+						<p>You can configure these effects by calling these methods :</p>
+
+						<ul>
+							<li>{{Actor_effectcolor1}} and {{Actor_effectcolor2}} : Sets the 2 colors for {{Actor_diffuseblink}}, {{Actor_diffuseramp}} and {{Actor_diffuseshift}}.</li>
+							<li>{{Actor_glow}} : Sets the glow color for {{Actor_glowblink}} and {{Actor_glowshift}}.</li>
+							<li>{{Actor_effectdelay}} : Sets the delay of the effects.</li>
+							<li>{{Actor_effectmagnitude}} : Sets the magnitude for each axis of the effects that are affecting the position, like {{Actor_vibrate}}.</li>
+							<li>{{Actor_effectoffset}} : Sets the offset of the effects.</li>
+							<li>{{Actor_effectperiod}} : Sets the period of the effects.</li>
+						</ul>
+
+						<p>You can also use {{Actor_GetSecsIntoEffect}} to get the amount of seconds an effect is running.</p>
 
 						<hr />
 
@@ -307,7 +331,7 @@
 							<li>But if we do getaux() at the second 2.5, it will return 180 !</li>
 						</ul>
 
-						<p>Using {{Actor_aux}}</a> and {{Actor_getaux}}</a> is not the only solution ! You could also have additional "aux" values by using {{Actor_x}}</a> and {{Actor_GetX}}</a>, {{Actor_y}}</a> and {{Actor_GetY}}</a>, or even {{Actor_z}}</a> and {{Actor_GetZ}}</a> on the same Actor ! Coordinates have the benefit of not needing a default value. Of course, you can have multiple hidden Quads that you will use to have aux values. Just don't forget of editing the <span class="mono">auxvar = self;</span> line to something like <span class="mono">auxvar_2</span> !</p>
+						<p>Using {{Actor_aux}}</a> and {{Actor_getaux}}</a> is not the only solution ! You could also have additional "aux" values by using {{Actor_x}}</a> and {{Actor_GetX}}</a>, {{Actor_y}}</a> and {{Actor_GetY}}</a>, or even {{Actor_z}}</a> and {{Actor_GetZ}}</a> on the same Actor ! Coordinates have the benefit of not needing a default value. Of course, you can have multiple hidden Quads that you will use to have aux values. Just don't forget to edit the <span class="mono">auxvar = self;</span> line to something like <span class="mono">auxvar_2</span> !</p>
 
 						<hr />
 

@@ -365,7 +365,7 @@ data = {
 						description: 'The delay to apply, in seconds.'
 					}
 				},
-				description: 'Sets the global delay of every effects applied to the Actor.'
+				description: 'Sets the global delay of every effects applied to the Actor. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			effectmagnitude: {
 				args: {
@@ -490,7 +490,7 @@ data = {
 			},
 			glow: {
 				template: 'color',
-				description: 'Sets the glow color of the Actor. (Used with <a>Actor.glowblink()</a> and <a>Actor.glowshift()</a>)'
+				description: 'Sets the glow color of the Actor. (Used with <a>Actor.glowblink()</a> and <a>Actor.glowshift()</a>) <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			glowblink: {
 				description: 'Makes the Actor glow immediately between its original color and the glow color (set with <a>Actor.glow()</a>). <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
