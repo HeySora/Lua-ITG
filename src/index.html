@@ -72,6 +72,7 @@
 							&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
 							<br />
 							&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- You will add elements there --&gt;<br />
+							<br />
 							&lt;/children&gt;&lt;/ActorFrame&gt;
 						</div>
 						<p>If you already did XML or any SGML-based language (for example, HTML), you will be familiar with this syntax.</p>
@@ -98,6 +99,7 @@
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREENMAN:SystemMessage('Hello world !');<br />
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
 							&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
+							<br />
 							&lt;/children&gt;&lt;/ActorFrame&gt;
 						</div>
 						<p>Again, let's explain what we added :</p>
@@ -133,7 +135,7 @@
 						</ul>
 						<p>Let's now talk about commands now.</p>
 						<ul>
-							<li><span class="mono">InitCommand</span> is a command that will be executed as soon as possible. It is useful to manipulate an Actor (for example, moving it and resizing it), but please avoid to access to other elements, because the command is executed so early that other elements may not be accessible (And will crash the game with an "Access Violation" error).</p></li>
+							<li><span class="mono">InitCommand</span> is a command that will be executed as soon as possible. It is useful to manipulate an Actor (for example, moving it and resizing it), but please avoid to access to other elements, because the command is executed so early that other elements may not be accessible (And will crash the game with an "Access Violation" error). <strong>They don't work in background (file imported with <span class="mono">#BGCHANGES</span>) !</strong></p></li>
 							<li><span class="mono">OnCommand</span> is a command that will be executed when everything will be ready. You can do everything there, without limitations.</li>
 						</ul>
 						<p>Let's now try to draw a green rectangle of 300x200 pixels !</p>
@@ -150,7 +152,8 @@
 						</div>
 						<p>Easy, right ? If you have questions regarding these new methods, see <a class="code method-link" href="#Class_Actor_zoomto"><img src="img/itg.png">Actor.zoomto()</a> and <a class="code method-link" href="#Class_Actor_diffuse"><img src="img/itg.png">Actor.diffuse()</a> <em>(Don't forget that the main purpose of this webpage was to provide <strong>every</strong> method available :P)</em>.</p>
 
-						<p>For more explanations, and to learn further, watch <a href="https://www.youtube.com/playlist?list=PL59am1u_lAuPeoQkCfujwIsbddImZNvXe" target="_blank">the tutorial videos</a> made by <a href="https://www.youtube.com/user/Puurokulho" target="_blank">Puurokulho</a> ! To learn Lua, read the official <a href="https://www.lua.org/manual/5.0/" target="_blank">Lua documentation.</a> (Keep in mind that OpenITG and NotITG are using <strong>Lua 5.0</strong>). If you're "good" in lua modding, and want to learn further, watch <a href="https://www.twitch.tv/windeu/profile/highlights" target="_blank">these advanced tutorials</a> by <a href="https://www.youtube.com/user/WinDEU" target="_blank">WinDEU</a> !</p>
+						<p>To learn further with video guides, watch <a href="https://www.youtube.com/playlist?list=PL59am1u_lAuPeoQkCfujwIsbddImZNvXe" target="_blank">the tutorial videos</a> made by <a href="https://www.youtube.com/user/Puurokulho" target="_blank">Puurokulho</a> ! To learn Lua, read the official <a href="https://www.lua.org/manual/5.0/" target="_blank">Lua documentation.</a> (Keep in mind that OpenITG and NotITG are using <strong>Lua 5.0</strong>). If you're "good" in lua modding, and want to learn further, watch <a href="https://www.twitch.tv/windeu/profile/highlights" target="_blank">these advanced tutorials</a> by <a href="https://www.youtube.com/user/WinDEU" target="_blank">WinDEU</a> !</p>
+						<p>If you prefer text guides, just continue to read this webpage ! :P</p>
 
 					</section>
 					<section id="tutorials"><h3>Tutorials</h3></section>
