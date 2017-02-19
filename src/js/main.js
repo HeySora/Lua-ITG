@@ -3756,8 +3756,7 @@ function parseClasses() {
 
 		// Création de l'article
 		var $article = $('<article></article>').attr('id', 'Class_'+ k_class);
-		var $articleTitle = $('<h4></h4>')
-		.html(k_class + ((typeof v_class.inherits === 'string') ? ' : <a href="#Class_'+ v_class.inherits +'">'+ v_class.inherits +'</a>' : '') + ' <i class="fa fa-caret-down" aria-hidden="true"></i>')
+		/*var $articleTitle = $('<h4></h4>').html(k_class + ((typeof v_class.inherits === 'string') ? ' : <a href="#Class_'+ v_class.inherits +'">'+ v_class.inherits +'</a>' : '') + ' <i class="fa fa-caret-down" aria-hidden="true"></i>')
 		.click(function() {
 			var table = $(this).parent().children('div');
 			table.toggleClass('shown');
@@ -3767,7 +3766,8 @@ function parseClasses() {
 			} else {
 				table.css('max-height', 0);
 			}
-		});
+		});AAA*/
+		var $articleTitle = $('<h4></h4>').html(k_class + ((typeof v_class.inherits === 'string') ? ' : <a href="#Class_'+ v_class.inherits +'">'+ v_class.inherits +'</a>' : ''))
 		$article.append($articleTitle);
 
 		// Création du tableau de méthodes
@@ -3932,7 +3932,7 @@ function parseEnums() {
 		// Création de l'article
 		var isNotITG = checkNotITG(k_enum);
 		var $article = $('<article></article>').attr('id', 'Enum_'+ k_enum);
-		var $articleTitle = $('<h4></h4>').html('<img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ k_enum + ' <i class="fa fa-caret-down" aria-hidden="true"></i>')
+		/*var $articleTitle = $('<h4></h4>').html('<img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ k_enum + ' <i class="fa fa-caret-down" aria-hidden="true"></i>')
 		.click(function() {
 			var table = $(this).parent().children('div');
 			table.toggleClass('shown');
@@ -3942,7 +3942,8 @@ function parseEnums() {
 			} else {
 				table.css('max-height', 0);
 			}
-		});
+		});AAA*/
+		var $articleTitle = $('<h4></h4>').html('<img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ k_enum)
 		$article.append($articleTitle);
 
 		// Ajout de la description, si présente

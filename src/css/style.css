@@ -63,10 +63,10 @@ body > .row {
 	padding: 0;
 }
 
-#classes h4 + div.ready, #enums h4 + div.ready, #enums h4 + p + div.ready {
+/*#classes h4 + div.ready, #enums h4 + div.ready, #enums h4 + p + div.ready {
 	max-height: 0;
 	transition: 0.3s max-height ease-in-out;
-}
+}AAA*/
 
 #sidebar-content {
 	display: flex;
@@ -141,9 +141,9 @@ h1 {
 	width: 50%;
 }
 
-#classes h4, #enums h4 {
+/*#classes h4, #enums h4 {
 	cursor: pointer;
-}
+}AAA*/
 
 #classes h4 i.fa {
 	font-size: 1rem;
