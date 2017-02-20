@@ -164,12 +164,7 @@
 							<li><span class="mono">SCREEN_CENTER_X</span> and <span class="mono">SCREEN_CENTER_Y</span> are "constants". They represents here a number that we will give to the {{Actor_x}}</a> method. If you're curious, <span class="mono">SCREEN_CENTER_X</span> equals "320" and <span class="mono">SCREEN_CENTER_Y</span> equals "240", because the OpenITG screen is based on the 640x480 resolution.</li>
 						</ul>
 
-						<p>Let's now talk about commands now.</p>
-
-						<ul>
-							<li><span class="mono">InitCommand</span> is a command that will be executed as soon as possible. It is useful to manipulate an Actor (for example, moving it and resizing it), but please avoid to access to other elements, because the command is executed so early that other elements may not be accessible (And will crash the game with an "Access Violation" error). <strong>They don't work in background (file imported with <span class="mono">#BGCHANGES</span>) !</strong></p></li>
-							<li><span class="mono">OnCommand</span> is a command that will be executed when everything will be ready. You can do everything there, without limitations.</li>
-						</ul>
+						<p>For more explanations about commands (InitCommands, OnCommands, and more), go <a href="#Basics_ActorCommands">here</a> !</p>
 
 						<p>Let's now try to draw a green rectangle of 300x200 pixels !</p>
 
@@ -194,7 +189,73 @@
 
 						<h4 id="Basics_ActorCommands">Actor Commands</h4>
 
-						<p>WIP.</p>
+						<p>Actor Commands are just instructions that will be executed in Lua. There are 2 "magic" commands that are executed at a specific moment :</p>
+
+						<ul>
+							<li><span class="mono">InitCommand</span> is a command that will be executed as soon as possible. It is useful to manipulate an Actor (for example, moving it and resizing it), but please avoid to access to other elements, because the command is executed so early that other elements may not be accessible (And will crash the game with an "Access Violation" error). <strong>They don't work in background <em>(file imported with <span class="mono">#BGCHANGES</span>)</em> !</strong></li>
+							<li><span class="mono">OnCommand</span> is a command that will be executed when everything will be ready. You can do everything there, without limitations.</li>
+						</ul>
+
+						<p>You can call commands when you want with {{Actor_playcommand}} and {{Actor_queuecommand}}. {{Actor_playcommand}} will <strong>instantly</strong> call the specified command. {{Actor_queuecommand}} will call it when it is possible. You can combine it with {{Actor_sleep}} to do things like :</p>
+
+						<div class="example lua">
+							self:sleep(2); -- Wait 2 seconds ...<br />
+							self:queuecommand('Hello'); -- before calling 'HelloCommand'.
+						</div>
+
+						<p>Even if you want to play a command instantly, using {{Actor_queuecommand}} is strongly recommended, because it can cause issues that may crash the game.</p>
+
+						<p>Often, in a modded simfile, we want a command that will be executed at each frame. We do it this way :</p>
+
+						<div class="example xml">
+							&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="queuecommand,Update"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;UpdateCommand="%function(self)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREENMAN:SystemMessage('Hello world !');<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:sleep(0.02); -- Waits 20ms (= 50fps)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:queuecommand('Update'); -- Repeats the command.<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+							/&gt;
+						</div>
+
+						<p>What would be the purpose of having an "UpdateCommand" ? If you need to do specific things at a specific moment (like, zooming a rectangle at beat 36 to make it <span class="mono">2+currentSecond/100</span> times bigger, you can't do that in an OnCommand. You will use an <span class="mono">if</span> statement, but it would be checked only once in an OnCommand.</p>
+
+						<p>But what is that <span class="mono">OnCommand="queuecommand,Update"</span> ? Where is the <span class="mono">%function(self)</span> ? Well, there is 2 ways of writing a same command :</p>
+
+						<div class="example xml">
+							&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="queuecommand,Update"<br />
+							/&gt;<br />
+							<br />
+							&lt;!-- is equivalent to --&gt;<br />
+							<br />
+							&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="%function(self)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:queuecommand('Update');<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+							/&gt;
+						</div>
+
+						<p>This way, writing :</p>
+
+						<div class="example lua">
+							self:x(SCREEN_CENTER_X);<br />
+							self:y(SCREEN_CENTER_Y);<br />
+							self:zoomto(300, 200);<br />
+							self:diffuse(0, 1, 0, 1);
+						</div>
+
+						<p>Is totally equivalent to <span class="mono">"x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomto,300,200;diffuse,0,1,0,1"</span> ! This notation allows us to execute methods to <span class="mono">self</span>. <em>(You can't execute something that isn't related to <span class="mono">self</span>, like <span class="mono">SCREENMAN:SystemMessage()</span> !)</em></p>
+
+						<p>In NotITG only, you can use {{Actor_cmd}} to execute commands with that notation, inside a lua function, like :</p>
+
+						<div class="example lua">
+							self:cmd('x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomto,300,200;diffuse,0,1,0,1');<br />
+							SCREENMAN:SystemMessage('My command was succesfully executed ! :D');
+						</div>
 
 						<hr />
 
