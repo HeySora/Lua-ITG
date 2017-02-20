@@ -4139,11 +4139,11 @@ function init() {
 	finally {
 		// C'est parti !
 		$('#page').addClass('done');
+
+		clearTimeout(timeout);
 	}
 
 	state = 11;
-
-	clearTimeout(timeout);
 
 };
 
