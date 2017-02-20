@@ -4133,8 +4133,8 @@ function init() {
 		});
 	}
 	catch (e) {
-		window.alert("Error ! Please report it to me : [" + err.name + "] : " + err.message + ". The page won't have the syntax coloration.");
-		console.log("Error ! Please report it to me : [" + err.name + "] : " + err.message);
+		window.alert("Error ! Please report it to me : [" + e.name + "] : " + e.message + ". The page won't have the syntax coloration.");
+		console.log("Error ! Please report it to me : [" + e.name + "] : " + e.message);
 	}
 	finally {
 		// C'est parti !
