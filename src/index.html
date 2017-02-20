@@ -419,6 +419,84 @@
 						<hr />
 
 
+						<h4 id="Basics_ActorFrameTexture"><img src="img/notitg.png" alt="NotITG">ActorFrameTexture</h4>
+
+						<p>The ActorFrameTexture is an Actor who captures every elements under it (drawn before it), to finally put the result into a texture. <strong>IT DOESN'T WORK WITH DIRECTX !</strong> You can, after, put the texture onto a sprite, and apply <a href="https://youtu.be/zvNl0OYv-DY?t=2m9s" target="_blank">some beautiful effects</a> with it !</p>
+
+						<p>It's usually setup like this :</p>
+
+						<div class="example xml">
+							&lt;ActorFrame<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; InitCommand="%function(self)<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- The multiplier of the aft sprites' alpha value.<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftMult = 1;<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- If the user is using a Nvidia graphic card, they have some issues with alphas of sprites.<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if string.find(string.lower(DISPLAY:GetVendor()), 'nvidia') then<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftMult = 0.9; -- Setting the alpha multiplier to 0.9.<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+							&gt;&lt;children&gt;<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- ... --&gt;<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Sprite"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Texture="white"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftSprite = self;<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:basezoomx((SCREEN_WIDTH/DISPLAY:GetDisplayWidth()));<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:basezoomy(-1*(SCREEN_HEIGHT/DISPLAY:GetDisplayHeight()))<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:x(SCREEN_CENTER_X);<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:y(SCREEN_CENTER_Y);<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- Set this like you want<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:zoom(1.05);<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:diffusealpha(0.95*aftMult);<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="ActorFrameTexture"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aft = self;<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:SetWidth(DISPLAY:GetDisplayWidth());<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:SetHeight(DISPLAY:GetDisplayHeight());<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:EnableDepthBuffer(false);<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:EnableAlphaBuffer(true);<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:EnableFloat(false);<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:EnablePreserveTexture(true);<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:Create();<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftSprite:SetTexture(self:GetTexture()); -- Put the texture into the sprite above.<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- ... --&gt;<br />
+							<br />
+							&lt;/children&gt;&lt;/ActorFrame&gt;
+						</div>
+
+						<p>Let's explain what happened there :</p>
+
+						<ul>
+							<li>Little note : an ActorFrame is an Actor. Nobody said that we couldn't put commands into it. :P</li>
+							<li>Sprites have an issue with Nvidia cards, the sprites' alpha is way stronger on Nvidia cards than on other cards (Intel, AMD). I found how to fix this problem : we just need to multiply the alphas by 90%. So, we're checking if the user is playing with a Nvidia card with {{RageDisplay_GetVendor}}, and if yes, we set a variable to 0.9 instead of 1. We will multiply the alphas on the sprites by this variable later.</li>
+							<li>In the sprite, we're setting a variable to access this Actor. We're doing things to make the sprite appear correctly, and then we're zooming a bit the Sprite, and setting its alpha to 0.95 (multiplied by the variable set above). <strong>YOU MUST HAVE A PICTURE CALLED <span class="mono">white.png</span> WITH A WHITE PIXEL INSIDE IT IN THE FOLDER TO MAKE THE SPRITE WORK ! You can download it <a href="white.png">here</a> !</strong></li>
+							<li>We're defining an ActorFrameTexture, setting a variable, defining properties of the AFT, and then "create" it (making it work). Then we apply the texture to the sprite above.</li>
+						</ul>
+
+						<p>If you try it, you will see a nice trail effect. Why ? I said that the AFT captures everything before it. The Sprite here is before the AFT, so it will be captured. It's exactly like when you have a camera connected to a TV, and you are pointing the camera to the TV, the image will repeat, repeat, repeat, ...</p>
+
+						<hr />
+
+
 						<h4 id="Basics_BlendModes">Blend Modes</h4>
 
 						<p>Blend modes are a way of modifying the apparence of a texture, or a sprite. They exactly work as layer modes in image manipulation programs such as <a href="https://www.gimp.org/" target="_blank">GIMP</a> or <a href="http://www.adobe.com/products/photoshop.html" target="_blank">Adobe Photoshop</a>. Blend modes can be applied using {{Actor_blend}}. Here is the full list : <em class="g">(A means the pixel value of the image behind (already present, known as "destination" in OpenGL), B means the pixels value of the actual texture (where a blend mode is applied, known as "source" in OpenGL), and R means the final result, shown to the user. Pixels values are between 0 and 1, like {{Actor_diffuse}}.)</em></p>
@@ -428,7 +506,7 @@
 							<li><span class="mono">add</span>: The pixels values are added into the image behind. Formula: R = A + B</li>
 							<li><span class="mono">substract</span>: The pixels values are subtracted from the image behind. Formula: R = A - B</li>
 							<li><span class="mono">modulate</span>: Formula: R = B</li>
-							<li><span class="mono">copysrc</span>: Copies A a frame behind to B.</li>
+							<li><span class="mono">copysrc</span>: Copies A a frame behind to B, and apply an additive blend.</li>
 							<li><span class="mono">alphamask</span>: Applies the alpha of the texture to the images behind. Formula: The colors of R will be the colors of B, and the alpha of R will be the alpha of A.</li>
 							<li><span class="mono">alphaknockout</span>: Applies the inverted alpha of the texture to the images behind. Formula: The colors of R will be the colors of B, and the alpha of R will be the alpha of (1-A).</li>
 							<li><span class="mono">alphamultiply</span>: Like <span class="mono">weightedmultiply</span>, but for the alpha value.</li>
