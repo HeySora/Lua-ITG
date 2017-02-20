@@ -1,6 +1,10 @@
+state = 0;
+
 objects = [
 	'LuaReference'
 ];
+
+state = 1;
 
 templates = {
 	classes: {
@@ -3636,6 +3640,8 @@ data = {
 	}
 };
 
+state = 2;
+
 // Vérifier si un type de variable est un objet valide
 function checkLuaObject(type) {
 	return ($.inArray(type, objects) > -1) ? 'itg-object' : 'itg-' + type.toLowerCase();
@@ -3988,6 +3994,8 @@ function parseEnums() {
 
 function init() {
 
+	state = 5;
+
 	// Ajout des classes dans le tableau d'objects
 	$.each(data.classes, function(k_class, v_class) {
 		objects.push(k_class);
@@ -3997,8 +4005,12 @@ function init() {
 	allMethods = "";
 	parseClasses();
 
+	state = 6;
+
 	// Générer le contenu de #enums
 	parseEnums();
+
+	state = 7;
 
 	// Générer les liens de #basics
 	$('#basics').html(
@@ -4008,12 +4020,7 @@ function init() {
 		})
 	);
 
-	// Syntax-Highlighting
-	hljs.registerLanguage("lua",function(e){var t="\\[=*\\[",a="\\]=*\\]",r={b:t,e:a,c:["self"]},n=[e.C("--(?!"+t+")","$"),e.C("--"+t,a,{c:[r],r:10})];return{l:e.UIR,k:{keyword:"GAMESTATE SCREENMAN SOUND PREFSMAN STATSMAN MESSAGEMAN PROFILEMAN and break do else elseif end false for if in local nil not or repeat return self then true until while",built_in:"SCREEN_WIDTH SCREEN_HEIGHT SCREEN_CENTER_X SCREEN_CENTER_Y _G _VERSION assert collectgarbage dofile error getfenv getmetatable ipairs load loadfile loadstring module next pairs pcall print rawequal rawget rawset require select setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug io math os package string table " + allMethods},c:n.concat([{cN:"function",bK:"function",e:"\\)",c:[e.inherit(e.TM,{b:"([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*"}),{cN:"params",b:"\\(",eW:!0,c:n}].concat(n)},e.CNM,e.ASM,e.QSM,{cN:"string",b:t,e:a,c:[r],r:5}])}});
-
-	$('div.example:not(.nohighlight)').each(function(i, v) {
-		hljs.highlightBlock(v);
-	});
+	state = 8;
 
 	// Smooth Scrolling & Highlighting
 	var animating = false;
@@ -4110,14 +4117,45 @@ function init() {
 		return false;
 	});
 
+	state = 9;
+
 	// Foundation
 	$(document).foundation();
 
-	// C'est parti !
-	$('#page').addClass('done');
+	state = 10;
+
+	// Syntax-Highlighting
+	try {
+		hljs.registerLanguage("lua",function(e){var t="\\[=*\\[",a="\\]=*\\]",r={b:t,e:a,c:["self"]},n=[e.C("--(?!"+t+")","$"),e.C("--"+t,a,{c:[r],r:10})];return{l:e.UIR,k:{keyword:"GAMESTATE SCREENMAN SOUND PREFSMAN STATSMAN MESSAGEMAN PROFILEMAN and break do else elseif end false for if in local nil not or repeat return self then true until while",built_in:"SCREEN_WIDTH SCREEN_HEIGHT SCREEN_CENTER_X SCREEN_CENTER_Y _G _VERSION assert collectgarbage dofile error getfenv getmetatable ipairs load loadfile loadstring module next pairs pcall print rawequal rawget rawset require select setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug io math os package string table " + allMethods},c:n.concat([{cN:"function",bK:"function",e:"\\)",c:[e.inherit(e.TM,{b:"([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*"}),{cN:"params",b:"\\(",eW:!0,c:n}].concat(n)},e.CNM,e.ASM,e.QSM,{cN:"string",b:t,e:a,c:[r],r:5}])}});
+
+		$('div.example:not(.nohighlight)').each(function(i, v) {
+			hljs.highlightBlock(v);
+		});
+	}
+	catch (e) {
+		window.alert("Error ! Please report it to me : [" + err.name + "] : " + err.message);
+		console.log("Error ! Please report it to me : [" + err.name + "] : " + err.message);
+	}
+	finally {
+		// C'est parti !
+		$('#page').addClass('done');
+	}
+
+	state = 11;
+
+	clearTimeout(timeout);
 
 };
 
+state = 3;
+
+timeout = setTimeout(function() {
+	window.alert("Error ! Please report it to me : [TimeoutError] : State " + state);
+	console.log("Error ! Please report it to me : [TimeoutError] : State " + state);
+	$('#page').addClass('done');
+}, 10000);
+
 $(function() {
+	state = 4;
 	init();
 });
