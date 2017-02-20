@@ -191,7 +191,7 @@ hr {
 }
 
 body > .row > .columns {
-	padding: 2rem 1.5rem;
+	padding: 1.5rem 1.25rem;
 	overflow-y: auto;
 }
 
@@ -229,10 +229,11 @@ h1 {
 
 #sidebar ul {
 	list-style-type: none;
+	margin: 0;
 }
 
 #sidebar li {
-	padding: 0.75rem 0;
+	padding: 0.7rem 0;
 	font-size: 1.25rem;
 	text-shadow: 0px 0px 4px #666;
 }
