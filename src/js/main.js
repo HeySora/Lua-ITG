@@ -4133,7 +4133,7 @@ function init() {
 		});
 	}
 	catch (e) {
-		window.alert("Error ! Please report it to me : [" + err.name + "] : " + err.message);
+		window.alert("Error ! Please report it to me : [" + err.name + "] : " + err.message + ". The page won't have the syntax coloration.");
 		console.log("Error ! Please report it to me : [" + err.name + "] : " + err.message);
 	}
 	finally {
@@ -4150,7 +4150,7 @@ function init() {
 state = 3;
 
 timeout = setTimeout(function() {
-	window.alert("Error ! Please report it to me : [TimeoutError] : State " + state);
+	window.alert("Error ! Please report it to me : [TimeoutError] : State " + state + ". The page could miss some features, like syntax coloration.");
 	console.log("Error ! Please report it to me : [TimeoutError] : State " + state);
 	$('#page').addClass('done');
 }, 10000);
