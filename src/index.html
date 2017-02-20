@@ -421,7 +421,21 @@
 
 						<h4 id="Basics_BlendModes">Blend Modes</h4>
 
-						<p>WIP.</p>
+						<p>Blend modes are a way of modifying the apparence of a texture, or a sprite. They exactly work as layer modes in image manipulation programs such as <a href="https://www.gimp.org/" target="_blank">GIMP</a> or <a href="http://www.adobe.com/products/photoshop.html" target="_blank">Adobe Photoshop</a>. Blend modes can be applied using {{Actor_blend}}. Here is the full list : <em class="g">(A means the pixel value of the image behind (already present, known as "destination" in OpenGL), B means the pixels value of the actual texture (where a blend mode is applied, known as "source" in OpenGL), and R means the final result, shown to the user. Pixels values are between 0 and 1, like {{Actor_diffuse}}.)</em></p>
+
+						<ul>
+							<li><span class="mono">normal</span>: The texture acts as usual, no transformation is done.</li>
+							<li><span class="mono">add</span>: The pixels values are added into the image behind. Formula: R = A + B</li>
+							<li><span class="mono">substract</span>: The pixels values are subtracted from the image behind. Formula: R = A - B</li>
+							<li><span class="mono">modulate</span>: Formula: R = B</li>
+							<li><span class="mono">copysrc</span>: </li>
+							<li><span class="mono">alphamask</span>: Applies the alpha of the texture to the images behind. Formula: The colors of R will be the colors of B, and the alpha of R will be the alpha of A.</li>
+							<li><span class="mono">alphaknockout</span>: Applies the inverted alpha of the texture to the images behind. Formula: The colors of R will be the colors of B, and the alpha of R will be the alpha of (1-A).</li>
+							<li><span class="mono">alphamultiply</span>: </li>
+							<li><span class="mono">weightedmultiply</span>: Darker colors darken the image, brighter colors brighten the image. Formula: R = 2*(A*B)</li>
+							<li><span class="mono">invertdest</span>: Acts like the reverse of <span class="mono">substract</span>. Formula: R = B - A</li>
+							<li><span class="mono">noeffect</span>: Nothing is done. Formula: R = A</li>
+						</ul>
 
 					</section>
 					<section id="classes">
