@@ -239,7 +239,7 @@ data = {
 						description: 'The commands to apply, in the cmd notation.'
 					}
 				},
-				description: 'Executes Actor methods on the actor, with the cmd notation.',
+				description: 'Executes Actor methods on the actor, with the cmd notation. <a href="#Basics_ActorCommands">What is an Actor Command ?</a>',
 				example: 'self:cmd(\'addx,30;zoom,2\'); -- Does :addx(30), :zoom(2)'
 			},
 			cropbottom: {
