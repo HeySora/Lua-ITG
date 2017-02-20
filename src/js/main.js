@@ -709,7 +709,7 @@ data = {
 						description: 'If `true`, enables the texture filtering.'
 					}
 				},
-				description: 'Enables/Disables the texture filtering of the Actor. It is enabled by default.'
+				description: 'Enables/Disables the texture filtering of the Actor (= Applying a cubic interpolation to the pixels or not). It is enabled by default.'
 			},
 			SetWidth: {
 				notitg: 1,
