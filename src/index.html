@@ -262,7 +262,30 @@
 
 						<h4 id="Basics_Messages">Messages</h4>
 
-						<p>WIP.</p>
+						<p>The messages are "special commands". When we will call a message, every Actor having this message registered will be executed. For example :</p>
+
+						<div class="example xml">
+							&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X-50;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;ChangeColorMessageCommand="linear,0.5;diffuse,1,0,0,1"<br />
+							/&gt;<br />
+							<br />
+							&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X+50;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;ChangeColorMessageCommand="linear,0.5;diffuse,0,1,0,1"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+							/&gt;
+						</div>
+
+						<p>We have 2 quads there. They are both white. We will use {{MessageManager_Broadcast}} to execute a message in Lua :</p>
+
+						<div class="example lua">
+							MESSAGEMAN:Broadcast('ChangeColor');
+						</div>
+
+						<p>The <span class="mono">ChangeColorMessageCommand</span> of every Actor will be called. In our example, the left quad will become red, and the right one will become green, both within a half-second. (For more explanations about {{Actor_linear}}, go <a href="#Basics_Tweens">just below</a> !</p>
 
 						<hr />
 
