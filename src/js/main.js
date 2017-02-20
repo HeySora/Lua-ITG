@@ -2648,7 +2648,7 @@ data = {
 				args: {
 					id: {
 						type: 'string',
-						descrpition: 'The ID of the song.'
+						description: 'The ID of the song.'
 					}
 				},
 				description: 'Returns true if the song with ID `id` is unlocked for the player.'
