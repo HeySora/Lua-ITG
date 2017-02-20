@@ -428,11 +428,11 @@
 							<li><span class="mono">add</span>: The pixels values are added into the image behind. Formula: R = A + B</li>
 							<li><span class="mono">substract</span>: The pixels values are subtracted from the image behind. Formula: R = A - B</li>
 							<li><span class="mono">modulate</span>: Formula: R = B</li>
-							<li><span class="mono">copysrc</span>: </li>
+							<li><span class="mono">copysrc</span>: Copies A a frame behind to B.</li>
 							<li><span class="mono">alphamask</span>: Applies the alpha of the texture to the images behind. Formula: The colors of R will be the colors of B, and the alpha of R will be the alpha of A.</li>
 							<li><span class="mono">alphaknockout</span>: Applies the inverted alpha of the texture to the images behind. Formula: The colors of R will be the colors of B, and the alpha of R will be the alpha of (1-A).</li>
-							<li><span class="mono">alphamultiply</span>: </li>
-							<li><span class="mono">weightedmultiply</span>: Darker colors darken the image, brighter colors brighten the image. Formula: R = 2*(A*B)</li>
+							<li><span class="mono">alphamultiply</span>: Like <span class="mono">weightedmultiply</span>, but for the alpha value.</li>
+							<li><span class="mono">weightedmultiply</span>: With this mode enabled, darker colors will darken the image, and brighter colors will brighten the image. Formula: R = 2*(A*B)</li>
 							<li><span class="mono">invertdest</span>: Acts like the reverse of <span class="mono">substract</span>. Formula: R = B - A</li>
 							<li><span class="mono">noeffect</span>: Nothing is done. Formula: R = A</li>
 						</ul>
