@@ -352,7 +352,7 @@ data = {
 						condition: ['timer', 'beat', 'music', 'bgm']
 					}
 				},
-				description: 'Sets the effect clock of the Actor to `clock`. It is "timer" by default.'
+				description: 'Sets the effect clock of the Actor to `clock`. It is "timer" by default. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			effectcolor1: {
 				template: 'color',
