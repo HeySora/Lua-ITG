@@ -353,8 +353,13 @@ h4 > img {
 .hljs-selector-pseudo,
 .hljs-addition,
 .hljs-variable,
-.hljs-template-variable {
+.hljs-template-variable,
+.hljs-attr {
     color: #0bb;
+}
+
+.hljs-attr {
+	font-style: italic;
 }
 
 .hljs,
@@ -393,8 +398,7 @@ h4 > img {
 
 .hljs-keyword,
 .hljs-selector-tag,
-.hljs-name,
-.hljs-attr {
+.hljs-name {
     color: #f63249;
 }
 
