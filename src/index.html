@@ -292,7 +292,7 @@
 
 						<p>Actors can take a <span class="mono">Condition</span> attribute, that will be evaluated before the other commands. This attribute always take a lua expression. If this expression doesn't return true, the Actor won't be executed at all. It will be like "non-existent". <strong>The expression will only be evaluated once, so don't check for beat/seconds there. Also, this is evaluated very early (even before the InitCommand), so don't check anything with the screen, or the game may crash with an "Access Violation" !</strong></p>
 
-						<p><strong>Also, in OpenITG, you can't put a Condition attribute in the main ActorFrame !</strong> You need to have a normal ActorFrame, and inside it, your Actor with the Condition.</p>
+						<p><strong>Also, in OpenITG and in the first public release of NotITG, you can't put a Condition attribute in the main ActorFrame !</strong> You need to have a normal ActorFrame, and inside it, your Actor with the Condition (or just grab the latest release of NotITG).</p>
 
 						<div class="example xml">
 							&lt;!-- Will be shown only if the "Insane" difficulty is played by P1. --&gt;<br />
