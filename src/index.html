@@ -274,7 +274,6 @@
 							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
 							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X+50;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
 							&nbsp;&nbsp;&nbsp;&nbsp;ChangeColorMessageCommand="linear,0.5;diffuse,0,1,0,1"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
 							/&gt;
 						</div>
 
@@ -285,6 +284,45 @@
 						</div>
 
 						<p>The <span class="mono">ChangeColorMessageCommand</span> of every Actor will be called. In our example, the left quad will become red, and the right one will become green, both within a half-second. (For more explanations about {{Actor_linear}}, go <a href="#Basics_Tweens">just below</a> !</p>
+
+						<hr />
+
+
+						<h4 id="Basics_Conditions">Conditions</h4>
+
+						<p>Actors can take a <span class="mono">Condition</span> attribute, that will be evaluated before the other commands. This attribute always take a lua expression. If this expression doesn't return true, the Actor won't be executed at all. It will be like "non-existent". <strong>The expression will only be evaluated once, so don't check for beat/seconds there. Also, this is evaluated very early (even before the InitCommand), so don't check anything with the screen, or the game may crash with an "Access Violation" !</strong></p>
+
+						<p><strong>Also, in OpenITG, you can't put a Condition attribute in the main ActorFrame !</strong> You need to have a normal ActorFrame, and inside it, your Actor with the Condition.</p>
+
+						<div class="example xml">
+							&lt;!-- Will be shown only if the "Insane" difficulty is played by P1. --&gt;<br />
+							&lt;Layer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;Condition="GAMESTATE:GetCurrentSteps(0):GetDifficulty() == 4"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
+							/&gt;
+						</div>
+
+						<p>For this example, don't hesitate to check both {{Steps_GetDifficulty}} and {{GameState_GetCurrentSteps}} !</p>
+
+						<p>Since every lua expression inside this attribute is valid, we could put a anonymous closure there ! Let's try with our main ActorFrame, for example, to check if the user is using OpenGL for the <a href="#Basics_ActorFrameTexture"><img src="img/notitg.png" />ActorFrameTextures</a> !</p>
+
+						<div class="example xml">
+							&lt;ActorFrame<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;Condition="(function(videoRenderers)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if not string.find(videoRenderers, 'opengl') -- OpenGL isn't in the list<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or string.find(videoRenderers, 'opengl') > 1 then -- Or OpenGL isn't the first renderer<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREENMAN:SystemMessage('You need to play this chart with OpenGL !');<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;end)(string.lower(PREFSMAN:GetPreference('VideoRenderers')))"<br />
+							&gt;&lt;children&gt;
+						</div>
+
+						<p>Reminder: You can't put a Condition in the main ActorFrame. You need to have an ActorFrame, and inside it this ActorFrame with condition, and inside it your elements.</p>
+
+						<p>Closures are often used in languages like JavaScript. They're a bit complex at first to understand, but are really easy to use, and useful in our case ! We can't use the usual <span class="mono">%function(self)</span> there, because, like I said, this attribute always take a lua expression, and "%" isn't valid in Lua (well, we can't modulo a function definition).</p>
 
 						<hr />
 
