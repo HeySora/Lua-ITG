@@ -1304,6 +1304,7 @@ data = {
 			}
 		},
 		Course: {
+			description: 'You can get an instance of Course by using <a>GameState.GetCurrentCourse()</a>, <a>SongManager.FindCourse()</a>, or <a>SongManager.GetRandomCourse()</a>.',
 			GetCourseDir: {
 				returnType: 'string',
 				description: 'Gets the directory of the Course.'
@@ -1386,12 +1387,14 @@ data = {
 			}
 		},
 		Game: {
+			description: 'You can get an instance of Game by using <a>GameState.GetCurrentGame()</a>',
 			GetName: {
 				returnType: 'string',
 				description: 'Gets the name of the current game ("dance" or "lights").'
 			}
 		},
 		GameSoundManager: {
+			description: 'To use this class, use it through the <span class="mono">SOUND</span> singleton.',
 			DimMusic: {
 				args: {
 					volume: {
@@ -1418,6 +1421,7 @@ data = {
 			}
 		},
 		GameState: {
+			description: 'To use this class, use it through the <span class="mono">GAMESTATE</span> singleton.',
 			AnyPlayerHasRankingFeats: {
 				returnType: 'bool',
 				description: 'Returns `true` if any player has performed a ranked game (= not disqualified from ranking).'
@@ -2049,6 +2053,7 @@ data = {
 			}
 		},
 		MemoryCardManager: {
+			description: 'To use this class, use it through the <span class="mono">MEMCARDMAN</span> singleton.',
 			GetCardState: {
 				returnType: 'int',
 				args: {
@@ -2062,6 +2067,7 @@ data = {
 			}
 		},
 		MessageManager: {
+			description: 'To use this class, use it through the <span class="mono">MESSAGEMAN</span> singleton.',
 			Broadcast: {
 				args: {
 					message: {
@@ -2329,6 +2335,7 @@ data = {
 			}
 		},
 		NoteSkinManager: {
+			description: 'To use this class, use it through the <span class="mono">NOTESKIN</span> singleton.',
 			GetPath: {
 				returnType: 'string',
 				args: {
@@ -2349,6 +2356,7 @@ data = {
 			}
 		},
 		PlayerStageStats: {
+			description: 'You can get an instance of PlayerStageStats by using <a>StageStats.GetPlayerStageStats()</a>.',
 			FullCombo: {
 				returnType: 'bool',
 				description: 'Returns `true` if a Full Combo was obtained'
@@ -2459,6 +2467,7 @@ data = {
 			}
 		},
 		PrefsManager: {
+			description: 'To use this class, use it through the <span class="mono">PREFSMAN</span> singleton.',
 			GetPreference: {
 				returnType: 'mixed',
 				args: {
@@ -2484,6 +2493,7 @@ data = {
 			}
 		},
 		Profile: {
+			description: 'You can get an instance of Profile by using <a>ProfileManager.GetMachineProfile()</a> or <a>ProfileManager.GetProfile()</a>.',
 			GetCaloriesBurnedToday: {
 				returnType: 'float',
 				description: 'Gets the amount of calories burned today.'
@@ -2691,6 +2701,7 @@ data = {
 			}
 		},
 		ProfileManager: {
+			description: 'To use this class, use it through the <span class="mono">PROFILEMAN</span> singleton.',
 			GetMachineProfile: {
 				returnType: 'Profile',
 				description: 'Gets the machine profile.'
@@ -2722,6 +2733,7 @@ data = {
 			}
 		},
 		RadarValues: {
+			description: 'You can get an instance of RadarValues by using <a>Steps.GetRadarValues()</a> or <a>Trail.GetRadarValues()</a>.',
 			GetValue: {
 				returnType: 'int',
 				args: {
@@ -2734,6 +2746,7 @@ data = {
 			}
 		},
 		RageDisplay: {
+			description: 'To use this class, use it through the <span class="mono">DISPLAY</span> singleton.',
 			ChangeCentering: {
 				notitg: 1,
 				args: {
@@ -2788,6 +2801,7 @@ data = {
 			}
 		},
 		RageInput: {
+			description: 'To use this class, use it through the <span class="mono">SOUND</span> singleton.',
 			GetDescriptions: {
 				returnType: 'table',
 				description: 'Creates a table of detected input devices\' descriptions.'
@@ -2798,6 +2812,7 @@ data = {
 			}
 		},
 		RageSound: {
+			description: 'You can get an instance of RageSound by using <a>ActorSound.get()</a>.',
 			GetSoundPosition: {
 				notitg: 1,
 				returnType: 'float',
@@ -2864,6 +2879,7 @@ data = {
 			}
 		},
 		RageTexture: {
+			description: 'You can get an instance of RageTexture with <a>ActorFrameTexture.GetTexture()</a> or <a>Sprite.GetTexture()</a>.',
 			GetImageHeight: {
 				notitg: 1,
 				returnType: 'float',
@@ -2963,6 +2979,7 @@ data = {
 			}
 		},
 		ScreenGameplay: {
+			description: 'To use this class, get it through <a>ScreenManager.GetTopScreen()</a> while in Gameplay.',
 			GetLife: {
 				notitg: 1,
 				returnType: 'float',
@@ -3003,6 +3020,7 @@ data = {
 			}
 		},
 		ScreenManager: {
+			description: 'To use this class, use it through the <span class="mono">SCREENMAN</span> singleton.',
 			GetTopScreen: {
 				returnType: 'Actor',
 				description: 'Gets the actual screen. If used during when playing, see the <a>Class_ScreenGameplay</a> class.'
@@ -3039,6 +3057,7 @@ data = {
 			}
 		},
 		Song: {
+			description: 'You can get an instance of Song with GameState or SongManager.',
 			GetAllSteps: {
 				returnType: 'table',
 				description: 'Gets a table of all the Steps.'
@@ -3114,6 +3133,7 @@ data = {
 			}
 		},
 		SongManager: {
+			description: 'To use this class, use it through the <span class="mono">SONGMAN</span> singleton.',
 			FindCourse: {
 				returnType: 'Course',
 				args: {
@@ -3268,6 +3288,7 @@ data = {
 			}
 		},
 		StageStats: {
+			description: 'You can get an instance of StageStats with the StatsManager class.',
 			GetGameplaySeconds: {
 				returnType: 'float',
 				description: 'Gets the number of seconds played.'
@@ -3285,6 +3306,7 @@ data = {
 			}
 		},
 		StatsManager: {
+			description: 'To use this class, use it through the <span class="mono">STATSMAN</span> singleton.',
 			GetAccumStageStats: {
 				returnType: 'StageStats',
 				description: 'Gets a StageStats instance including every game until now.'
@@ -3331,6 +3353,7 @@ data = {
 			}
 		},
 		Steps: {
+			description: 'You can get an instance of Steps with <a>GameState.GetCurrentSteps()</a> or <a>GameState.GetEditSourceSteps()</a>.',
 			GetDescription: {
 				returnType: 'string',
 				description: 'Gets the description.'
@@ -3360,6 +3383,7 @@ data = {
 			}
 		},
 		ThemeManager: {
+			description: 'To use this class, use it through the <span class="mono">THEME</span> singleton.',
 			GetCurLanguage: {
 				returnType: 'string',
 				description: 'Gets the current language.'
@@ -3406,6 +3430,7 @@ data = {
 			}
 		},
 		Trail: {
+			description: 'You can get an instance of Trail by using <a>GameState.GetCurrentTrail()</a>.',
 			GetDifficulty: {
 				returnType: 'int',
 				description: 'Gets the difficulty. See <a>Enum_Difficulty</a>.'
@@ -3427,6 +3452,7 @@ data = {
 			}
 		},
 		UnlockManager: {
+			description: 'To use this class, use it through the <span class="mono">UNLOCKMAN</span> singleton.',
 			FindCode: {
 				returnType: 'string',
 				args: {
@@ -3774,6 +3800,11 @@ function parseClasses() {
 		var $articleTitle = $('<h4></h4>').html(k_class + ((typeof v_class.inherits === 'string') ? ' : <a href="#Class_'+ v_class.inherits +'">'+ v_class.inherits +'</a>' : ''))
 		$article.append($articleTitle);
 
+		// Ajout de la description, si présente
+		if (typeof v_class.description !== 'undefined') {
+			$article.append($('<p></p>').html(replaceKeywords(v_class.description)));
+		}
+
 		// Création du tableau de méthodes
 		var $table = $('<table></table>');
 		var $tableHeader = $('<thead><tr><th>Availability</th><th>Method</th></tr></thead>');
@@ -3782,12 +3813,12 @@ function parseClasses() {
 
 		// Itération sur les méthodes
 		$.each(v_class, function(k_method, v_method) {
-			// Si clé "inherits" réservée à la classe, ou si description vide, ignorer
-			if (k_method == 'inherits' || v_method.description == '') {
+			// Si clé "inherits"/"desciption" réservée à la classe, ou si description vide, ignorer
+			if (k_method == 'inherits' || k_method == 'description' || v_method.description == '') {
 				return;
 			}
 
-			allMethods += k_method + " ";
+			allMethods += k_method + " ";           // Utilisé pour la coloration syntaxique
 
 			// Création des éléments
 			var $row = $('<tr></tr>');
