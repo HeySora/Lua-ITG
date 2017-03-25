@@ -4749,7 +4749,7 @@ function init() {
 	});
 
 	// General links
-	$('a[href*="#Basics_"]').click(function() {
+	$('a[href*="#Basics_"],a.smooth-link').click(function() {
 		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 			var target = $(this.hash);
 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
