@@ -250,7 +250,7 @@ h1 {
 	color: #666;
 }
 
-#classes th:nth-child(1) {
+#classes th:nth-child(1), #globalfuncs th:nth-child(1) {
 	width: 100px;
 }
 
@@ -270,7 +270,7 @@ h1 {
 	font-size: 1rem;
 }
 
-#classes td:nth-child(1) img {
+#classes td:nth-child(1) img, #globalfuncs td:nth-child(1) img {
 	display: block;
 	margin: auto;
 }
@@ -278,13 +278,19 @@ h1 {
 #classes span:not(.no-mono, [class*='hljs-']),
 #classes span:not(.no-mono, [class*='hljs-']) *,
 #classes a.code,
-#classes a.code * {
+#classes a.code *,
+#globalfuncs span:not(.no-mono, [class*='hljs-']),
+#globalfuncs span:not(.no-mono, [class*='hljs-']) *,
+#globalfuncs a.code,
+#globalfuncs a.code * {
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	font-size: 17px;
 }
 
 #classes td:nth-child(2) div:first-child,
-#classes td:nth-child(2) div:first-child * {
+#classes td:nth-child(2) div:first-child *,
+#globalfuncs td:nth-child(2) div:first-child,
+#globalfuncs td:nth-child(2) div:first-child * {
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	font-size: 20px;
 }
@@ -299,27 +305,28 @@ h4 > img {
 	margin-right: 6px;
 }
 
-#classes span:not([class*='hljs']) {
+#classes span:not([class*='hljs']), #globalfuncs span:not([class*='hljs']) {
 	color: #666;
 }
 
-#classes span.itg-string {
+#classes span.itg-string, #globalfuncs span.itg-string {
 	color: #97d8ea;
 }
 
-#classes span.itg-int {
+#classes span.itg-int, #globalfuncs span.itg-int {
 	color: #8f8;
 }
 
-#classes span.itg-float {
+#classes span.itg-float, #globalfuncs span.itg-float {
 	color: #292;
 }
 
-#classes span.itg-bool {
+#classes span.itg-bool, #globalfuncs span.itg-bool {
 	color: #f63249;
 }
 
-#classes span.itg-object, #classes span.itg-table, #classes span.itg-mixed {
+#classes span.itg-object, #classes span.itg-table, #classes span.itg-mixed,
+#globalfuncs span.itg-object, #globalfuncs span.itg-table, #globalfuncs span.itg-mixed {
 	color: #0bb;
 }
 

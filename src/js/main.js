@@ -3663,6 +3663,337 @@ data = {
 			"Perfect / Excellent": 7,
 			"Marvelous / Fantastic": 8
 		}
+	},
+	globalfuncs: {
+		AllFailed: {
+			returnType: 'bool',
+			description: 'Returns `true` if every active player failed the current stage.'
+		},
+		ConnectToServer: {
+			returnType: 'bool',
+			args: {
+				address: {
+					type: 'string',
+					description: 'The address of the server.'
+				}
+			},
+			description: 'Connects to an online server. Returns `true` or `false` depending if the connection is succesful or not.'
+		},
+		CourseDifficultyToThemedString: {
+			returnType: 'string',
+			args: {
+				courseDifficulty: {
+					type: 'int',
+					description: 'The difficulty. See <a>Enum_Difficulty</a>.'
+				}
+			},
+			description: 'Converts a difficulty to a human-readable string.'
+		},
+		CourseSongIndex: {
+			returnType: 'int',
+			description: 'Gets the index (beginning at 0) of the current song.'
+		},
+		CurStyleName: {
+			returnType: 'string',
+			description: 'Gets the name of the current style.'
+		},
+		DayOfMonth: {
+			returnType: 'int',
+			description: 'Returns the current day (fortunately, beginning at 1).'
+		},
+		DayOfYear: {
+			returnType: 'int',
+			description: 'Returns the current day in the year (beginning at 0).'
+		},
+		Debug: {
+			returnType: 'bool',
+			args: {
+				msg: {
+					type: 'string',
+					description: 'The message to log'
+				}
+			},
+			description: 'Like <a>GlobalFunc_Trace</a>, but displays even with the ShowLogOutput preference disabled. <em>(Oh, and it returns true.)</em>'
+		},
+		DifficultyToThemedString: {
+			returnType: 'string',
+			args: {
+				difficulty: {
+					type: 'int',
+					description: 'The difficulty. See <a>Enum_Difficulty</a>.'
+				}
+			},
+			description: 'Converts a difficulty to a human-readable string.'
+		},
+		FormatPercentScore: {
+			returnType: 'string',
+			args: {
+				score: {
+					type: 'float',
+					description: 'The current (DP) score.'
+				}
+			},
+			description: 'Formats a score into a human-readable percent score.'
+		},
+		GetBestFinalGrade: {
+			returnType: 'int',
+			description: 'Returns the best final grade. See <a>Enum_Grade</a>'
+		},
+		GetDiskSpaceFree: {
+			returnType: 'string',
+			description: 'Gets the amount of bytes free on the disk.'
+		},
+		GetDiskSpaceTotal: {
+			returnType: 'string',
+			description: 'Gets the capacity of the disk, in bytes.'
+		},
+		GetEasiestNotesDifficulty: {
+			returnType: 'int',
+			description: 'Gets the easiest difficulty chosen of the current song. See <a>Enum_Difficulty</a>.'
+		},
+		GetGradeFromPercent: {
+			returnType: 'int',
+			args: {
+				percent: {
+					type: 'float',
+					description: 'The percentage score.'
+				}
+			},
+			description: 'Returns the grade for `percent`. See <a>Enum_Grade</a>'
+		},
+		GetIP: {
+			returnType: 'string',
+			description: 'Gets the internal IP and the netmask of the machine.',
+			example: 'GetIP(); -- Will return this string : "192.168.1.10, Netmask: 255.255.255.0".'
+		},
+		GetInputType: {
+			returnType: 'string',
+			description: 'Gets the current input type.'
+		},
+		GetNumCrashLogs: {
+			returnType: 'int',
+			description: 'Gets the number of crash logs.'
+		},
+		GetNumIOErrors: {
+			returnType: 'int',
+			description: 'Gets the number of disk (Input/Output) Errors.'
+		},
+		GetNumMachineEdits: {
+			returnType: 'int',
+			description: 'Gets the number of edits registered in the machine.'
+		},
+		GetNumMachineScores: {
+			returnType: 'int',
+			description: 'Gets the number of scores registered in the machine-'
+		},
+		GetNumPlayersEnabled: {
+			returnType: 'int',
+			description: 'Alias for <a>Class_GameState_GetNumPlayersEnabled</a>. Gets the number of enabled players. (Either 1 or 2)'
+		},
+		GetProductName: {
+			returnType: 'string',
+			description: 'Gets the name (and the version if available) of this executable.'
+		},
+		GetProductVer: {
+			returnType: 'string',
+			description: 'Gets the version of this executable.'
+		},
+		GetRevision: {
+			returnType: 'int',
+			description: 'Gets the revision of the current ITG Patch.'
+		},
+		GetSerialNumber: {
+			returnType: 'string',
+			description: 'Gets the serial number of this ITG installation.'
+		},
+		GetStageText: {
+			returnType: 'string',
+			description: 'Gets the text of the stage. (For example, "event")'
+		},
+		GetUptime: {
+			returnType: 'string',
+			description: 'Gets the current uptime, in HHMMSS.'
+		},
+		Grade: {
+			returnType: 'int',
+			args: {
+				gradeName: {
+					type: 'string',
+					description: 'The grade\'s name.'
+				}
+			},
+			description: 'Returns the Grade from the name. See <a>Enum_Grade</a>.'
+		},
+		GradeToString: {
+			returnType: 'string',
+			args: {
+				grade: {
+					type: 'int',
+					description: 'The grade. See <a>Enum_Grade</a>.'
+				}
+			},
+			description: 'Returns the grade\'s name from the grade.'
+		},
+		Hour: {
+			returnType: 'int',
+			description: 'Returns the current hour.'
+		},
+		HubIsConnected: {
+			returnType: 'bool',
+			description: 'Returns `true` if the ITG hub is connected, `false` otherwise.'
+		},
+		IsAnyPlayerUsingMemoryCard: {
+			returnType: 'bool',
+			description: 'Returns `true` if one or more memory card is currently used, `false` otherwise.'
+		},
+		IsExtraStage: {
+			returnType: 'bool',
+			description: 'Returns `true` if the current stage is the extra stage, `false` otherwise.'
+		},
+		IsExtraStage2: {
+			returnType: 'bool', 
+			description: 'Returns `true` if the current stage is the second extra stage, `false` otherwise.'
+		},
+		IsFinalStage: {
+			returnType: 'bool',
+			description: 'Returns `true` if the current stage is the final stage, `false` otherwise.'
+		},
+		IsNetConnected: {
+			returnType: 'bool',
+			description: 'Returns `true` if the game is connected to the Internet, `false` otherwise.'
+		},
+		IsNetSMOnline: {
+			returnType: 'bool',
+			description: 'Returns `true` if the game is connected to StepMania Online, `false` otherwise.'
+		},
+		IsSMOnlineLoggedIn: {
+			returnType: 'bool',
+			args: {
+				player: {
+					type: 'int',
+					description: 'The player number. Either 0 (for P1), or 1 (for P2)',
+					condition: '0-1'
+				}
+			},
+			description: 'Returns `true` if the specified player is logged in, to StepMania Online, `false` otherwise.'
+		},
+		IsUsingMemoryCard: {
+			returnType: 'bool',
+			args: {
+				player: {
+					type: 'int',
+					description: 'The player number. Either 0 (for P1), or 1 (for P2)',
+					condition: '0-1'
+				}
+			},
+			description: 'Returns `true` if the specified player is using a memory card, `false` otherwise.'
+		},
+		Minute: {
+			returnType: 'int',
+			description: 'Returns the current minute.'
+		},
+		MonthOfYear: {
+			returnType: 'int',
+			description: 'Returns the current month (fortunately, beginning at 1).'
+		},
+		MonthToString: {
+			returnType: 'string',
+			args: {
+				month: {
+					type: 'int',
+					description: 'The month, beginning at 0.',
+					condition: '0-1'
+				}
+			},
+			description: 'Returns a human-readable string for the specified month.'
+		},
+		NumStagesLeft: {
+			returnType: 'int',
+			description: 'Returns the number of stages left, returns 999 if event mode is enabled.'
+		},
+		OnePassed: {
+			returnType: 'bool',
+			description: 'Returns `true` if at least one player passed the song, `false` otherwise.'
+		},
+		PlayModeName: {
+			returnType: 'string',
+			description: 'Gets the name of the current play mode.'
+		},
+		ReportStyle: {
+			description: 'Send the current style to the SMOnline server.'
+		},
+		Second: {
+			returnType: 'int',
+			description: 'Returns the current second.'
+		},
+		SecondsToHHMMSS: {
+			returnType: 'string',
+			args: {
+				seconds: {
+					type: 'int',
+					description: 'The amount of seconds.'
+				}
+			},
+			description: 'Returns a human-readable string in the HHMMSS form, representing an amount of seconds.'
+		},
+		SecondsToMMSS: {
+			returnType: 'string',
+			args: {
+				seconds: {
+					type: 'int',
+					description: 'The amount of seconds.'
+				}
+			},
+			description: 'Returns an human-readable string in the MMSS form, representing an amount of seconds.'
+		},
+		SecondsToMMSSMsMs: {
+			returnType: 'string',
+			args: {
+				seconds: {
+					type: 'float',
+					description: 'The amount of seconds.'
+				}
+			},
+			description: 'Returns an human-readable string in the MMSSMsMs form, representing an amount of seconds.'
+		},
+		SecondsToMMSSMsMsMs: {
+			returnType: 'string',
+			args: {
+				seconds: {
+					type: 'float',
+					description: 'The amount of seconds.'
+				}
+			},
+			description: 'Returns an human-readable string in the MMSSMsMsMs form, representing an amount of seconds.'
+		},
+		SecondsToMSSMsMs: {
+			returnType: 'string',
+			args: {
+				seconds: {
+					type: 'float',
+					description: 'The amount of seconds.'
+				}
+			},
+			description: 'Returns an human-readable string in the MSSMsMs form, representing an amount of seconds.'
+		},
+		Trace: {
+			returnType: 'bool',
+			args: {
+				msg: {
+					type: 'string',
+					description: 'The message to log'
+				}
+			},
+			description: 'Logs a message to the console log, if shown. <em>(Oh, and returns true.)</em>'
+		},
+		Weekday: {
+			returnType: 'int',
+			description: 'Returns the current weekday (from 0 to 6).'
+		},
+		Year: {
+			returnType: 'int',
+			description: 'Returns the current year.'
+		}
 	}
 };
 
@@ -3698,18 +4029,24 @@ function replaceKeywords(str, args) {
 	ret = ret.replace(/<a>Enum_([^<>]+)<\/a>/gi, function(match, enumName) {
 		var isNotITG = checkNotITG(enumName);
 		return '<a class="code enum-link" href="#Enum_'+ enumName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ enumName +'</a>';
-	})
+	});
 
 	// Class
 	ret = ret.replace(/<a>Class_([^<>]+)<\/a>/gi, function(match, className) {
 		return '<a class="code class-link" href="#Class_'+ className +'">'+ className +'</a>';
-	})
+	});
 
 	// Class' Method
 	ret = ret.replace(/<a>([^<>]+)\.([^<>]+)\(\)<\/a>/gi, function(match, className, methodName) {
 		var isNotITG = checkNotITG(className, methodName);
 		return '<a class="code method-link" href="#Class_'+ className +'_'+ methodName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg' ) +'.png" />'+ className +'.'+ methodName +'()</a>';
-	})
+	});
+
+	// Global Function
+	ret = ret.replace(/<a>GlobalFunc_([^<>]+)<\/a>/gi, function(match, funcName) {
+		var isNotITG = checkNotITG(funcName);
+		return '<a class="code method-link" href="#GlobalFunc_'+ funcName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg' ) +'.png" />'+ funcName +'()</a>';
+	});
 
 	if (arguments.length > 1 && typeof args === 'object') {
 		$.each(args, function(k_arg, v_arg) {
@@ -3963,7 +4300,7 @@ function parseClasses() {
 // Parser les enums
 function parseEnums() {
 
-	// Itération sur les classes
+	// Itération sur les enums
 	$.each(data.enums, function(k_enum, v_enum) {
 
 		// Création de l'article
@@ -4023,6 +4360,154 @@ function parseEnums() {
 
 }
 
+// Parser les fonctions globales
+function parseGlobalFuncs() {
+
+	// Création du tableau de méthodes
+	var $table = $('<table></table>');
+	var $tableHeader = $('<thead><tr><th>Availability</th><th>Method</th></tr></thead>');
+	$table.append($tableHeader);
+	var $tableBody = $('<tbody></tbody>');
+
+	// Itération sur les méthodes
+	$.each(data.globalfuncs, function(k_method, v_method) {
+		// Si description vide, ignorer
+		if (v_method.description == '') {
+			return;
+		}
+
+		allMethods += k_method + " ";           // Utilisé pour la coloration syntaxique
+
+		// Création des éléments
+		var $row = $('<tr></tr>');
+		var $firstElement = $('<td></td>');
+		var $secondElement = $('<td></td>');
+		var $icon = $('<img>');
+		var content = [];
+		var args = '';                          // Utilisé pour le prototype de la fonction.
+		var argsDescription = [];
+		var validArgs = {};                     // Utilisé pour la coloration de la description avec replaceKeywords()
+		var description = v_method.description; // Utilisé pour la coloration de la description.
+
+		// Disponibilité
+		if (typeof v_method.notitg !== 'undefined') {
+			$icon.attr('src', 'img/notitg.png');
+		}
+		else {
+			$icon.attr('src', 'img/itg.png');
+		}
+		$firstElement.append($icon);
+
+		// Itération sur les arguments de la méthode, s'il y en a
+		if (typeof v_method.args !== 'undefined') {
+			$.each(v_method.args, function(k_arg, v_arg) {
+				// Si pas de type, ou de description, ignorer
+				if (v_arg.type === '' || v_arg.description === '') {
+					return;
+				}
+
+				// Si condition fournie, la parser
+				var conditionText;
+				// Si plage de nombres
+				if (typeof v_arg.condition === 'string') {
+					var condData = parseConditions(v_arg.condition, v_arg.type);
+					if (typeof condData.min !== 'undefined' && typeof condData.max !== 'undefined') {
+						conditionText = '(must be between '+ condData.min +' and '+ condData.max +')';
+					}
+					else if (typeof condData.min !== 'undefined') {
+						conditionText = '(must be greater or equal than '+ condData.min +')';
+					}
+					else if (typeof condData.max !== 'undefined') {
+						conditionText = '(must be lesser or equal than '+ condData.max +')';
+					}
+				}
+				// Si multiples valeurs uniquement
+				else if (typeof v_arg.condition === 'object' && Array.isArray(v_arg.condition) && v_arg.condition.length >= 2) {
+					conditionText = '(must be equal to ';
+					// Si string
+					if (v_arg.type == 'string') {
+						$.each(v_arg.condition, function(i_cond, v_cond) {
+							// Dernier élément
+							if (i_cond == v_arg.condition.length-1) {
+								conditionText += 'or "'+ v_cond +'")';
+							}
+							else {
+								conditionText += '"'+ v_cond +'", ';
+							}
+						});
+					}
+					else {
+						$.each(v_arg.condition, function(i_cond, v_cond) {
+							// Dernier élément
+							if (i_cond == v_arg.condition.length-1) {
+								conditionText += 'or '+ v_cond +')';
+							}
+							else {
+								conditionText += ''+ v_cond +', ';
+							}
+						});
+					}
+				}
+
+				// Ajout de l'argument dans le prototype affiché
+				args += '<span class="'+ checkLuaObject(v_arg.type) +'">'+ v_arg.type +'</span> '+ k_arg +'<span>, </span>';
+				// Ajout de la ligne réservée à l'argument
+				var argDescription = replaceKeywords('<span class="'+ checkLuaObject(v_arg.type) +'">'+ v_arg.type +' <strong>'+ k_arg +'</strong></span> : '+ v_arg.description);
+				argDescription = (conditionText) ? argDescription +' <span class="no-mono condition">'+ conditionText +'</span>' : argDescription;
+
+				argsDescription.push(argDescription);
+				// Ajout de l'argument dans validArgs, utilisé pour replaceKeywords()
+				validArgs[k_arg] = v_arg;
+			});
+		}
+
+		// Remplacer mots clés
+		description = replaceKeywords(description, validArgs);
+
+		// Retirer ", " final
+		if (args !== '') {
+			args = args.slice(0, -15); //"<span>, </span>" <- 15 caractères
+		}
+
+		// Mise en place du contenu de chaque div
+		content.push(((typeof v_method.returnType !== 'undefined') ? '<span class="'+ checkLuaObject(v_method.returnType) +'">'+ v_method.returnType +'</span> ' : '<span>void</span> ') + '<strong>'+ k_method +'</strong> ( '+ ( (args !== '') ? args : '<span>void</span>' ) +' )');
+		content.push(description);
+		$.each(argsDescription, function(i_description, v_description) {
+			content.push(replaceKeywords(v_description, validArgs));
+		});
+
+		// Exemple
+		if (typeof v_method.example !== 'undefined') {
+			content.push('<strong>Example: </strong><br /><div class="example lua">'+ v_method.example +'</div>');
+		}
+
+		// Itération sur le contenu des divs
+		$.each(content, function(i_content, v_content) {
+			var $div = $('<div>'+ v_content +'</div>');
+			// Ajout des divs dans la seconde cellule
+			$secondElement.append($div);
+		});
+
+		// Ajout de l'id, utilisé pour les liens
+		$firstElement.attr('id', 'GlobalFunc_'+ k_method);
+
+		// Ajout des cellules dans la ligne, et dans le tableau
+		$row.append($firstElement).append($secondElement);
+		$tableBody.append($row);
+	});
+
+	// Ajout du contenu du tableau dans le tableau
+	$table.append($tableBody);
+
+	var $divTable = $('<div></div>').append($table);
+
+	// Ajout du tableau et de l'article dans la section
+	$('#globalfuncs').append($divTable);
+
+	$divTable.addClass('ready');
+
+}
+
 function init() {
 
 	state = 5;
@@ -4043,6 +4528,11 @@ function init() {
 
 	state = 7;
 
+	// Générer le contenu de #globalfuncs
+	parseGlobalFuncs();
+
+	state = 8;
+
 	// Générer les liens de #basics
 	$('#basics').html(
 		$('#basics').html().replace(/{{(\w+)_(\w+)}}/gi, function(match, className, methodName) {
@@ -4051,7 +4541,7 @@ function init() {
 		})
 	);
 
-	state = 8;
+	state = 9;
 
 	// Smooth Scrolling & Highlighting
 	var animating = false;
@@ -4148,12 +4638,12 @@ function init() {
 		return false;
 	});
 
-	state = 9;
+	state = 10;
 
 	// Foundation
 	$(document).foundation();
 
-	state = 10;
+	state = 11;
 
 	// Syntax-Highlighting
 	try {
@@ -4174,17 +4664,18 @@ function init() {
 		clearTimeout(timeout);
 	}
 
-	state = 11;
+	state = 12;
 
 };
 
 state = 3;
 
 timeout = setTimeout(function() {
-	window.alert("Error ! Please report it to me : [TimeoutError] : State " + state + ". The page could miss some features, like syntax coloration.");
+	if (state != 11)
+		window.alert("Error ! Please report it to me : [TimeoutError] : State " + state + ". The page could miss some features, like syntax coloration.");
 	console.log("Error ! Please report it to me : [TimeoutError] : State " + state);
 	$('#page').addClass('done');
-}, 10000);
+}, 5000);
 
 $(function() {
 	state = 4;
