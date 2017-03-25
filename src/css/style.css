@@ -254,11 +254,11 @@ h1 {
 	width: 100px;
 }
 
-#enums table {
+#enums table, #constants table {
 	margin: auto;
 	width: 80%;
 }
-#enums th {
+#enums th, #constants th {
 	width: 50%;
 }
 
