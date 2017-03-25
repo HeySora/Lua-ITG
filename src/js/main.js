@@ -4174,7 +4174,7 @@ function checkNotITG(name, methodName) {
 
 // Replacer mots-clés, liens, et variables
 function replaceKeywords(str, args) {
-	var ret = str.replace('`true`', '<span class="bool">true</span>').replace('`false`', '<span class="bool">false</span>').replace('`nil`', '<span class="bool">nil</span>');
+	var ret = str.replace('`true`', '<span class="itg-bool">true</span>').replace('`false`', '<span class="itg-bool">false</span>').replace('`nil`', '<span class="itg-bool">nil</span>');
 
 	// Enums
 	ret = ret.replace(/<a>Enum_([^<>]+)<\/a>/gi, function(match, enumName) {
