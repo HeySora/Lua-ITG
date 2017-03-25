@@ -4050,7 +4050,7 @@ data = {
 		GRADE_TIER19: '18',
 		GRADE_TIER20: '19',
 		GRADE_FAILED: '20',
-		GRADE_NODATA: '22 (Yes, 22, not 21.)',
+		GRADE_NODATA: '22',
 		HNS_NONE: '0',
 		HNS_NG: '1',
 		HNS_OK: '2',
