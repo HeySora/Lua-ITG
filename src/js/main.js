@@ -3796,7 +3796,7 @@ data = {
 		},
 		GetNumPlayersEnabled: {
 			returnType: 'int',
-			description: 'Alias for <a>Class_GameState_GetNumPlayersEnabled</a>. Gets the number of enabled players. (Either 1 or 2)'
+			description: 'Alias for <a>GameState.GetNumPlayersEnabled()</a>. Gets the number of enabled players. (Either 1 or 2)'
 		},
 		GetProductName: {
 			returnType: 'string',
