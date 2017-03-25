@@ -299,12 +299,12 @@
 							&lt;!-- Will be shown only if the "Insane" difficulty is played by P1. --&gt;<br />
 							&lt;Layer<br />
 							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;Condition="GAMESTATE:GetCurrentSteps(0):GetDifficulty() == 4"<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;Condition="GAMESTATE:IsPlayerEnabled(0) and GAMESTATE:GetCurrentSteps(0):GetDifficulty() == 4"<br />
 							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
 							/&gt;
 						</div>
 
-						<p>For this example, don't hesitate to check both {{Steps_GetDifficulty}} and {{GameState_GetCurrentSteps}} !</p>
+						<p>For this example, don't hesitate to check both {{GameState_IsPlayerEnabled}}, {{GameState_GetCurrentSteps}} and {{Steps_GetDifficulty}} !</p>
 
 						<p>Since every lua expression inside this attribute is valid, we could put a anonymous closure there ! Let's try with our main ActorFrame, for example, to check if the user is using OpenGL for the <a href="#Basics_ActorFrameTexture"><img src="img/notitg.png" />ActorFrameTextures</a> !</p>
 
