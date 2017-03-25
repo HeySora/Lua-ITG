@@ -3772,7 +3772,7 @@ data = {
 		GetIP: {
 			returnType: 'string',
 			description: 'Gets the internal IP and the netmask of the machine.',
-			example: 'GetIP(); -- Will return this string : "192.168.1.10, Netmask: 255.255.255.0".'
+			example: 'GetIP(); -- Will return something similar to this string : "192.168.1.10, Netmask: 255.255.255.0".'
 		},
 		GetInputType: {
 			returnType: 'string',
