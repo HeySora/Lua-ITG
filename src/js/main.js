@@ -1005,6 +1005,7 @@ data = {
 				description: 'Sets the ActorFrame\'s Field Of View.'
 			},
 			GetChild: {
+				returnType: 'Actor',
 				args: {
 					name: {
 						type: 'string',
@@ -1014,6 +1015,7 @@ data = {
 				description: 'Gets the Actor of a child with its name equal to `name`, or `nil`.'
 			},
 			GetChildAt: {
+				returnType: 'Actor',
 				notitg: 1,
 				args: {
 					index: {
@@ -1025,6 +1027,7 @@ data = {
 				description: 'Gets the Actor of a child at index `index`.'
 			},
 			GetNumChildren: {
+				returnType: 'int',
 				description: 'Gets the number of children in the ActorFrame.'
 			},
 			propagate: {
