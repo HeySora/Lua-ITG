@@ -4298,7 +4298,7 @@ function parseClasses() {
 
 		// Création du tableau de méthodes
 		var $table = $('<table></table>');
-		var $tableHeader = $('<thead><tr><th>Availability</th><th>Method</th></tr></thead>');
+		var $tableHeader = $('<thead><tr><th></th><th>Method</th></tr></thead>');
 		$table.append($tableHeader);
 		var $tableBody = $('<tbody></tbody>');
 
@@ -4519,7 +4519,7 @@ function parseGlobalFuncs() {
 
 	// Création du tableau de méthodes
 	var $table = $('<table></table>');
-	var $tableHeader = $('<thead><tr><th>Availability</th><th>Method</th></tr></thead>');
+	var $tableHeader = $('<thead><tr><th></th><th>Method</th></tr></thead>');
 	$table.append($tableHeader);
 	var $tableBody = $('<tbody></tbody>');
 
@@ -4740,12 +4740,29 @@ function init() {
 	// Navbar
 	$('nav,h4').find('a[href*="#"]:not([href="#"])').click(function() {
 		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-			if (target.length) {
-				$('#main').animate({
-					scrollTop: $('#main').scrollTop() + target.offset().top - 12
-				}, 900);
+			$('body').removeClass('nav-open');
+			$('body').removeClass('mobile-nav-open');
+			if (navigator.userAgent.includes('Firefox') && navigator.userAgent.includes('Mozilla')) {
+				setTimeout(function(thiss) {
+					var target = $(thiss.hash);
+					target = target.length ? target : $('[name=' + thiss.hash.slice(1) +']');
+					if (target.length) {
+						$('#main').animate({
+							scrollTop: $('#main').scrollTop() + target.offset().top - 12
+						}, 900);
+					}
+				}, 1000, this);
+			}
+			else {
+				setTimeout(function(thiss) {
+					var target = $(thiss.hash);
+					target = target.length ? target : $('[name=' + thiss.hash.slice(1) +']');
+					if (target.length) {
+						$('#main').animate({
+							scrollTop: $('#main').scrollTop() + target.offset().top - 12
+						}, 900);
+					}
+				}, 600, this);
 			}
 		}
 		return false;
@@ -4829,6 +4846,23 @@ function init() {
 		return false;
 	});
 
+	// Nav
+	$('button.nav-toggle-button, .nav-toggle').click(function() {
+		if ($('body').hasClass('large')) {
+			$('body').toggleClass('nav-open');
+		}
+		else {
+			$('body').toggleClass('mobile-nav-open');
+		}
+	});
+	$('#main').click(function() {
+		if ($('body').hasClass('nav-open') && $('body').hasClass('large'))
+			$('body').removeClass('nav-open');
+	});
+
+	$(window).resize(onResize);
+	onResize(true);
+
 	state = 11;
 
 	// Foundation
@@ -4870,5 +4904,19 @@ timeout = setTimeout(function() {
 
 $(function() {
 	state = 4;
+	wW = 0;
+	wH = 0;
 	init();
 });
+
+function onResize(first) {
+	wW = $(window).width();
+	wH = $(window).height();
+
+	if (wW >= 1024) {
+		$('body').removeClass('mobile-nav-open').removeClass('small').addClass('large');
+	}
+	else {
+		$('body').removeClass('nav-open').removeClass('large').addClass('small');
+	}
+}

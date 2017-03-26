@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="viewport" content="width=1026">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Lua for oITG / NotITG</title>
 		<link rel="stylesheet" href="css/foundation.css">
 		<link rel="stylesheet" href="css/style.css">
@@ -11,597 +11,594 @@
 		<script src="https://use.fontawesome.com/f74e84ee43.js"></script>
 	</head>
 	<body>
-		<div id="page" class="row">
-			<div id="sidebar" class="medium-7 large-6 columns">
-				<div id="sidebar-content">
-					<h2><a href="/"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go back</a></h2>
-					<nav>
-						<ul>
-							<li><a href="#basics">Basics of XML/Lua</a></li>
-							<li><a href="#classes">Classes &amp; Methods</a></li>
-							<li><a href="#enums">Enumerations</a></li>
-							<li><a href="#globalfuncs">Global functions</a></li>
-							<li><a href="#constants">Constants</a></li>
-							<li><a href="#mods">Mods</a></li>
-							<li><a href="#resources">Useful resources</a></li>
-						</ul>
-					</nav>
+		<button type="button" class="nav-toggle-button"><i class="fa fa-bars" aria-hidden="true"></i></button>
+		<div id="sidebar">
+			<h2><a href="/"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go back</a> &middot; <a href="#" class="nav-toggle"><i class="fa fa-close" aria-hidden="true"></i> Exit menu</a></h2>
+			<nav>
+				<ul>
+					<li><a href="#basics">Basics of XML/Lua</a></li>
+					<li><a href="#classes">Classes &amp; Methods</a></li>
+					<li><a href="#enums">Enumerations</a></li>
+					<li><a href="#globalfuncs">Global functions</a></li>
+					<li><a href="#constants">Constants</a></li>
+					<li><a href="#mods">Mods</a></li>
+					<li><a href="#resources">Useful resources</a></li>
+				</ul>
+			</nav>
 
-					<footer>
-						<hr />
-						<p>This website is not affiliated, sponsored, or endorsed by <a href="http://stepmania.com/" target="_blank">Stepmania</a>. NotITG is an <a href="http://openitg.gr-p.com/" target="_blank">OpenITG</a> modification by <a href="https://www.youtube.com/c/taro4012itg">TaroNuke</a>. Thanks to him for his help !</p>
-						<p>&copy; HeySora &middot; This website is provided "as is" without warranty of any kind. This website is licensed under the GNU AGPL-3 license. <a href="https://github.com/HeySora/Lua-ITG" target="_blank">Github</a>.</p>
-					</footer>
-				</div>
-			</div>
-			<div id="main" class="columns">
-				<div id="main-content">
-					<header>
-						<h1>Lua API for OpenITG / NotITG</h1>
-					</header>
+			<footer>
+				<hr />
+				<p>This website is not affiliated, sponsored, or endorsed by <a href="http://stepmania.com/" target="_blank">Stepmania</a>. NotITG is an <a href="http://openitg.gr-p.com/" target="_blank">OpenITG</a> modification by <a href="https://www.youtube.com/c/taro4012itg">TaroNuke</a>. Thanks to him for his help !</p>
+				<p>&copy; HeySora &middot; This website is provided "as is" without warranty of any kind. This website is licensed under the GNU AGPL-3 license. <a href="https://github.com/HeySora/Lua-ITG" target="_blank">Github</a>.</p>
+			</footer>
+		</div>
+		<div id="main">
+			<div id="main-content">
+				<header>
+					<h1>Lua API for OpenITG / NotITG</h1>
+				</header>
 
-					<section id="basics">
+				<section id="basics">
 
-						<h3>Basics of XML/Lua</h3>
+					<h3>Basics of XML/Lua</h3>
 
-						<h4 id="Basics_Intro">Introduction</h4>
-						<p>The Lua API is supported in OpenITG / NotITG through XML. With this, you can easily create "modded simfiles", by manipulating elements, adding images, and much more.</p>
-						<p>"Elements" are called "Actors". An Actor can be a rectangle, a picture, some text, or even 3D objects, the player, or the screen itself ! In your code, you will manipulate existing Actors and also create some. You can control <em>almost</em> everything in lua, but NotITG provides even more tools and some new Actors to make beautiful simfiles !</p>
+					<h4 id="Basics_Intro">Introduction</h4>
+					<p>The Lua API is supported in OpenITG / NotITG through XML. With this, you can easily create "modded simfiles", by manipulating elements, adding images, and much more.</p>
+					<p>"Elements" are called "Actors". An Actor can be a rectangle, a picture, some text, or even 3D objects, the player, or the screen itself ! In your code, you will manipulate existing Actors and also create some. You can control <em>almost</em> everything in lua, but NotITG provides even more tools and some new Actors to make beautiful simfiles !</p>
 
-						<hr />
+					<hr />
 
 
-						<h4 id="Basics_GettingStarted">Getting started</h4>
+					<h4 id="Basics_GettingStarted">Getting started</h4>
 
-						<p>First, <strong class="rainbow">DO NOT CODE WITH WINDOWS NOTEPAD !</strong> This software doesn't help you at all to code something. You can't indent, the text isn't colorized, etc. You should use a better text editor. I'd personally recommend <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a> because there are really useful features and shortcuts, but there are also other softwares, such as <a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a> or <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>. If you love command-line prompts, you can also use vim or emacs !</p>
-						<p>I made syntax highlighting files for the XML/Lua and CRS files, for Sublime Text 3. You can find them <a href="/">at the homepage of this website</a>.</p>
+					<p>First, <strong class="rainbow">DO NOT CODE WITH WINDOWS NOTEPAD !</strong> This software doesn't help you at all to code something. You can't indent, the text isn't colorized, etc. You should use a better text editor. I'd personally recommend <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a> because there are really useful features and shortcuts, but there are also other softwares, such as <a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a> or <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>. If you love command-line prompts, you can also use vim or emacs !</p>
+					<p>I made syntax highlighting files for the XML/Lua and CRS files, for Sublime Text 3. You can find them <a href="/">at the homepage of this website</a>.</p>
 
-						<p>Let's assume your simfile looks like that :</p>
+					<p>Let's assume your simfile looks like that :</p>
 
-						<img src="https://i.heysora.net/QlUwta.png" alt="" />
+					<img src="https://i.heysora.net/QlUwta.png" alt="" />
 
-						<p>You probably don't have the "lua" folder. Just create it, and create an empty text document called "default.xml".</p>
+					<p>You probably don't have the "lua" folder. Just create it, and create an empty text document called "default.xml".</p>
 
-						<p>To include an XML file in the foreground <em class="g">(a file that will do mods, and add elements at front of playfields)</em>, replace your <span class="mono">#FGCHANGES</span> line by :</p>
+					<p>To include an XML file in the foreground <em class="g">(a file that will do mods, and add elements at front of playfields)</em>, replace your <span class="mono">#FGCHANGES</span> line by :</p>
 
-						<div class="example nohighlight">
-							#FGCHANGES:0.000=lua=1.000=0=0=1=====;
-						</div>
+					<div class="example nohighlight">
+						#FGCHANGES:0.000=lua=1.000=0=0=1=====;
+					</div>
 
-						<p>To make short, this line will include the <strong>lua</strong>/default.xml file at the very beginning of the song. Ignore the other arguments for now.</p>
+					<p>To make short, this line will include the <strong>lua</strong>/default.xml file at the very beginning of the song. Ignore the other arguments for now.</p>
 
-						<p>To add one, but in the background <em class="g">(a file that won't do any mod, but that will add some elements in the background)</em>, replace your <span class="mono">#BGCHANGES</span> line with this one :</p>
+					<p>To add one, but in the background <em class="g">(a file that won't do any mod, but that will add some elements in the background)</em>, replace your <span class="mono">#BGCHANGES</span> line with this one :</p>
 
-						<div class="example nohighlight">
-							#BGCHANGES:0.000=bg=1.000=0=0=1=====;
-						</div>
+					<div class="example nohighlight">
+						#BGCHANGES:0.000=bg=1.000=0=0=1=====;
+					</div>
 
-						<p>Here, the file located in <strong>bg</strong>/default.xml will be loaded.</p>
+					<p>Here, the file located in <strong>bg</strong>/default.xml will be loaded.</p>
 
-						<p>The XML file should look like this :</p>
+					<p>The XML file should look like this :</p>
 
-						<div class="example xml">
-							&lt;ActorFrame&gt;&lt;children&gt;<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="hidden,1;sleep,9999"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- You will add elements there --&gt;<br />
-							<br />
-							&lt;/children&gt;&lt;/ActorFrame&gt;
-						</div>
+					<div class="example xml">
+						&lt;ActorFrame&gt;&lt;children&gt;<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="hidden,1;sleep,9999"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- You will add elements there --&gt;<br />
+						<br />
+						&lt;/children&gt;&lt;/ActorFrame&gt;
+					</div>
 
-						<p>If you already did XML or any SGML-based language (for example, HTML), you will be familiar with this syntax.</p>
+					<p>If you already did XML or any SGML-based language (for example, HTML), you will be familiar with this syntax.</p>
 
-						<p>Let's explain this code :</p>
+					<p>Let's explain this code :</p>
 
-						<ul>
-							<li>A XML file must "give" only one Actor to the game. How could we do that ? An ActorFrame is an Actor that contains Actors. Here we're defining an ActorFrame by using the <span>"ActorFrame"</span> tag.</li>
-							<li>The <span>"children"</span> tag is needed for Actors that contains other Actors.</li>
-							<li>Here, we have an Actor of type Quad (a rectangle). We will hide it because we don't need to show it to the player, and we will apply a "sleep" effect for 9999 seconds. Why ? Because the game will stop any XML file that isn't doing anything. Adding this Actor fixes this behavior because the file will always do something. We are using a Quad here because it's the lightest Actor (we don't need a picture or a text).</li>
-							<li>Here, we're just closing the tags we opened before.</li>
-						</ul>
+					<ul>
+						<li>A XML file must "give" only one Actor to the game. How could we do that ? An ActorFrame is an Actor that contains Actors. Here we're defining an ActorFrame by using the <span>"ActorFrame"</span> tag.</li>
+						<li>The <span>"children"</span> tag is needed for Actors that contains other Actors.</li>
+						<li>Here, we have an Actor of type Quad (a rectangle). We will hide it because we don't need to show it to the player, and we will apply a "sleep" effect for 9999 seconds. Why ? Because the game will stop any XML file that isn't doing anything. Adding this Actor fixes this behavior because the file will always do something. We are using a Quad here because it's the lightest Actor (we don't need a picture or a text).</li>
+						<li>Here, we're just closing the tags we opened before.</li>
+					</ul>
 
-						<p>Now, you know how to add Actors to your file, but... We aren't doing any Lua until now. We will put our main code into... An Actor ! Now our file looks like this :</p>
-						
-						<div class="example xml">
-							&lt;ActorFrame&gt;&lt;children&gt;<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="hidden,1;sleep,9999"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="hidden,1"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="%function(self)<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREENMAN:SystemMessage('Hello world !');<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
-							<br />
-							&lt;/children&gt;&lt;/ActorFrame&gt;
-						</div>
-						
-						<p>Again, let's explain what we added :</p>
-
-						<ul>
-							<li>We added another Quad in our ActorFrame, also hidden.</li>
-							<li>Inside the <span class="mono">OnCommand</span>, there is some lua ! We're actually just showing "Hello world !" to the screen.</li>
-						</ul>
-
-						<p>Let's talk now quickly about lua : Lua is the scripting language used in OpenITG / NotITG. It allows us to manipulate elements.</p>
-
-						<p>Let's add a little picture in the game, for example, <a href="img/itg.png" target="_blank">the OpenITG icon</a>. Download this icon, and put it in the lua folder.</p>
-
-						<p>Now to show it in game, we will add this to our ActorFrame (I won't re-write the entire code, you know how to add elements inside the ActorFrame :P) :</p>
-						
-						<div class="example xml">
-							&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;File="itg.png"<br />
-							/&gt;
-						</div>
-
-						<p>Yaay, now we have an icon, but it is located in the top left corner. Let's center it now :</p>
-
-						<div class="example xml">
-							&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;File="itg.png"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:x(SCREEN_CENTER_X);<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:y(SCREEN_CENTER_Y);<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
-							/&gt;
-						</div>
-
-						<p>Yay, it is centered now ! Let's explain what happened :</p>
-
-						<ul>
-							<li><span class="mono">self</span> is the keyword to target the current Actor. Here it targets the picture.</li>
-							<li>We're telling <span class="mono">self</span> to move in the horizontal (X) axis to the center of the screen. We're doing the same for the vertical (Y) axis.</li>
-							<li><span class="mono">SCREEN_CENTER_X</span> and <span class="mono">SCREEN_CENTER_Y</span> are "constants". They represents here a number that we will give to the {{Actor_x}}</a> method. If you're curious, <span class="mono">SCREEN_CENTER_X</span> equals "320" and <span class="mono">SCREEN_CENTER_Y</span> equals "240", because the OpenITG screen is based on the 640x480 resolution.</li>
-						</ul>
-
-						<p>For more explanations about commands (InitCommands, OnCommands, and more), go <a href="#Basics_ActorCommands">here</a> !</p>
-
-						<p>Let's now try to draw a green rectangle of 300x200 pixels !</p>
-
-						<div class="example xml">
-							&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:x(SCREEN_CENTER_X); -- Centers horizontally the rectangle<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:y(SCREEN_CENTER_Y); -- Centers vertically the rectangle<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:zoomto(300, 200); -- Defines its size to 300x200<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:diffuse(0, 1, 0, 1); -- Colors it in green (0% red, 100% green, 0% blue, 100% opaque)<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
-							/&gt;
-						</div>
-
-						<p>Easy, right ? If you have questions regarding these new methods, see {{Actor_zoomto}}</a> and {{Actor_diffuse}}</a> <em>(Don't forget that the main purpose of this webpage was to provide <strong>every</strong> method available :P)</em>.</p>
-
-						<p>To learn further with video guides, watch <a href="https://www.youtube.com/playlist?list=PL59am1u_lAuPeoQkCfujwIsbddImZNvXe" target="_blank">the tutorial videos</a> made by <a href="https://www.youtube.com/user/Puurokulho" target="_blank">Puurokulho</a> ! To learn Lua, read the official <a href="https://www.lua.org/manual/5.0/" target="_blank">Lua documentation.</a> (Keep in mind that OpenITG and NotITG are using <strong>Lua 5.0</strong>). If you're "good" in lua modding, and want to learn further, watch <a href="https://www.twitch.tv/windeu/profile/highlights" target="_blank">these advanced tutorials</a> by <a href="https://www.youtube.com/user/WinDEU" target="_blank">WinDEU</a> !</p>
-
-						<hr />
-
-
-						<h4 id="Basics_ActorCommands">Actor Commands</h4>
-
-						<p>Actor Commands are just instructions that will be executed in Lua. There are 2 "magic" commands that are executed at a specific moment :</p>
-
-						<ul>
-							<li><span class="mono">InitCommand</span> is a command that will be executed as soon as possible. It is useful to manipulate an Actor (for example, moving it and resizing it), but please avoid to access to other elements, because the command is executed so early that other elements may not be accessible (And will crash the game with an "Access Violation" error). <strong>They don't work in background <em>(file imported with <span class="mono">#BGCHANGES</span>)</em> !</strong></li>
-							<li><span class="mono">OnCommand</span> is a command that will be executed when everything will be ready. You can do everything there, without limitations.</li>
-						</ul>
-
-						<p>You can call commands when you want with {{Actor_playcommand}} and {{Actor_queuecommand}}. {{Actor_playcommand}} will <strong>instantly</strong> call the specified command. {{Actor_queuecommand}} will call it when it is possible. You can combine it with {{Actor_sleep}} to do things like :</p>
-
-						<div class="example lua">
-							self:sleep(2); -- Wait 2 seconds ...<br />
-							self:queuecommand('Hello'); -- before calling 'HelloCommand'.
-						</div>
-
-						<p>Even if you want to play a command instantly, using {{Actor_queuecommand}} is strongly recommended, because it can cause issues that may crash the game.</p>
-
-						<p>Often, in a modded simfile, we want a command that will be executed at each frame. We do it this way :</p>
-
-						<div class="example xml">
-							&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="queuecommand,Update"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;UpdateCommand="%function(self)<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREENMAN:SystemMessage('Hello world !');<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:sleep(0.02); -- Waits 20ms (= 50fps)<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:queuecommand('Update'); -- Repeats the command.<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
-							/&gt;
-						</div>
-
-						<p>What would be the purpose of having an "UpdateCommand" ? If you need to do specific things at a specific moment (like, zooming a rectangle at beat 36 to make it <span class="mono">2+currentSecond/100</span> times bigger, you can't do that in an OnCommand. You will use an <span class="mono">if</span> statement, but it would be checked only once in an OnCommand.</p>
-
-						<p>But what is that <span class="mono">OnCommand="queuecommand,Update"</span> ? Where is the <span class="mono">%function(self)</span> ? Well, there is 2 ways of writing a same command :</p>
-
-						<div class="example xml">
-							&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="queuecommand,Update"<br />
-							/&gt;<br />
-							<br />
-							&lt;!-- is equivalent to --&gt;<br />
-							<br />
-							&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="%function(self)<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:queuecommand('Update');<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
-							/&gt;
-						</div>
-
-						<p>This way, writing :</p>
-
-						<div class="example lua">
-							self:x(SCREEN_CENTER_X);<br />
-							self:y(SCREEN_CENTER_Y);<br />
-							self:zoomto(300, 200);<br />
-							self:diffuse(0, 1, 0, 1);
-						</div>
-
-						<p>Is totally equivalent to <span class="mono">"x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomto,300,200;diffuse,0,1,0,1"</span> ! This notation allows us to execute methods to <span class="mono">self</span>. <em>(You can't execute something that isn't related to <span class="mono">self</span>, like <span class="mono">SCREENMAN:SystemMessage()</span> !)</em></p>
-
-						<p>In NotITG only, you can use {{Actor_cmd}} to execute commands with that notation, inside a lua function, like :</p>
-
-						<div class="example lua">
-							self:cmd('x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomto,300,200;diffuse,0,1,0,1');<br />
-							SCREENMAN:SystemMessage('My command was succesfully executed ! :D');
-						</div>
-
-						<hr />
-
-
-						<h4 id="Basics_Messages">Messages</h4>
-
-						<p>The messages are "special commands". When we will call a message, every Actor having this message registered will be executed. For example :</p>
-
-						<div class="example xml">
-							&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X-50;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;ChangeColorMessageCommand="linear,0.5;diffuse,1,0,0,1"<br />
-							/&gt;<br />
-							<br />
-							&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X+50;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;ChangeColorMessageCommand="linear,0.5;diffuse,0,1,0,1"<br />
-							/&gt;
-						</div>
-
-						<p>We have 2 quads there. They are both white. We will use {{MessageManager_Broadcast}} to execute a message in Lua :</p>
-
-						<div class="example lua">
-							MESSAGEMAN:Broadcast('ChangeColor');
-						</div>
-
-						<p>The <span class="mono">ChangeColorMessageCommand</span> of every Actor will be called. In our example, the left quad will become red, and the right one will become green, both within a half-second. (For more explanations about {{Actor_linear}}, go <a href="#Basics_Tweens">just below</a> !</p>
-
-						<hr />
-
-
-						<h4 id="Basics_Conditions">Conditions</h4>
-
-						<p>Actors can take a <span class="mono">Condition</span> attribute, that will be evaluated before the other commands. This attribute always take a lua expression. If this expression doesn't return true, the Actor won't be executed at all. It will be like "non-existent". <strong>The expression will only be evaluated once, so don't check for beat/seconds there. Also, this is evaluated very early (even before the InitCommand), so don't check anything with the screen, or the game may crash with an "Access Violation" !</strong></p>
-
-						<p><strong>Also, in OpenITG and in the first public release of NotITG, you can't put a Condition attribute in the main ActorFrame !</strong> You need to have a normal ActorFrame, and inside it, your Actor with the Condition (or just wait for the next release of NotITG ! o/).</p>
-
-						<div class="example xml">
-							&lt;!-- Will be shown only if the "Insane" difficulty is played by P1. --&gt;<br />
-							&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;Condition="GAMESTATE:IsPlayerEnabled(0) and GAMESTATE:GetCurrentSteps(0):GetDifficulty() == 4"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
-							/&gt;
-						</div>
-
-						<p>For this example, don't hesitate to check both {{GameState_IsPlayerEnabled}}, {{GameState_GetCurrentSteps}} and {{Steps_GetDifficulty}} !</p>
-
-						<p>Since every lua expression inside this attribute is valid, we could put a anonymous closure there ! Let's try with our main ActorFrame, for example, to check if the user is using OpenGL for the <a href="#Basics_ActorFrameTexture"><img src="img/notitg.png" />ActorFrameTextures</a> !</p>
-
-						<div class="example xml">
-							&lt;ActorFrame<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;Condition="(function(videoRenderers)<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if not string.find(videoRenderers, 'opengl') -- OpenGL isn't in the list<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or string.find(videoRenderers, 'opengl') > 1 then -- Or OpenGL isn't the first renderer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREENMAN:SystemMessage('You need to play this chart with OpenGL !');<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;end)(string.lower(PREFSMAN:GetPreference('VideoRenderers')))"<br />
-							&gt;&lt;children&gt;
-						</div>
-
-						<p>Reminder: You can't put a Condition in the main ActorFrame. You need to have an ActorFrame, and inside it this ActorFrame with condition, and inside it your elements.</p>
-
-						<p>Closures are often used in languages like JavaScript. They're a bit complex at first to understand, but are really easy to use, and useful in our case ! We can't use the usual <span class="mono">%function(self)</span> there, because, like I said, this attribute always take a lua expression, and "%" isn't valid in Lua (well, we can't modulo a function definition).</p>
-
-						<hr />
-
-
-						<h4 id="Basics_Tweens">Tweens</h4>
-
-						<p>Tweens are a way to smoothly manipulate elements. For example, let's do :</p>
-
-						<div class="example lua">
-							self:linear(1);<br />
-							self:zoom(2);
-						</div>
-
-						<p>This will <em>linearly</em> zooms the Actor to be 2 times bigger than before, within one second.</p>
-						<p>Every function that is called after a tween will be tweened. This way, you can tween multiple operations, for example :</p>
-
-						<div class="example lua">
-							self:linear(1);<br />
-							self:zoom(2); -- Will go from 1 to 2 in one second.<br />
-							self:addx(100); -- Will move 100px to the right in one second.<br />
-							self:addy(50); -- Will move 50px to the bottom in one second.<br />
-							self:rotationz(30); -- Will rotate from 30 degrees in one second.
-						</div>
-
-						<p>If you want to tween only specific functions, but not some others, you can use {{Actor_sleep}}</a> this way :</p>
-
-						<div class="example lua">
-							self:linear(1);<br />
-							self:zoom(2); -- Will go from 1 to 2 in one second.<br />
-							self:addx(100); -- Will move 100px to the right in one second.<br />
-							self:addy(50); -- Will move 50px to the bottom in one second.<br />
-							self:sleep(0); -- "Resets" the linear(1) for the next commands.<br />
-							self:rotationz(30); -- Will rotate from 30 degrees *instantly*.
-						</div>
-
-						<p>This will act like before, but when the tween will be finished, a rotation will be instantly applied.</p>
-
-						<p>There are 7 tweens available for now :</p>
-
-						<ul>
-							<li>{{Actor_linear}}</a>, the simplest. It will tween linearly.</li>
-							<li>{{Actor_accelerate}}</a> will tween slowly at the beginning, and the transition will become faster until the end.</li>
-							<li>{{Actor_decelerate}}</a> will tween quickly at the beginning, and the transition will become slower until the end.</li>
-							<li>{{Actor_spring}}</a> will tween slowly, will become faster until the tween will be after the end, and come back to the expected end (for example, if you did <span class="mono">self:addx(100)</span>, it will go to ~110, and come back to 100).</li>
-							<li>{{Actor_bouncebegin}}</a> will bounce at the beginning, before going to the end.</li>
-							<li>{{Actor_bounceend}}</a> will bounce at the end.</li>
-							<li>{{Actor_sleep}}. Yes, this is a tween ! It just waits before applying instantly the commands.</li>
-						</ul>
-
-						<hr />
-
-
-						<h4 id="Basics_ActorEffects">Actor Effects</h4>
-
-						<p>An Actor Effect is an Effect that is modifying on its own the position, the size, or the colors of a specific Actor. They can be enabled using a simple method.</p>
-
-						<p>Here is a list of every Actor Effect for now :</p>
-
-						<ul>
-							<li>{{Actor_bob}} : Moves the Actor up and down, like a mathematic sinus.</li>
-							<li>{{Actor_bounce}} : Bounces the Actor.</li>
-							<li>{{Actor_diffuseblink}} : Blinks the Actor between 2 colors.</li>
-							<li>{{Actor_diffuseramp}} : Different from diffuseblink, it goes linearly from the second color to the first one, and come instantly back to the second color.</li>
-							<li>{{Actor_diffuseshift}} : Like {{Actor_diffuseblink}}, but more smoothly (The colors will toggle sinusoidally).</li>
-							<li>{{Actor_glowblink}} : Glows instantly the Actor between its original color and a glow color.</li>
-							<li>{{Actor_glowshift}} : Glows smoothly the Actor between its original color and a glow color.</li>
-							<li>{{Actor_pulse}} : Grows and shrinks the Actor.</li>
-							<li>{{Actor_rainbow}} : <span class="rainbow">yeaaaaaaaaaaah</span>.</li>
-							<li>{{Actor_spin}} : Spins the Actor.</li>
-							<li>{{Actor_vibrate}} : Vibrates the Actor.</li>
-							<li>{{Actor_wag}} : Wags the Actor.</li>
-						</ul>
-
-						<p>You can configure these effects by calling these methods :</p>
-
-						<ul>
-							<li>{{Actor_effectcolor1}} and {{Actor_effectcolor2}} : Sets the 2 colors for {{Actor_diffuseblink}}, {{Actor_diffuseramp}} and {{Actor_diffuseshift}}.</li>
-							<li>{{Actor_glow}} : Sets the glow color for {{Actor_glowblink}} and {{Actor_glowshift}}.</li>
-							<li>{{Actor_effectclock}} : Sets the clock of the effects.</li>
-							<li>{{Actor_effectdelay}} : Sets the delay of the effects.</li>
-							<li>{{Actor_effectmagnitude}} : Sets the magnitude for each axis of the effects that are affecting the position, like {{Actor_vibrate}}.</li>
-							<li>{{Actor_effectoffset}} : Sets the offset of the effects.</li>
-							<li>{{Actor_effectperiod}} : Sets the period of the effects.</li>
-						</ul>
-
-						<p>You can also use {{Actor_GetSecsIntoEffect}} to get the amount of seconds an effect is running.</p>
-
-						<hr />
-
-
-						<h4 id="Basics_Aux">Aux variables</h4>
-
-						<p>An aux value is a variable of type number (a float to be exact), that can be tweened. You can, for example, change the value from 0 to 360 in one second. This way, if you check this aux value at 0.5 seconds, it will be 180. You can read this number from everywhere in your code. It's usually used into mathematic formulas.</p>
-
-						<p>To ease our job, we will use a separate Actor (a hidden Quad, as usual). It will be used to set the aux values. It will look like this :</p>
-
-						<div class="example xml">
-							&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:hidden(1);<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auxvar = self; -- The 'aux' variable will target this Actor.<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:aux(0); -- The 'default value' of the aux value will be 0.<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;RotateMessageCommand="finishtweening;linear,1;aux,360"<br />
-							/&gt;
-						</div>
-
-						<ul>
-							<li>First, as usual, we hide the quad.</li>
-							<li>Then, we set the 'auxvar' variable to self. It allows us to access this Actor from another location, to get the current aux value.</li>
-							<li>And we set the default value of the aux var to 0. {{Actor_aux}}</a> is used to set the aux value.</li>
-							<li>We defined a MessageCommand that will finish the current and queued tweens on this Actor, and set the aux value to 360 within one second.</li>
-						</ul>
-
-						<p>For example, if you want to move a Quad like a circle shape <em>(assuming the <span class="mono">square</span> variable represents an Actor)</em>, you'll do something in an UpdateCommand like :</p>
-
-						<div class="example lua">
-							square:x(SCREEN_CENTER_X + math.sin(auxvar:getaux())*200);<br />
-							square:y(SCREEN_CENTER_Y + math.cos(auxvar:getaux())*-200);
-						</div>
-
-						<p>Here, we use {{Actor_getaux}}</a> to get the current aux value. Let's imagine we call the Rotate Message at the second 2 :</p>
-
-						<ul>
-							<li>If we do getaux() at the second 2, it will return 0.</li>
-							<li>If we do getaux() at the second 3, it will return 360.</li>
-							<li>But if we do getaux() at the second 2.5, it will return 180 !</li>
-						</ul>
-
-						<p>Using {{Actor_aux}}</a> and {{Actor_getaux}}</a> is not the only solution ! You could also have additional "aux" values by using {{Actor_x}}</a> and {{Actor_GetX}}</a>, {{Actor_y}}</a> and {{Actor_GetY}}</a>, or even {{Actor_z}}</a> and {{Actor_GetZ}}</a> on the same Actor ! Coordinates have the benefit of not needing a default value. Of course, you can have multiple hidden Quads that you will use to have aux values. Just don't forget to edit the <span class="mono">auxvar = self;</span> line to something like <span class="mono">auxvar_2</span> !</p>
-
-						<hr />
-
-
-						<h4 id="Basics_ActorFrameTexture"><img src="img/notitg.png" alt="NotITG">ActorFrameTexture</h4>
-
-						<p>The ActorFrameTexture is an Actor who captures every elements under it (drawn before it), to finally put the result into a texture. <strong>IT DOESN'T WORK WITH DIRECTX !</strong> You can, after, put the texture onto a sprite, and apply <a href="https://youtu.be/zvNl0OYv-DY?t=2m9s" target="_blank">some beautiful effects</a> with it !</p>
-
-						<p>It's usually setup like this :</p>
-
-						<div class="example xml">
-							&lt;ActorFrame<br />
-							&nbsp;&nbsp;&nbsp;&nbsp; InitCommand="%function(self)<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- The multiplier of the aft sprites' alpha value.<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftMult = 1;<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- If the user is using a Nvidia graphic card, they have some issues with alphas of sprites.<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if string.find(string.lower(DISPLAY:GetVendor()), 'nvidia') then<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftMult = 0.9; -- Setting the alpha multiplier to 0.9.<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
-							&gt;&lt;children&gt;<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- ... --&gt;<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Sprite"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Texture="white"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftSprite = self;<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:basezoomx((SCREEN_WIDTH/DISPLAY:GetDisplayWidth()));<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:basezoomy(-1*(SCREEN_HEIGHT/DISPLAY:GetDisplayHeight()))<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:x(SCREEN_CENTER_X);<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:y(SCREEN_CENTER_Y);<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- Set this like you want<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:zoom(1.05);<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:diffusealpha(0.95*aftMult);<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="ActorFrameTexture"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aft = self;<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:SetWidth(DISPLAY:GetDisplayWidth());<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:SetHeight(DISPLAY:GetDisplayHeight());<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:EnableDepthBuffer(false);<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:EnableAlphaBuffer(true);<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:EnableFloat(false);<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:EnablePreserveTexture(true);<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:Create();<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftSprite:SetTexture(self:GetTexture()); -- Put the texture into the sprite above.<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
-							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- ... --&gt;<br />
-							<br />
-							&lt;/children&gt;&lt;/ActorFrame&gt;
-						</div>
-
-						<p>Let's explain what happened there :</p>
-
-						<ul>
-							<li>Little note : an ActorFrame is an Actor. Nobody said that we couldn't put commands into it. :P</li>
-							<li>Sprites have an issue with Nvidia cards, the sprites' alpha is way stronger on Nvidia cards than on other cards (Intel, AMD). I found how to fix this problem : we just need to multiply the alphas by 90%. So, we're checking if the user is playing with a Nvidia card with {{RageDisplay_GetVendor}}, and if yes, we set a variable to 0.9 instead of 1. We will multiply the alphas on the sprites by this variable later.</li>
-							<li>In the sprite, we're setting a variable to access this Actor. We're doing things to make the sprite appear correctly, and then we're zooming a bit the Sprite, and setting its alpha to 0.95 (multiplied by the variable set above). <strong>YOU MUST HAVE A PICTURE CALLED <span class="mono">white.png</span> WITH A WHITE PIXEL INSIDE IT IN THE FOLDER TO MAKE THE SPRITE WORK ! You can download it <a href="white.png">here</a> !</strong></li>
-							<li>We're defining an ActorFrameTexture, setting a variable, defining properties of the AFT, and then "create" it (making it work). Then we apply the texture to the sprite above.</li>
-						</ul>
-
-						<p>If you try it, you will see a nice trail effect. Why ? I said that the AFT captures everything before it. The Sprite here is before the AFT, so it will be captured. It's exactly like when you have a camera connected to a TV, and you are pointing the camera to the TV, the image will repeat, repeat, repeat, ...</p>
-
-						<hr />
-
-
-						<h4 id="Basics_BlendModes">Blend Modes</h4>
-
-						<p>Blend modes are a way of modifying the apparence of a texture, or a sprite. They exactly work as layer modes in image manipulation programs such as <a href="https://www.gimp.org/" target="_blank">GIMP</a> or <a href="http://www.adobe.com/products/photoshop.html" target="_blank">Adobe Photoshop</a>. Blend modes can be applied using {{Actor_blend}}. Here is the full list : <em class="g">(A means the pixel value of the image behind (already present, known as "destination" in OpenGL), B means the pixels value of the actual texture (where a blend mode is applied, known as "source" in OpenGL), and R means the final result, shown to the user. Pixels values are between 0 and 1, like {{Actor_diffuse}}.)</em></p>
-
-						<ul>
-							<li><span class="mono">normal</span>: The texture acts as usual, no transformation is done.</li>
-							<li><span class="mono">add</span>: The pixels values are added into the image behind. Formula: R = A + B</li>
-							<li><span class="mono">substract</span>: The pixels values are subtracted from the image behind. Formula: R = A - B</li>
-							<li><span class="mono">modulate</span>: Formula: R = B</li>
-							<li><span class="mono">copysrc</span>: Copies A a frame behind to B, and apply an additive blend.</li>
-							<li><span class="mono">alphamask</span>: Applies the alpha of the texture to the images behind. Formula: The colors of R will be the colors of B, and the alpha of R will be the alpha of A.</li>
-							<li><span class="mono">alphaknockout</span>: Applies the inverted alpha of the texture to the images behind. Formula: The colors of R will be the colors of B, and the alpha of R will be the alpha of (1-A).</li>
-							<li><span class="mono">alphamultiply</span>: Like <span class="mono">weightedmultiply</span>, but for the alpha value.</li>
-							<li><span class="mono">weightedmultiply</span>: With this mode enabled, darker colors will darken the image, and brighter colors will brighten the image. Formula: R = 2*(A*B)</li>
-							<li><span class="mono">invertdest</span>: Acts like the reverse of <span class="mono">substract</span>. Formula: R = B - A</li>
-							<li><span class="mono">noeffect</span>: Nothing is done. Formula: R = A</li>
-						</ul>
-
-					</section>
-					<section id="classes">
+					<p>Now, you know how to add Actors to your file, but... We aren't doing any Lua until now. We will put our main code into... An Actor ! Now our file looks like this :</p>
 					
-						<h3>Classes &amp; Methods</h3>
-
-					</section>
-					<section id="enums">
+					<div class="example xml">
+						&lt;ActorFrame&gt;&lt;children&gt;<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="hidden,1;sleep,9999"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="hidden,1"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREENMAN:SystemMessage('Hello world !');<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
+						<br />
+						&lt;/children&gt;&lt;/ActorFrame&gt;
+					</div>
 					
-						<h3>Enumerations</h3>
+					<p>Again, let's explain what we added :</p>
 
-						<p>For most of these enumerations, you can use <a href="#constants" class="smooth-link">constants</a> instead of integers.</p>
+					<ul>
+						<li>We added another Quad in our ActorFrame, also hidden.</li>
+						<li>Inside the <span class="mono">OnCommand</span>, there is some lua ! We're actually just showing "Hello world !" to the screen.</li>
+					</ul>
 
-					</section>
-					<section id="globalfuncs">
+					<p>Let's talk now quickly about lua : Lua is the scripting language used in OpenITG / NotITG. It allows us to manipulate elements.</p>
+
+					<p>Let's add a little picture in the game, for example, <a href="img/itg.png" target="_blank">the OpenITG icon</a>. Download this icon, and put it in the lua folder.</p>
+
+					<p>Now to show it in game, we will add this to our ActorFrame (I won't re-write the entire code, you know how to add elements inside the ActorFrame :P) :</p>
 					
-						<h3>Global functions</h3>
+					<div class="example xml">
+						&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;File="itg.png"<br />
+						/&gt;
+					</div>
 
-					</section>
-					<section id="constants">
-					
-						<h3>Constants</h3>
+					<p>Yaay, now we have an icon, but it is located in the top left corner. Let's center it now :</p>
 
-					</section>
-					<section id="mods">
-					
-						<h3>Mods</h3>
+					<div class="example xml">
+						&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;File="itg.png"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:x(SCREEN_CENTER_X);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:y(SCREEN_CENTER_Y);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						/&gt;
+					</div>
 
-						<p>
-							WIP.
-							<a href="/itg.txt" target="_blank"><img src="img/itg.png" />OpenITG Mods</a>
-							<a href="/notitg.txt" target="_blank"><img src="img/notitg.png" />NotITG + OpenITG Mods</a>
-						</p>
+					<p>Yay, it is centered now ! Let's explain what happened :</p>
 
-					</section>
-					<section id="resources">
-					
-						<h3>Useful resources</h3>
+					<ul>
+						<li><span class="mono">self</span> is the keyword to target the current Actor. Here it targets the picture.</li>
+						<li>We're telling <span class="mono">self</span> to move in the horizontal (X) axis to the center of the screen. We're doing the same for the vertical (Y) axis.</li>
+						<li><span class="mono">SCREEN_CENTER_X</span> and <span class="mono">SCREEN_CENTER_Y</span> are "constants". They represents here a number that we will give to the {{Actor_x}} method. If you're curious, <span class="mono">SCREEN_CENTER_X</span> equals "320" and <span class="mono">SCREEN_CENTER_Y</span> equals "240", because the OpenITG screen is based on the 640x480 resolution.</li>
+					</ul>
 
-						<ul>
-							<li><a href="https://www.youtube.com/playlist?list=PL59am1u_lAuPeoQkCfujwIsbddImZNvXe" target="_blank">Beginner video tutorials</a> by <a href="https://www.youtube.com/user/Puurokulho" target="_blank">Puurokulho</a></li>
-							<li><a href="https://www.twitch.tv/windeu/profile/highlights" target="_blank">Advanced video tutorials</a> by <a href="https://www.youtube.com/user/WinDEU" target="_blank">WinDEU</a></li>
-							<li><a href="https://www.lua.org/manual/5.0/" target="_blank">Lua 5.0 documentation</a></li>
-							<li><a href="http://jousway.co.uk/wiki/" target="_blank">Jousway's Wiki (WIP)</a>
-						</ul>
+					<p>For more explanations about commands (InitCommands, OnCommands, and more), go <a href="#Basics_ActorCommands">here</a> !</p>
 
-					</section>
-				</div>
+					<p>Let's now try to draw a green rectangle of 300x200 pixels !</p>
+
+					<div class="example xml">
+						&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:x(SCREEN_CENTER_X); -- Centers horizontally the rectangle<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:y(SCREEN_CENTER_Y); -- Centers vertically the rectangle<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:zoomto(300, 200); -- Defines its size to 300x200<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:diffuse(0, 1, 0, 1); -- Colors it in green (0% red, 100% green, 0% blue, 100% opaque)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						/&gt;
+					</div>
+
+					<p>Easy, right ? If you have questions regarding these new methods, see {{Actor_zoomto}} and {{Actor_diffuse}} <em>(Don't forget that the main purpose of this webpage was to provide <strong>every</strong> method available :P)</em>.</p>
+
+					<p>To learn further with video guides, watch <a href="https://www.youtube.com/playlist?list=PL59am1u_lAuPeoQkCfujwIsbddImZNvXe" target="_blank">the tutorial videos</a> made by <a href="https://www.youtube.com/user/Puurokulho" target="_blank">Puurokulho</a> ! To learn Lua, read the official <a href="https://www.lua.org/manual/5.0/" target="_blank">Lua documentation.</a> (Keep in mind that OpenITG and NotITG are using <strong>Lua 5.0</strong>). If you're "good" in lua modding, and want to learn further, watch <a href="https://www.twitch.tv/windeu/profile/highlights" target="_blank">these advanced tutorials</a> by <a href="https://www.youtube.com/user/WinDEU" target="_blank">WinDEU</a> !</p>
+
+					<hr />
+
+
+					<h4 id="Basics_ActorCommands">Actor Commands</h4>
+
+					<p>Actor Commands are just instructions that will be executed in Lua. There are 2 "magic" commands that are executed at a specific moment :</p>
+
+					<ul>
+						<li><span class="mono">InitCommand</span> is a command that will be executed as soon as possible. It is useful to manipulate an Actor (for example, moving it and resizing it), but please avoid to access to other elements, because the command is executed so early that other elements may not be accessible (And will crash the game with an "Access Violation" error). <strong>They don't work in background <em>(file imported with <span class="mono">#BGCHANGES</span>)</em> !</strong></li>
+						<li><span class="mono">OnCommand</span> is a command that will be executed when everything will be ready. You can do everything there, without limitations.</li>
+					</ul>
+
+					<p>You can call commands when you want with {{Actor_playcommand}} and {{Actor_queuecommand}}. {{Actor_playcommand}} will <strong>instantly</strong> call the specified command. {{Actor_queuecommand}} will call it when it is possible. You can combine it with {{Actor_sleep}} to do things like :</p>
+
+					<div class="example lua">
+						self:sleep(2); -- Wait 2 seconds ...<br />
+						self:queuecommand('Hello'); -- before calling 'HelloCommand'.
+					</div>
+
+					<p>Even if you want to play a command instantly, using {{Actor_queuecommand}} is strongly recommended, because it can cause issues that may crash the game.</p>
+
+					<p>Often, in a modded simfile, we want a command that will be executed at each frame. We do it this way :</p>
+
+					<div class="example xml">
+						&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="queuecommand,Update"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;UpdateCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREENMAN:SystemMessage('Hello world !');<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:sleep(0.02); -- Waits 20ms (= 50fps)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:queuecommand('Update'); -- Repeats the command.<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						/&gt;
+					</div>
+
+					<p>What would be the purpose of having an "UpdateCommand" ? If you need to do specific things at a specific moment (like, zooming a rectangle at beat 36 to make it <span class="mono">2+currentSecond/100</span> times bigger, you can't do that in an OnCommand. You will use an <span class="mono">if</span> statement, but it would be checked only once in an OnCommand.</p>
+
+					<p>But what is that <span class="mono">OnCommand="queuecommand,Update"</span> ? Where is the <span class="mono">%function(self)</span> ? Well, there is 2 ways of writing a same command :</p>
+
+					<div class="example xml">
+						&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="queuecommand,Update"<br />
+						/&gt;<br />
+						<br />
+						&lt;!-- is equivalent to --&gt;<br />
+						<br />
+						&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:queuecommand('Update');<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						/&gt;
+					</div>
+
+					<p>This way, writing :</p>
+
+					<div class="example lua">
+						self:x(SCREEN_CENTER_X);<br />
+						self:y(SCREEN_CENTER_Y);<br />
+						self:zoomto(300, 200);<br />
+						self:diffuse(0, 1, 0, 1);
+					</div>
+
+					<p>Is totally equivalent to <span class="mono">"x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomto,300,200;diffuse,0,1,0,1"</span> ! This notation allows us to execute methods to <span class="mono">self</span>. <em>(You can't execute something that isn't related to <span class="mono">self</span>, like <span class="mono">SCREENMAN:SystemMessage()</span> !)</em></p>
+
+					<p>In NotITG only, you can use {{Actor_cmd}} to execute commands with that notation, inside a lua function, like :</p>
+
+					<div class="example lua">
+						self:cmd('x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomto,300,200;diffuse,0,1,0,1');<br />
+						SCREENMAN:SystemMessage('My command was succesfully executed ! :D');
+					</div>
+
+					<hr />
+
+
+					<h4 id="Basics_Messages">Messages</h4>
+
+					<p>The messages are "special commands". When we will call a message, every Actor having this message registered will be executed. For example :</p>
+
+					<div class="example xml">
+						&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X-50;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;ChangeColorMessageCommand="linear,0.5;diffuse,1,0,0,1"<br />
+						/&gt;<br />
+						<br />
+						&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X+50;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;ChangeColorMessageCommand="linear,0.5;diffuse,0,1,0,1"<br />
+						/&gt;
+					</div>
+
+					<p>We have 2 quads there. They are both white. We will use {{MessageManager_Broadcast}} to execute a message in Lua :</p>
+
+					<div class="example lua">
+						MESSAGEMAN:Broadcast('ChangeColor');
+					</div>
+
+					<p>The <span class="mono">ChangeColorMessageCommand</span> of every Actor will be called. In our example, the left quad will become red, and the right one will become green, both within a half-second. (For more explanations about {{Actor_linear}}, go <a href="#Basics_Tweens">just below</a> !</p>
+
+					<hr />
+
+
+					<h4 id="Basics_Conditions">Conditions</h4>
+
+					<p>Actors can take a <span class="mono">Condition</span> attribute, that will be evaluated before the other commands. This attribute always take a lua expression. If this expression doesn't return true, the Actor won't be executed at all. It will be like "non-existent". <strong>The expression will only be evaluated once, so don't check for beat/seconds there. Also, this is evaluated very early (even before the InitCommand), so don't check anything with the screen, or the game may crash with an "Access Violation" !</strong></p>
+
+					<p><strong>Also, in OpenITG and in the first public release of NotITG, you can't put a Condition attribute in the main ActorFrame !</strong> You need to have a normal ActorFrame, and inside it, your Actor with the Condition (or just wait for the next release of NotITG ! o/).</p>
+
+					<div class="example xml">
+						&lt;!-- Will be shown only if the "Insane" difficulty is played by P1. --&gt;<br />
+						&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;Condition="GAMESTATE:IsPlayerEnabled(0) and GAMESTATE:GetCurrentSteps(0):GetDifficulty() == 4"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
+						/&gt;
+					</div>
+
+					<p>For this example, don't hesitate to check both {{GameState_IsPlayerEnabled}}, {{GameState_GetCurrentSteps}} and {{Steps_GetDifficulty}} !</p>
+
+					<p>Since every lua expression inside this attribute is valid, we could put a anonymous closure there ! Let's try with our main ActorFrame, for example, to check if the user is using OpenGL for the <a href="#Basics_ActorFrameTexture"><img src="img/notitg.png" />ActorFrameTextures</a> !</p>
+
+					<div class="example xml">
+						&lt;ActorFrame<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;Condition="(function(videoRenderers)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if not string.find(videoRenderers, 'opengl') -- OpenGL isn't in the list<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or string.find(videoRenderers, 'opengl') > 1 then -- Or OpenGL isn't the first renderer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREENMAN:SystemMessage('You need to play this chart with OpenGL !');<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;end)(string.lower(PREFSMAN:GetPreference('VideoRenderers')))"<br />
+						&gt;&lt;children&gt;
+					</div>
+
+					<p>Reminder: You can't put a Condition in the main ActorFrame. You need to have an ActorFrame, and inside it this ActorFrame with condition, and inside it your elements.</p>
+
+					<p>Closures are often used in languages like JavaScript. They're a bit complex at first to understand, but are really easy to use, and useful in our case ! We can't use the usual <span class="mono">%function(self)</span> there, because, like I said, this attribute always take a lua expression, and "%" isn't valid in Lua (well, we can't modulo a function definition).</p>
+
+					<hr />
+
+
+					<h4 id="Basics_Tweens">Tweens</h4>
+
+					<p>Tweens are a way to smoothly manipulate elements. For example, let's do :</p>
+
+					<div class="example lua">
+						self:linear(1);<br />
+						self:zoom(2);
+					</div>
+
+					<p>This will <em>linearly</em> zooms the Actor to be 2 times bigger than before, within one second.</p>
+					<p>Every function that is called after a tween will be tweened. This way, you can tween multiple operations, for example :</p>
+
+					<div class="example lua">
+						self:linear(1);<br />
+						self:zoom(2); -- Will go from 1 to 2 in one second.<br />
+						self:addx(100); -- Will move 100px to the right in one second.<br />
+						self:addy(50); -- Will move 50px to the bottom in one second.<br />
+						self:rotationz(30); -- Will rotate from 30 degrees in one second.
+					</div>
+
+					<p>If you want to tween only specific functions, but not some others, you can use {{Actor_sleep}} this way :</p>
+
+					<div class="example lua">
+						self:linear(1);<br />
+						self:zoom(2); -- Will go from 1 to 2 in one second.<br />
+						self:addx(100); -- Will move 100px to the right in one second.<br />
+						self:addy(50); -- Will move 50px to the bottom in one second.<br />
+						self:sleep(0); -- "Resets" the linear(1) for the next commands.<br />
+						self:rotationz(30); -- Will rotate from 30 degrees *instantly*.
+					</div>
+
+					<p>This will act like before, but when the tween will be finished, a rotation will be instantly applied.</p>
+
+					<p>There are 7 tweens available for now :</p>
+
+					<ul>
+						<li>{{Actor_linear}}, the simplest. It will tween linearly.</li>
+						<li>{{Actor_accelerate}} will tween slowly at the beginning, and the transition will become faster until the end.</li>
+						<li>{{Actor_decelerate}} will tween quickly at the beginning, and the transition will become slower until the end.</li>
+						<li>{{Actor_spring}} will tween slowly, will become faster until the tween will be after the end, and come back to the expected end (for example, if you did <span class="mono">self:addx(100)</span>, it will go to ~110, and come back to 100).</li>
+						<li>{{Actor_bouncebegin}} will bounce at the beginning, before going to the end.</li>
+						<li>{{Actor_bounceend}} will bounce at the end.</li>
+						<li>{{Actor_sleep}}. Yes, this is a tween ! It just waits before applying instantly the commands.</li>
+					</ul>
+
+					<hr />
+
+
+					<h4 id="Basics_ActorEffects">Actor Effects</h4>
+
+					<p>An Actor Effect is an Effect that is modifying on its own the position, the size, or the colors of a specific Actor. They can be enabled using a simple method.</p>
+
+					<p>Here is a list of every Actor Effect for now :</p>
+
+					<ul>
+						<li>{{Actor_bob}} : Moves the Actor up and down, like a mathematic sinus.</li>
+						<li>{{Actor_bounce}} : Bounces the Actor.</li>
+						<li>{{Actor_diffuseblink}} : Blinks the Actor between 2 colors.</li>
+						<li>{{Actor_diffuseramp}} : Different from diffuseblink, it goes linearly from the second color to the first one, and come instantly back to the second color.</li>
+						<li>{{Actor_diffuseshift}} : Like {{Actor_diffuseblink}}, but more smoothly (The colors will toggle sinusoidally).</li>
+						<li>{{Actor_glowblink}} : Glows instantly the Actor between its original color and a glow color.</li>
+						<li>{{Actor_glowshift}} : Glows smoothly the Actor between its original color and a glow color.</li>
+						<li>{{Actor_pulse}} : Grows and shrinks the Actor.</li>
+						<li>{{Actor_rainbow}} : <span class="rainbow">yeaaaaaaaaaaah</span>.</li>
+						<li>{{Actor_spin}} : Spins the Actor.</li>
+						<li>{{Actor_vibrate}} : Vibrates the Actor.</li>
+						<li>{{Actor_wag}} : Wags the Actor.</li>
+					</ul>
+
+					<p>You can configure these effects by calling these methods :</p>
+
+					<ul>
+						<li>{{Actor_effectcolor1}} and {{Actor_effectcolor2}} : Sets the 2 colors for {{Actor_diffuseblink}}, {{Actor_diffuseramp}} and {{Actor_diffuseshift}}.</li>
+						<li>{{Actor_glow}} : Sets the glow color for {{Actor_glowblink}} and {{Actor_glowshift}}.</li>
+						<li>{{Actor_effectclock}} : Sets the clock of the effects.</li>
+						<li>{{Actor_effectdelay}} : Sets the delay of the effects.</li>
+						<li>{{Actor_effectmagnitude}} : Sets the magnitude for each axis of the effects that are affecting the position, like {{Actor_vibrate}}.</li>
+						<li>{{Actor_effectoffset}} : Sets the offset of the effects.</li>
+						<li>{{Actor_effectperiod}} : Sets the period of the effects.</li>
+					</ul>
+
+					<p>You can also use {{Actor_GetSecsIntoEffect}} to get the amount of seconds an effect is running.</p>
+
+					<hr />
+
+
+					<h4 id="Basics_Aux">Aux variables</h4>
+
+					<p>An aux value is a variable of type number (a float to be exact), that can be tweened. You can, for example, change the value from 0 to 360 in one second. This way, if you check this aux value at 0.5 seconds, it will be 180. You can read this number from everywhere in your code. It's usually used into mathematic formulas.</p>
+
+					<p>To ease our job, we will use a separate Actor (a hidden Quad, as usual). It will be used to set the aux values. It will look like this :</p>
+
+					<div class="example xml">
+						&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:hidden(1);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auxvar = self; -- The 'aux' variable will target this Actor.<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:aux(0); -- The 'default value' of the aux value will be 0.<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;RotateMessageCommand="finishtweening;linear,1;aux,360"<br />
+						/&gt;
+					</div>
+
+					<ul>
+						<li>First, as usual, we hide the quad.</li>
+						<li>Then, we set the 'auxvar' variable to self. It allows us to access this Actor from another location, to get the current aux value.</li>
+						<li>And we set the default value of the aux var to 0. {{Actor_aux}} is used to set the aux value.</li>
+						<li>We defined a MessageCommand that will finish the current and queued tweens on this Actor, and set the aux value to 360 within one second.</li>
+					</ul>
+
+					<p>For example, if you want to move a Quad like a circle shape <em>(assuming the <span class="mono">square</span> variable represents an Actor)</em>, you'll do something in an UpdateCommand like :</p>
+
+					<div class="example lua">
+						square:x(SCREEN_CENTER_X + math.sin(auxvar:getaux())*200);<br />
+						square:y(SCREEN_CENTER_Y + math.cos(auxvar:getaux())*-200);
+					</div>
+
+					<p>Here, we use {{Actor_getaux}} to get the current aux value. Let's imagine we call the Rotate Message at the second 2 :</p>
+
+					<ul>
+						<li>If we do getaux() at the second 2, it will return 0.</li>
+						<li>If we do getaux() at the second 3, it will return 360.</li>
+						<li>But if we do getaux() at the second 2.5, it will return 180 !</li>
+					</ul>
+
+					<p>Using {{Actor_aux}} and {{Actor_getaux}} is not the only solution ! You could also have additional "aux" values by using {{Actor_x}} and {{Actor_GetX}}, {{Actor_y}} and {{Actor_GetY}}, or even {{Actor_z}} and {{Actor_GetZ}} on the same Actor ! Coordinates have the benefit of not needing a default value. Of course, you can have multiple hidden Quads that you will use to have aux values. Just don't forget to edit the <span class="mono">auxvar = self;</span> line to something like <span class="mono">auxvar_2</span> !</p>
+
+					<hr />
+
+
+					<h4 id="Basics_ActorFrameTexture"><img src="img/notitg.png" alt="NotITG">ActorFrameTexture</h4>
+
+					<p>The ActorFrameTexture is an Actor who captures every elements under it (drawn before it), to finally put the result into a texture. <strong>IT DOESN'T WORK WITH DIRECTX !</strong> You can, after, put the texture onto a sprite, and apply <a href="https://youtu.be/zvNl0OYv-DY?t=2m9s" target="_blank">some beautiful effects</a> with it !</p>
+
+					<p>It's usually setup like this :</p>
+
+					<div class="example xml">
+						&lt;ActorFrame<br />
+						&nbsp;&nbsp;&nbsp;&nbsp; InitCommand="%function(self)<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- The multiplier of the aft sprites' alpha value.<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftMult = 1;<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- If the user is using a Nvidia graphic card, they have some issues with alphas of sprites.<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if string.find(string.lower(DISPLAY:GetVendor()), 'nvidia') then<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftMult = 0.9; -- Setting the alpha multiplier to 0.9.<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						&gt;&lt;children&gt;<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- ... --&gt;<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Sprite"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Texture="white"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftSprite = self;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:basezoomx((SCREEN_WIDTH/DISPLAY:GetDisplayWidth()));<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:basezoomy(-1*(SCREEN_HEIGHT/DISPLAY:GetDisplayHeight()))<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:x(SCREEN_CENTER_X);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:y(SCREEN_CENTER_Y);<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- Set this like you want<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:zoom(1.05);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:diffusealpha(0.95*aftMult);<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="ActorFrameTexture"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aft = self;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:SetWidth(DISPLAY:GetDisplayWidth());<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:SetHeight(DISPLAY:GetDisplayHeight());<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:EnableDepthBuffer(false);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:EnableAlphaBuffer(true);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:EnableFloat(false);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:EnablePreserveTexture(true);<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:Create();<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftSprite:SetTexture(self:GetTexture()); -- Put the texture into the sprite above.<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- ... --&gt;<br />
+						<br />
+						&lt;/children&gt;&lt;/ActorFrame&gt;
+					</div>
+
+					<p>Let's explain what happened there :</p>
+
+					<ul>
+						<li>Little note : an ActorFrame is an Actor. Nobody said that we couldn't put commands into it. :P</li>
+						<li>Sprites have an issue with Nvidia cards, the sprites' alpha is way stronger on Nvidia cards than on other cards (Intel, AMD). I found how to fix this problem : we just need to multiply the alphas by 90%. So, we're checking if the user is playing with a Nvidia card with {{RageDisplay_GetVendor}}, and if yes, we set a variable to 0.9 instead of 1. We will multiply the alphas on the sprites by this variable later.</li>
+						<li>In the sprite, we're setting a variable to access this Actor. We're doing things to make the sprite appear correctly, and then we're zooming a bit the Sprite, and setting its alpha to 0.95 (multiplied by the variable set above). <strong>YOU MUST HAVE A PICTURE CALLED <span class="mono">white.png</span> WITH A WHITE PIXEL INSIDE IT IN THE FOLDER TO MAKE THE SPRITE WORK ! You can download it <a href="white.png">here</a> !</strong></li>
+						<li>We're defining an ActorFrameTexture, setting a variable, defining properties of the AFT, and then "create" it (making it work). Then we apply the texture to the sprite above.</li>
+					</ul>
+
+					<p>If you try it, you will see a nice trail effect. Why ? I said that the AFT captures everything before it. The Sprite here is before the AFT, so it will be captured. It's exactly like when you have a camera connected to a TV, and you are pointing the camera to the TV, the image will repeat, repeat, repeat, ...</p>
+
+					<hr />
+
+
+					<h4 id="Basics_BlendModes">Blend Modes</h4>
+
+					<p>Blend modes are a way of modifying the apparence of a texture, or a sprite. They exactly work as layer modes in image manipulation programs such as <a href="https://www.gimp.org/" target="_blank">GIMP</a> or <a href="http://www.adobe.com/products/photoshop.html" target="_blank">Adobe Photoshop</a>. Blend modes can be applied using {{Actor_blend}}. Here is the full list : <em class="g">(A means the pixel value of the image behind (already present, known as "destination" in OpenGL), B means the pixels value of the actual texture (where a blend mode is applied, known as "source" in OpenGL), and R means the final result, shown to the user. Pixels values are between 0 and 1, like {{Actor_diffuse}}.)</em></p>
+
+					<ul>
+						<li><span class="mono">normal</span>: The texture acts as usual, no transformation is done.</li>
+						<li><span class="mono">add</span>: The pixels values are added into the image behind. Formula: R = A + B</li>
+						<li><span class="mono">substract</span>: The pixels values are subtracted from the image behind. Formula: R = A - B</li>
+						<li><span class="mono">modulate</span>: Formula: R = B</li>
+						<li><span class="mono">copysrc</span>: Copies A a frame behind to B, and apply an additive blend.</li>
+						<li><span class="mono">alphamask</span>: Applies the alpha of the texture to the images behind. Formula: The colors of R will be the colors of B, and the alpha of R will be the alpha of A.</li>
+						<li><span class="mono">alphaknockout</span>: Applies the inverted alpha of the texture to the images behind. Formula: The colors of R will be the colors of B, and the alpha of R will be the alpha of (1-A).</li>
+						<li><span class="mono">alphamultiply</span>: Like <span class="mono">weightedmultiply</span>, but for the alpha value.</li>
+						<li><span class="mono">weightedmultiply</span>: With this mode enabled, darker colors will darken the image, and brighter colors will brighten the image. Formula: R = 2*(A*B)</li>
+						<li><span class="mono">invertdest</span>: Acts like the reverse of <span class="mono">substract</span>. Formula: R = B - A</li>
+						<li><span class="mono">noeffect</span>: Nothing is done. Formula: R = A</li>
+					</ul>
+
+				</section>
+				<section id="classes">
+				
+					<h3>Classes &amp; Methods</h3>
+
+				</section>
+				<section id="enums">
+				
+					<h3>Enumerations</h3>
+
+					<p>For most of these enumerations, you can use <a href="#constants" class="smooth-link">constants</a> instead of integers.</p>
+
+				</section>
+				<section id="globalfuncs">
+				
+					<h3>Global functions</h3>
+
+				</section>
+				<section id="constants">
+				
+					<h3>Constants</h3>
+
+				</section>
+				<section id="mods">
+				
+					<h3>Mods</h3>
+
+					<p>
+						WIP.
+						<a href="/itg.txt" target="_blank"><img src="img/itg.png" />OpenITG Mods</a>
+						<a href="/notitg.txt" target="_blank"><img src="img/notitg.png" />NotITG + OpenITG Mods</a>
+					</p>
+
+				</section>
+				<section id="resources">
+				
+					<h3>Useful resources</h3>
+
+					<ul>
+						<li><a href="https://www.youtube.com/playlist?list=PL59am1u_lAuPeoQkCfujwIsbddImZNvXe" target="_blank">Beginner video tutorials</a> by <a href="https://www.youtube.com/user/Puurokulho" target="_blank">Puurokulho</a></li>
+						<li><a href="https://www.twitch.tv/windeu/profile/highlights" target="_blank">Advanced video tutorials</a> by <a href="https://www.youtube.com/user/WinDEU" target="_blank">WinDEU</a></li>
+						<li><a href="https://www.lua.org/manual/5.0/" target="_blank">Lua 5.0 documentation</a></li>
+						<li><a href="http://jousway.co.uk/wiki/" target="_blank">Jousway's Wiki (WIP)</a></li>
+					</ul>
+
+				</section>
 			</div>
 		</div>
 
@@ -614,7 +611,7 @@
 		<script src="js/vendor/highlight.pack.js"></script>
 
 		<script src="js/vendor/what-input.js"></script>
-		<script src="js/vendor/foundation.min.js"></script>
+		<script src="js/vendor/foundation.js"></script>
 		<script src="js/main.js"></script>
 	</body>
 </html>

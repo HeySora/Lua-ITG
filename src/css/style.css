@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
 ::-moz-selection {
-    background: #7a7a7a;
+    background: #999;
 }
 
 ::selection {
-    background: #7a7a7a;
+    background: #999;
 }
 
 @-webkit-keyframes rainbow {
@@ -75,17 +75,105 @@
 }
 
 body {
+	font-family: "Roboto", sans-serif;
 	background-color: #191919;
+	background: linear-gradient(#333, #191919);
 	color: #f8f8f2;
-	min-width: 1026px;
+	overflow: hidden;
+	/*transform: translateX(30%);*/
+}
+
+#sidebar {
+	background-color: #090909;
+	background: linear-gradient(#222, #090909);
+	text-align: right;
+
+	display: flex;
+	flex-direction: column;
+	
+	z-index: 2;
+	position: fixed;
+	top: 0;
+	
+	height: 100%;
+	width: 100%;
+	transform: translateX(-100%);
+	transition: transform 0.2s ease-in-out;
+}
+
+.mobile-nav-open #sidebar {
+	transform: translateX(0);
+}
+
+@media screen and (min-width: 64em) {
+	#sidebar {
+		-webkit-flex: 0 0 30%;
+		-ms-flex: 0 0 30%;
+		flex: 0 0 30%;
+		max-width: 30%;
+		width: auto;
+		left: -30%;
+	}
+}
+
+#main {
+	height: 100%;
+}
+
+#main-content {
+	max-width: 90rem;
+	margin: auto;
+}
+
+button.nav-toggle-button {
+	background-color: #090909;
+	background: linear-gradient(#333, transparent);
+	box-shadow: 0 4px 8px #000;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	position: fixed;
+	bottom: 5vmin;
+	right: 5vmin;
+	font-size: 1.375rem;
+	opacity: 0.8;
+	transition: background 0.25s, opacity 0.25s;
+}
+@media screen and (min-width: 64em) {
+	button.nav-toggle-button {
+		width: 64px;
+		height: 64px;
+		right: -webkit-calc(5vmin + 16px);
+	right: -moz-calc(5vmin + 16px);
+	right: calc(5vmin + 16px);
+	}
+}
+
+button.nav-toggle-button:hover,
+button.nav-toggle-button:focus {
+	background-color: #222;
+	opacity: 1;
+}
+
+body, #sidebar, #main {
+	transition: transform 0.5s cubic-bezier(.25,.46,.45,.94), opacity 0.5s cubic-bezier(.25,.46,.45,.94);
+}
+
+.nav-open {
+	transform: translateX(10%);
+}
+
+.nav-open #sidebar {
+	transform: translateX(66.6666%);
+}
+
+.nav-open #main {
+	opacity: 0.6;
+	transform: matrix3d(1,0,0.00,-0.0004,0.00,1,0.00,0,0,0,1,0,0,0,0,1);
 }
 
 th {
 	color: #f8f8f2;
-}
-
-body {
-	font-family: "Roboto", sans-serif;
 }
 
 p {
@@ -135,8 +223,8 @@ table tbody tr:nth-child(2n) {
 hr {
     box-sizing: content-box;
 
-    width: 80%;
-    max-width: 67.5rem;
+    width: 90%;
+    max-width: 80rem;
 
     height: 0;
     border-right: 0;
@@ -147,28 +235,6 @@ hr {
     margin: 1rem auto;
 
     clear: both;
-}
-
-#page {
-	width: 100%;
-	max-width: none;
-	height: 100%;
-	transform: scale(0.7);
-	transition: 0.8s cubic-bezier(.17,.84,.44,1) transform,
-		0.8s ease-out opacity;
-	opacity: 0;
-}
-
-#page.done {
-	transform: scale(1);
-	opacity: 1;
-}
-
-#sidebar {
-	background-color: #090909;
-	box-shadow: 0 0 32px #000;
-	z-index: 2;
-	text-align: right;
 }
 
 #classes h4 + div, #enums h4 + div, #enums h4 + p + div {
@@ -182,17 +248,8 @@ hr {
 	transition: 0.3s max-height ease-in-out;
 }AAA*/
 
-#sidebar-content {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-}
 
-#sidebar, #main {
-	height: 100%;
-}
-
-body > .row > .columns {
+body > div {
 	padding: 1.5rem 1.25rem;
 	overflow-y: auto;
 }
@@ -225,7 +282,7 @@ h1 {
 #sidebar nav a, #sidebar h2 a {
 	color: #f8f8f2;
 }
-#sidebar nav a:hover, #sidebar h2:hover a {
+#sidebar nav a:hover, #sidebar h2 a:hover {
 	color: #aaaaa6;
 }
 #sidebar h2 {
@@ -252,6 +309,10 @@ h1 {
 
 #classes th:nth-child(1), #globalfuncs th:nth-child(1) {
 	width: 100px;
+}
+
+#basics {
+	text-align: justify;
 }
 
 #enums table, #constants table {
@@ -337,7 +398,57 @@ h4 > img {
 	font-size: 14px;
 	background-color: #090909;
 	padding: 2px 8px;
+	word-break: break-all;
 }
+
+@media screen and (max-width: 63.9375em) {
+	h1 {
+		font-size: 2rem;
+	}
+	h1, h2 {
+		text-shadow: 0 2px 0 #999, 0 0 16px #aaa;
+	}
+	.example {
+		font-size: 12px;
+	}
+	#classes td:nth-child(2) div:first-child,
+	#classes td:nth-child(2) div:first-child *,
+	#globalfuncs td:nth-child(2) div:first-child,
+	#globalfuncs td:nth-child(2) div:first-child *,
+	section:not(#basics), .mono {
+		font-size: 14px;
+		word-break: break-all;
+		max-width: 100%;
+	}
+	.mono {
+		display: inline-block;
+	}
+	#classes th:nth-child(1), #globalfuncs th:nth-child(1) {
+		width: 32px;
+	}
+	#enums table, #constants table {
+		width: 100%;
+	}
+	#sidebar {
+		text-align: left;
+	}
+	#sidebar li {
+		padding: 0.3rem 0;
+	}
+	#sidebar li a {
+		font-size: 14px;
+	}
+	#sidebar p {
+		font-size: 12px;
+	}
+}
+
+@media screen and (min-width: 64em) {
+	#classes th:nth-child(1)::before, #globalfuncs th:nth-child(1)::before {
+		content: "Availability";
+	}
+}
+
 
 /* highlightjs */
 
