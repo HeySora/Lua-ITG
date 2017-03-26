@@ -4446,7 +4446,6 @@ function parseClasses() {
 		$article.append($divTable);
 		$('#classes').append($article);
 
-		$divTable.addClass('ready');
 	});
 
 }
@@ -4509,7 +4508,6 @@ function parseEnums() {
 		$article.append($divTable);
 		$('#enums').append($article);
 
-		$divTable.addClass('ready');
 	});
 
 }
@@ -4658,8 +4656,6 @@ function parseGlobalFuncs() {
 	// Ajout du tableau et de l'article dans la section
 	$('#globalfuncs').append($divTable);
 
-	$divTable.addClass('ready');
-
 }
 
 // Parser les constantes
@@ -4689,8 +4685,6 @@ function parseConstants() {
 	var $divTable = $('<div></div>').append($table);
 
 	$('#constants').append($divTable);
-
-	$divTable.addClass('ready');
 
 }
 
@@ -4847,7 +4841,7 @@ function init() {
 	});
 
 	// Nav
-	$('button.nav-toggle-button, .nav-toggle').click(function() {
+	$('.nav-toggle-button, .nav-toggle').click(function() {
 		if ($('body').hasClass('large')) {
 			$('body').toggleClass('nav-open');
 		}
