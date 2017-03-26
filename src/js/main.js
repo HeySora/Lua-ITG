@@ -4859,8 +4859,8 @@ function init() {
 
 	state = 11;
 
-	// Foundation
 	$(document).foundation();
+	Interdimensional.charge();
 
 	state = 12;
 
