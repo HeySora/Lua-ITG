@@ -1642,12 +1642,12 @@ data = {
 				description: 'Gets the current sort order. See <a>Enum_SortOrder</a>.'
 			},
 			GetVersionDate: {
-				notitg: 1,
+				notitg: 2,
 				returnType: 'string',
 				description: 'Gets the Version Date. (e. g. "20170105")'
 			},
 			GetX: {
-				notitg: 1,
+				notitg: 2,
 				returnType: 'float',
 				args: {
 					playerNumber: {
@@ -1668,7 +1668,7 @@ data = {
 				description: 'Gets the X position of a note located in the column `column`. Used for calculating manually where a note should be based on which modifiers are active and its vertical position.'
 			},
 			GetY: {
-				notitg: 1,
+				notitg: 2,
 				returnType: 'float',
 				args: {
 					playerNumber: {
@@ -1689,7 +1689,7 @@ data = {
 				description: 'Gets the Y position of a note located in the column `column`. Used for calculating manually where a note should be based on which modifiers are active and its vertical position.'
 			},
 			GetZ: {
-				notitg: 1,
+				notitg: 2,
 				returnType: 'float',
 				args: {
 					playerNumber: {
@@ -1988,7 +1988,7 @@ data = {
 				description: 'Gets the current song\'s index, starting at 1.'
 			},
 			UnloadSteps: {
-				notitg: 1,
+				notitg: 2,
 				args: {
 					playerNumber: {
 						type: 'int',
