@@ -440,7 +440,7 @@ data = {
 			geteffectmagnitude: {
 				returnType: 'float',
 				description: 'Gets the effect magnitude currently applied to the Actor. Since the effect magnitude is composed of three floats (see <a>Actor.effectmagnitude()</a>), this method returns three floats.',
-				example: 'x,y,z = actor:geteffectmagnitude();'
+				example: 'x,y,z = self:geteffectmagnitude();'
 			},
 			GetHeight: {
 				returnType: 'float',
@@ -454,7 +454,7 @@ data = {
 			getrotation: {
 				returnType: 'float',
 				description: 'Gets the current rotations of the Actor for each axis. Since there are 3 axis, this method returns three floats. You can set them by using <a>Actor.rotationx()</a>, <a>Actor.rotationy()</a>, and <a>Actor.rotationz()</a>, or add/substract values to them using <a>Actor.pitch()</a>, <a>Actor.heading()</a>, and <a>Actor.roll()</a>.',
-				example: 'rotx,roty,rotz = actor:getrotation();'
+				example: 'rotx,roty,rotz = self:getrotation();'
 			},
 			GetSecsIntoEffect: {
 				returnType: 'float',
@@ -592,7 +592,7 @@ data = {
 					}
 				},
 				description: 'Calls immediately a command named `commandName` .. "Command". <a href="#Basics_ActorCommands">What is an Actor Command ?</a>',
-				example: 'actor:playcommand(\'BarrelRoll\'); -- Will call the "BarrelRollCommand" command of the Actor.'
+				example: 'self:playcommand(\'BarrelRoll\'); -- Will call the "BarrelRollCommand" command of the Actor.'
 			},
 			position: {
 				args: {
