@@ -2749,9 +2749,9 @@ data = {
 			}
 		},
 		RageDisplay: {
-			description: 'To use this class, use it through the <span class="mono">DISPLAY</span> singleton.',
+			description: 'To use this class, use it through the <span class="mono">DISPLAY</span> singleton. This class is only available in NotITG 2 !',
 			ChangeCentering: {
-				notitg: 1,
+				notitg: 2,
 				args: {
 					translateX: {
 						type: 'int',
@@ -2773,22 +2773,22 @@ data = {
 				description: 'Change the centering point of the screen by translating the screen or editing its dimensions.'
 			},
 			GetCumFPS: {
-				notitg: 1,
+				notitg: 2,
 				returnType: 'int',
 				description: 'Gets the cumulative FPS.'
 			},
 			GetDisplayHeight: {
-				notitg: 1,
+				notitg: 2,
 				returnType: 'int',
 				description: 'Gets the height of the display (game window).'
 			},
 			GetDisplayWidth: {
-				notitg: 1,
+				notitg: 2,
 				returnType: 'int',
 				description: 'Gets the width of the display (game window).'
 			},
 			GetFPS: {
-				notitg: 1,
+				notitg: 2,
 				returnType: 'int',
 				description: 'Gets the number of FPS.'
 			},
@@ -2798,7 +2798,7 @@ data = {
 				description: 'Gets the vendor of the Graphic Driver.'
 			},
 			GetVPF: {
-				notitg: 1,
+				notitg: 2,
 				returnType: 'int',
 				description: 'Gets the VPF.'
 			}
