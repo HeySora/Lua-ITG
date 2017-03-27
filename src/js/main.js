@@ -4734,6 +4734,7 @@ function init() {
 	// Smooth Scrolling & Highlighting
 	var animating = false;
 
+	$('a[href="#"]').click(() => false);
 	// Navbar
 	$('nav,h4').find('a[href*="#"]:not([href="#"])').click(function() {
 		if (!animating && location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
