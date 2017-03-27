@@ -2793,7 +2793,7 @@ data = {
 				description: 'Gets the number of FPS.'
 			},
 			GetVendor: {
-				notitg: 1,
+				notitg: 2,
 				returnType: 'string',
 				description: 'Gets the vendor of the Graphic Driver.'
 			},
@@ -4160,19 +4160,34 @@ function checkLuaObject(type) {
 
 // Vérifier si une méthode / énumération est exclusive à NotITG ou non.
 function checkNotITG(name, methodName) {
-	// Enum
+	// Enum / globalfunc
 	if (arguments.length == 1 || typeof methodName !== 'string') {
 		if (typeof data.enums[name] === 'undefined') {
-			return false;
+			if (typeof data.globalfuncs[name] !== 'undefined') {
+				return (typeof data.globalfuncs[name].notitg !== 'undefined') ? data.globalfuncs[name].notitg : 0;
+			}
+			return 0;
 		}
-		return (typeof data.enums[name].notitg !== 'undefined');
+		return (typeof data.enums[name].notitg !== 'undefined') ? data.enums[name].notitg : 0;
 	}
 
 	// Classe
 	if (typeof data.classes[name][methodName] === 'undefined') {
-		return false;
+		return 0;
 	}
-	return (typeof data.classes[name][methodName].notitg !== 'undefined');
+	return (typeof data.classes[name][methodName].notitg !== 'undefined') ? data.classes[name][methodName].notitg : 0;
+}
+
+// Insérer l'icône ITG
+function insertITGIcon(isNotITG = 0, j = false) {
+	if (j) {
+		return $('<img>').attr('src', 'img/' + (isNotITG ? 'notitg' + isNotITG : 'itg') + '.png')
+						 .attr('alt', isNotITG ? 'NotITG' + (isNotITG > 1 ? ' Version ' + isNotITG : '') : 'ITG')
+						 .attr('title', isNotITG ? 'NotITG' + (isNotITG > 1 ? ' Version ' + isNotITG : '') : 'ITG');
+	}
+	else {
+		return '<img src="img/' + (isNotITG ? 'notitg' + isNotITG : 'itg') + '.png" alt="' + (isNotITG ? 'NotITG' + (isNotITG > 1 ? ' Version ' + isNotITG : '') : 'ITG') + '" title="' + (isNotITG ? 'NotITG' + (isNotITG > 1 ? ' Version ' + isNotITG : '') : 'ITG') + '" />';
+	}
 }
 
 // Replacer mots-clés, liens, et variables
@@ -4182,7 +4197,7 @@ function replaceKeywords(str, args) {
 	// Enums
 	ret = ret.replace(/<a>Enum_([^<>]+)<\/a>/gi, function(match, enumName) {
 		var isNotITG = checkNotITG(enumName);
-		return '<a class="code enum-link" href="#Enum_'+ enumName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ enumName +'</a>';
+		return '<a class="code enum-link" href="#Enum_'+ enumName +'">' + insertITGIcon(isNotITG) + enumName +'</a>';
 	});
 
 	// Class
@@ -4193,13 +4208,13 @@ function replaceKeywords(str, args) {
 	// Class' Method
 	ret = ret.replace(/<a>([^<>]+)\.([^<>]+)\(\)<\/a>/gi, function(match, className, methodName) {
 		var isNotITG = checkNotITG(className, methodName);
-		return '<a class="code method-link" href="#Class_'+ className +'_'+ methodName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg' ) +'.png" />'+ className +'.'+ methodName +'()</a>';
+		return '<a class="code method-link" href="#Class_'+ className +'_'+ methodName +'">' + insertITGIcon(isNotITG) + className +'.'+ methodName +'()</a>';
 	});
 
 	// Global Function
 	ret = ret.replace(/<a>GlobalFunc_([^<>]+)<\/a>/gi, function(match, funcName) {
 		var isNotITG = checkNotITG(funcName);
-		return '<a class="code method-link" href="#GlobalFunc_'+ funcName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg' ) +'.png" />'+ funcName +'()</a>';
+		return '<a class="code method-link" href="#GlobalFunc_'+ funcName +'">' + insertITGIcon(isNotITG) + funcName +'()</a>';
 	});
 
 	if (arguments.length > 1 && typeof args === 'object') {
@@ -4315,20 +4330,13 @@ function parseClasses() {
 			var $row = $('<tr></tr>');
 			var $firstElement = $('<td></td>');
 			var $secondElement = $('<td></td>');
-			var $icon = $('<img>');
+			var $icon = insertITGIcon(checkNotITG(k_class, k_method), true);
 			var content = [];
 			var args = '';                          // Utilisé pour le prototype de la fonction.
 			var argsDescription = [];
 			var validArgs = {};                     // Utilisé pour la coloration de la description avec replaceKeywords()
 			var description = v_method.description; // Utilisé pour la coloration de la description.
 
-			// Disponibilité
-			if (typeof v_method.notitg !== 'undefined') {
-				$icon.attr('src', 'img/notitg.png');
-			}
-			else {
-				$icon.attr('src', 'img/itg.png');
-			}
 			$firstElement.append($icon);
 
 			// Si template utilisée
@@ -4459,7 +4467,7 @@ function parseEnums() {
 		// Création de l'article
 		var isNotITG = checkNotITG(k_enum);
 		var $article = $('<article></article>').attr('id', 'Enum_'+ k_enum);
-		/*var $articleTitle = $('<h4></h4>').html('<img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ k_enum + ' <i class="fa fa-caret-down" aria-hidden="true"></i>')
+		/*var $articleTitle = $('<h4></h4>').html(insertITGIcon(isNotITG) + k_enum + ' <i class="fa fa-caret-down" aria-hidden="true"></i>')
 		.click(function() {
 			var table = $(this).parent().children('div');
 			table.toggleClass('shown');
@@ -4470,7 +4478,7 @@ function parseEnums() {
 				table.css('max-height', 0);
 			}
 		});AAA*/
-		var $articleTitle = $('<h4></h4>').html('<img src="img/'+ ((isNotITG) ? 'notitg' : 'itg') +'.png" alt="'+ ((isNotITG) ? 'NotITG' : 'ITG') +'" />'+ k_enum)
+		var $articleTitle = $('<h4></h4>').html(insertITGIcon(isNotITG) + k_enum)
 		$article.append($articleTitle);
 
 		// Ajout de la description, si présente
@@ -4534,20 +4542,13 @@ function parseGlobalFuncs() {
 		var $row = $('<tr></tr>');
 		var $firstElement = $('<td></td>');
 		var $secondElement = $('<td></td>');
-		var $icon = $('<img>');
+		var $icon = insertITGIcon(checkNotITG(k_method), true);
 		var content = [];
 		var args = '';                          // Utilisé pour le prototype de la fonction.
 		var argsDescription = [];
 		var validArgs = {};                     // Utilisé pour la coloration de la description avec replaceKeywords()
 		var description = v_method.description; // Utilisé pour la coloration de la description.
 
-		// Disponibilité
-		if (typeof v_method.notitg !== 'undefined') {
-			$icon.attr('src', 'img/notitg.png');
-		}
-		else {
-			$icon.attr('src', 'img/itg.png');
-		}
 		$firstElement.append($icon);
 
 		// Itération sur les arguments de la méthode, s'il y en a
@@ -4725,7 +4726,7 @@ function init() {
 	$('#basics').html(
 		$('#basics').html().replace(/{{(\w+)_(\w+)}}/gi, function(match, className, methodName) {
 			var isNotITG = checkNotITG(className, methodName);
-			return '<a class="code method-link" href="#Class_'+ className +'_'+ methodName +'"><img src="img/'+ ((isNotITG) ? 'notitg' : 'itg' ) +'.png" />'+ className +'.'+ methodName +'()</a>';
+			return '<a class="code method-link" href="#Class_'+ className +'_'+ methodName +'">' + insertITGIcon(isNotITG) + className +'.'+ methodName +'()</a>';
 		})
 	);
 
