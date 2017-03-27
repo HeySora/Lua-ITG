@@ -84,7 +84,7 @@
 						<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="hidden,1;sleep,9999"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="<span class="lua">hidden,1;sleep,9999</span>"<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
 						<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- You will add elements there --&gt;<br />
@@ -110,15 +110,15 @@
 						<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="hidden,1;sleep,9999"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="<span class="lua">hidden,1;sleep,9999</span>"<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
 						<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="hidden,1"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="<span class="lua">hidden,1</span>"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="<span class="lua">%function(self)<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREENMAN:SystemMessage('Hello world !');<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</span>"<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
 						<br />
 						&lt;/children&gt;&lt;/ActorFrame&gt;
@@ -148,10 +148,10 @@
 					<div class="example xml">
 						&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;File="itg.png"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="<span class="lua">%function(self)<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:x(SCREEN_CENTER_X);<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:y(SCREEN_CENTER_Y);<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;end</span>"<br />
 						/&gt;
 					</div>
 
@@ -170,12 +170,12 @@
 					<div class="example xml">
 						&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="<span class="lua">%function(self)<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:x(SCREEN_CENTER_X); -- Centers horizontally the rectangle<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:y(SCREEN_CENTER_Y); -- Centers vertically the rectangle<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:zoomto(300, 200); -- Defines its size to 300x200<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:diffuse(0, 1, 0, 1); -- Colors it in green (0% red, 100% green, 0% blue, 100% opaque)<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;end</span>"<br />
 						/&gt;
 					</div>
 
@@ -209,12 +209,12 @@
 					<div class="example xml">
 						&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="queuecommand,Update"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;UpdateCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="<span class="lua">queuecommand,Update</span>"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;UpdateCommand="<span class="lua">%function(self)<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREENMAN:SystemMessage('Hello world !');<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:sleep(0.02); -- Waits 20ms (= 50fps)<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:queuecommand('Update'); -- Repeats the command.<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;end</span>"<br />
 						/&gt;
 					</div>
 
@@ -225,16 +225,16 @@
 					<div class="example xml">
 						&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="queuecommand,Update"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="<span class="lua">queuecommand,Update</span>"<br />
 						/&gt;<br />
 						<br />
 						&lt;!-- is equivalent to --&gt;<br />
 						<br />
 						&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;OnCommand="<span class="lua">%function(self)<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:queuecommand('Update');<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;end</span>"<br />
 						/&gt;
 					</div>
 
@@ -266,14 +266,14 @@
 					<div class="example xml">
 						&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X-50;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;ChangeColorMessageCommand="linear,0.5;diffuse,1,0,0,1"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="<span class="lua">x,SCREEN_CENTER_X-50;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1</span>"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;ChangeColorMessageCommand="<span class="lua">linear,0.5;diffuse,1,0,0,1</span>"<br />
 						/&gt;<br />
 						<br />
 						&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X+50;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;ChangeColorMessageCommand="linear,0.5;diffuse,0,1,0,1"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="<span class="lua">x,SCREEN_CENTER_X+50;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1</span>"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;ChangeColorMessageCommand="<span class="lua">linear,0.5;diffuse,0,1,0,1</span>"<br />
 						/&gt;
 					</div>
 
@@ -298,8 +298,8 @@
 						&lt;!-- Will be shown only if the "Insane" difficulty is played by P1. --&gt;<br />
 						&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;Condition="GAMESTATE:IsPlayerEnabled(0) and GAMESTATE:GetCurrentSteps(0):GetDifficulty() == 4"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;Condition="<span class="lua">GAMESTATE:IsPlayerEnabled(0) and GAMESTATE:GetCurrentSteps(0):GetDifficulty() == 4</span>"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="<span class="lua">x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;zoomto,100,100;diffuse,1,1,1,1</span>"<br />
 						/&gt;
 					</div>
 
@@ -309,14 +309,14 @@
 
 					<div class="example xml">
 						&lt;ActorFrame<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;Condition="(function(videoRenderers)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;Condition="<span class="lua">(function(videoRenderers)<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if not string.find(videoRenderers, 'opengl') -- OpenGL isn't in the list<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or string.find(videoRenderers, 'opengl') > 1 then -- Or OpenGL isn't the first renderer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREENMAN:SystemMessage('You need to play this chart with OpenGL !');<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;end)(string.lower(PREFSMAN:GetPreference('VideoRenderers')))"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;end)(string.lower(PREFSMAN:GetPreference('VideoRenderers')))</span>"<br />
 						&gt;&lt;children&gt;
 					</div>
 
@@ -422,12 +422,12 @@
 					<div class="example xml">
 						&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;Type="Quad"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="<span class="lua">%function(self)<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:hidden(1);<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auxvar = self; -- The 'aux' variable will target this Actor.<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:aux(0); -- The 'default value' of the aux value will be 0.<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;RotateMessageCommand="finishtweening;linear,1;aux,360"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;end</span>"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;RotateMessageCommand="<span class="lua">finishtweening;linear,1;aux,360</span>"<br />
 						/&gt;
 					</div>
 
@@ -466,7 +466,7 @@
 
 					<div class="example xml">
 						&lt;ActorFrame<br />
-						&nbsp;&nbsp;&nbsp;&nbsp; InitCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp; InitCommand="<span class="lua">%function(self)<br />
 						<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- The multiplier of the aft sprites' alpha value.<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftMult = 1;<br />
@@ -474,7 +474,7 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- If the user is using a Nvidia graphic card, they have some issues with alphas of sprites.<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if string.find(string.lower(DISPLAY:GetVendor()), 'nvidia') then<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftMult = 0.9; -- Setting the alpha multiplier to 0.9.<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</span><br />
 						<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
 						&gt;&lt;children&gt;<br />
@@ -484,7 +484,7 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="Sprite"<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Texture="white"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="<span class="lua">%function(self)<br />
 						<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftSprite = self;<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:basezoomx((SCREEN_WIDTH/DISPLAY:GetDisplayWidth()));<br />
@@ -496,12 +496,12 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:zoom(1.05);<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:diffusealpha(0.95*aftMult);<br />
 						<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</span>"<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
 						<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&lt;Layer<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type="ActorFrameTexture"<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="%function(self)<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitCommand="<span class="lua">%function(self)<br />
 						<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aft = self;<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self:SetWidth(DISPLAY:GetDisplayWidth());<br />
@@ -514,7 +514,7 @@
 						<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftSprite:SetTexture(self:GetTexture()); -- Put the texture into the sprite above.<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end"<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</span>"<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br />
 						<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- ... --&gt;<br />
@@ -611,7 +611,7 @@
 
 		<script src="js/vendor/highlight.pack.js"></script>
 
-		<script src="js/vendor/interdimensional.js?v=2"></script>
+		<script src="js/vendor/interdimensional.js?v=2any "></script>
 
 		<script src="js/vendor/what-input.js"></script>
 		<script src="js/vendor/foundation.min.js"></script>

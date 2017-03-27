@@ -325,6 +325,10 @@ h4 > img {
 	box-shadow: 0 1px 4px rgba(9, 9, 9, 0.7);
 }
 
+.example span.lua {
+	font-weight: normal;
+}
+
 .g {
 	color: #777;
 }
@@ -388,9 +392,7 @@ h4 > img {
 /* highlightjs */
 
 .hljs {
-    display: block;
     overflow-x: auto;
-    /*background-color: #23241f;*/
 }
 
 .hljs-string {
@@ -407,7 +409,6 @@ h4 > img {
 }
 
 .hljs-type,
-.hljs-built_in,
 .hljs-builtin-name,
 .hljs-selector-id,
 .hljs-selector-attr,
@@ -421,6 +422,10 @@ h4 > img {
 
 .hljs-attr {
 	font-style: italic;
+}
+
+.hljs-built_in {
+	color: #0ee;
 }
 
 .hljs,

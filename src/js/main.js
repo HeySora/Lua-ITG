@@ -4528,7 +4528,7 @@ function parseGlobalFuncs() {
 			return;
 		}
 
-		allMethods += k_method + " ";           // Utilisé pour la coloration syntaxique
+		allMethods + " ";           // Utilisé pour la coloration syntaxique
 
 		// Création des éléments
 		var $row = $('<tr></tr>');
@@ -4667,8 +4667,10 @@ function parseConstants() {
 	$table.append($tableHeader);
 	var $tableBody = $('<tbody></tbody>');
 
-	// Itération sur les constants
+	// Itération sur les constantes
 	$.each(data.constants, function(k_name, v_value) {
+
+		allConstants += k_name + " ";           // Utilisé pour la coloration syntaxique
 
 		// Création des éléments
 		var $row = $('<tr></tr>');
@@ -4714,6 +4716,7 @@ function init() {
 	state = 8;
 
 	// Générer le contenu de #constants
+	allConstants = "";
 	parseConstants();
 
 	state = 9;
@@ -4866,10 +4869,23 @@ function init() {
 
 	// Syntax-Highlighting
 	try {
-		hljs.registerLanguage("lua",function(e){var t="\\[=*\\[",a="\\]=*\\]",r={b:t,e:a,c:["self"]},n=[e.C("--(?!"+t+")","$"),e.C("--"+t,a,{c:[r],r:10})];return{l:e.UIR,k:{keyword:"GAMESTATE SCREENMAN DISPLAY SOUND PREFSMAN STATSMAN MESSAGEMAN PROFILEMAN and break do else elseif end false for if in local nil not or repeat return self then true until while",built_in:"SCREEN_WIDTH SCREEN_HEIGHT SCREEN_CENTER_X SCREEN_CENTER_Y _G _VERSION assert collectgarbage dofile error getfenv getmetatable ipairs load loadfile loadstring module next pairs pcall print rawequal rawget rawset require select setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug io math os package string table " + allMethods},c:n.concat([{cN:"function",bK:"function",e:"\\)",c:[e.inherit(e.TM,{b:"([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*"}),{cN:"params",b:"\\(",eW:!0,c:n}].concat(n)},e.CNM,e.ASM,e.QSM,{cN:"string",b:t,e:a,c:[r],r:5}])}});
+		hljs.registerLanguage("lua",function(e){var t="\\[=*\\[",a="\\]=*\\]",r={b:t,e:a,c:["self"]},n=[e.C("--(?!"+t+")","$"),e.C("--"+t,a,{c:[r],r:10})];return{l:e.UIR,k:{keyword:"GAMESTATE SCREENMAN DISPLAY SOUND PREFSMAN STATSMAN MESSAGEMAN PROFILEMAN and break do else elseif end false for if in local nil not or repeat return self then true until while",built_in:"_G _VERSION assert collectgarbage dofile error getfenv getmetatable ipairs load loadfile loadstring module next pairs pcall print rawequal rawget rawset require select setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug io math os package string table " + allMethods + allConstants},c:n.concat([{cN:"function",bK:"function",e:"\\)",c:[e.inherit(e.TM,{b:"([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*"}),{cN:"params",b:"\\(",eW:!0,c:n}].concat(n)},e.CNM,e.ASM,e.QSM,{cN:"string",b:t,e:a,c:[r],r:5}])}});
 
+		var things = {};
+
+		$('div.example:not(.nohighlight) span.lua').each(function(i, v) {
+			hljs.highlightBlock(v);
+			things[i] = $(v).html();
+		});
+		$('span.mono').each(function(i, v) {
+			$(v).addClass('lua');
+			hljs.highlightBlock(v);
+		});
 		$('div.example:not(.nohighlight)').each(function(i, v) {
 			hljs.highlightBlock(v);
+		});
+		$('div.example:not(.nohighlight) span.lua').each(function(i, v) {
+			$(v).html(things[i]);
 		});
 	}
 	catch (e) {
