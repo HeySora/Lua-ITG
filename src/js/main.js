@@ -3132,7 +3132,7 @@ data = {
 			},
 			MusicLengthSeconds: {
 				returnType: 'float',
-				description: 'Gets the lenght of the music, in seconds.'
+				description: 'Gets the length of the music, in seconds.'
 			}
 		},
 		SongManager: {
@@ -4908,11 +4908,11 @@ function init() {
 state = 3;
 
 timeout = setTimeout(function() {
-	if (state != 12)
+	if (state < 12)
 		window.alert("Error ! Please report it to me : [TimeoutError] : State " + state + ". The page could miss some features, like syntax coloration.");
 	console.log("Error ! Please report it to me : [TimeoutError] : State " + state);
 	$('#page').addClass('done');
-}, 5000);
+}, 10000);
 
 $(function() {
 	state = 4;
