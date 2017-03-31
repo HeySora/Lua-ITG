@@ -4134,7 +4134,7 @@ data = {
 		PLAY_MODE_BATTLE: '4',
 		PLAY_MODE_RAVE: '5',
 		PLAYER_1: '0',
-		PLAYER_2: '0',
+		PLAYER_2: '1',
 		PREMIUM_NONE: '0',
 		PREMIUM_DOUBLE: '1',
 		PREMIUM_JOINT: '2',
