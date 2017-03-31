@@ -1166,6 +1166,16 @@ data = {
 				},
 				description: 'Enables/Disables floats. It is disabled by default.'
 			},
+			EnableGrayscale: {
+				notitg: 2,
+				args: {
+					enable: {
+						type: 'bool',
+						description: 'Enable or not the grayscale option.'
+					}
+				},
+				description: 'Makes or not the AFT grayscale. It is disabled by default.'
+			},
 			EnablePreserveTexture: {
 				notitg: 1,
 				args: {
@@ -1824,6 +1834,30 @@ data = {
 					}
 				},
 				description: 'Simulates a key press.'
+			},
+			LaunchAttack: {
+				notitg: 2,
+				args: {
+					startTime: {
+						type: 'float',
+						description: 'The time (in seconds) where the attack will start.'
+					},
+					length: {
+						type: 'float',
+						description: 'The length of the attack (in seconds).',
+						condition: '0-'
+					},
+					mods: {
+						type: 'string',
+						description: 'The mods to apply.'
+					},
+					playerNumber: {
+						type: 'int',
+						description: '(Optional) The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1'
+					}
+				},
+				description: 'Registers an attack to be launched at a specific moment. This attack will disable any currently active Lua mods. It is recommended to call this method in an InitCommand, because it generates some lag spikes.'
 			},
 			PlayerIsUsingModifier: {
 				returnType: 'bool',

@@ -50,7 +50,7 @@
 					<hr />
 
 
-					<h4 id="Basics_GettingStarted">Getting started</h4>
+					<h4 id="Basics_GettingStarted"><img src="img/itg.png" alt="ITG" title="ITG" />Getting started</h4>
 
 					<p>First, <strong class="rainbow">DO NOT CODE WITH WINDOWS NOTEPAD !</strong> This software doesn't help you at all to code something. You can't indent, the text isn't colorized, etc. You should use a better text editor. I'd personally recommend <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a> because there are really useful features and shortcuts, but there are also other softwares, such as <a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a> or <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>. If you love command-line prompts, you can also use vim or emacs !</p>
 					<p>I made syntax highlighting files for the XML/Lua and CRS files, for Sublime Text 3. You can find them <a href="/">at the homepage of this website</a>.</p>
@@ -75,7 +75,7 @@
 						#BGCHANGES:0.000=bg=1.000=0=0=1=====;
 					</div>
 
-					<p>Here, the file located in <strong>bg</strong>/default.xml will be loaded.</p>
+					<p>Here, the file located in <strong>bg</strong>/default.xml will be loaded. Please note that BGCHANGES doesn't support InitCommands, Messages, and Models. See <a href="#Basics_BetterBGChanges"><img src="img/notitg2.png" alt="NotITG" title="NotITG" />#BETTERBGCHANGES</a> to use a better alternative of these, if you really need those missing features.</p>
 
 					<p>The XML file should look like this :</p>
 
@@ -99,7 +99,7 @@
 					<ul>
 						<li>A XML file must "give" only one Actor to the game. How could we do that ? An ActorFrame is an Actor that contains Actors. Here we're defining an ActorFrame by using the <span>"ActorFrame"</span> tag.</li>
 						<li>The <span>"children"</span> tag is needed for Actors that contains other Actors.</li>
-						<li>Here, we have an Actor of type Quad (a rectangle). We will hide it because we don't need to show it to the player, and we will apply a "sleep" effect for 9999 seconds. Why ? Because the game will stop any XML file that isn't doing anything. Adding this Actor fixes this behavior because the file will always do something. We are using a Quad here because it's the lightest Actor (we don't need a picture or a text).</li>
+						<li>Here, we have an Actor of type Quad (a rectangle). We will hide it because we don't need to show it to the player, and we will apply a "sleep" effect for 9999 seconds. Why ? Because the game will stop any XML file that isn't doing anything. Adding this Actor fixes this behavior because the file will always do something. We are using a Quad here because it's the lightest Actor (we don't need a picture or a text). <strong>It is only needed in a foreground file (imported with <span class="mono">#FGCHANGES</span>). You don't have to put this Quad on a background file (imported with <span class="mono">#BGCHANGES</span>, or <span class="mono">#BETTERBGCHANGES</span>).</strong></li>
 						<li>Here, we're just closing the tags we opened before.</li>
 					</ul>
 
@@ -186,7 +186,7 @@
 					<hr />
 
 
-					<h4 id="Basics_ActorCommands">Actor Commands</h4>
+					<h4 id="Basics_ActorCommands"><img src="img/itg.png" alt="ITG" title="ITG" />Actor Commands</h4>
 
 					<p>Actor Commands are just instructions that will be executed in Lua. There are 2 "magic" commands that are executed at a specific moment :</p>
 
@@ -259,7 +259,7 @@
 					<hr />
 
 
-					<h4 id="Basics_Messages">Messages</h4>
+					<h4 id="Basics_Messages"><img src="img/itg.png" alt="ITG" title="ITG" />Messages</h4>
 
 					<p>The messages are "special commands". When we will call a message, every Actor having this message registered will be executed. For example :</p>
 
@@ -288,7 +288,7 @@
 					<hr />
 
 
-					<h4 id="Basics_Conditions">Conditions</h4>
+					<h4 id="Basics_Conditions"><img src="img/itg.png" alt="ITG" title="ITG" />Conditions</h4>
 
 					<p>Actors can take a <span class="mono">Condition</span> attribute, that will be evaluated before the other commands. This attribute always take a lua expression. If this expression doesn't return true, the Actor won't be executed at all. It will be like "non-existent". <strong>The expression will only be evaluated once, so don't check for beat/seconds there. Also, this is evaluated very early (even before the InitCommand), so don't check anything with the screen, or the game may crash with an "Access Violation" !</strong></p>
 
@@ -327,7 +327,7 @@
 					<hr />
 
 
-					<h4 id="Basics_Tweens">Tweens</h4>
+					<h4 id="Basics_Tweens"><img src="img/itg.png" alt="ITG" title="ITG" />Tweens</h4>
 
 					<p>Tweens are a way to smoothly manipulate elements. For example, let's do :</p>
 
@@ -375,7 +375,7 @@
 					<hr />
 
 
-					<h4 id="Basics_ActorEffects">Actor Effects</h4>
+					<h4 id="Basics_ActorEffects"><img src="img/itg.png" alt="ITG" title="ITG" />Actor Effects</h4>
 
 					<p>An Actor Effect is an Effect that is modifying on its own the position, the size, or the colors of a specific Actor. They can be enabled using a simple method.</p>
 
@@ -413,7 +413,7 @@
 					<hr />
 
 
-					<h4 id="Basics_Aux">Aux variables</h4>
+					<h4 id="Basics_Aux"><img src="img/itg.png" alt="ITG" title="ITG" />Aux variables</h4>
 
 					<p>An aux value is a variable of type number (a float to be exact), that can be tweened. You can, for example, change the value from 0 to 360 in one second. This way, if you check this aux value at 0.5 seconds, it will be 180. You can read this number from everywhere in your code. It's usually used into mathematic formulas.</p>
 
@@ -458,7 +458,44 @@
 					<hr />
 
 
-					<h4 id="Basics_ActorFrameTexture"><img src="img/notitg1.png" alt="NotITG" title="NotITG">ActorFrameTexture</h4>
+					<h4 id="Basics_BetterBGChanges"><img src="img/notitg2.png" alt="NotITG Version 2" title="NotITG Version 2" />#BETTERBGCHANGES</h4>
+
+					<p>The files imported with <span class="mono">#BGCHANGES</span> unfortunately don't support some features, like InitCommands, MessageCommands, and including Models. The second public release of NotITG fixed that by adding the <span class="mono">#BETTERBGCHANGES</span> :</p>
+
+					<ul>
+						<li>InitCommand will now work properly.</li>
+						<li>MessageCommands will also work.</li>
+						<li>It will be possible to include 3D Models.</li>
+						<li>Like a classic <span class="mono">#BGCHANGES</span>, you don't need to include a sleeping quad, like <span class="mono">#FGCHANGES</span>.</li>
+					</ul>
+
+					<p>The syntax of the tag stays the same as the others.</p>
+
+					<div class="example nohighlight">
+						#BETTERBGCHANGES:0.000=(folder)=1.000=0=0=1=====;
+					</div>
+
+					<hr />
+
+
+					<h4 id="Basics_TweensAsMods"><img src="img/notitg2.png" alt="NotITG Version 2" title="NotITG Version 2" />Tweens As Mods</h4>
+
+					<p>The second release of NotITG includes now a way to call some commands with mods. It allows to sync perfectly these commands with the standard mods. There is a list of every "Tween As Mod" available :</p>
+
+					<ul>
+						<li><strong>x, y, z</strong> : 1% will move the playfield by 1 pixel.</li>
+						<li><strong>rotationx, rotationy, rotationz</strong> : 1% will rotate the playfield by 1 degree.</li>
+						<li><strong>zoomx, zoomy, zoomz</strong> : By default, these mods are at 100%. Doing 200% will make the playfield 2 times bigger. (Equivalent to <span class="mono">self:zoom(2)</span>.)</li>
+						<li><strong>skewx</strong> : 100% = <span class="mono">self:skewx(1)</span>.</li>
+						<li><strong>hide</strong> : Equivalent to <span class="mono">self:hidden(1)</span>, but is called "hide" because the "hidden" mod already exists. Any non-zero percentage will enable it.</li>
+					</ul>
+
+					<p>Since these are normal mods, they can be called by <span class="mono">#MODS</span> tags (via a CRS file, or via the SM file), or with the <span class="mono">#ATTACKS</span> tag in the SM file.</p>
+
+					<hr />
+
+
+					<h4 id="Basics_ActorFrameTexture"><img src="img/notitg1.png" alt="NotITG" title="NotITG" />ActorFrameTexture</h4>
 
 					<p>The ActorFrameTexture is an Actor who captures every elements under it (drawn before it), to finally put the result into a texture. <strong>IT DOESN'T WORK WITH DIRECTX !</strong> You can, after, put the texture onto a sprite, and apply <a href="https://youtu.be/zvNl0OYv-DY?t=2m9s" target="_blank">some beautiful effects</a> with it !</p>
 
@@ -536,7 +573,7 @@
 					<hr />
 
 
-					<h4 id="Basics_BlendModes">Blend Modes</h4>
+					<h4 id="Basics_BlendModes"><img src="img/itg.png" alt="ITG" title="ITG" />Blend Modes</h4>
 
 					<p>Blend modes are a way of modifying the apparence of a texture, or a sprite. They exactly work as layer modes in image manipulation programs such as <a href="https://www.gimp.org/" target="_blank">GIMP</a> or <a href="http://www.adobe.com/products/photoshop.html" target="_blank">Adobe Photoshop</a>. Blend modes can be applied using {{Actor_blend}}. Here is the full list : <em class="g">(A means the pixel value of the image behind (already present, known as "destination" in OpenGL), B means the pixels value of the actual texture (where a blend mode is applied, known as "source" in OpenGL), and R means the final result, shown to the user. Pixels values are between 0 and 1, like {{Actor_diffuse}}.)</em></p>
 
