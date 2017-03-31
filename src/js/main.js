@@ -1682,7 +1682,7 @@ data = {
 				description: 'Gets the current sort order. See <a>Enum_SortOrder</a>.'
 			},
 			GetVersionDate: {
-				notitg: 2,
+				notitg: 1,
 				returnType: 'string',
 				description: 'Gets the Version Date. (e. g. "20170105")'
 			},
