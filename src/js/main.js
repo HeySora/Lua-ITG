@@ -1453,6 +1453,21 @@ data = {
 				},
 				description: 'Executes `cmd`, eventually for a specific player or for both.'
 			},
+			ApplyModifiers: {
+				notitg: 2,
+				args: {
+					mods: {
+						type: 'string',
+						description: 'The mods to apply.'
+					},
+					playerNumber: {
+						type: 'int',
+						description: 'Optional. If given, the command will be executed only for this player. Beware ! 1 = Player 1, 2 = Player 2, it isn\'t like the others methods involving a playerNumber argument !',
+						condition: '1-2'
+					}
+				},
+				description: 'Optimized shortcut for <a>GameState.ApplyGameCommand()</a>.'
+			},
 			DelayedGameCommand: {
 				args: {
 					cmd: {
@@ -1563,6 +1578,11 @@ data = {
 				returnType: 'int',
 				description: 'Gets the Master player number. Used in double mode to determine if the user is controlling the game via P1 or P2 side. (0 = Player 1, 1 = Player 2)'
 			},
+			GetMusicRate: {
+				notitg: 2,
+				returnType: 'float',
+				description: 'Gets the rate of the music.'
+			},
 			GetNumPlayersEnabled: {
 				returnType: 'int',
 				description: 'Gets the number of enabled players. (Either 1 or 2)'
@@ -1646,6 +1666,16 @@ data = {
 			GetSongBeatVisible: {
 				returnType: 'float',
 				description: 'Gets the current beat, without offsets / visual delays.'
+			},
+			GetSongTime: {
+				notitg: 2,
+				returnType: 'float',
+				description: 'Gets the current song time.'
+			},
+			GetSongTimeVisible: {
+				notitg: 2,
+				returnType: 'float',
+				description: 'Gets the current song time, without offsets / visual delays.'
 			},
 			GetSortOrder: {
 				returnType: 'int',
