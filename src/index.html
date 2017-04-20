@@ -1,5 +1,5 @@
-<!doctype html>
-<html class="no-js" lang="fr" dir="ltr">
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -7,7 +7,7 @@
 		<title>Lua for oITG / NotITG</title>
 		<link rel="stylesheet" href="css/foundation.min.css?v=2-1" />
 		<link rel="stylesheet" href="css/style.css?v=2-1" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,400i,700,700i" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700%7CRoboto:400,400i,700,700i" />
 		<script src="https://use.fontawesome.com/f74e84ee43.js"></script>
 		<link rel="stylesheet" href="css/interdimensional.css?v=2-1" />
 	</head>
@@ -133,7 +133,7 @@
 
 					<p>Let's talk now quickly about lua : Lua is the scripting language used in OpenITG / NotITG. It allows us to manipulate elements.</p>
 
-					<p>Let's add a little picture in the game, for example, <a href="img/itg.png" alt="" target="_blank">the OpenITG icon</a>. Download this icon, and put it in the lua folder.</p>
+					<p>Let's add a little picture in the game, for example, <a href="img/itg.png" target="_blank">the OpenITG icon</a>. Download this icon, and put it in the lua folder.</p>
 
 					<p>Now to show it in game, we will add this to our ActorFrame (I won't re-write the entire code, you know how to add elements inside the ActorFrame :P) :</p>
 					
@@ -509,7 +509,8 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftMult = 1;<br />
 						<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- If the user is using a Nvidia graphic card, they have some issues with alphas of sprites.<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if string.find(string.lower(DISPLAY:GetVendor()), 'nvidia') then<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if tonumber(GAMESTATE:GetVersionDate()) >= 20170405 and string.find(string.lower(DISPLAY:GetVendor()), 'nvidia')<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or string.find(string.lower(PREFSMAN:GetPreference('LastSeenVideoDriver')), 'nvidia') then<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aftMult = 0.9; -- Setting the alpha multiplier to 0.9.<br />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</span><br />
 						<br />
@@ -652,6 +653,6 @@
 
 		<script src="js/vendor/what-input.js?v=2-1"></script>
 		<script src="js/vendor/foundation.min.js?v=2-1"></script>
-		<script src="js/main.js?v=2-1"></script>
+		<script src="js/main.js?v=2-2"></script>
 	</body>
 </html>

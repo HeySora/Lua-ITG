@@ -2868,7 +2868,7 @@ data = {
 			}
 		},
 		RageInput: {
-			description: 'To use this class, use it through the <span class="mono">SOUND</span> singleton.',
+			description: 'To use this class, use it through the <span class="mono">INPUTMAN</span> singleton.',
 			GetDescriptions: {
 				returnType: 'table',
 				description: 'Creates a table of detected input devices\' descriptions.'
@@ -4936,7 +4936,7 @@ function init() {
 
 	// Syntax-Highlighting
 	try {
-		hljs.registerLanguage("lua",function(e){var t="\\[=*\\[",a="\\]=*\\]",r={b:t,e:a,c:["self"]},n=[e.C("--(?!"+t+")","$"),e.C("--"+t,a,{c:[r],r:10})];return{l:e.UIR,k:{keyword:"GAMESTATE SCREENMAN DISPLAY SOUND PREFSMAN STATSMAN MESSAGEMAN PROFILEMAN MEMCARDMAN NOTESKIN SONGMAN THEME UNLOCKMAN and break do else elseif end false for if in local nil not or repeat return self then true until while " + allConstants,built_in:"_G _VERSION assert collectgarbage dofile error getfenv getmetatable ipairs load loadfile loadstring module next pairs pcall print rawequal rawget rawset require select setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug io math os package string table " + allMethods},c:n.concat([{cN:"function",bK:"function",e:"\\)",c:[e.inherit(e.TM,{b:"([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*"}),{cN:"params",b:"\\(",eW:!0,c:n}].concat(n)},e.CNM,e.ASM,e.QSM,{cN:"string",b:t,e:a,c:[r],r:5}])}});
+		hljs.registerLanguage("lua",function(e){var t="\\[=*\\[",a="\\]=*\\]",r={b:t,e:a,c:["self"]},n=[e.C("--(?!"+t+")","$"),e.C("--"+t,a,{c:[r],r:10})];return{l:e.UIR,k:{keyword:"GAMESTATE SCREENMAN DISPLAY SOUND PREFSMAN STATSMAN MESSAGEMAN PROFILEMAN MEMCARDMAN NOTESKIN SONGMAN THEME UNLOCKMAN INPUTMAN and break do else elseif end false for if in local nil not or repeat return self then true until while " + allConstants,built_in:"_G _VERSION assert collectgarbage dofile error getfenv getmetatable ipairs load loadfile loadstring module next pairs pcall print rawequal rawget rawset require select setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug io math os package string table " + allMethods},c:n.concat([{cN:"function",bK:"function",e:"\\)",c:[e.inherit(e.TM,{b:"([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*"}),{cN:"params",b:"\\(",eW:!0,c:n}].concat(n)},e.CNM,e.ASM,e.QSM,{cN:"string",b:t,e:a,c:[r],r:5}])}});
 
 		var things = {};
 
