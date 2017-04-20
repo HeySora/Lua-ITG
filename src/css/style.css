@@ -304,7 +304,7 @@ h4 > img {
 	font-size: 17px;
 }
 
-#basics .mono {
+#basics .mono, #troubleshooting .mono {
 	background-color: #0E0E0E;
 	padding: 2px 4px;
 	border-radius: 4px;

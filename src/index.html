@@ -18,6 +18,7 @@
 			<nav>
 				<ul>
 					<li><a href="#basics">Basics of XML/Lua</a></li>
+					<li><a href="#troubleshooting">Troubleshooting</a></li>
 					<li><a href="#classes">Classes &amp; Methods</a></li>
 					<li><a href="#enums">Enumerations</a></li>
 					<li><a href="#globalfuncs">Global functions</a></li>
@@ -590,6 +591,30 @@
 						<li><span class="mono">weightedmultiply</span>: With this mode enabled, darker colors will darken the image, and brighter colors will brighten the image. Formula: R = 2*(A*B)</li>
 						<li><span class="mono">invertdest</span>: Acts like the reverse of <span class="mono">substract</span>. Formula: R = B - A</li>
 						<li><span class="mono">noeffect</span>: Nothing is done. Formula: R = A</li>
+					</ul>
+
+				</section>
+				<section id="troubleshooting">
+
+					<h3>Troubleshooting</h3>
+
+					<h4 id="Troubleshooting_AssertionFailed">Assertion 'XXX' failed</h4>
+
+					<p>The <span class="mono">Assertion 'XXX' failed</span> are really common errors, where something that wasn't expected, just occured.</p>
+
+					<p>Here is a (non-exhausive, there are around 800 different assertions !) list of the most common :</p>
+
+					<ul>
+						<li><span class="mono">!lua_isnil(L, -1)</span>: Something just went wrong somewhere in the system. Restart your game and see if it happens again.</li>
+						<li><span class="mono">iter != subs.end()</span>: You defined the same command twice on an Actor. Please rename/delete the unwanted command.</li>
+						<li><span class="mono">fPercent >= 0 &amp; fPercent <= 1</span>: You called a method (like cropright, valign, or similar) with an incorrect argument. These methods are wanting an argument between 0 and 1. Check the method in this webpage to see what kind of argument it's wanting.</li>
+						<li><span class="mono">!sEffectFile.empty()</span>: The file/folder you specified as a background effect doesn't exist</li>
+						<li><span class="mono">iter != m_mapNameToData.end()</span>: Your current noteskin has an error</li>
+						<li><span class="mono">size_t(iInputSpeed) <= sizeof(samps)/sizeof(*samps)</span>: Just don't even try to play a song with a >2 rate.</li>
+						<li><span class="mono">stack.size() < 100</span>: You tried to draw a shape with too many polygons.</li>
+						<li><span class="mono">stack.size() > 0</span>: You tried to draw a shape without any data.</li>
+						<li><span class="mono">0</span>: You did something that the game doesn't like. For example, calling SetNewScreen() in a simfile in edit mode is doing that. </li>
+						<li><span class="mono">false</span>: see <span class="mono">0</span></li>
 					</ul>
 
 				</section>
