@@ -520,7 +520,7 @@ data = {
 						description: 'The value, in degrees, to add.'
 					}
 				},
-				description: 'Adds `roty` to the vertical (called Y, yaw, or heading) axis\' rotation.'
+				description: 'Adds `roty` to the vertical (called Y, yaw, or heading) axis\' rotation. Always rotates around the top-left corner of the screen.'
 			},
 			hibernate: {
 				template: 'time',
@@ -579,7 +579,7 @@ data = {
 						description: 'The value, in degrees, to add.'
 					}
 				},
-				description: 'Adds `rotx` to the horizontal (called X, or pitch) axis\' rotation.'
+				description: 'Adds `rotx` to the horizontal (called X, or pitch) axis\' rotation. Always rotates around the top-left corner of the screen.'
 			},
 			play: {
 				description: 'Resumes the animations occuring on the Actor.'
@@ -635,7 +635,7 @@ data = {
 						description: 'The value, in degrees, to add.'
 					}
 				},
-				description: 'Adds `rotz` to the Z/roll axis\' rotation.'
+				description: 'Adds `rotz` to the Z/roll axis\' rotation. Always rotates around the top-left corner of the screen.'
 			},
 			rotationx: {
 				args: {
