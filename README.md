@@ -2,8 +2,6 @@
 Webpage with informations/Tutorials for the Lua API, in OpenITG and NotITG.
 [Hosted here](https://sm.heysora.net "sm.heysora.net")
 
-[Though, this repo is hosted here](https://melody.heysora.net/NITG/Documentation/index.html)
-
 
 ```
 Copyright (c) 2016-2017  HeySora
