@@ -1264,7 +1264,7 @@ data = {
 				},
 				description: 'Pauses/Resumes the sound.'
 			},
-			play: {
+			start: {
 				notitg: 1,
 				description: 'Plays the sound from the beginning. If you just want to unpause a sound, see <a>ActorSound.pause()</a>.'
 			},
@@ -1556,6 +1556,17 @@ data = {
 					}
 				},
 				description: 'Gets the value stored in the Game\'s Environment Table, with the key `key`. You can get the entire table by using <a>GameState.Env()</a>.'
+			},
+			GetExternal: {
+				notitg: 3,
+				returnType: 'int',
+				args: {
+					index: {
+						type: 'int',
+						description: 'Index of the external'
+					}
+				},
+				description: 'Gets the number on the external memory address\' index'
 			},
 			GetFileStructure: {
 				notitg: 1,
@@ -2001,7 +2012,7 @@ data = {
 						condition: '0-9'
 					}
 				},
-				description: 'Sets the first (at index 0) shader\'s flag.'
+				description: '(NotITG v1-2 only) Sets the first (at index 0) shader\'s flag.'
 			},
 			SetShaderFlagNum: {
 				notitg: 1,
@@ -2016,7 +2027,7 @@ data = {
 						condition: '0-9'
 					}
 				},
-				description: 'Sets the flag of the shader at index `index`.'
+				description: '(NotITG v1-2 only) Sets the flag of the shader at index `index`.'
 			},
 			SetSongBeat: {
 				notitg: 1,
@@ -2046,6 +2057,16 @@ data = {
 					}
 				},
 				description: 'Enables/Disables the temporary Event Mode.'
+			},
+			SetExternal: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description: 'Index of the external'
+					}
+				},
+				description: 'Used to set a number on a static external memory address\' index'
 			},
 			StageIndex: {
 				returnType: 'int',
@@ -2890,7 +2911,7 @@ data = {
 				args: {
 					balance: {
 						type: 'float',
-						description: 'The new balance to apply. (0 = Left, 0.5 = Center, 1 = Right)',
+						description: 'The new balance to apply. (-1 = Left, 0 = Center, 1 = Right)',
 						condition: '0-1'
 					}
 				},
