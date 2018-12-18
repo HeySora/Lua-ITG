@@ -1,0 +1,36 @@
+Important
+	Type="" (Actor/Auxvar/Aux, ActorFrame, ActorFrameTexture, Polygon, Quad, Sprite, Var)
+	InitCommand=""
+	OnCommand=""
+
+Optional
+	Var=""
+
+------------------------------------------------------------------
+
+Global MessageCommands
+	FailP[1/2]MessageCommand
+	StepP[1/2][Direction][Press/Lift]MessageCommand
+	StepP[1/2]Action[1-8][Press/Lift]MessageCommand
+	Fk_P[num]_W[Judgment_Number]MessageCommand
+	Fk_P[num]_[0-3 Column]_W[Judgment_Number]MessageCommand
+	Fk_P[num]_[W1-W8 or OK/NG]_[Early/Late/Hold/Roll]MessageCommand
+		W1 - > Fantastic
+		W2 - > Excellent
+		W3 - > Great
+		W4 - > Decent
+		W5 - > Way Off
+		W6 - > Miss
+		W8 - > Mine
+
+Sprites / ActorSound
+	File=""
+
+Sprites (Cont.)
+	Texture=""
+	Frag=""
+	Vert=""
+
+BitmapText
+	Text=""
+	Font=""
