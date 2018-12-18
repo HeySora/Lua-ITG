@@ -928,7 +928,7 @@ data = {
 						description: 'The Z position, in pixels.'
 					}
 				},
-				description: 'Sets both X , Y and Z position of the Actor. See <a>Actor.x()</a> , <a>Actor.y()</a> and <a>Actor.y()</a>.'
+				description: 'Sets both X , Y and Z position of the Actor. See <a>Actor.x()</a> , <a>Actor.y()</a> and <a>Actor.z()</a>.'
 			},
 			xyza: {
 				notitg: 3,
@@ -950,7 +950,7 @@ data = {
 						description: 'The value to set as Actor\'s aux value.'
 					}
 				},
-				description: 'Sets both X , Y , Z position and the Aux of the Actor. See <a>Actor.x()</a> , <a>Actor.y()</a> , <a>Actor.y()</a> and <a>Actor.aux()</a>.'
+				description: 'Sets both X , Y , Z position and the Aux of the Actor. See <a>Actor.x()</a> , <a>Actor.y()</a> , <a>Actor.z()</a> and <a>Actor.aux()</a>.'
 			},
 			y: {
 				args: {
