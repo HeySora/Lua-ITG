@@ -610,35 +610,6 @@
 						<li><span class="mono">Skew</span></li>
 					</ul>
 
-					<hr />
-					<h4 id="Basics_GetSetExternal"><img src="img/notitg3.png" alt="ITG" title="ITG" />Get/Set External</h4>
-
-					<p>[DESC NEEDED]</p>
-					<br/>
-					<p>Here's a sample code on how to read from and write to NotITG's external address (C#)</p>
-					<div class="example">
-						public int GetExternal(int slot)<br/>
-						{<br/>
-						&nbsp;int read;<br/>
-						&nbsp;byte offset = (byte)(slot * 4);<br/>
-						&nbsp;byte[] a = memory.ReadProcessMemory((IntPtr)([externalAddress]s + offset), sizeof(float), out read);<br/>
-						&nbsp;return BitConverter.ToInt32(a, 0);<br/>
-						}<br/>
-						public void SetExternal(int slot, int num)<br/>
-						{<br/>
-						&nbsp;int written;<br/>
-						&nbsp;byte[] b = BitConverter.GetBytes(num);<br/>
-						&nbsp;byte offset = (byte)(slot * 4);<br/>
-						&nbsp;memory.WriteProcessMemory((IntPtr)([externalAddress] + offset), b, out written);<br/>
-						}
-					</div>
-					<br/>
-					<p>This is the start memory address of each version's get/setexternal function. Remember to offset by 4 bytes for each index.</p>
-					<ul>
-						<li><span class="mono">3 / 20170609</span> 0x008CC9D8 (NOT SURE, NEEDS TO BE CHECKED)</li>
-						<li><span class="mono">3.1 / 20180827</span> 0x008BE0F8</li>
-					</ul>
-
 					<!--[[ - Cow / Melody ]-->
 
 				</section>
