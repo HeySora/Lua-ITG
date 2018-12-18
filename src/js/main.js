@@ -913,7 +913,7 @@ data = {
 				description: 'Sets both X and Y position of the Actor. See <a>Actor.x()</a> and <a>Actor.y()</a>.'
 			},
 			xyz: {
-				notitg: 1,
+				notitg: 3,
 				args: {
 					xPos: {
 						type: 'float',
@@ -931,7 +931,7 @@ data = {
 				description: 'Sets both X , Y and Z position of the Actor. See <a>Actor.x()</a> , <a>Actor.y()</a> and <a>Actor.y()</a>.'
 			},
 			xyza: {
-				notitg: 1,
+				notitg: 3,
 				args: {
 					xPos: {
 						type: 'float',
@@ -1135,6 +1135,7 @@ data = {
 				description: 'Enables/Disables the command propagation behavior on the ActorFrame. Disabled by default.'
 			},
 			propagateshaders: {
+				notitg: 3,
 				args: {
 					enable: {
 						type: 'int',
