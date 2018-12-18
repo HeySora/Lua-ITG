@@ -642,6 +642,7 @@ data = {
 				description: 'Makes the Actor growing and shrinking. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			pulseramp: {
+				notitg: 3,
 				description: 'It\'s the same as diffuseramp (sawtooth wave applied to color) but on the size of an object.. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
 			queuecommand: {
