@@ -108,6 +108,7 @@ data = {
 				description: 'Sets the blend mode to additive, or to normal. Normal blend is set by default. See <a>Actor.blend()</a> for other possible values. <a href="#Basics_BlendModes">What is a blend mode ?</a>'
 			},
 			addrotationx: {
+				notitg: 3,
 				args: {
 					x: {
 						type: 'float',
@@ -117,6 +118,7 @@ data = {
 				description: 'Adds `x` to the Actor\'s current x rotation.'
 			},
 			addrotationy: {
+				notitg: 3,
 				args: {
 					y: {
 						type: 'float',
@@ -126,6 +128,7 @@ data = {
 				description: 'Adds `y` to the Actor\'s current y rotation.'
 			},
 			addrotationz: {
+				notitg: 3,
 				args: {
 					z: {
 						type: 'float',
