@@ -61,6 +61,17 @@ ArrowPathFadeTop|[Number]|[Number]|[Number]
 ArrowPathFadeTopOffset|[Number]|[Number]|[Number]
 ArrowPathFadeBottom|[Number]|[Number]|[Number]
 ArrowPathFadeBottomOffset|[Number]|[Number]|[Number]
+arrowpathdrawdistanceback
+arrowpathdrawsizeback
+arrowpathdrawdistancefront
+arrowpathdrawsizefront
+arrowpathdrawdistance
+arrowpathdrawsize
+arrowpathgirth
+arrowpathwidth
+arrowpathsize
+arrowpathgrain
+arrowpathgranulate
 StealthGlow[%d]|[%f]|[%f]|[%f]
 CubicX
 CubicXOffset

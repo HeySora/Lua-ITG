@@ -1680,6 +1680,28 @@ data = {
 				},
 				description: 'Gets the value stored in the Game\'s Environment Table, with the key `key`. You can get the entire table by using <a>GameState.Env()</a>.'
 			},
+			GetElapsedTimeFromBeat: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the exact time measure for beat `beat`.',
+				args: {
+					beat: {
+						type: 'float',
+						description: 'The beat you want to calculate the time from.'
+					}
+				}
+			},
+			GetBeatFromElapsedTime: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the exact beat measure for time `time`.',
+				args: {
+					time: {
+						type: 'float',
+						description: 'The time you want to calculate the beat from.'
+					}
+				}
+			},
 			GetExternal: {
 				notitg: 3,
 				returnType: 'int',
@@ -1701,7 +1723,7 @@ data = {
 					}
 				},
 				description: 'Returns names from each files and directory in `path`. This function returns a variable amount of strings, you should call it with table.pack().',
-				example: 'local filesAndDirs = table.pack(GAMESTATE:GetFileStructure()); -- Put any returned strings into a unique table.'
+				example: 'local filesAndDirs = {GAMESTATE:GetFileStructure()}; -- Put any returned strings into a unique table.'
 			},
 			GetInputMode: {
 				notitg: 1,
@@ -3117,28 +3139,6 @@ data = {
 				returnType: 'float',
 				description: 'Gets the percentage (between 0 and 1) of the current life.'
 			},
-			GetElapsedTimeFromBeat: {
-				notitg: 3,
-				returnType: 'float',
-				description: 'Gets the exact time measrue for beat `beat`.',
-				args: {
-					beat: {
-						type: 'float',
-						description: 'The beat you want to calculate the time from.'
-					}
-				}
-			},
-			GetBeatFromElapsedTime: {
-				notitg: 3,
-				returnType: 'float',
-				description: 'Gets the exact beat measrue for time `time`.',
-				args: {
-					time: {
-						type: 'float',
-						description: 'The time you want to calculate the beat from.'
-					}
-				}
-			},
 			GetGrade: {
 				returnType: 'int',
 				description: 'Gets the grade. See <a>Enum_Grade</a>.'
@@ -3866,6 +3866,16 @@ data = {
 				returnType: 'int',
 				description: 'Gets the cumulative FPS.'
 			},
+			GetDesktopHeight: {
+				returnType: 'float',
+				notitg: 3,
+				description: 'Gets the main monitor\'s height.',
+			},
+			GetDesktopWidth: {
+				returnType: 'float',
+				notitg: 3,
+				description: 'Gets the main monitor\'s width.',
+			},
 			GetDisplayHeight: {
 				notitg: 1,
 				returnType: 'int',
@@ -3901,6 +3911,16 @@ data = {
 				notitg: 3,
 				description: 'Gets the window\'s Y axis relative to the center.',
 			},
+			GetWindowWidth: {
+				returnType: 'float',
+				notitg: 3,
+				description: 'Gets the window\'s width.',
+			},
+			GetWindowHeight: {
+				returnType: 'float',
+				notitg: 3,
+				description: 'Gets the window\'s height.',
+			},
 			GetWindowZoomX: {
 				returnType: 'float',
 				notitg: 3,
@@ -3910,16 +3930,6 @@ data = {
 				returnType: 'float',
 				notitg: 3,
 				description: 'Gets the window\'s Y zoom.',
-			},
-			GetWindowZoomWidth: {
-				returnType: 'float',
-				notitg: 3,
-				description: 'Gets the window\'s width.',
-			},
-			GetWindowZoomHeight: {
-				returnType: 'float',
-				notitg: 3,
-				description: 'Gets the window\'s height.',
 			},
 		},
 		RageInput: {
