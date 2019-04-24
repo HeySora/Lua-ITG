@@ -1,14 +1,31 @@
-Important
+
+Commonly Used
 	Type="" (Actor/Auxvar/Aux, ActorFrame, ActorFrameTexture, Polygon, Quad, Sprite, Var)
 	InitCommand=""
 	OnCommand=""
+
+------------------------------------------------------------------
 
 Optional
 	Var=""
 
 ------------------------------------------------------------------
 
-Global MessageCommands
+Sprites / ActorSound
+	File=""
+
+Sprites (Cont.)
+	Texture=""
+	Frag=""
+	Vert=""
+
+BitmapText
+	Text="" (Optional)
+	Font=""
+
+------------------------------------------------------------------
+
+Global Message Commands
 	FailP[1/2]MessageCommand
 	StepP[1/2][Direction][Press/Lift]MessageCommand
 	StepP[1/2]Action[1-8][Press/Lift]MessageCommand
@@ -23,14 +40,4 @@ Global MessageCommands
 		W6 - > Miss
 		W8 - > Mine
 
-Sprites / ActorSound
-	File=""
-
-Sprites (Cont.)
-	Texture=""
-	Frag=""
-	Vert=""
-
-BitmapText
-	Text=""
-	Font=""
+	SaltyResetMessageCommand (On CTRL+R press)

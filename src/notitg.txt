@@ -1,6 +1,5 @@
-Latest update of this file: 18th of December 2018
+Latest update of this file: 24th of Apirl 2019
 =================================================
-
 
 New Spline System Mods [nITG 3+]
 -------------------------------
@@ -42,6 +41,9 @@ hide
 Mods
 ----
 
+sinclip
+cosclip
+tanclip
 ReceptorZBuffer (also column specific)
 FallX|[%f]|[%f]|[%f] (also column specific)
 FallY|[%f]|[%f]|[%f] (also column specific)
@@ -72,7 +74,6 @@ arrowpathwidth
 arrowpathsize
 arrowpathgrain
 arrowpathgranulate
-StealthGlow[%d]|[%f]|[%f]|[%f]
 CubicX
 CubicXOffset
 CubicY

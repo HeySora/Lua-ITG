@@ -2039,8 +2039,7 @@ data = {
 					},
 					playerNumber: {
 						type: 'int',
-						description: '(Optional) The player number. (0 = Player 1, 1 = Player 2)',
-						condition: '0-1'
+						description: '(Optional) The player number. (1 = Player 1, 2 = Player 2)',
 					}
 				},
 				description: 'Registers an attack to be launched at a specific moment. This attack will disable any currently active Lua mods. It is recommended to call this method in an InitCommand, because it generates some lag spikes.'
@@ -3943,6 +3942,103 @@ data = {
 				description: 'Reloads every input devices.'
 			}
 		},
+		RageShaderProgram: {
+			description: 'You can get an instance of RageShaderProgram of an ActorFrameTexture that has shaders with <a>ActorFrameTexture.GetShader()</a>.',
+			uniform1f: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'float',
+						description:'The value, use 0-1 for booleans',
+					}
+				},
+				description: 'Pass 1 value into the shader.',
+			},
+			uniform2f: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value1: {
+						type:'float',
+						description:'The value, use 0-1 for booleans',
+					},
+					value2: {
+						type:'float',
+						description:'The value, use 0-1 for booleans',
+					},
+				},
+				description: 'Pass 2 values into the shader.',
+			},
+			uniform3f: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value1: {
+						type:'float',
+						description:'The value, use 0-1 for booleans',
+					},
+					value2: {
+						type:'float',
+						description:'The value, use 0-1 for booleans',
+					},
+					value3: {
+						type:'float',
+						description:'The value, use 0-1 for booleans',
+					},
+				},
+				description: 'Pass 3 values into the shader.',
+			},
+			uniform4f: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value1: {
+						type:'float',
+						description:'The value, use 0-1 for booleans',
+					},
+					value2: {
+						type:'float',
+						description:'The value, use 0-1 for booleans',
+					},
+					value3: {
+						type:'float',
+						description:'The value, use 0-1 for booleans',
+					},
+					value3: {
+						type:'float',
+						description:'The value, use 0-1 for booleans',
+					},
+				},
+				description: 'Pass 4 values into the shader.',
+			},
+			uniformTexture: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					texture: {
+						type:'RageTexture',
+						description:'The texture, use <a>Sprite.GetTexture()</a>.',
+					},
+				},
+				description:'Pass textures into the shader.'
+			}
+		},
 		RageSound: {
 			description: 'You can get an instance of RageSound by using <a>ActorSound.get()</a>.',
 			GetSoundPosition: {
@@ -4091,103 +4187,6 @@ data = {
 			Reload: {
 				notitg: 1,
 				description: 'Reloads the texture.'
-			}
-		},
-		RageShaderProgram: {
-			description: 'You can get an instance of RageShaderProgram of an ActorFrameTexture that has shaders with <a>ActorFrameTexture.GetShader()</a>.',
-			uniform1f: {
-				notitg: 3,
-				args: {
-					variableName: {
-						type:'string',
-						description: 'The name of the variable.',
-					},
-					value: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					}
-				},
-				description: 'Pass 1 value into the shader.',
-			},
-			uniform2f: {
-				notitg: 3,
-				args: {
-					variableName: {
-						type:'string',
-						description: 'The name of the variable.',
-					},
-					value1: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-					value2: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-				},
-				description: 'Pass 2 values into the shader.',
-			},
-			uniform3f: {
-				notitg: 3,
-				args: {
-					variableName: {
-						type:'string',
-						description: 'The name of the variable.',
-					},
-					value1: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-					value2: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-					value3: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-				},
-				description: 'Pass 3 values into the shader.',
-			},
-			uniform4f: {
-				notitg: 3,
-				args: {
-					variableName: {
-						type:'string',
-						description: 'The name of the variable.',
-					},
-					value1: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-					value2: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-					value3: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-					value3: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-				},
-				description: 'Pass 4 values into the shader.',
-			},
-			uniformTexture: {
-				notitg: 3,
-				args: {
-					variableName: {
-						type:'string',
-						description: 'The name of the variable.',
-					},
-					texture: {
-						type:'RageTexture',
-						description:'The texture, use <a>Sprite.GetTexture()</a>.',
-					},
-				},
-				description:'Pass textures into the shader.'
 			}
 		},
 		RageTextureRenderTarget: {
