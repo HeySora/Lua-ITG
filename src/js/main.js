@@ -469,7 +469,7 @@ data = {
 			},
 			getdiffuse: {
 				returnType: 'float',
-				description: 'Gets the current diffuse of the Actor. This method returns three floats. You can set them by using <a>Actor.diffuse</a> or the alpha value only using <a>Actor.diffusealpha</a>.',
+				description: 'Gets the current diffuse of the Actor. This method returns three floats. You can set them by using <a>Actor.diffuse()</a> or the alpha value only using <a>Actor.diffusealpha()</a>.',
 				example: 'r,g,b,a = self:getdiffuse();'
 			},
 			GetEffectDelta: {
