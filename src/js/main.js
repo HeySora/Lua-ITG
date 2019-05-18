@@ -467,6 +467,11 @@ data = {
 				returnType: 'float',
 				description: 'Gets the Actor\'s base zoom value at horizontal (X) axis.'
 			},
+			getdiffuse: {
+				returnType: 'float',
+				description: 'Gets the current diffuse of the Actor. This method returns three floats. You can set them by using <a>Actor.diffuse</a> or the alpha value only using <a>Actor.diffusealpha</a>.',
+				example: 'r,g,b,a = self:getdiffuse();'
+			},
 			GetEffectDelta: {
 				returnType: 'float',
 				description: 'Gets the current effect delta of the Actor.'
@@ -2788,6 +2793,17 @@ data = {
 					}
 				},
 				description: 'Sets the Players\' combo to `combo`.'
+			},
+			SetInputPlayer: {
+				notitg: 3,
+				args: {
+					player: {
+						type: 'int',
+						description: 'The player to bind inputs from. 0 is Player 1, 1 is Player 2, 2+ is Autoplay',
+						condition: '0-'
+					}
+				},
+				description: 'Binds input of `player` to the Player.'
 			},
 			SetHoldShader: {
 				notitg: 3,
