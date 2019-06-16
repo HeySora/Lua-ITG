@@ -11,17 +11,21 @@ Optional
 
 ------------------------------------------------------------------
 
-Sprites / ActorSound
+Sprite / ActorSound
 	File=""
-
-Sprites (Cont.)
-	Texture=""
-	Frag=""
-	Vert=""
 
 BitmapText
 	Text="" (Optional)
 	Font=""
+
+Polygon / Sprite (Cont.)
+	Texture=""
+	Frag="" / Shader=""
+	Vert=""
+
+ActorFrame
+	FOV=""
+	FarDist=""
 
 ------------------------------------------------------------------
 
@@ -30,7 +34,7 @@ Global Message Commands
 	StepP[1/2][Direction][Press/Lift]MessageCommand
 	StepP[1/2]Action[1-8][Press/Lift]MessageCommand
 	Fk_P[num]_W[Judgment_Number]MessageCommand
-	Fk_P[num]_[0-3 Column]_W[Judgment_Number]MessageCommand
+	Fk_P[num]_[0-3 Column]_W[Judgment_Number]MessageCommand (0-7 for Doubles)
 	Fk_P[num]_[W1-W8 or OK/NG]_[Early/Late/Hold/Roll]MessageCommand
 		W1 - > Fantastic
 		W2 - > Excellent

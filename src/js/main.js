@@ -876,7 +876,7 @@ data = {
 					hAlign: {
 						type: 'string',
 						description: 'The vertical alignment to apply.',
-						condition: ['left', 'middle', 'right']
+						condition: ['top', 'middle', 'bottom']
 					}
 				},
 				description: 'Sets the Actor\'s vertical alignment. It is "middle" by default. For a more precise alignment, see <a>Actor.valign()</a>.'
@@ -1171,6 +1171,16 @@ data = {
 					}
 				},
 				description: 'Sets the Draw function of the ActorFrame to `drawFunc`.'
+			},
+			SetFarDist: {
+				notitg: 3,
+				args: {
+					farDist: {
+						type: 'float',
+						description: 'The draw distance to apply.'
+					}
+				},
+				description: 'Sets the draw distance on the ActorFrame. It is 1000 by default.'
 			},
 			SetFOV: {
 				args: {
