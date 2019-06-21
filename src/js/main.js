@@ -4089,7 +4089,7 @@ data = {
 					speed: {
 						type: 'float',
 						description: 'The new pitch.',
-						condition: '0-100'
+						condition: '0-1'
 					}
 				},
 				description: 'Alias of <a>RageSound.speed()</a>.'
@@ -4100,7 +4100,7 @@ data = {
 					speed: {
 						type: 'float',
 						description: 'The new speed.',
-						condition: '0-100'
+						condition: '0-1'
 					}
 				},
 				description: 'Changes the speed of the RageSound.'
