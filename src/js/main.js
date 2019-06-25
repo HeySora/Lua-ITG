@@ -3311,7 +3311,7 @@ data = {
 					drawMode: {
 						type:'string',
 						description:'The draw mode, not case sensitive.',
-						condition:['quad','quadstrip','fan','strip','triangles','linestrip']
+						condition:['quads','quadstrip','fan','strip','triangles','linestrip']
 					}
 				},
 				description:"Sets the polygon\'s draw mode",
