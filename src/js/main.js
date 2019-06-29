@@ -97,6 +97,19 @@ data = {
 				template: 'time',
 				description: 'Plays the next Actor methods at an accelerated rate (`time` * `time`). <a href="#Basics_Tweens">What is a tween ?</a>'
 			},
+			addcommand: {
+				args: {
+					commandName: {
+						type: 'string',
+						description: 'The command name to add.'
+					},
+					function: {
+						type: 'LuaReference',
+						description: 'The lua function of the command.'
+					}
+				},
+				description: 'Adds a new command to the Actor.'
+			},
 			additiveblend: {
 				args: {
 					enable: {
