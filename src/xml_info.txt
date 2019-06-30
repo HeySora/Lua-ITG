@@ -8,6 +8,11 @@ Commonly Used
 
 Optional
 	Var=""
+	UpdateRate=""
+	FOV=""
+	VanishX=""
+	VanishY=""
+	Lighting="" (True/False)
 
 ------------------------------------------------------------------
 
