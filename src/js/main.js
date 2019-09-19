@@ -499,6 +499,7 @@ data = {
 				description: 'Gets the current Actor\'s height.'
 			},
 			GetHidden: {
+				notitg: 3,
 				returnType: 'bool',
 				description: 'Gets the hidden state of an actor, true if it\'s hidden.',
 			},
@@ -3798,16 +3799,16 @@ data = {
 						type: 'float',
 						description: 'The Y position, in pixels.'
 					},
-					width: {
+					xZoom: {
 						type: 'float',
-						description: 'The width, in pixels.'
+						description: 'The x axis zoom, in pixels.'
 					},
-					height: {
+					yZoom: {
 						type: 'float',
-						description: 'The height, in pixels.'
+						description: 'The y axis zoom, in pixels.'
 					}
 				},
-				description: 'Sets the Window\'s `X Position`, `Y Position`, `Width` and `Height`. To change only one argument, see the functions below.',
+				description: 'Sets the Window\'s `X Position`, `Y Position`, `Zoom X` and `Zoom Y`. To change only one argument, see the functions below.',
 			},
 			SetWindowX: {
 				notitg: 3,
