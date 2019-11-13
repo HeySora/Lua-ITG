@@ -1391,6 +1391,7 @@ data = {
 		},
 		ActorSound: {
 			inherits: 'Actor',
+			description: 'DO <b>NOT</b> PLAY SOUND TWICE. STOP THE ACTORSOUND BEFORE DOING SO.',
 			get: {
 				notitg: 1,
 				returnType: 'RageSound',
@@ -1690,6 +1691,11 @@ data = {
 					}
 				},
 				description: 'Gets the current Trail for the specified Player.'
+			},
+			GetDerp: {
+				notitg: 1,
+				returnType: 'bool',
+				description: 'Returns `true`.'
 			},
 			GetEasiestStepsDifficulty: {
 				returnType: 'int',
@@ -3984,7 +3990,91 @@ data = {
 		},
 		RageShaderProgram: {
 			description: 'You can get an instance of RageShaderProgram of an ActorFrameTexture that has shaders with <a>ActorFrameTexture.GetShader()</a>.',
+			compile: {
+				notitg: 3,
+				description:'Recompiles shader.'
+			},
 			uniform1f: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'float',
+						description:'The value.',
+					}
+				},
+				description: 'Pass 1 float value into the shader.',
+			},
+			uniform2f: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value1: {
+						type:'float',
+						description:'The value.',
+					},
+					value2: {
+						type:'float',
+						description:'The value.',
+					},
+				},
+				description: 'Pass 2 float values into the shader.',
+			},
+			uniform3f: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value1: {
+						type:'float',
+						description:'The value.',
+					},
+					value2: {
+						type:'float',
+						description:'The value.',
+					},
+					value3: {
+						type:'float',
+						description:'The value.',
+					},
+				},
+				description: 'Pass 3 float values into the shader.',
+			},
+			uniform4f: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value1: {
+						type:'float',
+						description:'The value.',
+					},
+					value2: {
+						type:'float',
+						description:'The value.',
+					},
+					value3: {
+						type:'float',
+						description:'The value.',
+					},
+					value3: {
+						type:'float',
+						description:'The value.',
+					},
+				},
+				description: 'Pass 4 float values into the shader.',
+			},
+			uniform1i: {
 				notitg: 3,
 				args: {
 					variableName: {
@@ -3996,73 +4086,7 @@ data = {
 						description:'The value, use 0-1 for booleans',
 					}
 				},
-				description: 'Pass 1 value into the shader.',
-			},
-			uniform2f: {
-				notitg: 3,
-				args: {
-					variableName: {
-						type:'string',
-						description: 'The name of the variable.',
-					},
-					value1: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-					value2: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-				},
-				description: 'Pass 2 values into the shader.',
-			},
-			uniform3f: {
-				notitg: 3,
-				args: {
-					variableName: {
-						type:'string',
-						description: 'The name of the variable.',
-					},
-					value1: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-					value2: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-					value3: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-				},
-				description: 'Pass 3 values into the shader.',
-			},
-			uniform4f: {
-				notitg: 3,
-				args: {
-					variableName: {
-						type:'string',
-						description: 'The name of the variable.',
-					},
-					value1: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-					value2: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-					value3: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-					value3: {
-						type:'float',
-						description:'The value, use 0-1 for booleans',
-					},
-				},
-				description: 'Pass 4 values into the shader.',
+				description: 'Pass 1 int value into the shader.',
 			},
 			uniformTexture: {
 				notitg: 3,
@@ -4091,7 +4115,7 @@ data = {
 				args: {
 					balance: {
 						type: 'float',
-						description: 'The new balance to apply. (-1 = Left, 0 = Center, 1 = Right)',
+						description: 'The new balance to apply. (0 = Left, 0.5 = Center, 1 = Right)',
 						condition: '0-1'
 					}
 				},
@@ -4103,7 +4127,7 @@ data = {
 					speed: {
 						type: 'float',
 						description: 'The new pitch.',
-						condition: '0-1'
+						condition: '0-100'
 					}
 				},
 				description: 'Alias of <a>RageSound.speed()</a>.'
@@ -4114,7 +4138,7 @@ data = {
 					speed: {
 						type: 'float',
 						description: 'The new speed.',
-						condition: '0-1'
+						condition: '0-100'
 					}
 				},
 				description: 'Changes the speed of the RageSound.'
@@ -4144,7 +4168,7 @@ data = {
 					}
 				},
 				description: 'Changes the volume.'
-			},
+			}
 		},
 		RageTexture: {
 			description: 'You can get an instance of RageTexture with <a>ActorFrameTexture.GetTexture()</a> or <a>Sprite.GetTexture()</a>.',
@@ -4322,6 +4346,16 @@ data = {
 					}
 				},
 				description: 'Shows a message that appears usually at the top of the screen for a few seconds. The message is also shown in the output log.'
+			},
+			SystemMessageNoAnimate: {
+				notitg: 3.1,
+				args: {
+					message: {
+						type: 'string',
+						description: 'The message to show.'
+					}
+				},
+				description: 'Shows a message that appears usually at the top of the screen for a few seconds, except OnCommand is followed by FinishTweening . The message is not shown in the output log.'
 			}
 		},
 		Song: {
@@ -4356,6 +4390,17 @@ data = {
 				returnType: 'string',
 				description: 'Gets the path of the banner.'
 			},
+			GetBeatFromElapsedTime: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the exact beat measure for time `time`.',
+				args: {
+					time: {
+						type: 'float',
+						description: 'The time you want to calculate the beat from.'
+					}
+				}
+			},
 			GetDisplayArtist: {
 				returnType: 'string',
 				description: 'Gets the artist name.'
@@ -4367,6 +4412,17 @@ data = {
 			GetDisplayMainTitle: {
 				returnType: 'string',
 				description: 'Gets the main title.'
+			},
+			GetElapsedTimeFromBeat: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the exact time measure for beat `beat`.',
+				args: {
+					beat: {
+						type: 'float',
+						description: 'The beat you want to calculate the time from.'
+					}
+				}
 			},
 			GetGenre: {
 				returnType: 'string',

@@ -300,6 +300,7 @@ GlobalModTimerMult
 GlobalModTimeOffset
 ZBuffer
 DrawSize
+DrawDistance (alias of DrawSize)
 DrawSizeBack
 Dark
 Blind

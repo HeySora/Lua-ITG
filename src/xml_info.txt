@@ -8,11 +8,6 @@ Commonly Used
 
 Optional
 	Var=""
-	UpdateRate=""
-	FOV=""
-	VanishX=""
-	VanishY=""
-	Lighting="" (True/False)
 
 ------------------------------------------------------------------
 
@@ -31,6 +26,10 @@ Polygon / Sprite (Cont.)
 ActorFrame
 	FOV=""
 	FarDist=""
+	UpdateRate=""
+	VanishX=""
+	VanishY=""
+	Lighting="" (True/False)
 
 ------------------------------------------------------------------
 
@@ -50,3 +49,9 @@ Global Message Commands
 		W8 - > Mine
 
 	SaltyResetMessageCommand (On CTRL+R press)
+
+	SystemMessageMessageCommand
+	SystemMessageNoAnimateMessageCommand
+	HideSystemMessageMessageCommand
+	OverlayMessageMessageCommand
+	HideOverlayMessageMessageCommand
