@@ -1391,7 +1391,6 @@ data = {
 		},
 		ActorSound: {
 			inherits: 'Actor',
-			description: 'DO <b>NOT</b> PLAY SOUND TWICE. STOP THE ACTORSOUND BEFORE DOING SO.',
 			get: {
 				notitg: 1,
 				returnType: 'RageSound',
