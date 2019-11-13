@@ -1714,28 +1714,6 @@ data = {
 				},
 				description: 'Gets the value stored in the Game\'s Environment Table, with the key `key`. You can get the entire table by using <a>GameState.Env()</a>.'
 			},
-			GetElapsedTimeFromBeat: {
-				notitg: 3,
-				returnType: 'float',
-				description: 'Gets the exact time measure for beat `beat`.',
-				args: {
-					beat: {
-						type: 'float',
-						description: 'The beat you want to calculate the time from.'
-					}
-				}
-			},
-			GetBeatFromElapsedTime: {
-				notitg: 3,
-				returnType: 'float',
-				description: 'Gets the exact beat measure for time `time`.',
-				args: {
-					time: {
-						type: 'float',
-						description: 'The time you want to calculate the beat from.'
-					}
-				}
-			},
 			GetExternal: {
 				notitg: 3,
 				returnType: 'int',
