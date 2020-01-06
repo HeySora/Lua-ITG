@@ -4,7 +4,7 @@ Webpage with informations/Tutorials for the Lua API, in OpenITG and NotITG.
 
 
 ```
-Copyright (c) 2016-2017  HeySora
+Copyright (c) 2016-2020  HeySora
 
 https://www.heysora.net - contact@heysora.net
 
