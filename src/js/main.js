@@ -1002,7 +1002,7 @@ data = {
 				description: 'Skews the Actor horizontally.'
 			},
 			skewx2: {
-				noitg: 4,
+				notitg: 4,
 				args: {
 					amount: {
 						type: 'float',
