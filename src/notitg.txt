@@ -41,6 +41,12 @@ hide
 Mods
 ----
 
+orient
+noteskewx
+noteskewy
+waveoffset
+wave[Number]
+waveperiod[Number]
 sinclip
 cosclip
 tanclip

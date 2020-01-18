@@ -97,6 +97,16 @@ data = {
 				template: 'time',
 				description: 'Plays the next Actor methods at an accelerated rate (`time` * `time`). <a href="#Basics_Tweens">What is a tween ?</a>'
 			},
+			addaux: {
+				notitg: 4,
+				args: {
+					deltaaux: {
+						type: 'number',
+						description: 'Amount to add'
+					}
+				},
+				description: 'Adds to the current auxvar of the Actor.'
+			},
 			addcommand: {
 				args: {
 					commandName: {
@@ -239,6 +249,16 @@ data = {
 					}
 				},
 				description: 'Sets the Actor\'s base vertical zoom. Used when zooming the Actor.'
+			},
+			basezoomz: {
+				notitg: 4,
+				args: {
+					z: {
+						type: 'float',
+						description: 'The z position for the Actor\'s base zoom.'
+					}
+				},
+				description: 'Sets the Actor\'s base z zoom. Used when zooming the Actor.'
 			},
 			blend: {
 				args: {
@@ -480,6 +500,46 @@ data = {
 				returnType: 'float',
 				description: 'Gets the Actor\'s base zoom value at horizontal (X) axis.'
 			},
+			GetBaseZoomY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s base zoom value at vertical (Y) axis.'
+			},
+			GetBaseZoomZ: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s base zoom value at Z axis.'
+			},
+			GetCurrentRotationX: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s current X rotation.',
+			},
+			GetCurrentRotationY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s current Y rotation.',
+			},
+			GetCurrentRotationZ: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s current Z rotation.',
+			},
+			GetCurrentZoomX: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s current X Zoom. It can be set using <a>Actor.zoomx()</a> or <a>Actor.zoomto()</a>.'
+			},
+			GetCurrentZoomY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Y Zoom. It can be set using <a>Actor.zoomy()</a> or <a>Actor.zoomto()</a>.'
+			},
+			GetCurrentZoomZ: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Z Zoom. It can be set using <a>Actor.zoomz()</a>.'
+			},
 			getdiffuse: {
 				returnType: 'float',
 				description: 'Gets the current diffuse of the Actor. This method returns four floats. You can set them by using <a>Actor.diffuse()</a> or the alpha value only using <a>Actor.diffusealpha()</a>.',
@@ -488,6 +548,36 @@ data = {
 			GetEffectDelta: {
 				returnType: 'float',
 				description: 'Gets the current effect delta of the Actor.'
+			},
+			GetEffectRotationX: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s current X rotation when taking to account active effects.',
+			},
+			GetEffectRotationY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s current Y rotation when taking to account active effects.',
+			},
+			GetEffectRotationZ: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s current Z rotation when taking to account active effects.',
+			},
+			GetEffectX: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s current X position when taking to account active effects.'
+			},
+			GetEffectY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Y position when taking to account active effects. (Swapped with <a>Actor.GetEffectZ</a> on V4)'
+			},
+			GetEffectZ: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Z position when taking to account active effects. (Swapped with <a>Actor.GetEffectY</a> on V4)'
 			},
 			geteffectmagnitude: {
 				returnType: 'float',
@@ -508,14 +598,54 @@ data = {
 				returnType: 'string',
 				description: 'Gets the current name of the Actor. It can be set by either using <a>Actor.SetName()</a>, or by adding a "Name" attribute.'
 			},
+			GetParent: {
+				notitg: 4,
+				returnType: 'ActorFrame',
+				description: 'Gets the parent ActorFrame of the actor.'
+			},
 			getrotation: {
 				returnType: 'float',
 				description: 'Gets the current rotations of the Actor for each axis. Since there are 3 axis, this method returns three floats. You can set them by using <a>Actor.rotationx()</a>, <a>Actor.rotationy()</a>, and <a>Actor.rotationz()</a>, or add/substract values to them using <a>Actor.pitch()</a>, <a>Actor.heading()</a>, and <a>Actor.roll()</a>.',
 				example: 'rotx,roty,rotz = self:getrotation();'
 			},
+			GetRotationOrder: {
+				notitg: 4,
+				returnType: 'string',
+				description: 'Gets the current rotation order of the Actor.'
+			},
+			GetRotationX: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s X rotation.',
+			},
+			GetRotationY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s Y rotation.',
+			},
+			GetRotationZ: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s Z rotation.',
+			},
 			GetSecsIntoEffect: {
 				returnType: 'float',
 				description: 'Gets the number of seconds an Actor is running an effect. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
+			},
+			GetSkewX: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s X skew.'
+			},
+			GetSkewY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s Y skew.'
+			},
+			GetTweenTimeLeft: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets amount of time left for the current tween.'
 			},
 			GetWidth: {
 				returnType: 'float',
@@ -539,15 +669,15 @@ data = {
 			},
 			GetZoomX: {
 				returnType: 'float',
-				description: 'Gets the Actor\'s current Zoom. It can be set using <a>Actor.zoomx()</a> or <a>Actor.zoomto()</a>.'
+				description: 'Gets the Actor\'s X Zoom. It can be set using <a>Actor.zoomx()</a> or <a>Actor.zoomto()</a>.'
 			},
 			GetZoomY: {
 				returnType: 'float',
-				description: 'Gets the Actor\'s current Zoom. It can be set using <a>Actor.zoomy()</a> or <a>Actor.zoomto()</a>.'
+				description: 'Gets the Actor\'s Y Zoom. It can be set using <a>Actor.zoomy()</a> or <a>Actor.zoomto()</a>.'
 			},
 			GetZoomZ: {
 				returnType: 'float',
-				description: 'Gets the Actor\'s current Zoom. It can be set using <a>Actor.zoomz()</a>.'
+				description: 'Gets the Actor\'s Z Zoom. It can be set using <a>Actor.zoomz()</a>.'
 			},
 			glow: {
 				template: 'color',
@@ -569,6 +699,17 @@ data = {
 					}
 				},
 				description: 'Sets the Actor\'s horizontal alignment. It is 0.5 by default.'
+			},
+			hascommand: {
+				notitg: 4,
+				returnType: 'boolean',
+				args: {
+					commandName: {
+						type: 'string',
+						description: 'The command name to check.'
+					},
+				},
+				description: 'Checks if an Actor has a specific command name.'
 			},
 			heading: {
 				args: {
@@ -689,6 +830,16 @@ data = {
 			rainbow: {
 				description: '<span class="rainbow">Makes the Actor change colors continually, through every color of a rainbow.</span> <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
+			removecommand: {
+				notitg: 4,
+				args: {
+					commandName: {
+						type: 'string',
+						description: 'The command name to remove.'
+					},
+				},
+				description: 'Remove an Actor\'s command.'
+			},
 			roll: {
 				args: {
 					rotz: {
@@ -707,6 +858,16 @@ data = {
 				},
 				description: 'Sets the X/Pitch axis\' rotation.'
 			},
+			rotationx2: {
+				notitg: 4,
+				args: {
+					rotx: {
+						type: 'float',
+						description: 'The rotation to apply, in degrees.'
+					}
+				},
+				description: 'Sets the second layer of the X/Pitch axis\' rotation. Cannot be tweened and must be set on an update loop.'
+			},
 			rotationy: {
 				args: {
 					roty: {
@@ -716,6 +877,16 @@ data = {
 				},
 				description: 'Sets the Y/Yaw/Heading axis\' rotation.'
 			},
+			rotationy2: {
+				notitg: 4,
+				args: {
+					roty: {
+						type: 'float',
+						description: 'The rotation to apply, in degrees.'
+					}
+				},
+				description: 'Sets the second layer of the Y/Yaw/Heading axis\' rotation. Cannot be tweened and must be set on an update loop.'
+			},
 			rotationz: {
 				args: {
 					rotz: {
@@ -724,6 +895,16 @@ data = {
 					}
 				},
 				description: 'Sets the Z/Roll axis\' rotation.'
+			},
+			rotationz2: {
+				notitg: 4,
+				args: {
+					rotz: {
+						type: 'float',
+						description: 'The rotation to apply, in degrees.'
+					}
+				},
+				description: 'Sets the second layer of the Z/Roll axis\' rotation. Cannot be tweened and must be set on an update loop.'
 			},
 			scaletocover: {
 				template: 'rectangle',
@@ -752,6 +933,16 @@ data = {
 					}
 				},
 				description: 'Set the Actor\'s name to `name`. You might want to use a "Name" attribute in the tag, if the name won\'t change.'
+			},
+			SetRotationOrder: {
+				notitg: 4,
+				args: {
+					order: {
+						type: 'order',
+						description: 'The new rotation order.'
+					}
+				},
+				description: 'Sets the new rotation order for the Actor. Default is `zyx`'
 			},
 			setstate: {
 				args: {
@@ -805,10 +996,40 @@ data = {
 				args: {
 					amount: {
 						type: 'float',
-						description: 'The greater it is, the bigger the Actor will be skewed.'
+						description: 'The greater it is, the bigger the Actor will be skewed in the x axis.'
 					}
 				},
 				description: 'Skews the Actor horizontally.'
+			},
+			skewx2: {
+				noitg: 4,
+				args: {
+					amount: {
+						type: 'float',
+						description: 'The greater it is, the bigger the Actor will be skewed in the x axis.'
+					}
+				},
+				description: 'Sets the second layer of the Actor\'s horizontal skew. Cannot be tweened and must be set on an update loop.'
+			},
+			skewy: {
+				notitg: 4,
+				args: {
+					amount: {
+						type: 'float',
+						description: 'The greater it is, the bigger the Actor will be skewed in the y axis.'
+					}
+				},
+				description: 'Skews the Actor vertically.'
+			},
+			skewy2: {
+				notitg: 4,
+				args: {
+					amount: {
+						type: 'float',
+						description: 'The greater it is, the bigger the Actor will be skewed in the y axis.'
+					}
+				},
+				description: 'Sets the second layer of the Actor\'s vertical skew. Cannot be tweened and must be set on an update loop.'
 			},
 			sleep: {
 				template: 'time',
@@ -920,6 +1141,16 @@ data = {
 				},
 				description: 'Sets the X position of the Actor.'
 			},
+			x2: {
+				notitg:4,
+				args: {
+					xPos: {
+						type: 'float',
+						description: 'The X position, in pixels.'
+					}
+				},
+				description: 'Sets the second layer of the X position of the Actor. Cannot be tweened and must be set on an update loop.'
+			},
 			xy: {
 				notitg: 1,
 				args: {
@@ -983,6 +1214,16 @@ data = {
 				},
 				description: 'Sets the Y position of the Actor.'
 			},
+			y2: {
+				notitg:4,
+				args: {
+					yPos: {
+						type: 'float',
+						description: 'The Y position, in pixels.'
+					}
+				},
+				description: 'Sets the second layer of the Y position of the Actor. Cannot be tweened and must be set on an update loop.'
+			},
 			z: {
 				args: {
 					zPos: {
@@ -991,6 +1232,16 @@ data = {
 					}
 				},
 				description: 'Sets the Z position of the Actor.'
+			},
+			z2: {
+				notitg:4,
+				args: {
+					zPos: {
+						type: 'float',
+						description: 'The Z position, in pixels.'
+					}
+				},
+				description: 'Sets the second layer of the Z position of the Actor. Cannot be tweened and must be set on an update loop.'
 			},
 			zbias: {
 				args: {
@@ -1060,6 +1311,16 @@ data = {
 				},
 				description: 'Zooms the actor on the X axis to `scale` scale.'
 			},
+			zoomx2: {
+				notitg:4,
+				args: {
+					scale: {
+						type: 'float',
+						description: 'The scaling of the zoom.'
+					}
+				},
+				description: 'Sets the second layer of the Actor\'s X axis zoom. Cannot be tweened and must be set on an update loop.'
+			},
 			zoomy: {
 				args: {
 					scale: {
@@ -1069,6 +1330,16 @@ data = {
 				},
 				description: 'Zooms the actor on the Y axis to `scale` scale.'
 			},
+			zoomy2: {
+				notitg:4,
+				args: {
+					scale: {
+						type: 'float',
+						description: 'The scaling of the zoom.'
+					}
+				},
+				description: 'Sets the second layer of the Actor\'s Y axis zoom. Cannot be tweened and must be set on an update loop.'
+			},
 			zoomz: {
 				args: {
 					scale: {
@@ -1077,6 +1348,16 @@ data = {
 					}
 				},
 				description: 'Zooms the actor on the Z axis to `scale` scale.'
+			},
+			zoomz2: {
+				notitg:4,
+				args: {
+					scale: {
+						type: 'float',
+						description: 'The scaling of the zoom.'
+					}
+				},
+				description: 'Sets the second layer of the Actor\'s Z axis zoom. Cannot be tweened and must be set on an update loop.'
 			},
 			ztest: {
 				args: {
@@ -1142,9 +1423,24 @@ data = {
 				},
 				description: 'Gets the Actor of a child at index `index`.'
 			},
+			GetChildren: {
+				notitg: 4,
+				returnType: 'table',
+				description: 'Gets all the children of the ActorFrame and returns them in a table.'
+			},
 			GetNumChildren: {
 				returnType: 'int',
 				description: 'Gets the number of children in the ActorFrame.'
+			},
+			GetOverlayScreens: {
+				notitg: 4,
+				returnType: 'table',
+				description: 'Gets the overlay screens of the ActorFrame',
+			},
+			GetSharedBGA: {
+				notitg: 4,
+				returnType: 'ActorFrame',
+				description: 'Gets the shared BGA of the ActorFrame'
 			},
 			propagate: {
 				args: {
@@ -1637,6 +1933,16 @@ data = {
 				notitg: 1,
 				description: 'Finishes the song. Equal to "Send Notes Ended" in the Debug Menu.'
 			},
+			ForceSmoothLines: {
+				notitg: 4,
+				args: {
+					enable: {
+						type:'int',
+						description: '0 disables, 1 enables, and -1 resets.'
+					}
+				},
+				description: 'Temporarily override user\'s SmoothLines preference for one song. Set to -1'
+			},
 			GetCoinMode: {
 				returnType: 'int',
 				description: 'Gets the current coin mode. See <a>Enum_CoinMode</a>.'
@@ -1664,6 +1970,11 @@ data = {
 			GetCurrentGame: {
 				returnType: 'Game',
 				description: 'Gets the current Game.'
+			},
+			GetCurrentNoteSkins: {
+				notitg: 4,
+				returnType: 'table',
+				description: 'Returns a table of noteskin names that is currently in use'
 			},
 			GetCurrentSong: {
 				returnType: 'Song',
@@ -1804,6 +2115,12 @@ data = {
 			GetPremium: {
 				returnType: 'int',
 				description: 'Returns the current Premium mode. See <a>Enum_Premium</a>.'
+			},
+			GetRealPath: {
+				notitg: 4,
+				returnType: 'string',
+				description: 'Gets the real path. It works pretty well with AdditionalSongFolders.',
+				example: 'local songDir = GAMESTATE:GetCurrentSong():GetSongDir()<br>GAMESTATE:GetRealPath(songDir .. "./fg/default.xml") -- Returns `D:/AdditionalSongFolder/Group/Song/fg/default.xml`'
 			},
 			GetScreenID: {
 				notitg: 1,
@@ -2601,7 +2918,7 @@ data = {
 		},
 		Player: {
 			description: 'You can get an instance of Player by using <span class="mono">SCREENMAN:GetTopScreen():GetChild(\'PlayerP[NUMBER]\')</span">.',
-			inherits: 'Actor',
+			inherits: 'ActorFrame',
 			ClearArrowPathShader: {
 				notitg: 3,
 				description:'Clears the shader to the Player\'s Arrowpath.'
@@ -2610,9 +2927,17 @@ data = {
 				notitg: 3,
 				description:'Clears the shader to the Player\'s Arrows.'
 			},
+			ClearHiddenRegions: {
+				notitg: 4,
+				description:'Removes all hidden region sections.'
+			},
 			ClearHoldShader: {
 				notitg: 3,
 				description:'Clears the shader to the Player\'s Holds.'
+			},
+			ClearNoteTypeMults: {
+				notitg: 4,
+				description:'Removes all note type multiplier sections.'
 			},
 			ClearReceptorShader: {
 				notitg: 3,
@@ -2692,6 +3017,11 @@ data = {
 					}
 				}
 			},
+			IsAwake: {
+				notitg: 3,
+				returnType: 'bool',
+				description: 'Check if the playfield is not awake.',
+			},
 			PushNoteData: {
 				notitg: 3,
 				args: {
@@ -2729,36 +3059,126 @@ data = {
 				notitg: 3,
 				description: 'Resets the Rotation X Spline',
 			},
+			ResetRotationXSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the Rotation X Spline',
+			},
 			ResetRotationYSpline: {
 				notitg: 3,
+				description: 'Resets the Rotation Y Spline',
+			},
+			ResetRotationYSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
 				description: 'Resets the Rotation Y Spline',
 			},
 			ResetRotationZSpline: {
 				notitg: 3,
 				description: 'Resets the Rotation Z Spline',
 			},
+			ResetRotationZSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the Rotation Z Spline',
+			},
 			ResetSizeSpline: {
 				notitg: 3,
+				description: 'Resets the size Spline',
+			},
+			ResetSizeSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
 				description: 'Resets the size Spline',
 			},
 			ResetStealthSpline: {
 				notitg: 3,
 				description: 'Resets the stealth Spline',
 			},
+			ResetStealthSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the stealth Spline',
+			},
 			ResetSkewSpline: {
 				notitg: 3,
+				description: 'Resets the skew Spline',
+			},
+			ResetSkewSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
 				description: 'Resets the skew Spline',
 			},
 			ResetXSpline: {
 				notitg: 3,
 				description: 'Resets the X Spline',
 			},
+			ResetXSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the X Spline',
+			},
 			ResetYSpline: {
 				notitg: 3,
 				description: 'Resets the Y Spline',
 			},
+			ResetYSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the Y Spline',
+			},
 			ResetZSpline: {
 				notitg: 3,
+				description: 'Resets the Z Spline',
+			},
+			ResetZSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
 				description: 'Resets the Z Spline',
 			},
 			SetArrowPathShader: {
@@ -2801,16 +3221,15 @@ data = {
 				},
 				description: 'Sets the Players\' combo to `combo`.'
 			},
-			SetInputPlayer: {
-				notitg: 3,
+			SetHiddenRegions: {
+				notitg: 4,
 				args: {
-					player: {
-						type: 'int',
-						description: 'The player to bind inputs from. 0 is Player 1, 1 is Player 2, 2+ is Autoplay',
-						condition: '0-'
+					chart: {
+						type: 'table',
+						description: 'The table of notes to hide. `{start_beat,end,column}`'
 					}
 				},
-				description: 'Binds input of `player` to the Player.'
+				description: 'Hides notes within the specified beat ranges. Omit the "column" parameter to hide all columns.',
 			},
 			SetHoldShader: {
 				notitg: 3,
@@ -2821,6 +3240,17 @@ data = {
 					}
 				},
 				description:'Sets the shader to the Player\'s Holds.'
+			},
+			SetInputPlayer: {
+				notitg: 3,
+				args: {
+					player: {
+						type: 'int',
+						description: 'The player to bind inputs from. 0 is Player 1, 1 is Player 2, 2+ is Autoplay',
+						condition: '0-'
+					}
+				},
+				description: 'Binds input of `player` to the Player.'
 			},
 			SendJudgment: {
 				notitg: 3,
@@ -2883,6 +3313,16 @@ data = {
 					}
 				},
 				description:'Set the note data from a custom chart-to-lua styled table.'
+			},
+			SetNoteTypeMults: {
+				notitg: 4,
+				args: {
+					chart: {
+						type: 'table',
+						description: 'A table of what beat and the multiplier to be used.`{start_beat,multiplier}`'
+					}
+				},
+				description: 'Multiplies the note type (timing color) of every note beyond startBeat.'
 			},
 			SetReceptorShader: {
 				notitg: 3,
@@ -3492,6 +3932,30 @@ data = {
 		},
 		Profile: {
 			description: 'You can get an instance of Profile by using <a>ProfileManager.GetMachineProfile()</a> or <a>ProfileManager.GetProfile()</a>.',
+			ClearHighScoresForSongAndSteps: {
+				notitg: 4,
+				args: {
+					song: {
+						type: 'string',
+						description: 'The song name.'
+					},
+					step: {
+						type: 'int',
+						description: 'The step difficulty, see <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Clears the step high score for the song.'
+			},
+			ClearHighScoresForSong: {
+				notitg: 4,
+				args: {
+					song: {
+						type: 'string',
+						description: 'The song name.'
+					}
+				},
+				description: 'Clears the high score for the song.'
+			},
 			GetCaloriesBurnedToday: {
 				returnType: 'float',
 				description: 'Gets the amount of calories burned today.'
@@ -3971,6 +4435,34 @@ data = {
 				notitg: 3,
 				description:'Recompiles shader.'
 			},
+			compileImmediate: {
+				notitg: 4,
+				description: 'Compiles the shader immediately.'
+			},
+			define: {
+				notitg: 4,
+				args: {
+					name: {
+						type: 'string',
+						description: 'The variable name.'
+					},
+					value: {
+						type: 'object',
+						description: 'The value to set.'
+					}
+				},
+				description: 'Injects a `#DEFINE` on top of the shader code. Does not automatically compile the shader, use <a>RageShaderProgram.compileImmediate</a>.'
+			},
+			clearDefine: {
+				notitg: 4,
+				args: {
+					name: {
+						type: 'string',
+						description: 'The variable name.'
+					},
+				},
+				description: 'Clears a`#DEFINE`. Does not automatically compile the shader, use <a>RageShaderProgram.compileImmediate</a>.'
+			},
 			uniform1f: {
 				notitg: 3,
 				args: {
@@ -3984,6 +4476,20 @@ data = {
 					}
 				},
 				description: 'Pass 1 float value into the shader.',
+			},
+			uniform1fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 1 float array into the shader.',
 			},
 			uniform2f: {
 				notitg: 3,
@@ -4002,6 +4508,20 @@ data = {
 					},
 				},
 				description: 'Pass 2 float values into the shader.',
+			},
+			uniform2fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 2 float array into the shader.',
 			},
 			uniform3f: {
 				notitg: 3,
@@ -4024,6 +4544,20 @@ data = {
 					},
 				},
 				description: 'Pass 3 float values into the shader.',
+			},
+			uniform3fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 3 float array into the shader.',
 			},
 			uniform4f: {
 				notitg: 3,
@@ -4051,6 +4585,21 @@ data = {
 				},
 				description: 'Pass 4 float values into the shader.',
 			},
+			uniform4fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 4 float array into the shader.',
+				example: 'Shader:uniform4fv( \'v4Array\', { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0 } ) sends a vec4 array where its length is 2',
+			},
 			uniform1i: {
 				notitg: 3,
 				args: {
@@ -4064,6 +4613,63 @@ data = {
 					}
 				},
 				description: 'Pass 1 int value into the shader.',
+			},
+			uniform1iv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass an int value array into the shader.',
+			},
+			uniformMatrix2fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 2x2 matrix into the shader.',
+				example: 'Shader:uniformMatrix2fv( \'mat2Rotate\', { 0.0, -1.0, 1.0, 0.0 } ) sends a 2x2 matrix',
+			},
+			uniformMatrix3fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 3x3 matrix into the shader.',
+			},
+			uniformMatrix4fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 4x4 matrix into the shader.',
 			},
 			uniformTexture: {
 				notitg: 3,
@@ -4082,21 +4688,76 @@ data = {
 		},
 		RageSound: {
 			description: 'You can get an instance of RageSound by using <a>ActorSound.get()</a>.',
+			GetLengthSeconds: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the length of the sound, in seconds.'
+			},
+			GetPan: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the panning. (-1 = Left, 0 = Center, 1 = Right)'
+			},
 			GetSoundPosition: {
 				notitg: 1,
 				returnType: 'float',
 				description: 'Gets the sound position, in seconds.'
+			},
+			GetStartSecond: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the start second, in seconds.'
+			},
+			GetStopMode: {
+				notitg: 3,
+				returnType: 'string',
+				description: 'Gets the stop mode.'
+			},
+			GetVolume: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the volume. Default is `0.69999998807907`'
+			},
+			IsPaused: {
+				notitg: 3,
+				returnType: 'bool',
+				description: 'Returns `true` if the sound is paused.'
+			},
+			IsPlaying: {
+				notitg: 3,
+				returnType: 'bool',
+				description: 'Returns `true` if the sound is playing, regardless whether it\'s paused or not.'
+			},
+			Load: {
+				notitg: 3,
+				args: {
+					path: {
+						type: 'string',
+						description: 'The path of the sound to play.'
+					}
+				},
+				description: 'Loads the sound into the ActorSound.'
 			},
 			pan: {
 				notitg: 1,
 				args: {
 					balance: {
 						type: 'float',
-						description: 'The new balance to apply. (0 = Left, 0.5 = Center, 1 = Right)',
+						description: 'The new balance to apply. (-1 = Left, 0 = Center, 1 = Right)',
 						condition: '0-1'
 					}
 				},
 				description: 'Balances the sound.'
+			},
+			Pause: {
+				notitg: 3,
+				args: {
+					pause: {
+						type: 'bool',
+						description: '`true` to pause, `false` to resume.'
+					}
+				},
+				description: 'Pauses/Resumes the sound.'
 			},
 			pitch: {
 				notitg: 1,
@@ -4104,21 +4765,25 @@ data = {
 					speed: {
 						type: 'float',
 						description: 'The new pitch.',
-						condition: '0-100'
+						condition: '0-1'
 					}
 				},
 				description: 'Alias of <a>RageSound.speed()</a>.'
 			},
-			speed: {
-				notitg: 1,
+			Play: {
+				notitg: 3,
+				description: 'Plays the sound from the beginning. If you just want to unpause a sound, see <a>ActorSound.pause()</a>.'
+			},
+			startsecond: {
+				notitg: 3,
 				args: {
 					speed: {
 						type: 'float',
-						description: 'The new speed.',
-						condition: '0-100'
+						description: 'The new start second.',
+						condition: '0-1'
 					}
 				},
-				description: 'Changes the speed of the RageSound.'
+				description: 'Sets the start second.'
 			},
 			SetParam: {
 				notitg: 1,
@@ -4135,6 +4800,43 @@ data = {
 				},
 				description: 'Sets a property value.'
 			},
+			SetSoundPosition: {
+				notitg: 3,
+				args: {
+					value: {
+						type: 'float',
+						description: 'The new sound position.'
+					}
+				},
+				description: 'Sets the sound position, in seconds.'
+			},
+			speed: {
+				notitg: 1,
+				args: {
+					speed: {
+						type: 'float',
+						description: 'The new speed.',
+						condition: '0-1'
+					}
+				},
+				description: 'Changes the speed of the RageSound.'
+			},
+			Stop: {
+				notitg: 3,
+				description: 'Stops the sound.'
+			},
+			stopmode: {
+				notitg: 3,
+				args: {
+					value: {
+						type: 'string',
+						description: 'The new stop mode, case sensitive. Setting the argument to `auto` will reset it to its default.',
+						condition: ['stop','loop','continue','auto']
+					}
+				},
+				description: 'Sets the stop mode.'
+				
+			},
 			volume: {
 				notitg: 1,
 				args: {
@@ -4145,7 +4847,7 @@ data = {
 					}
 				},
 				description: 'Changes the volume.'
-			}
+			},
 		},
 		RageTexture: {
 			description: 'You can get an instance of RageTexture with <a>ActorFrameTexture.GetTexture()</a> or <a>Sprite.GetTexture()</a>.',
@@ -4306,6 +5008,16 @@ data = {
 				},
 				description: 'Shows a overlay message.'
 			},
+			SetInputMode: {
+				notitg: 4,
+				args: {
+					mode: {
+						type: 'int',
+						description: 'The input mode. See <a>Enum_SCREENMAN_InputMode</a>.'
+					}
+				},
+				description: 'Sets the input mode.',
+			},
 			SetNewScreen: {
 				args: {
 					screenName: {
@@ -4360,6 +5072,7 @@ data = {
 				description: 'Gets a table of all the Steps.'
 			},
 			GetBackgroundPath: {
+				notitg: 4,
 				returnType: 'string',
 				description: 'Gets the path of the background image.'
 			},
@@ -4390,6 +5103,11 @@ data = {
 				returnType: 'string',
 				description: 'Gets the main title.'
 			},
+			GetDisplaySubTitle: {
+				notitg: 4,
+				returnType: 'string',
+				description: 'Get the subtitle.'
+			},
 			GetElapsedTimeFromBeat: {
 				notitg: 3,
 				returnType: 'float',
@@ -4408,6 +5126,44 @@ data = {
 			GetGroupName: {
 				returnType: 'string',
 				description: 'Gets the group name (folder) where the song is.'
+			},
+			GetMusicPath: {
+				notitg: 4,
+				returnType: 'string',
+				description: 'Gets the path of the song\'s music.'
+			},
+			GetNoteData: {
+				notitg: 4,
+				returnType: 'table',
+				description: 'Gets the songs\'s notedata',
+				args: {
+					stepsType: {
+						type: 'int',
+						description: 'The steps type. See <a>Enum_StepsType</a>.'
+					},
+					beatBased: {
+						type: 'boolean',
+						description: '(Optional) Return times in beat or seconds.'
+					},
+					startBeat: {
+						type: 'float',
+						description: '(Optional) The start beat of the notedata'
+					},
+					endBeat: {
+						type: 'float',
+						description: '(Optional) The end beat of the notedata'
+					}
+				}
+			},
+			GetSampleStartLength: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the length of the sample.'
+			},
+			GetSampleStartSeconds: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the start second of the sample.'
 			},
 			GetSongDir: {
 				returnType: 'string',
@@ -4433,6 +5189,22 @@ data = {
 			GetTranslitMainTitle: {
 				returnType: 'string',
 				description: 'Gets the transliterated main title.'
+			},
+			GetTranslitSubTitle: {
+				notitg: 4,
+				returnType: 'string',
+				description: 'Gets the transliterated sub title.'
+			},
+			GetUnlockMethod: {
+				notitg: 4,
+				returnType: 'string',
+				args: {
+					difficulty: {
+						type: 'int',
+						description: 'The step difficulty, see <a>Enum_Difficulty</a>'
+					}
+				},
+				description: 'Used to get the path directly to the lua unlock file.'
 			},
 			IsCustomSong: {
 				returnType: 'bool',
@@ -4593,6 +5365,11 @@ data = {
 				template: 'rectangle',
 				description: 'Scales the image to a rectangle.'
 			},
+			getstate: {
+				notitg: 4,
+				returnType: 'int',
+				description: 'Returns the state of the sprite.'
+			},
 			GetTexture: {
 				notitg: 1,
 				returnType: 'RageTexture',
@@ -4613,11 +5390,16 @@ data = {
 			loop: {
 				args: {
 					enable: {
-						type: 'bool',
-						description: '`true` to loop the animation, `false` to play it only once.'
+						type: 'int',
+						description: '`1` to loop the animation, `0` to play it only once.'
 					}
 				},
 				description: 'Alias for <a>RageTexture.loop()</a>. Determines if the animation should loop or not.'
+			},
+			looppoint: {
+				notitg: 4,
+				returnType: 'int',
+				description: 'This can be used to make multiple-state animations using a single spritesheet - such as having a run cycle set the loop point when starting/stopping a run.',
 			},
 			position: {
 				args: {
@@ -4983,6 +5765,13 @@ data = {
 			description: 'See <a>GameState.GetInputMode()</a> and <a>GameState.SetInputMode()</a>.',
 			Normal: 0,
 			BothAtOnce: 1
+		},
+		SCREENMAN_InputMode: {
+			notitg: 4,
+			description: 'See <a>ScreenManager.SetInputMode()</a>.',
+			All: 0,
+			Overlay: 1,
+			None: 2,
 		},
 		MemoryCardState: {
 			description: 'See <a>MemoryCardManager.GetCardState()</a>.',
