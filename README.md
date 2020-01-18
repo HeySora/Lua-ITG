@@ -1,23 +1,52 @@
 # Lua-ITG
-Webpage with informations/Tutorials for the Lua API, in OpenITG and NotITG.
-[Hosted here](https://sm.heysora.net "sm.heysora.net").
 
+Webpage with informations/Tutorials for the Lua API, in OpenITG and NotITG.
+
+[Hosted here](https://sm.heysora.net  "sm.heysora.net").
+
+  
+  
 
 ```
-Copyright (c) 2016-2020  HeySora
+
+Copyright (c) 2016-2020 HeySora
+
+  
 
 https://www.heysora.net - contact@heysora.net
 
+  
+
 This program is free software: you can redistribute it and/or modify
+
 it under the terms of the GNU Affero General Public License as published
+
 by the Free Software Foundation, either version 3 of the License, or
+
 (at your option) any later version.
 
+  
+
 This program is distributed in the hope that it will be useful,
+
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+
 GNU Affero General Public License for more details.
 
+  
+
 You should have received a copy of the GNU Affero General Public License
+
 along with this program. If not, see <http://www.gnu.org/licenses/>.
+
 ```
+
+  
+
+-------
+
+jaezmien's unofficial edit cuz they're too lazy to look at each changelog for a specific function
+would recommend actually waiting for the official v4 doc
+this sucks v much :V
