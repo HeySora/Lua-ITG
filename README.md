@@ -1,10 +1,10 @@
 # Lua-ITG
 Webpage with informations/Tutorials for the Lua API, in OpenITG and NotITG.
-[Hosted here](https://sm.heysora.net "sm.heysora.net")
+[Hosted here](https://sm.heysora.net "sm.heysora.net").
 
 
 ```
-Copyright (c) 2016-2017  HeySora
+Copyright (c) 2016-2020  HeySora
 
 https://www.heysora.net - contact@heysora.net
 
