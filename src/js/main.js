@@ -541,6 +541,7 @@ data = {
 				description: 'Gets the Actor\'s current Z Zoom. It can be set using <a>Actor.zoomz()</a>.'
 			},
 			getdiffuse: {
+				notitg: 3,
 				returnType: 'float',
 				description: 'Gets the current diffuse of the Actor. This method returns four floats. You can set them by using <a>Actor.diffuse()</a> or the alpha value only using <a>Actor.diffusealpha()</a>.',
 				example: 'r,g,b,a = self:getdiffuse();'
