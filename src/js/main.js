@@ -1960,6 +1960,10 @@ data = {
 				returnType: 'int',
 				description: 'Gets the index of the current song in the current course. (Indexes start from 0 with this method !)'
 			},
+			GetCurBPM: {
+				returnType: 'float',
+				description: 'Gets the current BPM.'
+			},
 			GetCurBPS: {
 				returnType: 'float',
 				description: 'Gets the current BPS. Multiply this by 60 to get the current BPM.'
@@ -3947,12 +3951,36 @@ data = {
 				},
 				description: 'Clears the step high score for the song.'
 			},
+			ClearHighScoresForSongAndSteps: {
+				notitg: 4,
+				args: {
+					song: {
+						type: 'Song',
+						description: 'The song.'
+					},
+					step: {
+						type: 'int',
+						description: 'The step difficulty, see <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Clears the step high score for the song.'
+			},
 			ClearHighScoresForSong: {
 				notitg: 4,
 				args: {
 					song: {
 						type: 'string',
 						description: 'The song name.'
+					}
+				},
+				description: 'Clears the high score for the song.'
+			},
+			ClearHighScoresForSong: {
+				notitg: 4,
+				args: {
+					song: {
+						type: 'Song',
+						description: 'The song.'
 					}
 				},
 				description: 'Clears the high score for the song.'
@@ -4018,6 +4046,34 @@ data = {
 			GetSaved: {
 				returnType: 'table',
 				description: 'Gets the profile\'s data.'
+			},
+			GetHighScoreForSongAndSteps: {
+				notitg: 4.01,
+				args: {
+					song: {
+						type: 'string',
+						description: 'The song name.'
+					},
+					step: {
+						type: 'int',
+						description: 'The step difficulty, see <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Get the step high score for the song.'
+			},
+			GetHighScoreForSongAndSteps: {
+				notitg: 4.01,
+				args: {
+					song: {
+						type: 'Song',
+						description: 'The song.'
+					},
+					step: {
+						type: 'int',
+						description: 'The step difficulty, see <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Get the step high score for the song.'
 			},
 			GetSongNumTimesPlayed: {
 				notitg: 1,
@@ -5128,6 +5184,21 @@ data = {
 				returnType: 'string',
 				description: 'Gets the group name (folder) where the song is.'
 			},
+			GetLabels: {
+				notitg: 3,
+				returnType: 'table',
+				description: 'Gets the song\'s labels.'
+			},
+			GetMaxBPM: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Returns the max BPM of the song.'
+			},
+			GetMinBPM: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Returns the min BPM of the song.'
+			},
 			GetMusicPath: {
 				notitg: 4,
 				returnType: 'string',
@@ -5170,6 +5241,11 @@ data = {
 				returnType: 'string',
 				description: 'Gets the directory of the song.'
 			},
+			GetSpellcards: {
+				notitg: 3,
+				returnType: 'table',
+				description: 'Gets the song\'s spellcards.'
+			},
 			GetStepsByStepsType: {
 				args: {
 					stepsType: {
@@ -5178,6 +5254,11 @@ data = {
 					}
 				},
 				description: 'Gets a table of all the Steps matching `stepsType`.'
+			},
+			GetTimingData: {
+				returnType: 'object',
+				notitg: 4.01,
+				description: 'It returns two tables, each are sorted by beat.<br>The first table, BPMs, contains the beat and the new BPM.<br>The second, stops, contains the beat and the duration of the stop in seconds.',
 			},
 			GetTranslitArtist: {
 				returnType: 'string',

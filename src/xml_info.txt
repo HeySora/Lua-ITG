@@ -37,8 +37,16 @@ ActorFrame (Optional)
 ------------------------------------------------------------------
 
 Global Message Commands
-	FailP[1/2]MessageCommand
+	(OpenITG)
 	StepP[1/2]MessageCommand
+
+	SystemMessageMessageCommand
+	SystemMessageNoAnimateMessageCommand
+	HideSystemMessageMessageCommand
+	OverlayMessageMessageCommand
+	HideOverlayMessageMessageCommand
+
+	(NotITG)
 	StepP[1/2][Direction][Press/Lift]MessageCommand
 	StepP[1/2]Action[1-8][Press/Lift]MessageCommand
 	Fk_P[num]_W[Judgment_Number]MessageCommand
@@ -54,11 +62,10 @@ Global Message Commands
 
 	SaltyResetMessageCommand (On CTRL+R press)
 
-	SystemMessageMessageCommand
-	SystemMessageNoAnimateMessageCommand
-	HideSystemMessageMessageCommand
-	OverlayMessageMessageCommand
-	HideOverlayMessageMessageCommand
-
+	(NotITG V3)
 	WindowFocusMessageCommand
 	WindowFocusLostMessageCommand
+
+	(NotITG V4.0.1)
+	FailP[1/2]MessageCommand
+	StepP[1/2]MenuStart[Press/Lift]MessageCommand
