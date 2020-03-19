@@ -1,0 +1,17 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!  Make sure there's a space between these  !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+[x count]x[y count]
+	- Turns the image into a spritesheet
+
+(doubleres)
+	- Append on the end of your double resolution texture for the game to auto resize it
+
+(res [width]x[height])
+	- auto resize
+
+-- AUDIO FILES --
+loop
+	- Loops the audio when it's finished (works on ActorSound)

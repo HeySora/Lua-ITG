@@ -97,6 +97,29 @@ data = {
 				template: 'time',
 				description: 'Plays the next Actor methods at an accelerated rate (`time` * `time`). <a href="#Basics_Tweens">What is a tween ?</a>'
 			},
+			addaux: {
+				notitg: 4,
+				args: {
+					deltaaux: {
+						type: 'number',
+						description: 'Amount to add'
+					}
+				},
+				description: 'Adds to the current auxvar of the Actor.'
+			},
+			addcommand: {
+				args: {
+					commandName: {
+						type: 'string',
+						description: 'The command name to add.'
+					},
+					function: {
+						type: 'LuaReference',
+						description: 'The lua function of the command.'
+					}
+				},
+				description: 'Adds a new command to the Actor.'
+			},
 			additiveblend: {
 				args: {
 					enable: {
@@ -106,6 +129,36 @@ data = {
 					}
 				},
 				description: 'Sets the blend mode to additive, or to normal. Normal blend is set by default. See <a>Actor.blend()</a> for other possible values. <a href="#Basics_BlendModes">What is a blend mode ?</a>'
+			},
+			addrotationx: {
+				notitg: 3,
+				args: {
+					x: {
+						type: 'float',
+						description: 'The x position to add.'
+					}
+				},
+				description: 'Adds `x` to the Actor\'s current x rotation.'
+			},
+			addrotationy: {
+				notitg: 3,
+				args: {
+					y: {
+						type: 'float',
+						description: 'The y position to add.'
+					}
+				},
+				description: 'Adds `y` to the Actor\'s current y rotation.'
+			},
+			addrotationz: {
+				notitg: 3,
+				args: {
+					z: {
+						type: 'float',
+						description: 'The z position to add.'
+					}
+				},
+				description: 'Adds `z` to the Actor\'s current z rotation.'
 			},
 			addx: {
 				args: {
@@ -197,6 +250,16 @@ data = {
 				},
 				description: 'Sets the Actor\'s base vertical zoom. Used when zooming the Actor.'
 			},
+			basezoomz: {
+				notitg: 4,
+				args: {
+					z: {
+						type: 'float',
+						description: 'The z position for the Actor\'s base zoom.'
+					}
+				},
+				description: 'Sets the Actor\'s base z zoom. Used when zooming the Actor.'
+			},
 			blend: {
 				args: {
 					mode: {
@@ -220,6 +283,10 @@ data = {
 			bounceend: {
 				template: 'time',
 				description: 'Plays the next Actor methods with a bounce effect at the end. <a href="#Basics_Tweens">What is a tween ?</a>'
+			},
+			ClearShader: {
+				notitg: 3,
+				description: 'Removes the actor\'s shader.'
 			},
 			clearzbuffer: {
 				args: {
@@ -433,9 +500,85 @@ data = {
 				returnType: 'float',
 				description: 'Gets the Actor\'s base zoom value at horizontal (X) axis.'
 			},
+			GetBaseZoomY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s base zoom value at vertical (Y) axis.'
+			},
+			GetBaseZoomZ: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s base zoom value at Z axis.'
+			},
+			GetCurrentRotationX: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s current X rotation.',
+			},
+			GetCurrentRotationY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s current Y rotation.',
+			},
+			GetCurrentRotationZ: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s current Z rotation.',
+			},
+			GetCurrentZoomX: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s current X Zoom. It can be set using <a>Actor.zoomx()</a> or <a>Actor.zoomto()</a>.'
+			},
+			GetCurrentZoomY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Y Zoom. It can be set using <a>Actor.zoomy()</a> or <a>Actor.zoomto()</a>.'
+			},
+			GetCurrentZoomZ: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Z Zoom. It can be set using <a>Actor.zoomz()</a>.'
+			},
+			getdiffuse: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the current diffuse of the Actor. This method returns four floats. You can set them by using <a>Actor.diffuse()</a> or the alpha value only using <a>Actor.diffusealpha()</a>.',
+				example: 'r,g,b,a = self:getdiffuse();'
+			},
 			GetEffectDelta: {
 				returnType: 'float',
 				description: 'Gets the current effect delta of the Actor.'
+			},
+			GetEffectRotationX: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s current X rotation when taking to account active effects.',
+			},
+			GetEffectRotationY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s current Y rotation when taking to account active effects.',
+			},
+			GetEffectRotationZ: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s current Z rotation when taking to account active effects.',
+			},
+			GetEffectX: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s current X position when taking to account active effects.'
+			},
+			GetEffectY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Y position when taking to account active effects. (Swapped with <a>Actor.GetEffectZ</a> on V4)'
+			},
+			GetEffectZ: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the Actor\'s current Z position when taking to account active effects. (Swapped with <a>Actor.GetEffectY</a> on V4)'
 			},
 			geteffectmagnitude: {
 				returnType: 'float',
@@ -446,19 +589,64 @@ data = {
 				returnType: 'float',
 				description: 'Gets the current Actor\'s height.'
 			},
+			GetHidden: {
+				notitg: 3,
+				returnType: 'bool',
+				description: 'Gets the hidden state of an actor, true if it\'s hidden.',
+			},
 			GetName: {
 				notitg: 1,
 				returnType: 'string',
 				description: 'Gets the current name of the Actor. It can be set by either using <a>Actor.SetName()</a>, or by adding a "Name" attribute.'
+			},
+			GetParent: {
+				notitg: 4,
+				returnType: 'ActorFrame',
+				description: 'Gets the parent ActorFrame of the actor.'
 			},
 			getrotation: {
 				returnType: 'float',
 				description: 'Gets the current rotations of the Actor for each axis. Since there are 3 axis, this method returns three floats. You can set them by using <a>Actor.rotationx()</a>, <a>Actor.rotationy()</a>, and <a>Actor.rotationz()</a>, or add/substract values to them using <a>Actor.pitch()</a>, <a>Actor.heading()</a>, and <a>Actor.roll()</a>.',
 				example: 'rotx,roty,rotz = self:getrotation();'
 			},
+			GetRotationOrder: {
+				notitg: 4,
+				returnType: 'string',
+				description: 'Gets the current rotation order of the Actor.'
+			},
+			GetRotationX: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s X rotation.',
+			},
+			GetRotationY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s Y rotation.',
+			},
+			GetRotationZ: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s Z rotation.',
+			},
 			GetSecsIntoEffect: {
 				returnType: 'float',
 				description: 'Gets the number of seconds an Actor is running an effect. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
+			},
+			GetSkewX: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s X skew.'
+			},
+			GetSkewY: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the actor\'s Y skew.'
+			},
+			GetTweenTimeLeft: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets amount of time left for the current tween.'
 			},
 			GetWidth: {
 				returnType: 'float',
@@ -482,15 +670,15 @@ data = {
 			},
 			GetZoomX: {
 				returnType: 'float',
-				description: 'Gets the Actor\'s current Zoom. It can be set using <a>Actor.zoomx()</a> or <a>Actor.zoomto()</a>.'
+				description: 'Gets the Actor\'s X Zoom. It can be set using <a>Actor.zoomx()</a> or <a>Actor.zoomto()</a>.'
 			},
 			GetZoomY: {
 				returnType: 'float',
-				description: 'Gets the Actor\'s current Zoom. It can be set using <a>Actor.zoomy()</a> or <a>Actor.zoomto()</a>.'
+				description: 'Gets the Actor\'s Y Zoom. It can be set using <a>Actor.zoomy()</a> or <a>Actor.zoomto()</a>.'
 			},
 			GetZoomZ: {
 				returnType: 'float',
-				description: 'Gets the Actor\'s current Zoom. It can be set using <a>Actor.zoomz()</a>.'
+				description: 'Gets the Actor\'s Z Zoom. It can be set using <a>Actor.zoomz()</a>.'
 			},
 			glow: {
 				template: 'color',
@@ -512,6 +700,17 @@ data = {
 					}
 				},
 				description: 'Sets the Actor\'s horizontal alignment. It is 0.5 by default.'
+			},
+			hascommand: {
+				notitg: 4,
+				returnType: 'boolean',
+				args: {
+					commandName: {
+						type: 'string',
+						description: 'The command name to check.'
+					},
+				},
+				description: 'Checks if an Actor has a specific command name.'
 			},
 			heading: {
 				args: {
@@ -606,6 +805,10 @@ data = {
 			pulse: {
 				description: 'Makes the Actor growing and shrinking. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
+			pulseramp: {
+				notitg: 3,
+				description: 'It\'s the same as diffuseramp (sawtooth wave applied to color) but on the size of an object.. <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
+			},
 			queuecommand: {
 				args: {
 					commandName: {
@@ -628,6 +831,16 @@ data = {
 			rainbow: {
 				description: '<span class="rainbow">Makes the Actor change colors continually, through every color of a rainbow.</span> <a href="#Basics_ActorEffects">What is an Actor effect ?</a>'
 			},
+			removecommand: {
+				notitg: 4,
+				args: {
+					commandName: {
+						type: 'string',
+						description: 'The command name to remove.'
+					},
+				},
+				description: 'Remove an Actor\'s command.'
+			},
 			roll: {
 				args: {
 					rotz: {
@@ -646,6 +859,16 @@ data = {
 				},
 				description: 'Sets the X/Pitch axis\' rotation.'
 			},
+			rotationx2: {
+				notitg: 4,
+				args: {
+					rotx: {
+						type: 'float',
+						description: 'The rotation to apply, in degrees.'
+					}
+				},
+				description: 'Sets the second layer of the X/Pitch axis\' rotation. Cannot be tweened and must be set on an update loop.'
+			},
 			rotationy: {
 				args: {
 					roty: {
@@ -655,6 +878,16 @@ data = {
 				},
 				description: 'Sets the Y/Yaw/Heading axis\' rotation.'
 			},
+			rotationy2: {
+				notitg: 4,
+				args: {
+					roty: {
+						type: 'float',
+						description: 'The rotation to apply, in degrees.'
+					}
+				},
+				description: 'Sets the second layer of the Y/Yaw/Heading axis\' rotation. Cannot be tweened and must be set on an update loop.'
+			},
 			rotationz: {
 				args: {
 					rotz: {
@@ -663,6 +896,16 @@ data = {
 					}
 				},
 				description: 'Sets the Z/Roll axis\' rotation.'
+			},
+			rotationz2: {
+				notitg: 4,
+				args: {
+					rotz: {
+						type: 'float',
+						description: 'The rotation to apply, in degrees.'
+					}
+				},
+				description: 'Sets the second layer of the Z/Roll axis\' rotation. Cannot be tweened and must be set on an update loop.'
 			},
 			scaletocover: {
 				template: 'rectangle',
@@ -691,6 +934,16 @@ data = {
 					}
 				},
 				description: 'Set the Actor\'s name to `name`. You might want to use a "Name" attribute in the tag, if the name won\'t change.'
+			},
+			SetRotationOrder: {
+				notitg: 4,
+				args: {
+					order: {
+						type: 'order',
+						description: 'The new rotation order.'
+					}
+				},
+				description: 'Sets the new rotation order for the Actor. Default is `zyx`'
 			},
 			setstate: {
 				args: {
@@ -744,10 +997,40 @@ data = {
 				args: {
 					amount: {
 						type: 'float',
-						description: 'The greater it is, the bigger the Actor will be skewed.'
+						description: 'The greater it is, the bigger the Actor will be skewed in the x axis.'
 					}
 				},
 				description: 'Skews the Actor horizontally.'
+			},
+			skewx2: {
+				notitg: 4,
+				args: {
+					amount: {
+						type: 'float',
+						description: 'The greater it is, the bigger the Actor will be skewed in the x axis.'
+					}
+				},
+				description: 'Sets the second layer of the Actor\'s horizontal skew. Cannot be tweened and must be set on an update loop.'
+			},
+			skewy: {
+				notitg: 4,
+				args: {
+					amount: {
+						type: 'float',
+						description: 'The greater it is, the bigger the Actor will be skewed in the y axis.'
+					}
+				},
+				description: 'Skews the Actor vertically.'
+			},
+			skewy2: {
+				notitg: 4,
+				args: {
+					amount: {
+						type: 'float',
+						description: 'The greater it is, the bigger the Actor will be skewed in the y axis.'
+					}
+				},
+				description: 'Sets the second layer of the Actor\'s vertical skew. Cannot be tweened and must be set on an update loop.'
 			},
 			sleep: {
 				template: 'time',
@@ -798,6 +1081,21 @@ data = {
 				},
 				description: 'Enables/Disables the texture wrapping. It is disabled by default.'
 			},
+			tween: {
+				notitg: 3,
+				args: {
+					time: {
+						type: 'float',
+						description: 'The duration, in seconds.',
+						condition: '0-'
+					},
+					luaExpression: {
+						type: 'string',
+						description: 'The lua expression, using "%f" to represent how far into the tween the object is currently.'
+					}
+				},
+				description:'Plays the next Actor methods at a custom rate. <a href="#Basics_Tweens">What is a tween ?</a>'
+			},
 			valign: {
 				notitg: 1,
 				args: {
@@ -814,7 +1112,7 @@ data = {
 					hAlign: {
 						type: 'string',
 						description: 'The vertical alignment to apply.',
-						condition: ['left', 'middle', 'right']
+						condition: ['top', 'middle', 'bottom']
 					}
 				},
 				description: 'Sets the Actor\'s vertical alignment. It is "middle" by default. For a more precise alignment, see <a>Actor.valign()</a>.'
@@ -844,6 +1142,16 @@ data = {
 				},
 				description: 'Sets the X position of the Actor.'
 			},
+			x2: {
+				notitg:4,
+				args: {
+					xPos: {
+						type: 'float',
+						description: 'The X position, in pixels.'
+					}
+				},
+				description: 'Sets the second layer of the X position of the Actor. Cannot be tweened and must be set on an update loop.'
+			},
 			xy: {
 				notitg: 1,
 				args: {
@@ -858,6 +1166,46 @@ data = {
 				},
 				description: 'Sets both X and Y position of the Actor. See <a>Actor.x()</a> and <a>Actor.y()</a>.'
 			},
+			xyz: {
+				notitg: 3,
+				args: {
+					xPos: {
+						type: 'float',
+						description: 'The X position, in pixels.'
+					},
+					yPos: {
+						type: 'float',
+						description: 'The Y position, in pixels.'
+					},
+					zPos: {
+						type: 'float',
+						description: 'The Z position, in pixels.'
+					}
+				},
+				description: 'Sets both X , Y and Z position of the Actor. See <a>Actor.x()</a> , <a>Actor.y()</a> and <a>Actor.z()</a>.'
+			},
+			xyza: {
+				notitg: 3,
+				args: {
+					xPos: {
+						type: 'float',
+						description: 'The X position, in pixels.'
+					},
+					yPos: {
+						type: 'float',
+						description: 'The Y position, in pixels.'
+					},
+					zPos: {
+						type: 'float',
+						description: 'The Z position, in pixels.'
+					},
+					aux: {
+						type: 'float',
+						description: 'The value to set as Actor\'s aux value.'
+					}
+				},
+				description: 'Sets both X , Y , Z position and the Aux of the Actor. See <a>Actor.x()</a> , <a>Actor.y()</a> , <a>Actor.z()</a> and <a>Actor.aux()</a>.'
+			},
 			y: {
 				args: {
 					yPos: {
@@ -867,6 +1215,16 @@ data = {
 				},
 				description: 'Sets the Y position of the Actor.'
 			},
+			y2: {
+				notitg:4,
+				args: {
+					yPos: {
+						type: 'float',
+						description: 'The Y position, in pixels.'
+					}
+				},
+				description: 'Sets the second layer of the Y position of the Actor. Cannot be tweened and must be set on an update loop.'
+			},
 			z: {
 				args: {
 					zPos: {
@@ -875,6 +1233,16 @@ data = {
 					}
 				},
 				description: 'Sets the Z position of the Actor.'
+			},
+			z2: {
+				notitg:4,
+				args: {
+					zPos: {
+						type: 'float',
+						description: 'The Z position, in pixels.'
+					}
+				},
+				description: 'Sets the second layer of the Z position of the Actor. Cannot be tweened and must be set on an update loop.'
 			},
 			zbias: {
 				args: {
@@ -944,6 +1312,16 @@ data = {
 				},
 				description: 'Zooms the actor on the X axis to `scale` scale.'
 			},
+			zoomx2: {
+				notitg:4,
+				args: {
+					scale: {
+						type: 'float',
+						description: 'The scaling of the zoom.'
+					}
+				},
+				description: 'Sets the second layer of the Actor\'s X axis zoom. Cannot be tweened and must be set on an update loop.'
+			},
 			zoomy: {
 				args: {
 					scale: {
@@ -953,6 +1331,16 @@ data = {
 				},
 				description: 'Zooms the actor on the Y axis to `scale` scale.'
 			},
+			zoomy2: {
+				notitg:4,
+				args: {
+					scale: {
+						type: 'float',
+						description: 'The scaling of the zoom.'
+					}
+				},
+				description: 'Sets the second layer of the Actor\'s Y axis zoom. Cannot be tweened and must be set on an update loop.'
+			},
 			zoomz: {
 				args: {
 					scale: {
@@ -961,6 +1349,16 @@ data = {
 					}
 				},
 				description: 'Zooms the actor on the Z axis to `scale` scale.'
+			},
+			zoomz2: {
+				notitg:4,
+				args: {
+					scale: {
+						type: 'float',
+						description: 'The scaling of the zoom.'
+					}
+				},
+				description: 'Sets the second layer of the Actor\'s Z axis zoom. Cannot be tweened and must be set on an update loop.'
 			},
 			ztest: {
 				args: {
@@ -1021,14 +1419,29 @@ data = {
 					index: {
 						type: 'int',
 						description: 'The index of the child.',
-						condition: '1-'
+						condition: '0-'
 					}
 				},
 				description: 'Gets the Actor of a child at index `index`.'
 			},
+			GetChildren: {
+				notitg: 4,
+				returnType: 'table',
+				description: 'Gets all the children of the ActorFrame and returns them in a table.'
+			},
 			GetNumChildren: {
 				returnType: 'int',
 				description: 'Gets the number of children in the ActorFrame.'
+			},
+			GetOverlayScreens: {
+				notitg: 4,
+				returnType: 'table',
+				description: 'Gets the overlay screens of the ActorFrame',
+			},
+			GetSharedBGA: {
+				notitg: 4,
+				returnType: 'ActorFrame',
+				description: 'Gets the shared BGA of the ActorFrame'
 			},
 			propagate: {
 				args: {
@@ -1039,6 +1452,17 @@ data = {
 					}
 				},
 				description: 'Enables/Disables the command propagation behavior on the ActorFrame. Disabled by default.'
+			},
+			propagateshaders: {
+				notitg: 3,
+				args: {
+					enable: {
+						type: 'int',
+						description: '1 to enable propagation, 0 to disable it.',
+						condition: [0, 1]
+					}
+				},
+				description: 'Enables/Disables the shader command propagation behavior on the ActorFrame. Disabled by default.'
 			},
 			SetDrawByZPosition: {
 				args: {
@@ -1059,6 +1483,16 @@ data = {
 				},
 				description: 'Sets the Draw function of the ActorFrame to `drawFunc`.'
 			},
+			SetFarDist: {
+				notitg: 3,
+				args: {
+					farDist: {
+						type: 'float',
+						description: 'The draw distance to apply.'
+					}
+				},
+				description: 'Sets the draw distance on the ActorFrame. It is 1000 by default.'
+			},
 			SetFOV: {
 				args: {
 					fov: {
@@ -1067,6 +1501,16 @@ data = {
 					}
 				},
 				description: 'Alias for <a>ActorFrame.fov()</a>. Sets the ActorFrame\'s Field Of View.'
+			},
+			SetShader: {
+				notitg: 3,
+				args: {
+					shader: {
+						type: 'RageShaderProgram',
+						description: 'The shader itself. See <a>ActorFrameTexture.GetTexture()</a>'
+					}
+				},
+				description:'Sets the shader to the ActorFrame.'
 			},
 			SetUpdateCommand: {
 				args: {
@@ -1186,6 +1630,11 @@ data = {
 				},
 				description: 'Enables/Disables the Preserve Texture option. It is disabled by default.'
 			},
+			GetShader: {
+				notitg: 3,
+				returnType: 'RageShaderProgram',
+				description: 'Gets the shader of the ActorFrameTexture.',
+			},
 			GetTexture: {
 				notitg: 1,
 				returnType: 'RageTexture',
@@ -1264,7 +1713,7 @@ data = {
 				},
 				description: 'Pauses/Resumes the sound.'
 			},
-			play: {
+			start: {
 				notitg: 1,
 				description: 'Plays the sound from the beginning. If you just want to unpause a sound, see <a>ActorSound.pause()</a>.'
 			},
@@ -1485,6 +1934,16 @@ data = {
 				notitg: 1,
 				description: 'Finishes the song. Equal to "Send Notes Ended" in the Debug Menu.'
 			},
+			ForceSmoothLines: {
+				notitg: 4,
+				args: {
+					enable: {
+						type:'int',
+						description: '0 disables, 1 enables, and -1 resets.'
+					}
+				},
+				description: 'Temporarily override user\'s SmoothLines preference for one song. Set to -1'
+			},
 			GetCoinMode: {
 				returnType: 'int',
 				description: 'Gets the current coin mode. See <a>Enum_CoinMode</a>.'
@@ -1501,6 +1960,10 @@ data = {
 				returnType: 'int',
 				description: 'Gets the index of the current song in the current course. (Indexes start from 0 with this method !)'
 			},
+			GetCurBPM: {
+				returnType: 'float',
+				description: 'Gets the current BPM.'
+			},
 			GetCurBPS: {
 				returnType: 'float',
 				description: 'Gets the current BPS. Multiply this by 60 to get the current BPM.'
@@ -1512,6 +1975,11 @@ data = {
 			GetCurrentGame: {
 				returnType: 'Game',
 				description: 'Gets the current Game.'
+			},
+			GetCurrentNoteSkins: {
+				notitg: 4,
+				returnType: 'table',
+				description: 'Returns a table of noteskin names that is currently in use'
 			},
 			GetCurrentSong: {
 				returnType: 'Song',
@@ -1539,6 +2007,11 @@ data = {
 				},
 				description: 'Gets the current Trail for the specified Player.'
 			},
+			GetDerp: {
+				notitg: 1,
+				returnType: 'bool',
+				description: 'Returns `true`.'
+			},
 			GetEasiestStepsDifficulty: {
 				returnType: 'int',
 				description: 'Gets the easiest difficulty chosen by the players. See <a>Enum_Difficulty</a>.'
@@ -1557,6 +2030,17 @@ data = {
 				},
 				description: 'Gets the value stored in the Game\'s Environment Table, with the key `key`. You can get the entire table by using <a>GameState.Env()</a>.'
 			},
+			GetExternal: {
+				notitg: 3,
+				returnType: 'int',
+				args: {
+					index: {
+						type: 'int',
+						description: 'Index of the external.'
+					}
+				},
+				description: 'Gets the number on the external memory address\' index.'
+			},
 			GetFileStructure: {
 				notitg: 1,
 				returnType: 'string',
@@ -1567,7 +2051,7 @@ data = {
 					}
 				},
 				description: 'Returns names from each files and directory in `path`. This function returns a variable amount of strings, you should call it with table.pack().',
-				example: 'local filesAndDirs = table.pack(GAMESTATE:GetFileStructure()); -- Put any returned strings into a unique table.'
+				example: 'local filesAndDirs = {GAMESTATE:GetFileStructure()}; -- Put any returned strings into a unique table.'
 			},
 			GetInputMode: {
 				notitg: 1,
@@ -1637,6 +2121,12 @@ data = {
 				returnType: 'int',
 				description: 'Returns the current Premium mode. See <a>Enum_Premium</a>.'
 			},
+			GetRealPath: {
+				notitg: 4,
+				returnType: 'string',
+				description: 'Gets the real path. It works pretty well with AdditionalSongFolders.',
+				example: 'local songDir = GAMESTATE:GetCurrentSong():GetSongDir()<br>GAMESTATE:GetRealPath(songDir .. "./fg/default.xml") -- Returns `D:/AdditionalSongFolder/Group/Song/fg/default.xml`'
+			},
 			GetScreenID: {
 				notitg: 1,
 				returnType: 'int',
@@ -1645,7 +2135,7 @@ data = {
 			GetShaderFlag: {
 				notitg: 1,
 				returnType: 'int',
-				description: 'Gets the first (at index 0) shader\'s flag.'
+				description: '(NotITG v1-2 only) Gets the first (at index 0) shader\'s flag.'
 			},
 			GetShaderFlagNum: {
 				notitg: 1,
@@ -1657,7 +2147,7 @@ data = {
 						condition: '0-9'
 					}
 				},
-				description: 'Gets the flag of the shader at index `index`.'
+				description: '(NotITG v1-2 only) Gets the flag of the shader at index `index`.'
 			},
 			GetSongBeat: {
 				returnType: 'float',
@@ -1883,8 +2373,7 @@ data = {
 					},
 					playerNumber: {
 						type: 'int',
-						description: '(Optional) The player number. (0 = Player 1, 1 = Player 2)',
-						condition: '0-1'
+						description: '(Optional) The player number. (1 = Player 1, 2 = Player 2)',
 					}
 				},
 				description: 'Registers an attack to be launched at a specific moment. This attack will disable any currently active Lua mods. It is recommended to call this method in an InitCommand, because it generates some lag spikes.'
@@ -2001,7 +2490,7 @@ data = {
 						condition: '0-9'
 					}
 				},
-				description: 'Sets the first (at index 0) shader\'s flag.'
+				description: '(NotITG v1-2 only) Sets the first (at index 0) shader\'s flag.'
 			},
 			SetShaderFlagNum: {
 				notitg: 1,
@@ -2016,7 +2505,7 @@ data = {
 						condition: '0-9'
 					}
 				},
-				description: 'Sets the flag of the shader at index `index`.'
+				description: '(NotITG v1-2 only) Sets the flag of the shader at index `index`.'
 			},
 			SetSongBeat: {
 				notitg: 1,
@@ -2046,6 +2535,16 @@ data = {
 					}
 				},
 				description: 'Enables/Disables the temporary Event Mode.'
+			},
+			SetExternal: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description: 'Index of the external'
+					}
+				},
+				description: 'Sets a number on a static external memory address\' index.'
 			},
 			StageIndex: {
 				returnType: 'int',
@@ -2422,6 +2921,669 @@ data = {
 				description: 'Creates a table of every NoteSkin names that are valid for the current GameType.'
 			}
 		},
+		Player: {
+			description: 'You can get an instance of Player by using <span class="mono">SCREENMAN:GetTopScreen():GetChild(\'PlayerP[NUMBER]\')</span">.',
+			inherits: 'ActorFrame',
+			ClearArrowPathShader: {
+				notitg: 3,
+				description:'Clears the shader to the Player\'s Arrowpath.'
+			},
+			ClearArrowShader: {
+				notitg: 3,
+				description:'Clears the shader to the Player\'s Arrows.'
+			},
+			ClearHiddenRegions: {
+				notitg: 4,
+				description:'Removes all hidden region sections.'
+			},
+			ClearHoldShader: {
+				notitg: 3,
+				description:'Clears the shader to the Player\'s Holds.'
+			},
+			ClearNoteTypeMults: {
+				notitg: 4,
+				description:'Removes all note type multiplier sections.'
+			},
+			ClearReceptorShader: {
+				notitg: 3,
+				description:'Clears the shader to the Player\'s Receptors.'
+			},
+			ClearShader: {
+				notitg: 3,
+				description:'Clears any shaders on the Player.'
+			},
+			DidHoldNote: {
+				notitg: 3,
+				args: {
+					column: {
+						type:'int',
+						description: 'The column.',
+						condition:'0-3',
+					},
+					bright: {
+						type: 'bool',
+						description: 'Whether the noteflash is more or less than 100 combo variant.'
+					}
+				},
+				description:'Send a hold noteflash to column specified.'
+			},
+			DidTapNote: {
+				notitg: 3,
+				args: {
+					column: {
+						type:'int',
+						description: 'The column.',
+						condition:'0-3',
+					},
+					judgment: {
+						type: 'int',
+						description: 'The judgment to show. See <a>Enum_SendJudgment</a>.',
+					},
+					bright: {
+						type: 'bool',
+						description: '(Optional) Whether the noteflash is more or less than 100 combo variant (not implemented in most ITG noteskins).'
+					}
+				},
+				description:'Send a noteflash of appropriate judgment to the column specified.'
+			},
+			FakeStep: {
+				notitg: 3,
+				args: {
+					column: {
+						type:'int',
+						description:'The column.',
+						condition:'0-3'
+					}
+				},
+				description:'Pretend to press a button. This will pulse the receptor as if a step was taken.',
+			},
+			GetCombo: {
+				notitg: 3,
+				returnType: 'int',
+				description: 'Gets the Player\'s current combo.',
+			},
+			GetMissCombo: {
+				notitg: 3,
+				returnType: 'int',
+				description: 'Gets the Player\'s current miss combo.',
+			},
+			GetNoteData: {
+				notitg: 3,
+				returnType: 'table',
+				description: 'Gets the Player\'s notedata',
+				args: {
+					startBeat: {
+						type: 'float',
+						description: '(Optional) The start beat of the notedata'
+					},
+					endBeat: {
+						type: 'float',
+						description: '(Optional) The end beat of the notedata'
+					}
+				}
+			},
+			IsAwake: {
+				notitg: 3,
+				returnType: 'bool',
+				description: 'Check if the playfield is not awake.',
+			},
+			PushNoteData: {
+				notitg: 3,
+				args: {
+					varName: {
+						type:'variable',
+						description:'The variable you want to put the notedata to.'
+					},
+					startBeat: {
+						type: 'float',
+						description: '(Optional) The start beat of the notedata. If not present, first beat of song is used.'
+					},
+					endBeat: {
+						type: 'float',
+						description: '(Optional) The end beat of the notedata. If not present, last beat of song is used.'
+					}
+				},
+				description:'Functions the same as <a>Player.GetNoteData()</a> but it pushes it to `varName`, accounts for turn mods.'
+			},
+			RealStep: {
+				notitg: 3,
+				args: {
+					column: {
+						type:'int',
+						description:'The column.',
+						condition:'0-3'
+					},
+					held: {
+						type:'bool',
+						description:'Whether the button is held down.'
+					}
+				},
+				description:'Press a button. This is capable of hitting arrows.',
+			},
+			ResetRotationXSpline: {
+				notitg: 3,
+				description: 'Resets the Rotation X Spline',
+			},
+			ResetRotationXSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the Rotation X Spline',
+			},
+			ResetRotationYSpline: {
+				notitg: 3,
+				description: 'Resets the Rotation Y Spline',
+			},
+			ResetRotationYSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the Rotation Y Spline',
+			},
+			ResetRotationZSpline: {
+				notitg: 3,
+				description: 'Resets the Rotation Z Spline',
+			},
+			ResetRotationZSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the Rotation Z Spline',
+			},
+			ResetSizeSpline: {
+				notitg: 3,
+				description: 'Resets the size Spline',
+			},
+			ResetSizeSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the size Spline',
+			},
+			ResetStealthSpline: {
+				notitg: 3,
+				description: 'Resets the stealth Spline',
+			},
+			ResetStealthSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the stealth Spline',
+			},
+			ResetSkewSpline: {
+				notitg: 3,
+				description: 'Resets the skew Spline',
+			},
+			ResetSkewSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the skew Spline',
+			},
+			ResetXSpline: {
+				notitg: 3,
+				description: 'Resets the X Spline',
+			},
+			ResetXSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the X Spline',
+			},
+			ResetYSpline: {
+				notitg: 3,
+				description: 'Resets the Y Spline',
+			},
+			ResetYSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the Y Spline',
+			},
+			ResetZSpline: {
+				notitg: 3,
+				description: 'Resets the Z Spline',
+			},
+			ResetZSplines: {
+				notitg: 4,
+				args: {
+					column: {
+						type: 'int',
+						description: 'The column to reset the spline.'
+					}
+				},
+				description: 'Resets the Z Spline',
+			},
+			SetArrowPathShader: {
+				notitg: 3,
+				args: {
+					shader: {
+						type: 'RageShaderProgram',
+						description: 'The shader itself. See <a>ActorFrameTexture.GetShader()</a>'
+					}
+				},
+				description:'Sets the shader to the Player\'s Arrowpath.'
+			},
+			SetArrowShader: {
+				notitg: 3,
+				args: {
+					shader: {
+						type: 'RageShaderProgram',
+						description: 'The shader itself. See <a>ActorFrameTexture.GetShader()</a>'
+					}
+				},
+				description:'Sets the shader to the Player\'s Arrows.'
+			},
+			SetAwake: {
+				notitg: 3,
+				args: {
+					awake: {
+						type: 'bool',
+						description: 'Wake up the playfields.'
+					}
+				},
+				description: 'Used to wake up playfields that are still hidden, or set them back to sleep if re-hidden.',
+			},
+			SetCombo: {
+				notitg: 3,
+				args: {
+					combo: {
+						type: 'int',
+						description: 'The new combo to set',
+					}
+				},
+				description: 'Sets the Players\' combo to `combo`.'
+			},
+			SetHiddenRegions: {
+				notitg: 4,
+				args: {
+					chart: {
+						type: 'table',
+						description: 'The table of notes to hide. `{start_beat,end,column}`'
+					}
+				},
+				description: 'Hides notes within the specified beat ranges. Omit the "column" parameter to hide all columns.',
+			},
+			SetHoldShader: {
+				notitg: 3,
+				args: {
+					shader: {
+						type: 'RageShaderProgram',
+						description: 'The shader itself. See <a>ActorFrameTexture.GetShader()</a>'
+					}
+				},
+				description:'Sets the shader to the Player\'s Holds.'
+			},
+			SetInputPlayer: {
+				notitg: 3,
+				args: {
+					player: {
+						type: 'int',
+						description: 'The player to bind inputs from. 0 is Player 1, 1 is Player 2, 2+ is Autoplay',
+						condition: '0-'
+					}
+				},
+				description: 'Binds input of `player` to the Player.'
+			},
+			SendJudgment: {
+				notitg: 3,
+				description: 'Sends a judgment message to the player.',
+				args: {
+					judgement: {
+						type: 'int',
+						description: 'The judgment to show. See <a>Enum_SendJudgment</a>.'
+					},
+					isEarly: {
+						type: 'bool',
+						description: 'Sets the judgment to be early or late.'
+					},
+					timingDeviation: {
+						type: 'float',
+						description: '(Optional) The timing deviation in milliseconds, for the scatterplot.'
+					},
+					beat: {
+						type: 'float',
+						description: '(Optional) The beat, for the scatterplot.'
+					}
+				}
+			},
+			SetMineSound: {
+				notitg: 3,
+				args: {
+					path: {
+						type: 'string',
+						description: 'Path of the audio file.'
+					}
+				},
+				description: 'Set custom player mine sound from the simfile.'
+			},
+			SetMissCombo: {
+				notitg: 3,
+				args: {
+					combo: {
+						type: 'int',
+						description: 'The new miss combo to set',
+					}
+				},
+				description: 'Sets the Players\' miss combo to `combo`.'
+			},
+			SetNoteData: {
+				notitg: 3,
+				args: {
+					chart: {
+						type: 'int',
+						description: 'The chart number (from lowest to highest difficulty).'
+					}
+				},
+				description:'Set the note data from an existing chart.'
+			},
+			SetNoteDataFromLua: {
+				notitg: 3,
+				args: {
+					chart: {
+						type: 'table',
+						description: 'The chart-to-lua styled table.'
+					}
+				},
+				description:'Set the note data from a custom chart-to-lua styled table.'
+			},
+			SetNoteTypeMults: {
+				notitg: 4,
+				args: {
+					chart: {
+						type: 'table',
+						description: 'A table of what beat and the multiplier to be used.`{start_beat,multiplier}`'
+					}
+				},
+				description: 'Multiplies the note type (timing color) of every note beyond startBeat.'
+			},
+			SetReceptorShader: {
+				notitg: 3,
+				args: {
+					shader: {
+						type: 'RageShaderProgram',
+						description: 'The shader itself. See <a>ActorFrameTexture.GetShader()</a>'
+					}
+				},
+				description:'Sets the shader to the Player\'s Receptors.'
+			},
+			SetRotationXSpline: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the spline.'
+					},
+					column: {
+						type: 'int',
+						description: 'The column, set to `-1` for all columns.'
+					},
+					percent: {
+						type: 'float',
+						description: 'The mod percentage.',
+					},
+					offset: {
+						type: 'float',
+						description: 'The distance from receptor in beats.'
+					},
+					activationSpeed: {
+						type: 'float',
+						description: 'The mod\'s activation speed, set to `-1` for instant'
+					}
+				},
+				description: 'Sets a rotation X spline point to the player'
+			},
+			SetRotationYSpline: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the spline.'
+					},
+					column: {
+						type: 'int',
+						description: 'The column, set to `-1` for all columns.'
+					},
+					percent: {
+						type: 'float',
+						description: 'The mod percentage.',
+					},
+					offset: {
+						type: 'float',
+						description: 'The distance from receptor in beats.'
+					},
+					activationSpeed: {
+						type: 'float',
+						description: 'The mod\'s activation speed, set to `-1` for instant'
+					}
+				},
+				description: 'Sets a rotation Y spline point to the player'
+			},
+			SetRotationZSpline: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the spline.'
+					},
+					column: {
+						type: 'int',
+						description: 'The column, set to `-1` for all columns.'
+					},
+					percent: {
+						type: 'float',
+						description: 'The mod percentage.',
+					},
+					offset: {
+						type: 'float',
+						description: 'The distance from receptor in beats.'
+					},
+					activationSpeed: {
+						type: 'float',
+						description: 'The mod\'s activation speed, set to `-1` for instant'
+					}
+				},
+				description: 'Sets a rotation Z spline point to the player'
+			},
+			SetShader: {
+				notitg: 3,
+				args: {
+					shader: {
+						type: 'RageShaderProgram',
+						description: 'The shader itself. See <a>ActorFrameTexture.GetShader()</a>'
+					}
+				},
+				description:'Sets the shader to the Player\'s Arrows, Holds and Receptors.'
+			},
+			SetSizeSpline: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the spline.'
+					},
+					column: {
+						type: 'int',
+						description: 'The column, set to `-1` for all columns.'
+					},
+					percent: {
+						type: 'float',
+						description: 'The mod percentage.',
+					},
+					offset: {
+						type: 'float',
+						description: 'The distance from receptor in beats.'
+					},
+					activationSpeed: {
+						type: 'float',
+						description: 'The mod\'s activation speed, set to `-1` for instant'
+					}
+				},
+				description: 'Sets a size spline point to the player'
+			},
+			SetStealthSpline: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the spline.'
+					},
+					column: {
+						type: 'int',
+						description: 'The column, set to `-1` for all columns.'
+					},
+					percent: {
+						type: 'float',
+						description: 'The mod percentage.',
+					},
+					offset: {
+						type: 'float',
+						description: 'The distance from receptor in beats.'
+					},
+					activationSpeed: {
+						type: 'float',
+						description: 'The mod\'s activation speed, set to `-1` for instant'
+					}
+				},
+				description: 'Sets a stealth spline point to the player'
+			},
+			SetSkewSpline: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the spline.'
+					},
+					column: {
+						type: 'int',
+						description: 'The column, set to `-1` for all columns.'
+					},
+					percent: {
+						type: 'float',
+						description: 'The mod percentage.',
+					},
+					offset: {
+						type: 'float',
+						description: 'The distance from receptor in beats.'
+					},
+					activationSpeed: {
+						type: 'float',
+						description: 'The mod\'s activation speed, set to `-1` for instant'
+					}
+				},
+				description: 'Sets a skew spline point to the player'
+			},
+			SetXSpline: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the spline.'
+					},
+					column: {
+						type: 'int',
+						description: 'The column, set to `-1` for all columns.'
+					},
+					percent: {
+						type: 'float',
+						description: 'The mod percentage.',
+					},
+					offset: {
+						type: 'float',
+						description: 'The distance from receptor in beats.'
+					},
+					activationSpeed: {
+						type: 'float',
+						description: 'The mod\'s activation speed, set to `-1` for instant'
+					}
+				},
+				description: 'Sets a X spline point to the player'
+			},
+			SetYSpline: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the spline.'
+					},
+					column: {
+						type: 'int',
+						description: 'The column, set to `-1` for all columns.'
+					},
+					percent: {
+						type: 'float',
+						description: 'The mod percentage.',
+					},
+					offset: {
+						type: 'float',
+						description: 'The distance from receptor in beats.'
+					},
+					activationSpeed: {
+						type: 'float',
+						description: 'The mod\'s activation speed, set to `-1` for instant'
+					}
+				},
+				description: 'Sets a Y spline point to the player'
+			},
+			SetZSpline: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the spline.'
+					},
+					column: {
+						type: 'int',
+						description: 'The column, set to `-1` for all columns.'
+					},
+					percent: {
+						type: 'float',
+						description: 'The mod percentage.',
+					},
+					offset: {
+						type: 'float',
+						description: 'The distance from receptor in beats.'
+					},
+					activationSpeed: {
+						type: 'float',
+						description: 'The mod\'s activation speed, set to `-1` for instant'
+					}
+				},
+				description: 'Sets a Z spline point to the player'
+			},
+		},
 		PlayerStageStats: {
 			description: 'You can get an instance of PlayerStageStats by using <a>StageStats.GetPlayerStageStats()</a>.',
 			FullCombo: {
@@ -2498,6 +3660,23 @@ data = {
 				},
 				description: 'Gets the amount of judgments corresponding to `tapNoteScore`.'
 			},
+			GetTapNoteScoresForPlayer: {
+				notitg: 3,
+				returnType: 'int',
+				args: {
+					player: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1',
+					},
+					tapNoteScore: {
+						type: 'int',
+						description: 'The wanted judgment. See <a>Enum_TapNoteScore</a>.',
+						condition: '0-8'
+					}
+				},
+				description: 'Gets the amount of judgments corresponding to `tapNoteScore`.'
+			},
 			MaxCombo: {
 				returnType: 'int',
 				description: 'Gets the max combo.'
@@ -2531,7 +3710,204 @@ data = {
 					}
 				},
 				description: 'Sets the score to `score`.'
-			}
+			},
+			SetTapNoteScoresForPlayer: {
+				notitg: 3,
+				returnType: 'int',
+				args: {
+					player: {
+						type: 'int',
+						description: 'The player number. (0 = Player 1, 1 = Player 2)',
+						condition: '0-1',
+					},
+					tapNoteScore: {
+						type: 'int',
+						description: 'The wanted judgment. See <a>Enum_TapNoteScore</a>.',
+						condition: '0-8'
+					},
+					amount: {
+						type: 'int',
+						description: 'The amount.',
+					}
+				},
+				description: 'Sets the amount of judgments corresponding to `tapNoteScore`.'
+			},
+		},
+		Polygon: {
+			inherits: 'Actor',
+			description: 'A Polygon is a plane figure that is bounded by a finite chain of straight line segments closing in a loop to form a closed polygonal chain or circuit.',
+			cullmode: {
+				notitg: 3,
+				args: {
+					mode: {
+						type: 'string',
+						description: 'The cull mode to apply.',
+						condition: ['back', 'front', 'none']
+					}
+				},
+				description: 'Sets the cull mode of the Actor. It is "none" by default.'
+			},
+			SetDrawMode: {
+				notitg: 3,
+				args: {
+					drawMode: {
+						type:'string',
+						description:'The draw mode, not case sensitive.',
+						condition:['quads','quadstrip','fan','strip','triangles','linestrip']
+					}
+				},
+				description:"Sets the polygon\'s draw mode",
+			},
+			SetLineWidth: {
+				notitg: 3,
+				args: {
+					lineWidth: {
+						type:'int',
+						description:'The line width.',
+					}
+				},
+				description:'for LineStrip or wireframe polygon mode [TEMPORARY]',
+			},
+			SetNumVertices: {
+				notitg: 3,
+				args: {
+					vertices: {
+						type:'int',
+						description:'The number of vertices.',
+					}
+				},
+				description: 'Sets the polygon\'s number of verices.',
+			},
+			SetPolygonMode: {
+				notitg: 3,
+				args: {
+					mode: {
+						type: 'int',
+						description: 'The polygon mode. See <a>Enum_PolygonMode</a>.',
+						condition: '0-1'
+					}
+				},
+				description: 'Sets the polygon mode to `mode`.'
+			},
+			SetTextureFiltering: {
+				notitg: 3,
+				args: {
+					arg: {
+						type: 'bool',
+						description: 'If `true`, enables the texture filtering.'
+					}
+				},
+				description: 'Enables/Disables the texture filtering of the Actor (= Applying a cubic interpolation to the pixels or not). It is enabled by default.'
+			},
+			SetVertexAlpha: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description:'Index of the vertex of the polygon. (Starts from 0)',
+					},
+					alpha: {
+						type: 'float',
+						description: 'The alpha (opacity) value. <em>(0 = transparent, 1 = opaque)</em>',
+						condition: '0-1'
+					}
+				},
+				description:'Sets the vertex\'s alpha.',
+			},
+			SetVertexColor: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description:'Index of the vertex of the polygon. (Starts from 0)',
+					},
+					red: {
+						type: 'float',
+						description: 'The red hue value.',
+						condition: '0-1'
+					},
+					green: {
+						type: 'float',
+						description: 'The green hue value.',
+						condition: '0-1'
+					},
+					blue: {
+						type: 'float',
+						description: 'The blue hue value.',
+						condition: '0-1'
+					},
+					alpha: {
+						type: 'float',
+						description: 'The alpha (opacity) value. <em>(0 = transparent, 1 = opaque)</em>',
+						condition: '0-1'
+					}
+				},
+				description: 'Sets the color of the vertex.',
+			},
+			SetVertexNormal: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description:'Index of the vertex of the polygon. (Starts from 0)',
+					},
+					x: {
+						type:'float',
+						description:'The X position.',
+					},
+					y: {
+						type:'float',
+						description:'The Y position.',
+					},
+					z: {
+						type:'float',
+						description:'The Z position.',
+					}
+				},
+				description:'Sets the normal of the vertex.',
+			},
+			SetVertexPosition: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description:'Index of the vertex of the polygon. (Starts from 0)',
+					},
+					x: {
+						type:'float',
+						description:'The X position',
+					},
+					y: {
+						type:'float',
+						description:'The Y position',
+					},
+					z: {
+						type:'float',
+						description:'The Z position',
+					}
+				},
+				description:'Sets the position of the vertex',
+			},
+			SetVertexTexCoord: {
+				notitg: 3,
+				args: {
+					index: {
+						type: 'int',
+						description:'Index of the vertex of the polygon. (Starts from 0)',
+					},
+					x: {
+						type:'float',
+						description:'The X velocity to apply.',
+						condition:'0-1',
+					},
+					y: {
+						type:'float',
+						description:'The Y velocity to apply.',
+						condition:'0-1',
+					},
+				},
+				description:'Sets the normal of the vertex.',
+			},
 		},
 		PrefsManager: {
 			description: 'To use this class, use it through the <span class="mono">PREFSMAN</span> singleton.',
@@ -2561,6 +3937,54 @@ data = {
 		},
 		Profile: {
 			description: 'You can get an instance of Profile by using <a>ProfileManager.GetMachineProfile()</a> or <a>ProfileManager.GetProfile()</a>.',
+			ClearHighScoresForSongAndSteps: {
+				notitg: 4,
+				args: {
+					song: {
+						type: 'string',
+						description: 'The song name.'
+					},
+					step: {
+						type: 'int',
+						description: 'The step difficulty, see <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Clears the step high score for the song.'
+			},
+			ClearHighScoresForSongAndSteps: {
+				notitg: 4,
+				args: {
+					song: {
+						type: 'Song',
+						description: 'The song.'
+					},
+					step: {
+						type: 'int',
+						description: 'The step difficulty, see <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Clears the step high score for the song.'
+			},
+			ClearHighScoresForSong: {
+				notitg: 4,
+				args: {
+					song: {
+						type: 'string',
+						description: 'The song name.'
+					}
+				},
+				description: 'Clears the high score for the song.'
+			},
+			ClearHighScoresForSong: {
+				notitg: 4,
+				args: {
+					song: {
+						type: 'Song',
+						description: 'The song.'
+					}
+				},
+				description: 'Clears the high score for the song.'
+			},
 			GetCaloriesBurnedToday: {
 				returnType: 'float',
 				description: 'Gets the amount of calories burned today.'
@@ -2622,6 +4046,34 @@ data = {
 			GetSaved: {
 				returnType: 'table',
 				description: 'Gets the profile\'s data.'
+			},
+			GetHighScoreForSongAndSteps: {
+				notitg: 4.01,
+				args: {
+					song: {
+						type: 'string',
+						description: 'The song name.'
+					},
+					step: {
+						type: 'int',
+						description: 'The step difficulty, see <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Get the step high score for the song.'
+			},
+			GetHighScoreForSongAndSteps: {
+				notitg: 4.01,
+				args: {
+					song: {
+						type: 'Song',
+						description: 'The song.'
+					},
+					step: {
+						type: 'int',
+						description: 'The step difficulty, see <a>Enum_Difficulty</a>.'
+					}
+				},
+				description: 'Get the step high score for the song.'
 			},
 			GetSongNumTimesPlayed: {
 				notitg: 1,
@@ -2836,10 +4288,136 @@ data = {
 				},
 				description: 'Change the centering point of the screen by translating the screen or editing its dimensions.'
 			},
+			ClearShaderFuck: {
+				notitg: 3,
+				description:'Undoes <a>RageDisplay.ShaderFuck()</a>.'
+			},
+			SetWindow: {
+				notitg: 3,
+				args: {
+					xPos: {
+						type: 'float',
+						description: 'The X position, in pixels.'
+					},
+					yPos: {
+						type: 'float',
+						description: 'The Y position, in pixels.'
+					},
+					xZoom: {
+						type: 'float',
+						description: 'The x axis zoom, in pixels.'
+					},
+					yZoom: {
+						type: 'float',
+						description: 'The y axis zoom, in pixels.'
+					}
+				},
+				description: 'Sets the Window\'s `X Position`, `Y Position`, `Zoom X` and `Zoom Y`. To change only one argument, see the functions below.',
+			},
+			SetWindowX: {
+				notitg: 3,
+				args: {
+					xPos: {
+						type: 'float',
+						description: 'The X position, in pixels.'
+					}
+				},
+				description: 'Sets the Window\'s X position.',
+			},
+			SetWindowY: {
+				notitg: 3,
+				args: {
+					yPos: {
+						type: 'float',
+						description: 'The Y position, in pixels.'
+					}
+				},
+				description: 'Sets the Window\'s Y position.',
+			},
+			SetWindowAddX: {
+				notitg: 3,
+				args: {
+					x: {
+						type: 'float',
+						description: 'The x position to add.'
+					}
+				},
+				description: 'Adds `x` to the window\'s current horizontal position.'
+			},
+			SetWindowAddY: {
+				notitg: 3,
+				args: {
+					y: {
+						type: 'float',
+						description: 'The y position to add.'
+					}
+				},
+				description: 'Adds `y` to the window\'s current vertical position.'
+			},
+			SetWindowZoomX: {
+				notitg: 3,
+				args: {
+					scale: {
+						type: 'float',
+						description: 'The scaling of the zoom.'
+					}
+				},
+				description: 'Zooms the window on the X axis to `scale` scale.'
+			},
+			SetWindowZoomY: {
+				notitg: 3,
+				args: {
+					scale: {
+						type: 'float',
+						description: 'The scaling of the zoom.'
+					}
+				},
+				description: 'Zooms the window on the Y axis to `scale` scale.'
+			},
+			SetWindowWidth: {
+				notitg: 3,
+				args: {
+					width: {
+						type: 'float',
+						description: 'The width, in pixels.'
+					}
+				},
+				description: 'Sets the width of the window.'
+			},
+			SetWindowHeight: {
+				notitg: 3,
+				args: {
+					width: {
+						type: 'float',
+						description: 'The height, in pixels.'
+					}
+				},
+				description: 'Sets the height of the window.'
+			},
+			ShaderFuck: {
+				notitg: 3,
+				args: {
+					shader: {
+						type: 'RageShaderProgram',
+						description: 'The shader itself. See <a>ActorFrameTexture.GetShader()</a>'
+					}
+				},
+				description: 'Applies shader to all on-screen actors.'
+			},
 			GetCumFPS: {
 				notitg: 1,
 				returnType: 'int',
 				description: 'Gets the cumulative FPS.'
+			},
+			GetDesktopHeight: {
+				returnType: 'float',
+				notitg: 3,
+				description: 'Gets the main monitor\'s height.',
+			},
+			GetDesktopWidth: {
+				returnType: 'float',
+				notitg: 3,
+				description: 'Gets the main monitor\'s width.',
 			},
 			GetDisplayHeight: {
 				notitg: 1,
@@ -2865,7 +4443,37 @@ data = {
 				notitg: 1,
 				returnType: 'int',
 				description: 'Gets the VPF.'
-			}
+			},
+			GetWindowX: {
+				returnType: 'float',
+				notitg: 3,
+				description: 'Gets the window\'s X axis relative to the center.',
+			},
+			GetWindowY: {
+				returnType: 'float',
+				notitg: 3,
+				description: 'Gets the window\'s Y axis relative to the center.',
+			},
+			GetWindowWidth: {
+				returnType: 'float',
+				notitg: 3,
+				description: 'Gets the window\'s width.',
+			},
+			GetWindowHeight: {
+				returnType: 'float',
+				notitg: 3,
+				description: 'Gets the window\'s height.',
+			},
+			GetWindowZoomX: {
+				returnType: 'float',
+				notitg: 3,
+				description: 'Gets the window\'s X zoom.',
+			},
+			GetWindowZoomY: {
+				returnType: 'float',
+				notitg: 3,
+				description: 'Gets the window\'s Y zoom.',
+			},
 		},
 		RageInput: {
 			description: 'To use this class, use it through the <span class="mono">INPUTMAN</span> singleton.',
@@ -2878,23 +4486,335 @@ data = {
 				description: 'Reloads every input devices.'
 			}
 		},
+		RageShaderProgram: {
+			description: 'You can get an instance of RageShaderProgram of an ActorFrameTexture that has shaders with <a>ActorFrameTexture.GetShader()</a>.',
+			compile: {
+				notitg: 3,
+				description:'Recompiles shader.'
+			},
+			compileImmediate: {
+				notitg: 4,
+				description: 'Compiles the shader immediately.'
+			},
+			define: {
+				notitg: 4,
+				args: {
+					name: {
+						type: 'string',
+						description: 'The variable name.'
+					},
+					value: {
+						type: 'object',
+						description: 'The value to set.'
+					}
+				},
+				description: 'Injects a `#DEFINE` on top of the shader code. Does not automatically compile the shader, use <a>RageShaderProgram.compileImmediate</a>.'
+			},
+			clearDefine: {
+				notitg: 4,
+				args: {
+					name: {
+						type: 'string',
+						description: 'The variable name.'
+					},
+				},
+				description: 'Clears a`#DEFINE`. Does not automatically compile the shader, use <a>RageShaderProgram.compileImmediate</a>.'
+			},
+			uniform1f: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'float',
+						description:'The value.',
+					}
+				},
+				description: 'Pass 1 float value into the shader.',
+			},
+			uniform1fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 1 float array into the shader.',
+			},
+			uniform2f: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value1: {
+						type:'float',
+						description:'The value.',
+					},
+					value2: {
+						type:'float',
+						description:'The value.',
+					},
+				},
+				description: 'Pass 2 float values into the shader.',
+			},
+			uniform2fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 2 float array into the shader.',
+			},
+			uniform3f: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value1: {
+						type:'float',
+						description:'The value.',
+					},
+					value2: {
+						type:'float',
+						description:'The value.',
+					},
+					value3: {
+						type:'float',
+						description:'The value.',
+					},
+				},
+				description: 'Pass 3 float values into the shader.',
+			},
+			uniform3fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 3 float array into the shader.',
+			},
+			uniform4f: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value1: {
+						type:'float',
+						description:'The value.',
+					},
+					value2: {
+						type:'float',
+						description:'The value.',
+					},
+					value3: {
+						type:'float',
+						description:'The value.',
+					},
+					value3: {
+						type:'float',
+						description:'The value.',
+					},
+				},
+				description: 'Pass 4 float values into the shader.',
+			},
+			uniform4fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 4 float array into the shader.',
+				example: 'Shader:uniform4fv( \'v4Array\', { 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0 } ) sends a vec4 array where its length is 2',
+			},
+			uniform1i: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'float',
+						description:'The value, use 0-1 for booleans',
+					}
+				},
+				description: 'Pass 1 int value into the shader.',
+			},
+			uniform1iv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass an int value array into the shader.',
+			},
+			uniformMatrix2fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 2x2 matrix into the shader.',
+				example: 'Shader:uniformMatrix2fv( \'mat2Rotate\', { 0.0, -1.0, 1.0, 0.0 } ) sends a 2x2 matrix',
+			},
+			uniformMatrix3fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 3x3 matrix into the shader.',
+			},
+			uniformMatrix4fv: {
+				notitg: 4,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					value: {
+						type:'table',
+						description:'The table of values.',
+					}
+				},
+				description: 'Pass a 4x4 matrix into the shader.',
+			},
+			uniformTexture: {
+				notitg: 3,
+				args: {
+					variableName: {
+						type:'string',
+						description: 'The name of the variable.',
+					},
+					texture: {
+						type:'RageTexture',
+						description:'The texture, use <a>Sprite.GetTexture()</a>.',
+					},
+				},
+				description:'Pass textures into the shader.'
+			}
+		},
 		RageSound: {
 			description: 'You can get an instance of RageSound by using <a>ActorSound.get()</a>.',
+			GetLengthSeconds: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the length of the sound, in seconds.'
+			},
+			GetPan: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the panning. (-1 = Left, 0 = Center, 1 = Right)'
+			},
 			GetSoundPosition: {
 				notitg: 1,
 				returnType: 'float',
 				description: 'Gets the sound position, in seconds.'
+			},
+			GetStartSecond: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the start second, in seconds.'
+			},
+			GetStopMode: {
+				notitg: 3,
+				returnType: 'string',
+				description: 'Gets the stop mode.'
+			},
+			GetVolume: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the volume. Default is `0.69999998807907`'
+			},
+			IsPaused: {
+				notitg: 3,
+				returnType: 'bool',
+				description: 'Returns `true` if the sound is paused.'
+			},
+			IsPlaying: {
+				notitg: 3,
+				returnType: 'bool',
+				description: 'Returns `true` if the sound is playing, regardless whether it\'s paused or not.'
+			},
+			Load: {
+				notitg: 3,
+				args: {
+					path: {
+						type: 'string',
+						description: 'The path of the sound to play.'
+					}
+				},
+				description: 'Loads the sound into the ActorSound.'
 			},
 			pan: {
 				notitg: 1,
 				args: {
 					balance: {
 						type: 'float',
-						description: 'The new balance to apply. (0 = Left, 0.5 = Center, 1 = Right)',
+						description: 'The new balance to apply. (-1 = Left, 0 = Center, 1 = Right)',
 						condition: '0-1'
 					}
 				},
 				description: 'Balances the sound.'
+			},
+			Pause: {
+				notitg: 3,
+				args: {
+					pause: {
+						type: 'bool',
+						description: '`true` to pause, `false` to resume.'
+					}
+				},
+				description: 'Pauses/Resumes the sound.'
 			},
 			pitch: {
 				notitg: 1,
@@ -2902,21 +4822,25 @@ data = {
 					speed: {
 						type: 'float',
 						description: 'The new pitch.',
-						condition: '0-100'
+						condition: '0-1'
 					}
 				},
 				description: 'Alias of <a>RageSound.speed()</a>.'
 			},
-			speed: {
-				notitg: 1,
+			Play: {
+				notitg: 3,
+				description: 'Plays the sound from the beginning. If you just want to unpause a sound, see <a>ActorSound.pause()</a>.'
+			},
+			startsecond: {
+				notitg: 3,
 				args: {
 					speed: {
 						type: 'float',
-						description: 'The new speed.',
-						condition: '0-100'
+						description: 'The new start second.',
+						condition: '0-1'
 					}
 				},
-				description: 'Changes the speed of the RageSound.'
+				description: 'Sets the start second.'
 			},
 			SetParam: {
 				notitg: 1,
@@ -2933,6 +4857,43 @@ data = {
 				},
 				description: 'Sets a property value.'
 			},
+			SetSoundPosition: {
+				notitg: 3,
+				args: {
+					value: {
+						type: 'float',
+						description: 'The new sound position.'
+					}
+				},
+				description: 'Sets the sound position, in seconds.'
+			},
+			speed: {
+				notitg: 1,
+				args: {
+					speed: {
+						type: 'float',
+						description: 'The new speed.',
+						condition: '0-1'
+					}
+				},
+				description: 'Changes the speed of the RageSound.'
+			},
+			Stop: {
+				notitg: 3,
+				description: 'Stops the sound.'
+			},
+			stopmode: {
+				notitg: 3,
+				args: {
+					value: {
+						type: 'string',
+						description: 'The new stop mode, case sensitive. Setting the argument to `auto` will reset it to its default.',
+						condition: ['stop','loop','continue','auto']
+					}
+				},
+				description: 'Sets the stop mode.'
+				
+			},
 			volume: {
 				notitg: 1,
 				args: {
@@ -2943,7 +4904,7 @@ data = {
 					}
 				},
 				description: 'Changes the volume.'
-			}
+			},
 		},
 		RageTexture: {
 			description: 'You can get an instance of RageTexture with <a>ActorFrameTexture.GetTexture()</a> or <a>Sprite.GetTexture()</a>.',
@@ -3104,6 +5065,16 @@ data = {
 				},
 				description: 'Shows a overlay message.'
 			},
+			SetInputMode: {
+				notitg: 4,
+				args: {
+					mode: {
+						type: 'int',
+						description: 'The input mode. See <a>Enum_SCREENMAN_InputMode</a>.'
+					}
+				},
+				description: 'Sets the input mode.',
+			},
 			SetNewScreen: {
 				args: {
 					screenName: {
@@ -3121,21 +5092,61 @@ data = {
 					}
 				},
 				description: 'Shows a message that appears usually at the top of the screen for a few seconds. The message is also shown in the output log.'
+			},
+			SystemMessageNoAnimate: {
+				notitg: 3.1,
+				args: {
+					message: {
+						type: 'string',
+						description: 'The message to show.'
+					}
+				},
+				description: 'Shows a message that appears usually at the top of the screen for a few seconds, except OnCommand is followed by FinishTweening . The message is not shown in the output log.'
 			}
 		},
 		Song: {
 			description: 'You can get an instance of Song with GameState or SongManager.',
+			AddLabel: {
+				notitg: 3,
+				args: {
+					beat: {
+						type: 'float',
+						description: 'The beat of the label'
+					},
+					name: {
+						type: 'string',
+						description: 'The name of the label'
+					}
+				},
+				description: 'Adds a label on the song.'
+			},
+			ClearLabels: {
+				notitg: 3,
+				description: 'Clears all labels on the song.'
+			},
 			GetAllSteps: {
 				returnType: 'table',
 				description: 'Gets a table of all the Steps.'
 			},
 			GetBackgroundPath: {
+				notitg: 4,
 				returnType: 'string',
 				description: 'Gets the path of the background image.'
 			},
 			GetBannerPath: {
 				returnType: 'string',
 				description: 'Gets the path of the banner.'
+			},
+			GetBeatFromElapsedTime: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the exact beat measure for time `time`.',
+				args: {
+					time: {
+						type: 'float',
+						description: 'The time you want to calculate the beat from.'
+					}
+				}
 			},
 			GetDisplayArtist: {
 				returnType: 'string',
@@ -3149,6 +5160,22 @@ data = {
 				returnType: 'string',
 				description: 'Gets the main title.'
 			},
+			GetDisplaySubTitle: {
+				notitg: 4,
+				returnType: 'string',
+				description: 'Get the subtitle.'
+			},
+			GetElapsedTimeFromBeat: {
+				notitg: 3,
+				returnType: 'float',
+				description: 'Gets the exact time measure for beat `beat`.',
+				args: {
+					beat: {
+						type: 'float',
+						description: 'The beat you want to calculate the time from.'
+					}
+				}
+			},
 			GetGenre: {
 				returnType: 'string',
 				description: 'Gets the genre.'
@@ -3157,9 +5184,67 @@ data = {
 				returnType: 'string',
 				description: 'Gets the group name (folder) where the song is.'
 			},
+			GetLabels: {
+				notitg: 3,
+				returnType: 'table',
+				description: 'Gets the song\'s labels.'
+			},
+			GetMaxBPM: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Returns the max BPM of the song.'
+			},
+			GetMinBPM: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Returns the min BPM of the song.'
+			},
+			GetMusicPath: {
+				notitg: 4,
+				returnType: 'string',
+				description: 'Gets the path of the song\'s music.'
+			},
+			GetNoteData: {
+				notitg: 4,
+				returnType: 'table',
+				description: 'Gets the songs\'s notedata',
+				args: {
+					stepsType: {
+						type: 'int',
+						description: 'The steps type. See <a>Enum_StepsType</a>.'
+					},
+					beatBased: {
+						type: 'boolean',
+						description: '(Optional) Return times in beat or seconds.'
+					},
+					startBeat: {
+						type: 'float',
+						description: '(Optional) The start beat of the notedata'
+					},
+					endBeat: {
+						type: 'float',
+						description: '(Optional) The end beat of the notedata'
+					}
+				}
+			},
+			GetSampleStartLength: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the length of the sample.'
+			},
+			GetSampleStartSeconds: {
+				notitg: 4,
+				returnType: 'float',
+				description: 'Gets the start second of the sample.'
+			},
 			GetSongDir: {
 				returnType: 'string',
 				description: 'Gets the directory of the song.'
+			},
+			GetSpellcards: {
+				notitg: 3,
+				returnType: 'table',
+				description: 'Gets the song\'s spellcards.'
 			},
 			GetStepsByStepsType: {
 				args: {
@@ -3169,6 +5254,11 @@ data = {
 					}
 				},
 				description: 'Gets a table of all the Steps matching `stepsType`.'
+			},
+			GetTimingData: {
+				returnType: 'object',
+				notitg: 4.01,
+				description: 'It returns two tables, each are sorted by beat.<br>The first table, BPMs, contains the beat and the new BPM.<br>The second, stops, contains the beat and the duration of the stop in seconds.',
 			},
 			GetTranslitArtist: {
 				returnType: 'string',
@@ -3181,6 +5271,22 @@ data = {
 			GetTranslitMainTitle: {
 				returnType: 'string',
 				description: 'Gets the transliterated main title.'
+			},
+			GetTranslitSubTitle: {
+				notitg: 4,
+				returnType: 'string',
+				description: 'Gets the transliterated sub title.'
+			},
+			GetUnlockMethod: {
+				notitg: 4,
+				returnType: 'string',
+				args: {
+					difficulty: {
+						type: 'int',
+						description: 'The step difficulty, see <a>Enum_Difficulty</a>'
+					}
+				},
+				description: 'Used to get the path directly to the lua unlock file.'
 			},
 			IsCustomSong: {
 				returnType: 'bool',
@@ -3197,6 +5303,97 @@ data = {
 			MusicLengthSeconds: {
 				returnType: 'float',
 				description: 'Gets the length of the music, in seconds.'
+			},
+			SetNumSpellCards: {
+				notitg: 3,
+				description: 'Sets the song\'s number of spellcards.',
+				args: {
+					num: {
+						type: 'int',
+						description: 'The number of spellcards.',
+						condition: '1-'
+					}
+				}
+			},
+			SetSpellCardColor: {
+				notitg: 3,
+				description: 'Sets the color of the spellcard.',
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the spellcard (starts at 0).',
+						condition: '0-',
+					},
+					red: {
+						type: 'float',
+						description: 'The red hue value.',
+						condition: '0-1'
+					},
+					green: {
+						type: 'float',
+						description: 'The green hue value.',
+						condition: '0-1'
+					},
+					blue: {
+						type: 'float',
+						description: 'The blue hue value.',
+						condition: '0-1'
+					},
+					alpha: {
+						type: 'float',
+						description: 'The alpha (opacity) value. <em>(0 = transparent, 1 = opaque)</em>',
+						condition: '0-1'
+					}
+				}
+			},
+			SetSpellCardDifficulty: {
+				notitg: 3,
+				description: 'Sets the difficulty of the spellcard.',
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the spellcard (starts at 0).',
+						condition: '0-',
+					},
+					start: {
+						type: 'int',
+						description: 'The difficulty of the spellcard.',
+					}
+				}
+			},
+			SetSpellCardName: {
+				notitg: 3,
+				description: 'Sets the name of the spellcard.',
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the spellcard (starts at 0).',
+						condition: '0-',
+					},
+					start: {
+						type: 'string',
+						description: 'The new name of the spellcard.',
+					}
+				}
+			},
+			SetSpellCardTiming: {
+				notitg: 3,
+				description: 'Sets the timing of the spellcard.',
+				args: {
+					index: {
+						type: 'int',
+						description: 'The index of the spellcard (starts at 0).',
+						condition: '0-',
+					},
+					start: {
+						type: 'float',
+						description: 'The start beat of the spellcard.',
+					},
+					end: {
+						type: 'float',
+						description: 'The end beat of the spellcard.',
+					}
+				}
 			}
 		},
 		SongManager: {
@@ -3250,6 +5447,11 @@ data = {
 				template: 'rectangle',
 				description: 'Scales the image to a rectangle.'
 			},
+			getstate: {
+				notitg: 4,
+				returnType: 'int',
+				description: 'Returns the state of the sprite.'
+			},
 			GetTexture: {
 				notitg: 1,
 				returnType: 'RageTexture',
@@ -3270,11 +5472,16 @@ data = {
 			loop: {
 				args: {
 					enable: {
-						type: 'bool',
-						description: '`true` to loop the animation, `false` to play it only once.'
+						type: 'int',
+						description: '`1` to loop the animation, `0` to play it only once.'
 					}
 				},
 				description: 'Alias for <a>RageTexture.loop()</a>. Determines if the animation should loop or not.'
+			},
+			looppoint: {
+				notitg: 4,
+				returnType: 'int',
+				description: 'This can be used to make multiple-state animations using a single spritesheet - such as having a run cycle set the loop point when starting/stopping a run.',
 			},
 			position: {
 				args: {
@@ -3641,6 +5848,13 @@ data = {
 			Normal: 0,
 			BothAtOnce: 1
 		},
+		SCREENMAN_InputMode: {
+			notitg: 4,
+			description: 'See <a>ScreenManager.SetInputMode()</a>.',
+			All: 0,
+			Overlay: 1,
+			None: 2,
+		},
 		MemoryCardState: {
 			description: 'See <a>MemoryCardManager.GetCardState()</a>.',
 			Ready: 0,
@@ -3674,6 +5888,16 @@ data = {
 			Mines: 8,
 			Hands: 9,
 			Rolls: 10
+		},
+		SendJudgment: {
+			notitg:3,
+			description:'See <a>Player.SendJudgment()</a>',
+			"Marvelous / Fantastic": 1,
+			"Perfect / Excellent": 2,
+			Great: 3,
+			"Good / Decent": 4,
+			"Boo / Way Off": 5,
+			Miss: 6,
 		},
 		SortOrder: {
 			description: 'See <a>GameState.GetSortOrder()</a>.',
@@ -4093,6 +6317,10 @@ data = {
 		EC_SOUNDS: '4',
 		EC_OTHER: '5',
 		FUCK_EXE: 'true (only in NotITG)',
+		FUCK_VERSION_1: '20161226 (only in NotITG)',
+		FUCK_VERSION_2: '20170405 (only in NotITG)',
+		FUCK_VERSION_3: '20170609 (only in NotITG)',
+		FUCK_VERSION_3_1: '20170826 (only in NotITG)',
 		GOAL_CALORIES: '0',
 		GOAL_TIME: '1',
 		GOAL_NONE: '2',
@@ -4257,6 +6485,9 @@ function insertITGIcon(isNotITG = 0, j = false) {
 
 // Replacer mots-clés, liens, et variables
 function replaceKeywords(str, args) {
+
+	//console.log(str)
+
 	var ret = str.replace('`true`', '<span class="itg-bool">true</span>').replace('`false`', '<span class="itg-bool">false</span>').replace('`nil`', '<span class="itg-bool">nil</span>');
 
 	// Enums
@@ -4384,7 +6615,7 @@ function parseClasses() {
 
 		// Itération sur les méthodes
 		$.each(v_class, function(k_method, v_method) {
-			// Si clé "inherits"/"desciption" réservée à la classe, ou si description vide, ignorer
+			// Si clé "inherits"/"description" réservée à la classe, ou si description vide, ignorer
 			if (k_method == 'inherits' || k_method == 'description' || v_method.description == '') {
 				return;
 			}

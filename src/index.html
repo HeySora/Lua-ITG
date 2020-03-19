@@ -58,7 +58,7 @@
 
 					<p>Let's assume your simfile looks like that :</p>
 
-					<img src="https://i.heysora.net/QlUwta.png" alt="" />
+					<img src="https://i.heysora.net/GyHsNT.png" alt="" />
 
 					<p>You probably don't have the "lua" folder. Just create it, and create an empty text document called "default.xml".</p>
 
@@ -361,7 +361,7 @@
 
 					<p>This will act like before, but when the tween will be finished, a rotation will be instantly applied.</p>
 
-					<p>There are 7 tweens available for now :</p>
+					<p>There are 8 tweens available for now :</p>
 
 					<ul>
 						<li>{{Actor_linear}}, the simplest. It will tween linearly.</li>
@@ -370,6 +370,7 @@
 						<li>{{Actor_spring}} will tween slowly, will become faster until the tween will be after the end, and come back to the expected end (for example, if you did <span class="mono">self:addx(100)</span>, it will go to ~110, and come back to 100).</li>
 						<li>{{Actor_bouncebegin}} will bounce at the beginning, before going to the end.</li>
 						<li>{{Actor_bounceend}} will bounce at the end.</li>
+						<li>{{Actor_tween}} will tween using a custom lua expression.</li>
 						<li>{{Actor_sleep}}. Yes, this is a tween ! It just waits before applying instantly the commands.</li>
 					</ul>
 
@@ -391,6 +392,7 @@
 						<li>{{Actor_glowblink}} : Glows instantly the Actor between its original color and a glow color.</li>
 						<li>{{Actor_glowshift}} : Glows smoothly the Actor between its original color and a glow color.</li>
 						<li>{{Actor_pulse}} : Grows and shrinks the Actor.</li>
+						<li>{{Actor_pulseramp}} : Same as diffuseramp (sawtooth wave applied to color) but on the size of an object.</li>
 						<li>{{Actor_rainbow}} : <span class="rainbow">yeaaaaaaaaaaah</span>.</li>
 						<li>{{Actor_spin}} : Spins the Actor.</li>
 						<li>{{Actor_vibrate}} : Vibrates the Actor.</li>
@@ -594,6 +596,10 @@
 					</ul>
 
 				</section>
+
+				
+
+				<br>
 				<section id="troubleshooting">
 
 					<h3>Troubleshooting</h3>
@@ -618,11 +624,13 @@
 					</ul>
 
 				</section>
+				<br>
 				<section id="classes">
 				
 					<h3>Classes &amp; Methods</h3>
 
 				</section>
+				<br>
 				<section id="enums">
 				
 					<h3>Enumerations</h3>
@@ -630,27 +638,33 @@
 					<p>For most of these enumerations, you can use <a href="#constants" class="smooth-link">constants</a> instead of integers.</p>
 
 				</section>
+				<br>
 				<section id="globalfuncs">
 				
 					<h3>Global functions</h3>
 
 				</section>
+				<br>
 				<section id="constants">
 				
 					<h3>Constants</h3>
 
 				</section>
+				<br>
 				<section id="mods">
 				
 					<h3>Mods</h3>
 
 					<p>
 						WIP.
-						<a href="/itg.txt" target="_blank"><img src="img/itg.png" alt="ITG" />OpenITG Mods</a>
-						<a href="/notitg.txt" target="_blank"><img src="img/notitg1.png" alt="NotITG" />NotITG + OpenITG Mods</a>
+						<br>
+						<a href="./itg.txt" target="_blank"><img src="img/itg.png" alt="ITG" />OpenITG Mods</a>
+						<br>
+						<a href="./notitg.txt" target="_blank"><img src="img/notitg3.png" alt="NotITG" />NotITG + OpenITG Mods</a>
 					</p>
 
 				</section>
+				<br>
 				<section id="resources">
 				
 					<h3>Useful resources</h3>
@@ -659,7 +673,11 @@
 						<li><a href="https://www.youtube.com/playlist?list=PL59am1u_lAuPeoQkCfujwIsbddImZNvXe" target="_blank">Beginner video tutorials</a> by <a href="https://www.youtube.com/user/Puurokulho" target="_blank">Puurokulho</a></li>
 						<li><a href="https://www.twitch.tv/windeu/profile/highlights" target="_blank">Advanced video tutorials</a> by <a href="https://www.youtube.com/user/WinDEU" target="_blank">WinDEU</a></li>
 						<li><a href="https://www.lua.org/manual/5.0/" target="_blank">Lua 5.0 documentation</a></li>
-						<li><a href="http://jousway.co.uk/wiki/" target="_blank">Jousway's Wiki (WIP)</a></li>
+						<!--[[ Dead Link]] <li><a href="http://jousway.co.uk/wiki/" target="_blank">Jousway's Wiki (WIP)</a></li> -->
+						<li><a href="./xml_info.txt" target="_blank">XML Attributes</a></li>
+						<li><a href="./filename_info.txt" target="_blank">Filename</a></li>
+						<li><a href="./splines.txt" target="_blank">splines.txt (from the changelog)</a></li>
+						<li><a href="./gradients.txt" target="_blank">gradients.txt (from the changelog)</a></li>
 					</ul>
 
 				</section>
@@ -678,6 +696,6 @@
 
 		<script src="js/vendor/what-input.js?v=2-1"></script>
 		<script src="js/vendor/foundation.min.js?v=2-1"></script>
-		<script src="js/main.js?v=2-2"></script>
+		<script src="js/main.js"></script>
 	</body>
 </html>
