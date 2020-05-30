@@ -1130,7 +1130,7 @@ data = {
 				description: 'Sets the vertical coordinate of the vanishing point of the ActorFrame. SCREEN_CENTER_Y by default. See also <a>ActorFrame.SetVanishPoint()</a>.'
 			},
 			SetFarDist: {
-				notitg: 1,
+				notitg: 3,
 				args: {
 					far: {
 						type: 'float',
