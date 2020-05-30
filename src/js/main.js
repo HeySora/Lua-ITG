@@ -1128,6 +1128,16 @@ data = {
 					}
 				},
 				description: 'Sets the vertical coordinate of the vanishing point of the ActorFrame. SCREEN_CENTER_Y by default. See also <a>ActorFrame.SetVanishPoint()</a>.'
+			},
+			SetFarDist: {
+				notitg: 1,
+				args: {
+					far: {
+						type: 'float',
+						description: 'The distance of the far clipping plane.'
+					}
+				},
+				description: 'Sets the distance from the viewer to the far clipping plane. Currently (nITG 4.0.1), It\'s 1000 by default.'
 			}
 		},
 		ActorFrameTexture: {
